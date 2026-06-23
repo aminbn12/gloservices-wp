@@ -1,0 +1,273 @@
+<?php
+/**
+ * Gloservices theme translations template
+ *
+ * This file is a PHP translation file for the Gloservices theme.
+ * For WordPress, use .po/.mo files generated from this template.
+ *
+ * @package Gloservices
+ */
+
+// Navigation
+__('Accueil', 'gloservices');
+__('Qui sommes-nous', 'gloservices');
+__('Nos missions', 'gloservices');
+__('Nos moyens', 'gloservices');
+__('Projets', 'gloservices');
+__('Services', 'gloservices');
+__('Contact', 'gloservices');
+__('Menu Principal', 'gloservices');
+__('Menu Footer', 'gloservices');
+
+// Header
+__('Chargement...', 'gloservices');
+__('Téléphone', 'gloservices');
+__('Email', 'gloservices');
+__('Adresse', 'gloservices');
+__('Heures d\'ouverture', 'gloservices');
+__('Facebook URL', 'gloservices');
+__('LinkedIn URL', 'gloservices');
+__('Twitter URL', 'gloservices');
+__('YouTube URL', 'gloservices');
+
+// Front page
+__('DÉCOUVREZ NOS SOLUTIONS "CLÉS EN MAIN"', 'gloservices');
+__('Notre bureau d\'études BTP vous accompagne de la conception à la réalisation de vos projets, en passant par la modélisation, l\'automatisation et la gestion de chantier. Gloservices vous propose également des solutions digitales sur mesure pour optimiser vos processus et améliorer la performance de vos projets.', 'gloservices');
+__('Lire la suite', 'gloservices');
+__('Clients Satisfaits', 'gloservices');
+__('Projets Réalisés', 'gloservices');
+__('Travailleurs Experts', 'gloservices');
+__('À propos', 'gloservices');
+__('Plus de 10 ans d\'expérience dans la construction et les solutions numériques', 'gloservices');
+__('Expertise confirmée en génie civil', 'gloservices');
+__('Solutions numériques avancées pour la construction', 'gloservices');
+__('L\'engagement pour la qualité et l\'innovation', 'gloservices');
+__('En savoir plus', 'gloservices');
+__('Pourquoi nous choisir !', 'gloservices');
+__('Solutions d\'Ingénierie et Numériques Complètes', 'gloservices');
+__('Haute Qualité', 'gloservices');
+__('Services', 'gloservices');
+__('Expert', 'gloservices');
+__('Professionnels', 'gloservices');
+__('Consultation', 'gloservices');
+__('Gratuite', 'gloservices');
+__('Support Client', 'gloservices');
+__('Nos Projets', 'gloservices');
+__('Découvrez Nos Projets en Ingénierie Civile et Solutions Numériques', 'gloservices');
+__('Tous', 'gloservices');
+__('Solution Numérique', 'gloservices');
+__('Développement Urbain', 'gloservices');
+__('Infrastructures Routières', 'gloservices');
+__('Devis Gratuit', 'gloservices');
+__('Obtenez un Devis Gratuit', 'gloservices');
+__('Votre Nom', 'gloservices');
+__('Votre Email', 'gloservices');
+__('Votre Mobile', 'gloservices');
+__('Sélectionner un Service', 'gloservices');
+__('Note Spéciale', 'gloservices');
+__('Soumettre', 'gloservices');
+__('Membre de l\'Équipe', 'gloservices');
+__('Membres Expérimentés de l\'Équipe', 'gloservices');
+__('Fonction', 'gloservices');
+__('RÉFÉRENCES', 'gloservices');
+
+// About page
+__('Années d\'expérience', 'gloservices');
+__('Construction de bâtiments', 'gloservices');
+__('Outils numériques', 'gloservices');
+__('Technologies numériques avancées', 'gloservices');
+__('Qualité supérieure', 'gloservices');
+__('Gloservices INGENIERIE', 'gloservices');
+__('Gloservices INGENIERIE est un bureau d\'études techniques pluridisciplinaires réunissant :', 'gloservices');
+__('Ingénierie de structure', 'gloservices');
+__('Ingénierie des routes et des réseaux', 'gloservices');
+__('Ingénierie des fluides et thermique', 'gloservices');
+__('Ingénierie électrique', 'gloservices');
+__('Ingénierie environnementale', 'gloservices');
+__('Métré et suivi des travaux', 'gloservices');
+__('Forte d\'une solide expérience dans les domaines de l\'aménagement du territoire, de l\'infrastructure et du BTP, notre entité à taille humaine participe à des projets d\'envergure de la phase de conception à l\'exécution.', 'gloservices');
+__('Gloservices INGENIERIE a pour objectif de fournir une ingénierie de haute qualité avec une approche de développement durable et de prendre plaisir à créer et partager des projets.', 'gloservices');
+__('Notre équipe est animée par les valeurs suivantes :', 'gloservices');
+__('Service (au client, au projet, à la planète)', 'gloservices');
+__('Approche humaine (écoute, communication, humilité)', 'gloservices');
+__('Qualité (souci du détail, rigueur et pragmatisme)', 'gloservices');
+__('Responsabilité (engagement, reconnaissance de ses limites et de son potentiel)', 'gloservices');
+__('En pratique :', 'gloservices');
+__('Gestion transversale des projets pour la synergie', 'gloservices');
+__('Intégration et partage de nouvelles compétences', 'gloservices');
+__('Croissance maîtrisée au service de la vision et des valeurs de Gloservices INGENIERIE', 'gloservices');
+__('Curiosité et créativité pour proposer des solutions techniques ou méthodologiques innovantes', 'gloservices');
+__('Un environnement de travail en cohérence avec nos valeurs', 'gloservices');
+__('Nos Engagements :', 'gloservices');
+__('Optimiser les coûts et améliorer la qualité', 'gloservices');
+__('Offrir un service personnalisé', 'gloservices');
+__('Respecter les délais', 'gloservices');
+__('Nos Valeurs :', 'gloservices');
+__('Efficacité', 'gloservices');
+__('Créativité', 'gloservices');
+__('Transparence', 'gloservices');
+
+// Mission & Moyen pages
+__('Gloservices INGENIERIE adapte ses prestations aux demandes et aux exigences des clients', 'gloservices');
+__('Avant Études', 'gloservices');
+__('En Phase Études', 'gloservices');
+__('En Phase Travaux', 'gloservices');
+__('Après Travaux', 'gloservices');
+__('Moyens Humains', 'gloservices');
+__('Moyens Matériels', 'gloservices');
+__('Investigations et Identification des terrains pour projets immobiliers', 'gloservices');
+__('Assistance au Maître d\'Ouvrage, MOD et Maître d\'œuvre lors de la Conception du projet', 'gloservices');
+__('Élaboration d\'un compte d\'exploitation', 'gloservices');
+__('Étude technico-économique', 'gloservices');
+__('Étude de rentabilité', 'gloservices');
+__('Étude de Faisabilité', 'gloservices');
+__('Conseil et expertise technique', 'gloservices');
+__('Étude préliminaire et avant projet sommaire (APS)', 'gloservices');
+__('Avant projet détaillé (APD)', 'gloservices');
+__('Projet d\'exécution (PE)', 'gloservices');
+__('Dossiers de consultation des entreprises', 'gloservices');
+__('Cahier des charges et bordereau des prix (DCE)', 'gloservices');
+__('Assistance à l\'attribution des marchés (AMT)', 'gloservices');
+__('Organisation du chantier', 'gloservices');
+__('Élaboration des plannings', 'gloservices');
+__('Surveillance et contrôle de la qualité des travaux', 'gloservices');
+__('Suivi des coûts et du budget global', 'gloservices');
+__('Suivi du respect des délais', 'gloservices');
+__('Réceptions des ouvrages exécutés', 'gloservices');
+__('Prise des attachements et vérification des décomptes', 'gloservices');
+__('Ordonnancement, Pilotage et Coordination (OPC)', 'gloservices');
+__('Élaboration des plans de récolement', 'gloservices');
+__('Élaboration des rétro-plannings', 'gloservices');
+__('Gérant : Ingénieur d\'état génie civil', 'gloservices');
+__('Ingénieur d\'état génie civil hydraulique, chef de projet', 'gloservices');
+__('Ingénieur d\'état lots techniques (CFO et CFA)', 'gloservices');
+__('2 projeteurs et techniciens', 'gloservices');
+__('3 Ordinateurs de bureau', 'gloservices');
+__('3 Ordinateurs portables', 'gloservices');
+__('Traceur et imprimantes', 'gloservices');
+__('Logiciel de calcul de structure', 'gloservices');
+__('Logiciel de dessin DAO / CAO : AUTOCAD et VRD COVADIS', 'gloservices');
+__('Logiciels de calcul géotechnique : GEOSLOPE et PLAXIS', 'gloservices');
+__('Logiciel hydraulique : EPANET', 'gloservices');
+__('Logiciels de tracé routier, topographie, terrassement et VRD', 'gloservices');
+__('Logiciels de calcul des lots techniques', 'gloservices');
+__('Calculs du bilan et schéma électrique BT MT : CANECO', 'gloservices');
+__('Gestion de Projets :', 'gloservices');
+__('MS Project', 'gloservices');
+__('MS VISIO', 'gloservices');
+__('MS Office', 'gloservices');
+__('Logiciels bureautiques : Word, Excel et PowerPoint', 'gloservices');
+
+// Roadstru page
+__('Routes & Ouvrages', 'gloservices');
+__('Routes, Ponts et Ouvrages d\'Art', 'gloservices');
+__('Routes et signalisation', 'gloservices');
+__('Pistes Rurales', 'gloservices');
+__('Transport urbain', 'gloservices');
+__('Étude et dimensionnement des ouvrages d\'art', 'gloservices');
+__('Métré et évaluation', 'gloservices');
+__('Suivi des travaux de construction', 'gloservices');
+__('Prestations assurées', 'gloservices');
+__('Conception et dimensionnement des ouvrages de franchissement', 'gloservices');
+__('Étude et conception des routes et pistes rurales', 'gloservices');
+__('Élaboration des plans d\'exécution : profils en long et en travers…', 'gloservices');
+__('Métré et évaluation des travaux', 'gloservices');
+__('Élaboration des DCE', 'gloservices');
+__('Suivi et contrôle des travaux', 'gloservices');
+
+// Contact page
+__('Contactez-nous', 'gloservices');
+__('N\'hésitez pas à nous contacter', 'gloservices');
+__('Une question, un projet, une demande de devis ? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.', 'gloservices');
+__('Votre message', 'gloservices');
+__('Message', 'gloservices');
+__('Sujet', 'gloservices');
+__('Envoyer le message', 'gloservices');
+
+// Footer
+__('Liens rapides', 'gloservices');
+__('Galerie', 'gloservices');
+__('Newsletter', 'gloservices');
+__('Inscrivez-vous pour recevoir nos dernières actualités.', 'gloservices');
+__('S\'inscrire', 'gloservices');
+__('Tous droits réservés.', 'gloservices');
+__('Conçu par', 'gloservices');
+
+// Misc
+__('Blog', 'gloservices');
+__('Recherche', 'gloservices');
+__('Pages', 'gloservices');
+__('Rechercher...', 'gloservices');
+__('Aucun article trouvé.', 'gloservices');
+__('Page non trouvée', 'gloservices');
+__('Désolé, la page que vous recherchez n\'existe pas ou a été déplacée.', 'gloservices');
+__('Retour à l\'accueil', 'gloservices');
+__('Détails du Projet', 'gloservices');
+__('Informations', 'gloservices');
+__('Date :', 'gloservices');
+__('Catégorie :', 'gloservices');
+__('Non classé', 'gloservices');
+__('Retour aux projets', 'gloservices');
+__('Service', 'gloservices');
+__('Besoin d\'aide ?', 'gloservices');
+__('Contactez-nous pour plus d\'informations sur ce service.', 'gloservices');
+__('Nous contacter', 'gloservices');
+__('Gloservices - Options du thème', 'gloservices');
+__('Gloservices', 'gloservices');
+__('Gloservices Options', 'gloservices');
+
+// Admin
+__('Projets', 'gloservices');
+__('Projet', 'gloservices');
+__('Ajouter un projet', 'gloservices');
+__('Ajouter un nouveau projet', 'gloservices');
+__('Modifier le projet', 'gloservices');
+__('Nouveau projet', 'gloservices');
+__('Voir le projet', 'gloservices');
+__('Rechercher des projets', 'gloservices');
+__('Aucun projet trouvé', 'gloservices');
+__('Aucun projet dans la corbeille', 'gloservices');
+__('Services', 'gloservices');
+__('Service', 'gloservices');
+__('Ajouter un service', 'gloservices');
+__('Ajouter un nouveau service', 'gloservices');
+__('Modifier le service', 'gloservices');
+__('Nouveau service', 'gloservices');
+__('Voir le service', 'gloservices');
+__('Rechercher des services', 'gloservices');
+__('Aucun service trouvé', 'gloservices');
+__('Aucun service dans la corbeille', 'gloservices');
+__('L\'équipe', 'gloservices');
+__('Membre', 'gloservices');
+__('Ajouter un membre', 'gloservices');
+__('Ajouter un nouveau membre', 'gloservices');
+__('Modifier le membre', 'gloservices');
+__('Nouveau membre', 'gloservices');
+__('Voir le membre', 'gloservices');
+__('Rechercher des membres', 'gloservices');
+__('Aucun membre trouvé', 'gloservices');
+__('Aucun membre dans la corbeille', 'gloservices');
+__('Catégories de projet', 'gloservices');
+__('Catégorie', 'gloservices');
+__('Rechercher des catégories', 'gloservices');
+__('Toutes les catégories', 'gloservices');
+__('Modifier la catégorie', 'gloservices');
+__('Mettre à jour', 'gloservices');
+__('Ajouter une catégorie', 'gloservices');
+__('Nouvelle catégorie', 'gloservices');
+__('Informations du membre', 'gloservices');
+__('Icône du service', 'gloservices');
+__('Icône Font Awesome', 'gloservices');
+__('Statistique - Clients satisfaits', 'gloservices');
+__('Statistique - Projets réalisés', 'gloservices');
+__('Statistique - Travailleurs experts', 'gloservices');
+__('Widgets de la barre latérale.', 'gloservices');
+__('Widgets du footer, colonne 1.', 'gloservices');
+__('Widgets du footer, colonne 2.', 'gloservices');
+__('Widgets du footer, colonne 3.', 'gloservices');
+__('Widgets du footer, colonne 4.', 'gloservices');
+__('Sidebar', 'gloservices');
+__('Footer Colonne 1', 'gloservices');
+__('Footer Colonne 2', 'gloservices');
+__('Footer Colonne 3', 'gloservices');
+__('Footer Colonne 4', 'gloservices');

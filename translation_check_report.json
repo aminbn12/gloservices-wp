@@ -1,0 +1,2404 @@
+{
+    "total_defined": 225,
+    "missing_keys": [
+        "Projet",
+        "Heures d'ouverture",
+        "Toutes les catégories",
+        "Aucun membre trouvé",
+        "Aucun membre dans la corbeille",
+        "Icône du service",
+        "Twitter URL",
+        "Ajouter un nouveau membre",
+        "Voir le projet",
+        "Aucun projet trouvé",
+        "Voir le membre",
+        "Catégories de projet",
+        "Ajouter un nouveau service",
+        "Ajouter une catégorie",
+        "Gloservices",
+        "Aucun service trouvé",
+        "Icône Font Awesome",
+        "Widgets du footer, colonne %d.",
+        "Ajouter un projet",
+        "LinkedIn URL",
+        "Ajouter un nouveau projet",
+        "Sidebar",
+        "Facebook URL",
+        "Voir le service",
+        "Téléphone",
+        "Email",
+        "Nouvelle catégorie",
+        "YouTube URL",
+        "Gloservices Options",
+        "L'équipe",
+        "Modifier le service",
+        "Rechercher des membres",
+        "Catégories",
+        "Nouveau service",
+        "Travailleurs experts",
+        "Rechercher des catégories",
+        "Nouveau membre",
+        "Modifier le projet",
+        "Mettre à jour",
+        "Gloservices - Options du thème",
+        "Rechercher des projets",
+        "Aucun service dans la corbeille",
+        "Modifier la catégorie",
+        "Instagram URL",
+        "Footer Colonne %d",
+        "Rechercher des services",
+        "Adresse",
+        "Membre",
+        "Aucun projet dans la corbeille",
+        "Informations du membre",
+        "Catégorie",
+        "Projets réalisés",
+        "Nouveau projet",
+        "Ajouter un service",
+        "Ajouter un membre",
+        "Clients satisfaits",
+        "Ex: fa fa-road, fa fa-hard-hat, fa fa-lightbulb",
+        "Widgets de la barre latérale.",
+        "Modifier le membre"
+    ],
+    "mismatches": [
+        {
+            "file": "functions.php",
+            "key": "Sidebar",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Widgets de la barre latérale.",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Footer Colonne %d",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Widgets du footer, colonne %d.",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un nouveau projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Modifier le projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Nouveau projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Voir le projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Rechercher des projets",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun projet trouvé",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun projet dans la corbeille",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un nouveau service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Modifier le service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Nouveau service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Voir le service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Rechercher des services",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun service trouvé",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun service dans la corbeille",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "L'équipe",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "L'équipe",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter un nouveau membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Modifier le membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Nouveau membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Voir le membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Rechercher des membres",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun membre trouvé",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Aucun membre dans la corbeille",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Catégories de projet",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Catégorie",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Rechercher des catégories",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Toutes les catégories",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Modifier la catégorie",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Mettre à jour",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ajouter une catégorie",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Nouvelle catégorie",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Catégories",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Informations du membre",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Icône du service",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Facebook URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Twitter URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Instagram URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Icône Font Awesome",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Ex: fa fa-road, fa fa-hard-hat, fa fa-lightbulb",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Gloservices Options",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Gloservices",
+            "func": "__",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Gloservices - Options du thème",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Téléphone",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Email",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Adresse",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Heures d'ouverture",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Facebook URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "LinkedIn URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Twitter URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "YouTube URL",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Clients satisfaits",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Projets réalisés",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        },
+        {
+            "file": "functions.php",
+            "key": "Travailleurs experts",
+            "func": "_e",
+            "reason": "Not defined in translations.php"
+        }
+    ],
+    "used_keys_by_file": {
+        "404": [
+            {
+                "file": "404.php",
+                "func": "_e"
+            }
+        ],
+        "Accueil": [
+            {
+                "file": "404.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "index.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page.php",
+                "func": "_e"
+            },
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            },
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            },
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ],
+        "Page non trouvée": [
+            {
+                "file": "404.php",
+                "func": "_e"
+            },
+            {
+                "file": "404.php",
+                "func": "_e"
+            }
+        ],
+        "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.": [
+            {
+                "file": "404.php",
+                "func": "_e"
+            }
+        ],
+        "Retour à l'accueil": [
+            {
+                "file": "404.php",
+                "func": "_e"
+            }
+        ],
+        "Bureau d'études d'ingénierie et de solutions numériques. Nous façonnons le futur de la construction.": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            }
+        ],
+        "Contact": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            },
+            {
+                "file": "footer.php",
+                "func": "_e"
+            },
+            {
+                "file": "header.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            }
+        ],
+        "Liens rapides": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            }
+        ],
+        "Qui sommes-nous": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            }
+        ],
+        "Services": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ],
+        "Projets": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            },
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Galerie": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            }
+        ],
+        "Tous droits réservés.": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            }
+        ],
+        "Conçu par": [
+            {
+                "file": "footer.php",
+                "func": "_e"
+            }
+        ],
+        "Bureau d'études BTP": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "DÉCOUVREZ NOS SOLUTIONS": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "CLÉS EN MAIN": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Notre bureau d'études BTP vous accompagne de la conception à la réalisation de vos projets, en passant par la modélisation, l'automatisation et la gestion de chantier. Gloservices vous propose également des solutions digitales sur mesure.": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Découvrir": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Nous contacter": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ],
+        "Clients Satisfaits": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Projets Réalisés": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Travailleurs Experts": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "À propos": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Plus de 10 ans d'expérience dans la construction et les solutions numériques": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Avec plus d'une décennie d'expertise dans le domaine du génie civil et de la construction, nous offrons des services de conseil et de gestion de projet de haute qualité. Nous sommes également spécialisés dans le développement de solutions numériques innovantes pour le secteur de la construction.": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Expertise confirmée en génie civil": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Solutions numériques avancées pour la construction": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "L'engagement pour la qualité et l'innovation": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "En savoir plus": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Explorez nos projets d'ingénierie civile et de solutions numériques": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Lire la suite": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "index.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Pourquoi nous choisir !": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Solutions d'Ingénierie et Numériques Complètes": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Nous fournissons des solutions de pointe pour les projets de génie civil. Notre expertise va de la conception structurelle aux outils numériques avancés pour la gestion de projet. Nous garantissons qualité, innovation et durabilité dans chaque projet que nous entreprenons.": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            }
+        ],
+        "Haute Qualité": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Expert": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Professionnels": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Consultation": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Gratuite": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Support Client": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "24/7": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Projets": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Découvrez Nos Projets en Ingénierie Civile et Solutions Numériques": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Tous": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Solution Numérique": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            }
+        ],
+        "Développement Urbain": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            }
+        ],
+        "Infrastructures Routières": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            }
+        ],
+        "Projet %d": [
+            {
+                "file": "front-page.php",
+                "func": "__"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "__"
+            }
+        ],
+        "Devis Gratuit": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Obtenez un Devis Personnalisé": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Contactez-nous pour obtenir un devis sur mesure pour votre projet. Notre équipe vous répondra rapidement.": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Votre Nom": [
+            {
+                "file": "front-page.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Votre Email": [
+            {
+                "file": "front-page.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Votre Mobile": [
+            {
+                "file": "front-page.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Sélectionner un Service": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie Civile (BTP)": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Solutions Numériques (IT)": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Note Spéciale": [
+            {
+                "file": "front-page.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Soumettre": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            }
+        ],
+        "Ils nous font confiance": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Références": [
+            {
+                "file": "front-page.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-projet.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            },
+            {
+                "file": "page.php",
+                "func": "_e"
+            }
+        ],
+        "Menu Principal": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Menu Footer": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Sidebar": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Widgets de la barre latérale.": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Footer Colonne %d": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Widgets du footer, colonne %d.": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter un projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter un nouveau projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Modifier le projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Nouveau projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Voir le projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Rechercher des projets": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun projet trouvé": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun projet dans la corbeille": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ],
+        "Ajouter un service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter un nouveau service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Modifier le service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Nouveau service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Voir le service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Rechercher des services": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun service trouvé": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun service dans la corbeille": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "L'équipe": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            },
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter un membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter un nouveau membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Modifier le membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Nouveau membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Voir le membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Rechercher des membres": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun membre trouvé": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Aucun membre dans la corbeille": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Catégories de projet": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Catégorie": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Rechercher des catégories": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Toutes les catégories": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Modifier la catégorie": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Mettre à jour": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Ajouter une catégorie": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Nouvelle catégorie": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Catégories": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Informations du membre": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Icône du service": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Fonction": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Facebook URL": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Twitter URL": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            },
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Instagram URL": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Icône Font Awesome": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Ex: fa fa-road, fa fa-hard-hat, fa fa-lightbulb": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Gloservices Options": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Gloservices": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Gloservices - Options du thème": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Téléphone": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Email": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Adresse": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Heures d'ouverture": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "LinkedIn URL": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "YouTube URL": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Clients satisfaits": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Projets réalisés": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Travailleurs experts": [
+            {
+                "file": "functions.php",
+                "func": "_e"
+            }
+        ],
+        "Nos moyens": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Road Structure": [
+            {
+                "file": "functions.php",
+                "func": "__"
+            }
+        ],
+        "Chargement...": [
+            {
+                "file": "header.php",
+                "func": "_e"
+            }
+        ],
+        "Blog": [
+            {
+                "file": "index.php",
+                "func": "_e"
+            },
+            {
+                "file": "index.php",
+                "func": "_e"
+            }
+        ],
+        "&laquo; Précédent": [
+            {
+                "file": "index.php",
+                "func": "__"
+            }
+        ],
+        "Suivant &raquo;": [
+            {
+                "file": "index.php",
+                "func": "__"
+            }
+        ],
+        "Aucun article trouvé.": [
+            {
+                "file": "index.php",
+                "func": "_e"
+            }
+        ],
+        "Années d'expérience": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Construction de bâtiments": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Outils numériques": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Technologies numériques avancées": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Qualité supérieure": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Gloservices INGENIERIE": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Gloservices INGENIERIE est un bureau d'études techniques pluridisciplinaires réunissant :": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie de structure": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie des routes et des réseaux": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie des fluides et thermique": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie électrique": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénierie environnementale": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Métré et suivi des travaux": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Forte d'une solide expérience dans les domaines de l'aménagement du territoire, de l'infrastructure et du BTP, notre entité à taille humaine participe à des projets d'envergure de la phase de conception à l'exécution.": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Gloservices INGENIERIE a pour objectif de fournir une ingénierie de haute qualité avec une approche de développement durable et de prendre plaisir à créer et partager des projets.": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Notre équipe est animée par les valeurs suivantes :": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Service (au client, au projet, à la planète)": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Approche humaine (écoute, communication, humilité)": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Qualité (souci du détail, rigueur et pragmatisme)": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Responsabilité (engagement, reconnaissance de ses limites et de son potentiel)": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "En pratique :": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Gestion transversale des projets pour la synergie": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Intégration et partage de nouvelles compétences": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Croissance maîtrisée au service de la vision et des valeurs de Gloservices INGENIERIE": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Curiosité et créativité pour proposer des solutions techniques ou méthodologiques innovantes": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Un environnement de travail en cohérence avec nos valeurs": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Engagements :": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Optimiser les coûts et améliorer la qualité": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Offrir un service personnalisé": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Respecter les délais": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Valeurs :": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Efficacité": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Créativité": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Transparence": [
+            {
+                "file": "page-about.php",
+                "func": "_e"
+            }
+        ],
+        "Contactez-nous": [
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "N'hésitez pas à nous contacter": [
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "Une question, un projet, une demande de devis ? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.": [
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "Sujet": [
+            {
+                "file": "page-contact.php",
+                "func": "esc_attr_e"
+            },
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "Votre message": [
+            {
+                "file": "page-contact.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Message": [
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "Envoyer le message": [
+            {
+                "file": "page-contact.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Moyens": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Gloservices INGENIERIE adapte ses prestations aux demandes et aux exigences des clients": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Avant Études": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Investigations et Identification des terrains pour projets immobiliers": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Assistance au Maître d'Ouvrage, MOD et Maître d'œuvre": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration d'un compte d'exploitation": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Étude technico-économique": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Étude de rentabilité": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Étude de Faisabilité": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Conseil et expertise technique": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "En Phase Études": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Étude préliminaire et avant projet sommaire (APS)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Avant projet détaillé (APD)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Projet d'exécution (PE)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Dossiers de consultation des entreprises": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Cahier des charges et bordereau des prix (DCE)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Assistance à l'attribution des marchés (AMT)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "En Phase Travaux": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Organisation du chantier": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration des plannings": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Surveillance et contrôle de la qualité des travaux": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Suivi des coûts et du budget global": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Suivi du respect des délais": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Réceptions des ouvrages exécutés": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Prise des attachements et vérification des décomptes": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Ordonnancement, Pilotage et Coordination (OPC)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Après Travaux": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration des plans de récolement": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration des rétro-plannings": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Moyens Humains": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Gérant : Ingénieur d'état génie civil": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénieur d'état génie civil hydraulique, chef de projet": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Ingénieur d'état lots techniques (CFO et CFA)": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "2 projeteurs et techniciens": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Moyens Matériels": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "3 Ordinateurs de bureau": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "3 Ordinateurs portables": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Traceur et imprimantes": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciel de calcul de structure": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciel de dessin DAO / CAO : AUTOCAD et VRD COVADIS": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciels de calcul géotechnique : GEOSLOPE et PLAXIS": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciel hydraulique : EPANET": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciels de tracé routier, topographie, terrassement et VRD": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciels de calcul des lots techniques": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Calculs du bilan et schéma électrique BT MT : CANECO": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Gestion de Projets :": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "MS Project": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "MS VISIO": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "MS Office": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Logiciels bureautiques : Word, Excel et PowerPoint": [
+            {
+                "file": "page-moyen.php",
+                "func": "_e"
+            }
+        ],
+        "Routes & Ouvrages": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            },
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Routes, Ponts et Ouvrages d'Art": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Routes et signalisation": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Pistes Rurales": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Transport urbain": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Étude et dimensionnement des ouvrages d'art": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Métré et évaluation": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Suivi des travaux de construction": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Prestations assurées": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Conception et dimensionnement des ouvrages de franchissement": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Étude et conception des routes et pistes rurales": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration des plans d'exécution : profils en long et en travers…": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Métré et évaluation des travaux": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Élaboration des DCE": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Suivi et contrôle des travaux": [
+            {
+                "file": "page-roadstru.php",
+                "func": "_e"
+            }
+        ],
+        "Nos Services": [
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Nous fournissons des solutions de pointe pour les projets de génie civil. Notre expertise va de la conception structurelle aux outils numériques avancés pour la gestion de projet.": [
+            {
+                "file": "page-service.php",
+                "func": "_e"
+            }
+        ],
+        "Rechercher...": [
+            {
+                "file": "searchform.php",
+                "func": "esc_attr_e"
+            }
+        ],
+        "Recherche": [
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            }
+        ],
+        "Pages": [
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            }
+        ],
+        "Nos missions": [
+            {
+                "file": "sidebar.php",
+                "func": "_e"
+            }
+        ],
+        "Détails du Projet": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Informations": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Date :": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Catégorie :": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Non classé": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Retour aux projets": [
+            {
+                "file": "single-project.php",
+                "func": "_e"
+            }
+        ],
+        "Besoin d'aide ?": [
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ],
+        "Contactez-nous pour plus d'informations sur ce service.": [
+            {
+                "file": "single-service.php",
+                "func": "_e"
+            }
+        ]
+    }
+}

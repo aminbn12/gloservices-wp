@@ -1,0 +1,6 @@
+.kilo/
+.idea/
+.vscode/
+*.log
+Thumbs.db
+Desktop.ini

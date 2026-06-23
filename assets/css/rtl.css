@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Gloservices RTL Stylesheet (for Arabic language)
+   ========================================================================== */
+
+/* Base direction */
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ===================== NAVBAR ===================== */
+/* Logo stays on LEFT even in RTL */
+html[dir="rtl"] .navbar .navbar-brand {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    border-right: 1px solid #dee2e6 !important;
+    border-left: none !important;
+    flex-direction: row !important;
+    order: 0 !important;
+}
+
+/* Nav items aligned to right (normal RTL) */
+html[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}
+html[dir="rtl"] .navbar-nav.ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+html[dir="rtl"] .navbar-expand-lg .navbar-nav {
+    padding-right: 0;
+}
+html[dir="rtl"] .navbar-expand-lg .navbar-collapse {
+    flex-direction: row !important;
+}
+html[dir="rtl"] .navbar-toggler {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Language selector stays on RIGHT side, keep LTR direction */
+html[dir="rtl"] .language-selector {
+    direction: ltr;
+    order: 99 !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+/* ===================== MARGINS (Bootstrap override) ===================== */
+html[dir="rtl"] .me-0 { margin-right: 0 !important; margin-left: 0 !important; }
+html[dir="rtl"] .me-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+html[dir="rtl"] .me-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+html[dir="rtl"] .me-3 { margin-right: 0 !important; margin-left: 1rem !important; }
+html[dir="rtl"] .me-4 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+html[dir="rtl"] .me-5 { margin-right: 0 !important; margin-left: 3rem !important; }
+
+html[dir="rtl"] .ms-0 { margin-left: 0 !important; margin-right: 0 !important; }
+html[dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+html[dir="rtl"] .ms-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+html[dir="rtl"] .ms-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+html[dir="rtl"] .ms-4 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+html[dir="rtl"] .ms-5 { margin-left: 0 !important; margin-right: 3rem !important; }
+html[dir="rtl"] .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+html[dir="rtl"] .me-auto { margin-right: 0 !important; margin-left: auto !important; }
+
+/* ===================== PADDINGS (Bootstrap override) ===================== */
+html[dir="rtl"] .pe-0 { padding-right: 0 !important; padding-left: 0 !important; }
+html[dir="rtl"] .pe-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+html[dir="rtl"] .pe-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+html[dir="rtl"] .pe-3 { padding-right: 0 !important; padding-left: 1rem !important; }
+html[dir="rtl"] .pe-4 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+html[dir="rtl"] .pe-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+
+html[dir="rtl"] .ps-0 { padding-left: 0 !important; padding-right: 0 !important; }
+html[dir="rtl"] .ps-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+html[dir="rtl"] .ps-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+html[dir="rtl"] .ps-3 { padding-left: 0 !important; padding-right: 1rem !important; }
+html[dir="rtl"] .ps-4 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+html[dir="rtl"] .ps-5 { padding-left: 0 !important; padding-right: 3rem !important; }
+
+/* ===================== TEXT ALIGNMENT ===================== */
+html[dir="rtl"] .text-start { text-align: right !important; }
+html[dir="rtl"] .text-end { text-align: left !important; }
+
+/* ===================== BORDERS ===================== */
+html[dir="rtl"] .border-end {
+    border-right: none !important;
+    border-left: 1px solid #dee2e6 !important;
+}
+html[dir="rtl"] .border-start {
+    border-left: none !important;
+    border-right: 1px solid #dee2e6 !important;
+}
+
+/* ============================================================
+   ICONS - Enhanced RTL
+   ============================================================ */
+html[dir="rtl"] .fa-arrow-right:before { content: "\f060"; }
+html[dir="rtl"] .fa-arrow-left:before { content: "\f061"; }
+html[dir="rtl"] .fa-chevron-right:before { content: "\f053"; }
+html[dir="rtl"] .fa-chevron-left:before { content: "\f054"; }
+html[dir="rtl"] .fa-angle-right:before { content: "\f104"; }
+html[dir="rtl"] .fa-angle-left:before { content: "\f105"; }
+
+html[dir="rtl"] .check-list-icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+html[dir="rtl"] .feature-icon-box {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+html[dir="rtl"] .counter-icon {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+/* ============================================================
+   MARGINS (Bootstrap override)
+   ============================================================ */
+html[dir="rtl"] .me-0 { margin-right: 0 !important; margin-left: 0 !important; }
+html[dir="rtl"] .me-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+html[dir="rtl"] .me-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+html[dir="rtl"] .me-3 { margin-right: 0 !important; margin-left: 1rem !important; }
+html[dir="rtl"] .me-4 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+html[dir="rtl"] .me-5 { margin-right: 0 !important; margin-left: 3rem !important; }
+
+html[dir="rtl"] .ms-0 { margin-left: 0 !important; margin-right: 0 !important; }
+html[dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+html[dir="rtl"] .ms-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+html[dir="rtl"] .ms-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+html[dir="rtl"] .ms-4 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+html[dir="rtl"] .ms-5 { margin-left: 0 !important; margin-right: 3rem !important; }
+html[dir="rtl"] .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+html[dir="rtl"] .me-auto { margin-right: 0 !important; margin-left: auto !important; }
+
+/* ============================================================
+   PADDINGS (Bootstrap override)
+   ============================================================ */
+html[dir="rtl"] .pe-0 { padding-right: 0 !important; padding-left: 0 !important; }
+html[dir="rtl"] .pe-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+html[dir="rtl"] .pe-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+html[dir="rtl"] .pe-3 { padding-right: 0 !important; padding-left: 1rem !important; }
+html[dir="rtl"] .pe-4 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+html[dir="rtl"] .pe-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+
+html[dir="rtl"] .ps-0 { padding-left: 0 !important; padding-right: 0 !important; }
+html[dir="rtl"] .ps-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+html[dir="rtl"] .ps-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+html[dir="rtl"] .ps-3 { padding-left: 0 !important; padding-right: 1rem !important; }
+html[dir="rtl"] .ps-4 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+html[dir="rtl"] .ps-5 { padding-left: 0 !important; padding-right: 3rem !important; }
+
+/* ============================================================
+   TEXT ALIGNMENT
+   ============================================================ */
+html[dir="rtl"] .text-start { text-align: right !important; }
+html[dir="rtl"] .text-end { text-align: left !important; }
+
+/* ============================================================
+   BORDERS
+   ============================================================ */
+html[dir="rtl"] .border-end {
+    border-right: none !important;
+    border-left: 1px solid #dee2e6 !important;
+}
+html[dir="rtl"] .border-start {
+    border-left: none !important;
+    border-right: 1px solid #dee2e6 !important;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+html[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "\\";
+}
+html[dir="rtl"] .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0;
+    padding-right: 0.5rem;
+}
+
+/* ============================================================
+   LIST INLINE
+   ============================================================ */
+html[dir="rtl"] .list-inline-item:not(:last-child) {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+html[dir="rtl"] .form-control {
+    text-align: right;
+}
+
+/* ============================================================
+   CAROUSEL (images) - keep LTR
+   ============================================================ */
+html[dir="rtl"] .owl-carousel .owl-stage,
+html[dir="rtl"] .owl-carousel,
+html[dir="rtl"] .owl-carousel .owl-item {
+    direction: ltr;
+}
+
+/* ============================================================
+   CAROUSEL DOTS
+   ============================================================ */
+html[dir="rtl"] .owl-carousel .owl-dots {
+    direction: ltr;
+}
+
+/* ============================================================
+   POSITION UTILITIES
+   ============================================================ */
+html[dir="rtl"] .position-absolute.top-0.end-0 {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+html[dir="rtl"] .footer .text-start {
+    text-align: right !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+html[dir="rtl"] .btn .ms-3 {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+html[dir="rtl"] .portfolio-btn .btn-lg-square {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+html[dir="rtl"] .portfolio-btn .btn-lg-square:last-child {
+    margin-right: 0;
+}
