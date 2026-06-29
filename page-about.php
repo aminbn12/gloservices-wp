@@ -8,6 +8,36 @@
 get_header();
 ?>
 
+<style>
+/* CSS crossfade slideshow */
+.card-slideshow {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+.card-slideshow .slide-img {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+.card-slideshow .slide-img.active {
+    opacity: 1;
+}
+
+/* Force rounded corners on all about page frames/cards */
+.tc-header-style2 .facts-wrapper,
+.tc-about-style3 .md-card,
+.tc-about-style3 .lg-card,
+.tc-header-style2 .bg-white.p-4.rounded-4,
+.tc-process-style2 .accordion-item,
+.tc-process-style2 .img-wrapper,
+.tc-testimonials-style2 .bg-white.p-4.rounded-4,
+.card-slideshow {
+    border-radius: 20px !important;
+}
+.tc-process-style2 .accordion-button {
+    border-radius: 20px 20px 0 0 !important;
+}
+</style>
+
 <!-- ==========================================
      HERO & STATS SECTION (tc-header-style2)
      ========================================== -->
@@ -87,6 +117,10 @@ get_header();
                     <div class="numbers-boxes d-flex flex-column flex-md-row gap-4 h-100 align-items-stretch">
                         <!-- Division Card 1 -->
                         <div class="md-card flex-fill bg-light p-4 rounded-4 border border-light d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
+                            <div id="infra-slideshow" class="card-slideshow position-relative overflow-hidden mb-3" style="height: 180px;">
+                                <img class="slide-img active position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/autoroute.jpg" style="object-fit: cover; z-index: 1;" alt="Autoroute">
+                                <img class="slide-img position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/tunnel.jpg" style="object-fit: cover; z-index: 1;" alt="Tunnel">
+                            </div>
                             <div class="card-icon mb-4">
                                 <div class="btn-sm-square bg-primary text-white rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
                                     <i class="fa fa-road fa-lg"></i>
@@ -101,6 +135,10 @@ get_header();
                         </div>
                         <!-- Division Card 2 -->
                         <div class="lg-card flex-fill bg-dark text-white p-4 rounded-4 d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
+                            <div id="batiment-slideshow" class="card-slideshow position-relative overflow-hidden mb-3" style="height: 180px;">
+                                <img class="slide-img active position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/batimangrus.jpg" style="object-fit: cover; z-index: 1;" alt="Bâtiment Gros Œuvre">
+                                <img class="slide-img position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/plan.jpg" style="object-fit: cover; z-index: 1;" alt="Plan de structure">
+                            </div>
                             <div class="card-icon mb-4">
                                 <div class="btn-sm-square bg-primary text-white rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
                                     <i class="fa fa-building fa-lg"></i>
@@ -350,6 +388,27 @@ get_header();
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function startCardSlideshow(selector) {
+        const container = document.querySelector(selector);
+        if (!container) return;
+        const images = container.querySelectorAll('.slide-img');
+        if (images.length < 2) return;
+        let currentIndex = 0;
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+            images[currentIndex].style.opacity = 1;
+        }, 10000); // 10 seconds loop
+    }
+    startCardSlideshow('#infra-slideshow');
+    startCardSlideshow('#batiment-slideshow');
+});
+</script>
 
 <?php
 get_footer();
