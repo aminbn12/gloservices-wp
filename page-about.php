@@ -168,6 +168,17 @@ get_header();
     display: inline-block !important;
 }
 
+/* Mobile spacing & light gradient masks */
+.tc-process-style2 .imgs .img {
+    margin: 15px 1% !important; /* Space out rows on mobile */
+}
+.tc-process-style2 .imgs .img:after {
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.25)), to(transparent)) !important;
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.25), transparent) !important;
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.25), transparent) !important;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, transparent 100%) !important;
+}
+
 /* ============================================================
    DESKTOP NOTRE APPROCHE LAYOUT OVERRIDES (>= 992px)
    ============================================================ */
@@ -175,7 +186,7 @@ get_header();
     .tc-process-style2 .imgs {
         display: block !important;
         position: relative !important;
-        height: 660px !important;
+        height: 720px !important;
         margin-top: 0 !important;
         background-size: contain !important;
     }
@@ -241,7 +252,7 @@ get_header();
     /* Bubble 3 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(3) {
         left: -30px !important;
-        top: 320px !important;
+        top: 370px !important;
         width: 210px !important;
         height: 210px !important;
         z-index: 3 !important;
@@ -264,7 +275,7 @@ get_header();
     /* Bubble 4 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(4) {
         right: 30px !important;
-        top: 360px !important;
+        top: 420px !important;
         width: 230px !important;
         height: 230px !important;
         z-index: 2 !important;
