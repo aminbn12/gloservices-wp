@@ -11,8 +11,14 @@
     };
     spinner();
 
-    // Init WOW
-    new WOW().init();
+    // Init WOW with optimized settings
+    new WOW().init({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 100,
+        mobile: true,
+        live: true
+    });
 
     // Navbar scroll effect
     var navbar = $('.navbar');
@@ -26,19 +32,35 @@
     $(window).scroll(stickyNavbar);
     stickyNavbar();
 
-    // Back to top button
-    var backToTop = $('.back-to-top');
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            backToTop.addClass('show');
-        } else {
-            backToTop.removeClass('show');
+    // Back to top button - increased timeout for homepage
+    setTimeout(function() {
+        var backToTop = document.querySelector('.back-to-top');
+        
+        if (backToTop) {
+            var updateBackToTop = function () {
+                if (window.scrollY > 100) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            };
+            
+            // Attach scroll event using native API
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            
+            // Initial check after a short delay to ensure page is loaded
+            setTimeout(updateBackToTop, 300);
+            
+            // Smooth scroll to top
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         }
-    });
-    backToTop.on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 300);
-    });
+    }, 500);
 
     // Counter Up
     $('[data-toggle="counter-up"]').counterUp({
@@ -140,15 +162,25 @@
         });
     }
 
-    // Smooth scroll for anchors
-    $('a[href*="#"]:not([href="#"])').on('click', function () {
+    // Optimized smooth scroll for anchors using native smooth scroll
+    $('a[href*="#"]:not([href="#"])').on('click', function (e) {
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 80
-                }, 500);
+                e.preventDefault();
+                var targetOffset = target.offset().top - 80;
+                
+                // Use native smooth scroll for better performance
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: targetOffset,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback for older browsers
+                    $('html, body').animate({ scrollTop: targetOffset }, 500);
+                }
                 return false;
             }
         }
@@ -188,5 +220,78 @@
     });
     // ===== FIN MOBILE SIDEBAR =====
 
-})(jQuery);
+    // ===== PARALLAX EFFECT FOR ABOUT SECTION (Optimized with RAF) =====
+    var parallaxBg = $('.parallax-bg');
+    if (parallaxBg.length) {
+        var parallaxSpeed = parseFloat(parallaxBg.data('speed')) || 0.3;
+        var parallaxTicking = false;
+        
+        var updateParallax = function () {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var offset = parallaxBg.offset().top;
+            var windowHeight = $(window).height();
+            
+            // Check if element is in viewport
+            if (scrollTop + windowHeight > offset && scrollTop < offset + parallaxBg.outerHeight()) {
+                var yPos = (scrollTop - offset) * parallaxSpeed;
+                parallaxBg.css('transform', 'translate3d(0, ' + yPos + 'px, 0)');
+            }
+            parallaxTicking = false;
+        };
+        
+        $(window).on('scroll', function() {
+            if (!parallaxTicking) {
+                requestAnimationFrame(updateParallax);
+                parallaxTicking = true;
+            }
+        }, { passive: true });
+    }
 
+    // ===== DYNAMIC CONTENT FOR HERO CAROUSEL SLIDES =====
+    var heroCarousel = $('.hero-carousel');
+    if (heroCarousel.length) {
+        // Get current language from PHP
+        var currentLang = (typeof window.currentLang !== 'undefined') ? window.currentLang : 'fr';
+        
+        // Function to update all slides content based on language
+        function updateAllSlidesContent() {
+            // Update all badge texts
+            $('.badge-text').each(function() {
+                var $this = $(this);
+                var text = $this.data(currentLang) || $this.data('fr');
+                if (text) $this.text(text);
+            });
+            
+            // Update all title texts
+            $('.title-text').each(function() {
+                var $this = $(this);
+                var text = $this.data(currentLang) || $this.data('fr');
+                if (text) $this.text(text);
+            });
+            
+            // Update all highlight texts
+            $('.highlight-text').each(function() {
+                var $this = $(this);
+                var text = $this.data(currentLang) || $this.data('fr');
+                if (text) $this.text(text);
+            });
+            
+            // Update all description texts
+            $('.desc-text').each(function() {
+                var $this = $(this);
+                var text = $this.data(currentLang) || $this.data('fr');
+                if (text) $this.text(text);
+            });
+        }
+        
+        // Initialize on page load
+        updateAllSlidesContent();
+        
+        // Update content when slide changes
+        heroCarousel.on('changed.owl.carousel', function(event) {
+            // Small delay to let Owl Carousel finish its DOM manipulation
+            setTimeout(updateAllSlidesContent, 50);
+        });
+    }
+
+})(jQuery);

@@ -9,28 +9,128 @@ get_header();
 ?>
 
 <!-- Hero Carousel Start -->
-<!-- DEBUG TRANSLATIONS:
-DÉCOUVREZ NOS SOLUTIONS: <?php echo gloservices_translate('DÉCOUVREZ NOS SOLUTIONS'); ?>
-Nous contacter: <?php echo gloservices_translate('Nous contacter'); ?>
-Bureau d'études BTP: <?php echo gloservices_translate('Bureau d\'études BTP'); ?>
-Découvrir: <?php echo gloservices_translate('Découvrir'); ?>
--->
+<style>
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.hero-carousel .owl-dot video {
+    width: 80px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    border: 2px solid rgba(255,255,255,0.4) !important;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    display: block;
+}
+.hero-carousel .owl-dot:hover video,
+.hero-carousel .owl-dot:focus video {
+    opacity: 1 !important;
+    transform: scale(1.1);
+    border-color: var(--white) !important;
+}
+.hero-carousel .owl-dot.active video {
+    opacity: 1 !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+</style>
 <div class="owl-carousel hero-carousel position-relative">
-    <?php for ($i = 1; $i <= 3; $i++) : ?>
-    <div class="hero-slide position-relative" data-dot="<img src='<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-<?php echo $i; ?>.jpg' style='width:80px;height:50px;object-fit:cover;border-radius:6px;border:2px solid rgba(255,255,255,0.4);'>" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-<?php echo $i; ?>.jpg');">
+    <?php
+    $slides_content = [
+        1 => [
+            'badge_icon' => 'fa-hard-hat',
+            'badge_text_fr' => 'Bureau d\'études BTP',
+            'badge_text_en' => 'Civil Engineering Firm',
+            'badge_text_ar' => 'مكتب دراسات هندسية',
+            'title_fr' => 'DÉCOUVREZ NOS SOLUTIONS',
+            'title_en' => 'DISCOVER OUR SOLUTIONS',
+            'title_ar' => 'اكتشف حلولنا',
+            'highlight_fr' => 'CLÉS EN MAIN',
+            'highlight_en' => 'TURNKEY',
+            'highlight_ar' => 'المتكاملة',
+            'desc_fr' => 'Notre bureau d\'études BTP vous accompagne de la conception à la réalisation de vos projets, en passant par la modélisation, l\'automatisation et la gestion de chantier.',
+            'desc_en' => 'Our civil engineering firm accompanies you from design to completion, through modeling, automation and site management.',
+            'desc_ar' => 'يرافقكم مكتبنا الهندسي من التصميم إلى الإنجاز، عبر النمذجة والأتمتة وإدارة المواقع.',
+            'anim_class' => 'fadeInUp',
+        ],
+        2 => [
+            'badge_icon' => 'fa-laptop-code',
+            'badge_text_fr' => 'Solutions Digitales',
+            'badge_text_en' => 'Digital Solutions',
+            'badge_text_ar' => 'الحلول الرقمية',
+            'title_fr' => 'TECHNOLOGIES INNOVANTES',
+            'title_en' => 'INNOVATIVE TECHNOLOGIES',
+            'title_ar' => 'تقنيات مبتكرة',
+            'highlight_fr' => 'POUR LE BTP',
+            'highlight_en' => 'FOR CONSTRUCTION',
+            'highlight_ar' => 'للإنشاءات',
+            'desc_fr' => 'Logiciels de modélisation BIM, outils de gestion de projet et plateformes de suivi en temps réel pour optimiser vos chantiers.',
+            'desc_en' => 'BIM modeling software, project management tools and real-time monitoring platforms to optimize your construction sites.',
+            'desc_ar' => 'برامج نمذجة BIM، أدوات إدارة المشاريع ومنصات المتابعة الفورية لتحسين مواقع البناء.',
+            'anim_class' => 'fadeInRight',
+        ],
+        3 => [
+            'badge_icon' => 'fa-drafting-compass',
+            'badge_icon' => 'fa-cogs',
+            'badge_text_fr' => 'Ingénierie de Précision',
+            'badge_text_en' => 'Precision Engineering',
+            'badge_text_ar' => 'هندسة دقيقة',
+            'title_fr' => 'EXPERTISE & SAVOIR-FAIRE',
+            'title_en' => 'EXPERTISE & KNOW-HOW',
+            'title_ar' => 'خبرة واحترافية',
+            'highlight_fr' => 'DEPUIS 2010',
+            'highlight_en' => 'SINCE 2010',
+            'highlight_ar' => 'منذ 2010',
+            'desc_fr' => 'Plus d\'une décennie d\'expertise en génie civil, structures, VRD et gestion de projet pour des réalisations d\'excellence.',
+            'desc_en' => 'Over a decade of expertise in civil engineering, structures, utilities and project management for outstanding achievements.',
+            'desc_ar' => 'أكثر من عقد من الخبرة في الهندسة المدنية والهياكل والمرافق وإدارة المشاريع لإنجازات متميزة.',
+            'anim_class' => 'fadeInLeft',
+        ],
+    ];
+    
+    for ($i = 1; $i <= 3; $i++) : 
+        $video_url = esc_url(get_template_directory_uri() . '/assets/video/carousel-' . $i . '.mp4');
+        $image_url = esc_url(get_template_directory_uri() . '/assets/img/carousel-' . $i . '.jpg');
+        $is_video = ($i === 1);
+        $slide = $slides_content[$i];
+    ?>
+    <div class="hero-slide position-relative" data-dot="<?php if ($is_video) : ?><video src='<?php echo $video_url; ?>#t=0.1' muted playsinline preload='metadata'></video><?php else : ?><img src='<?php echo $image_url; ?>' alt='Slide <?php echo $i; ?>'><?php endif; ?>" <?php if ($is_video) : ?>data-video-src="<?php echo $video_url; ?>"<?php endif; ?> data-slide-index="<?php echo $i; ?>">
+        <?php if ($is_video) : ?>
+        <video autoplay loop muted playsinline class="hero-video" preload="auto">
+            <source src="<?php echo $video_url; ?>" type="video/mp4">
+        </video>
+        <?php else : ?>
+        <div class="hero-bg-image" style="background-image: url('<?php echo $image_url; ?>');"></div>
+        <?php endif; ?>
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-10 col-lg-8 hero-content">
                     <div class="hero-badge wow fadeInUp" data-wow-delay="0.2s">
-                        <i class="fas fa-hard-hat"></i>
-                        <span><?php _e('Bureau d\'études BTP', 'gloservices'); ?></span>
+                        <i class="fas <?php echo esc_attr($slide['badge_icon']); ?>"></i>
+                        <span class="badge-text" data-fr="<?php echo esc_attr($slide['badge_text_fr']); ?>" data-en="<?php echo esc_attr($slide['badge_text_en']); ?>" data-ar="<?php echo esc_attr($slide['badge_text_ar']); ?>">
+                            <?php echo esc_html(gloservices_translate($slide['badge_text_fr'])); ?>
+                        </span>
                     </div>
-                    <h1 class="wow fadeInUp" data-wow-delay="0.3s">
-                        <?php _e('DÉCOUVREZ NOS SOLUTIONS', 'gloservices'); ?>
-                        <br><span class="highlight"><?php _e('CLÉS EN MAIN', 'gloservices'); ?></span>
+                    <h1 class="wow <?php echo esc_attr($slide['anim_class']); ?>" data-wow-delay="0.3s">
+                        <span class="title-text" data-fr="<?php echo esc_attr($slide['title_fr']); ?>" data-en="<?php echo esc_attr($slide['title_en']); ?>" data-ar="<?php echo esc_attr($slide['title_ar']); ?>">
+                            <?php echo esc_html(gloservices_translate($slide['title_fr'])); ?>
+                        </span>
+                        <br>
+                        <span class="highlight highlight-text" data-fr="<?php echo esc_attr($slide['highlight_fr']); ?>" data-en="<?php echo esc_attr($slide['highlight_en']); ?>" data-ar="<?php echo esc_attr($slide['highlight_ar']); ?>">
+                            <?php echo esc_html(gloservices_translate($slide['highlight_fr'])); ?>
+                        </span>
                     </h1>
                     <p class="wow fadeInUp" data-wow-delay="0.4s">
-                        <?php _e('Notre bureau d\'études BTP vous accompagne de la conception à la réalisation de vos projets, en passant par la modélisation, l\'automatisation et la gestion de chantier. Gloservices vous propose également des solutions digitales sur mesure.', 'gloservices'); ?>
+                        <span class="desc-text" data-fr="<?php echo esc_attr($slide['desc_fr']); ?>" data-en="<?php echo esc_attr($slide['desc_en']); ?>" data-ar="<?php echo esc_attr($slide['desc_ar']); ?>">
+                            <?php echo esc_html(gloservices_translate($slide['desc_fr'])); ?>
+                        </span>
                     </p>
                     <div class="hero-buttons wow fadeInUp" data-wow-delay="0.5s">
                         <a href="<?php echo esc_url(home_url('/about')); ?>" class="btn btn-primary"><?php _e('Découvrir', 'gloservices'); ?> <i class="fas fa-arrow-right"></i></a>
@@ -75,7 +175,8 @@ Découvrir: <?php echo gloservices_translate('Découvrir'); ?>
 <!-- Stats Bar End -->
 
 <!-- About Start -->
-<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+<div class="container-fluid about-parallax-wrapper overflow-hidden my-5 px-lg-0">
+    <div class="parallax-bg" data-speed="0.3" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/archiback.jpg');"></div>
     <div class="container about px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 ps-lg-0 d-flex flex-column align-self-stretch wow slideInLeft" data-wow-delay="0.1s" style="min-height: 500px; padding: 20px;">
@@ -169,7 +270,8 @@ Découvrir: <?php echo gloservices_translate('Découvrir'); ?>
 <!-- Service End -->
 
 <!-- Feature Section -->
-<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+<div class="container-fluid about-parallax-wrapper overflow-hidden my-5 px-lg-0">
+    <div class="parallax-bg" data-speed="0.3" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/archiback.jpg');"></div>
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 feature-text py-5 wow slideInRight" data-wow-delay="0.1s">
@@ -460,9 +562,7 @@ Découvrir: <?php echo gloservices_translate('Découvrir'); ?>
                 <h3><?php _e('Obtenez un Devis Personnalisé', 'gloservices'); ?></h3>
                 <p class="quote-desc"><?php _e('Contactez-nous pour obtenir un devis sur mesure pour votre projet. Notre équipe vous répondra rapidement.', 'gloservices'); ?></p>
                 <?php
-                if (shortcode_exists('contact-form-7')) {
-                    echo do_shortcode('[contact-form-7 title="Devis"]');
-                } else {
+                // Contact Form 7 DESACTIVÉ - utilisation du formulaire HTML natif traduit
                 ?>
                 <form action="<?php echo esc_url(home_url('/contact')); ?>" method="post" class="quote-form">
                     <div class="row g-2">
@@ -490,7 +590,6 @@ Découvrir: <?php echo gloservices_translate('Découvrir'); ?>
                         </div>
                     </div>
                 </form>
-                <?php } ?>
             </div>
         </div>
     </div>

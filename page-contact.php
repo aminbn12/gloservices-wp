@@ -23,20 +23,17 @@ get_header();
 <!-- Page Header End -->
 
 <!-- Contact Start -->
-<div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
+<div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 4rem 0;">
     <div class="container contact px-lg-0">
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-6 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                <div class="p-lg-5 ps-lg-0">
+            <div class="col-lg-5 contact-text py-4 wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-4 ps-lg-0">
                     <h6 class="text-primary"><?php _e('Contactez-nous', 'gloservices'); ?></h6>
-                    <h1 class="mb-4"><?php _e('N\'hésitez pas à nous contacter', 'gloservices'); ?></h1>
+                    <h1 class="mb-4 h2"><?php _e('N\'hésitez pas à nous contacter', 'gloservices'); ?></h1>
                     <p class="mb-4"><?php _e('Une question, un projet, une demande de devis ? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.', 'gloservices'); ?></p>
                     
                     <?php
-                    // Contact Form 7 support
-                    if (shortcode_exists('contact-form-7')) {
-                        echo do_shortcode('[contact-form-7 title="Contact"]');
-                    } else {
+                    // Contact Form 7 DESACTIVÉ - utilisation du formulaire HTML natif traduit
                     ?>
                     <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
                         <input type="hidden" name="action" value="gloservices_contact_form">
@@ -71,12 +68,11 @@ get_header();
                             </div>
                         </div>
                     </form>
-                    <?php } ?>
                 </div>
             </div>
-            <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <iframe class="position-absolute w-100 h-100" style="object-fit: cover; border:0;"
+            <div class="col-lg-7 pe-lg-0 align-self-center">
+                <div style="height: 660px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                    <iframe class="w-100 h-100" style="object-fit: cover; border:0;"
                         src="https://maps.google.com/maps?q=11+Rue+Dayet+Aoua,+Agdal,+Rabat&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>

@@ -4,3 +4,7 @@
 *.log
 Thumbs.db
 Desktop.ini
+
+# Backups
+*-backup.php
+*backup/

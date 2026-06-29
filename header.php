@@ -14,6 +14,9 @@
         <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" type="image/png">
     <?php endif; ?>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <script>
+        window.currentLang = '<?php echo function_exists('pll_current_language') ? esc_js(pll_current_language('slug')) : 'fr'; ?>';
+    </script>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -131,7 +134,7 @@
             ));
         } else {
             $mob_items = [
-                [gloservices_translated_page_url(''),        __('Accueil', 'gloservices')],
+                [home_url('/'),                                   __('Accueil', 'gloservices')],
                 [gloservices_translated_page_url('about'),   __('Qui sommes-nous', 'gloservices')],
                 [gloservices_translated_page_url('service'), __('Services', 'gloservices')],
                 [gloservices_translated_page_url('moyen'),   __('Nos moyens', 'gloservices')],
@@ -162,5 +165,3 @@
 
 </div>
 <!-- ===== FIN MOBILE SIDEBAR ===== -->
-
-

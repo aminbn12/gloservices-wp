@@ -37,6 +37,16 @@ function gloservices_get_translations($lang = 'fr') {
         'Notre bureau d\'études BTP vous accompagne de la conception à la réalisation de vos projets, en passant par la modélisation, l\'automatisation et la gestion de chantier. Gloservices vous propose également des solutions digitales sur mesure pour optimiser vos processus et améliorer la performance de vos projets.' => array('en' => 'Our engineering firm accompanies you from design to project completion. Gloservices offers customized digital solutions to optimize your processes.', 'ar' => 'يرافقكم مكتبنا الهندسي من التصميم إلى الإنجاز ويقدم حلولاً رقمية مخصصة.'),
         'Lire la suite' => array('en' => 'Read More', 'ar' => 'اقرأ المزيد'),
         'En savoir plus' => array('en' => 'Learn More', 'ar' => 'اعرف المزيد'),
+        
+        // ===== CAROUSEL SLIDE 2 =====
+        'TECHNOLOGIES INNOVANTES' => array('en' => 'INNOVATIVE TECHNOLOGIES', 'ar' => 'تقنيات مبتكرة'),
+        'POUR LE BTP' => array('en' => 'FOR CONSTRUCTION', 'ar' => 'للإنشاءات'),
+        'Logiciels de modélisation BIM, outils de gestion de projet et plateformes de suivi en temps réel pour optimiser vos chantiers.' => array('en' => 'BIM modeling software, project management tools and real-time monitoring platforms to optimize your construction sites.', 'ar' => 'برامج نمذجة BIM، أدوات إدارة المشاريع ومنصات المتابعة الفورية لتحسين مواقع البناء.'),
+        
+        // ===== CAROUSEL SLIDE 3 =====
+        'EXPERTISE & SAVOIR-FAIRE' => array('en' => 'EXPERTISE & KNOW-HOW', 'ar' => 'خبرة واحترافية'),
+        'DEPUIS 2010' => array('en' => 'SINCE 2010', 'ar' => 'منذ 2010'),
+        'Plus d\'une décennie d\'expertise en génie civil, structures, VRD et gestion de projet pour des réalisations d\'excellence.' => array('en' => 'Over a decade of expertise in civil engineering, structures, utilities and project management for outstanding achievements.', 'ar' => 'أكثر من عقد من الخبرة في الهندسة المدنية والهياكل والمرافق وإدارة المشاريع لإنجازات متميزة.'),
 
         // ===== STATS =====
         'Clients Satisfaits' => array('en' => 'Happy Clients', 'ar' => 'عملاء راضون'),

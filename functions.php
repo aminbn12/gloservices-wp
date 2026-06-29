@@ -413,6 +413,7 @@ function gloservices_language_switcher()
         } else {
             $url = home_url('/?lang=' . $code);
         }
+        $url = gloservices_fix_url_host($url);
 
         echo sprintf(
             '<a class="btn btn-sm p-1 language-icon%s" href="%s" title="%s" hreflang="%s"><img src="%s" alt="%s"></a>',
@@ -491,9 +492,10 @@ function gloservices_fallback_menu()
     echo '<ul class="navbar-nav ms-auto p-4 p-lg-0">';
     foreach ($items as $item) {
         if ($item['slug'] === '') {
-            $url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
+            // Use home_url('/') which is correctly filtered for the current dynamic host
+            $url = home_url('/');
         } else {
-            $url = gloservices_translated_page_url($item['slug']);
+            $url = gloservices_fix_url_host(gloservices_translated_page_url($item['slug']));
         }
         echo '<li><a class="nav-item nav-link" href="' . esc_url($url) . '">' . esc_html($item['label']) . '</a></li>';
     }
@@ -594,3 +596,171 @@ add_filter('the_content', function($content) {
     }
     return $content;
 });
+
+/**
+ * Developer helper for local environment:
+ * Prevents PHPMailer validation failures and forces wp_mail to return success.
+ */
+if (isset($_SERVER['HTTP_HOST']) && (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false)) {
+    // 1. Force a valid email format for the sender to pass PHPMailer validation
+    add_filter('wp_mail_from', function($email) {
+        if ($email === 'wordpress@localhost' || strpos($email, '@localhost') !== false) {
+            return 'wordpress@gloservices.local';
+        }
+        return $email;
+    });
+
+    // 2. Preempt wp_mail execution to return success (true) on local environments.
+    // This allows Contact Form 7 to show the green success box instead of the red error box.
+    // The WP Mail Logging plugin will still capture and display the mail correctly.
+    add_filter('pre_wp_mail', function($pre, $atts) {
+        return true;
+    }, 10, 2);
+}
+
+/**
+ * Core helper: rewrite any localhost URL to the current dynamic host.
+ * Works for Ngrok and any other tunnel/proxy.
+ */
+function gloservices_fix_url_host($url) {
+    if (!defined('WP_HOME')) return $url;
+    $current_host   = parse_url(WP_HOME, PHP_URL_HOST);
+    $current_scheme = parse_url(WP_HOME, PHP_URL_SCHEME);
+    // Only rewrite when we are NOT on localhost ourselves
+    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $url;
+    // Replace http(s)://localhost/... and http(s)://127.0.0.1/...
+    $url = preg_replace('#https?://(localhost|127\.0\.0\.1)(/.*)#i', $current_scheme . '://' . $current_host . '$2', $url);
+    return $url;
+}
+
+/**
+ * Rewrite localhost in home_url() — fixes logo, fallback menu, breadcrumbs, etc.
+ */
+add_filter('home_url', function($url, $path, $scheme, $blog_id) {
+    return gloservices_fix_url_host($url);
+}, 99, 4);
+
+/**
+ * Rewrite localhost in get_option('home') — used by Polylang and other plugins
+ * that read the option directly without going through home_url().
+ */
+add_filter('option_home', function($value) {
+    return gloservices_fix_url_host($value);
+}, 99);
+
+add_filter('option_siteurl', function($value) {
+    return gloservices_fix_url_host($value);
+}, 99);
+
+/**
+ * Fix Polylang home URL redirects on dynamic hostnames (like Ngrok)
+ */
+add_filter('pll_home_url', function($url, $lang) {
+    return gloservices_fix_url_host($url);
+}, 99, 2);
+
+/**
+ * Fix page and post links on dynamic hostnames (like Ngrok)
+ */
+add_filter('page_link', function($url, $post_id, $sample) {
+    return gloservices_fix_url_host($url);
+}, 99, 3);
+
+add_filter('post_link', function($url, $post, $leavename) {
+    return gloservices_fix_url_host($url);
+}, 99, 3);
+
+add_filter('post_type_link', function($url, $post, $leavename, $sample) {
+    return gloservices_fix_url_host($url);
+}, 99, 4);
+
+/**
+ * Rewrite all localhost URLs to the dynamic host (works for Ngrok and any tunneling)
+ */
+function gloservices_rewrite_localhost_url($url) {
+    if (!defined('WP_HOME')) return $url;
+    $current_host   = parse_url(WP_HOME, PHP_URL_HOST);
+    $current_scheme = parse_url(WP_HOME, PHP_URL_SCHEME);
+    // Only rewrite if we're not on localhost ourselves
+    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $url;
+    $url = preg_replace('#https?://localhost(/gloservices[^"]*?)#', $current_scheme . '://' . $current_host . '$1', $url);
+    return $url;
+}
+
+add_filter('wp_redirect', function($location, $status) {
+    return gloservices_rewrite_localhost_url($location);
+}, 99, 2);
+
+/**
+ * Rewrite localhost URLs in nav menu item hrefs (links stored in the database)
+ */
+add_filter('nav_menu_link_attributes', function($atts, $item, $args, $depth) {
+    if (!empty($atts['href'])) {
+        $atts['href'] = gloservices_rewrite_localhost_url($atts['href']);
+    }
+    return $atts;
+}, 99, 4);
+
+/**
+ * Disable canonical redirects when not on localhost to prevent redirect loops.
+ *
+ * Strategy:
+ * 1. Use 'pll_check_canonical_url' filter (Polylang, fires before wp_safe_redirect)
+ *    to rewrite localhost -> current host OR cancel redirect if we are already on the right URL.
+ * 2. Use 'init' action to also remove WordPress core redirect_canonical early.
+ * 3. Use 'wp_redirect' filter as a last-resort safety net.
+ */
+add_action('init', function() {
+    if (!defined('WP_HOME')) return;
+    $current_host = parse_url(WP_HOME, PHP_URL_HOST);
+    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return;
+
+    // Remove WordPress core canonical redirect
+    remove_action('template_redirect', 'redirect_canonical');
+}, 1);
+
+/**
+ * Fix Polylang's canonical redirect on tunnels (Ngrok, etc).
+ * When not on localhost, we cancel ALL Polylang canonical redirects because:
+ * - Our home_url() filter already outputs the correct Ngrok URLs in the nav
+ * - Polylang's cache stores localhost URLs and would cause redirect loops
+ * - The HTTPS detection via X-Forwarded-Proto causes URL scheme mismatches
+ */
+add_filter('pll_check_canonical_url', function($redirect_url, $language) {
+    if (!defined('WP_HOME')) return $redirect_url;
+    $current_host = parse_url(WP_HOME, PHP_URL_HOST);
+    // Only cancel when we are NOT on localhost
+    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $redirect_url;
+    // On Ngrok/tunnel: cancel all Polylang canonical redirects
+    return false;
+}, 99, 2);
+
+/**
+ * Fix Polylang's home redirect (choose-lang.php) on tunnels (Ngrok, etc).
+ * Polylang reads get_home_url() from its internal PLL_Language cache which stores
+ * the localhost URL from the database. This causes it to redirect to localhost.
+ * We intercept and rewrite the redirect URL, or cancel it if already on the right page.
+ */
+add_filter('pll_redirect_home', function($redirect) {
+    if (!defined('WP_HOME')) return $redirect;
+    $current_host   = parse_url(WP_HOME, PHP_URL_HOST);
+    $current_scheme = parse_url(WP_HOME, PHP_URL_SCHEME);
+    // Only act when we are NOT on localhost
+    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $redirect;
+    // Rewrite the redirect URL from localhost to the current tunnel host
+    $fixed = preg_replace(
+        '#https?://(localhost|127\.0\.0\.1)(/.*)#i',
+        $current_scheme . '://' . $current_host . '$2',
+        $redirect
+    );
+    // Build the actual current URL being requested
+    $actual_scheme  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+    $actual_host    = $_SERVER['HTTP_HOST'] ?? $current_host;
+    $actual_uri     = $_SERVER['REQUEST_URI'] ?? '/';
+    $current_url    = $actual_scheme . '://' . $actual_host . $actual_uri;
+    // If the redirect target (after fix) matches the current URL, cancel the redirect
+    if (rtrim($fixed, '/') === rtrim($current_url, '/') || rtrim($fixed, '/') === rtrim(strtok($current_url, '?'), '/')) {
+        return false;
+    }
+    return $fixed;
+}, 99);
