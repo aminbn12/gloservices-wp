@@ -93,11 +93,11 @@ get_header();
    RTL / ARABIC SPECIFIC STYLING OVERRIDES
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
-body.rtl, body.rtl * {
+body.rtl, body.rtl p, body.rtl span, body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl h5, body.rtl h6, body.rtl a, body.rtl li, body.rtl strong, body.rtl div:not(.fa):not(.fas):not(.far):not(.fab) {
     font-family: 'Cairo', sans-serif !important;
 }
-body.rtl *:not(.fa):not(.fas):not(.far):not(.fab):not([class^="fa-"]):not([class*=" fa-"]) {
-    font-family: 'Cairo', sans-serif !important;
+body.rtl .fa, body.rtl .fas, body.rtl .far, body.rtl .fab, body.rtl i {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "FontAwesome", sans-serif !important;
 }
 body.rtl .moyen-list {
     padding-right: 0 !important;
