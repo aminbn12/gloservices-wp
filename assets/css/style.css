@@ -2166,7 +2166,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
     height:130%;
     -o-object-fit:cover;
     object-fit:cover;
-    background-image:url(/img/prc_bg.png);
+    background-image:url(../img/prc_bg.png);
     background-size:cover;
     background-repeat:no-repeat;
     max-height:inherit;
@@ -2239,7 +2239,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 
 .tc-process-style2 .imgs {
   position:relative;
-    background-image:url(/img/bubbles.png);
+    background-image:url(../img/bubbles.png);
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center;
@@ -2827,7 +2827,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
     height:130%;
     -o-object-fit:cover;
     object-fit:cover;
-    background-image:url(/img/prc_bg.png);
+    background-image:url(../img/prc_bg.png);
     background-size:cover;
     background-repeat:no-repeat;
     max-height:inherit;
@@ -2900,7 +2900,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 
 .about-pg-style1 .tc-process-style2 .imgs {
   position:relative;
-    background-image:url(/img/bubbles.png);
+    background-image:url(../img/bubbles.png);
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center;

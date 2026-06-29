@@ -285,28 +285,29 @@ get_header();
                 </div>
                 <!-- Images Grid Side -->
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="imgs d-grid gap-4" style="grid-template-columns: repeat(2, 1fr);">
-                        <div class="img-wrapper position-relative overflow-hidden rounded-4 shadow-sm" style="height: 200px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" class="w-100 h-100 img-cover" style="object-fit: cover;" alt="">
-                            <span class="position-absolute bottom-0 start-0 m-3 px-3 py-1 bg-primary text-white rounded-pill fw-bold small"><?php _e('Personnalisé', 'gloservices'); ?></span>
+                    <div class="imgs">
+                        <div class="img">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <span class="txt sub-font"><?php _e('Personnalisé', 'gloservices'); ?></span>
                         </div>
-                        <div class="img-wrapper position-relative overflow-hidden rounded-4 shadow-sm" style="height: 200px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" class="w-100 h-100 img-cover" style="object-fit: cover;" alt="">
-                            <span class="position-absolute bottom-0 start-0 m-3 px-3 py-1 bg-primary text-white rounded-pill fw-bold small"><?php _e('Réactif', 'gloservices'); ?></span>
+                        <div class="img">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <span class="txt sub-font"><?php _e('Réactif', 'gloservices'); ?></span>
                         </div>
-                        <div class="img-wrapper position-relative overflow-hidden rounded-4 shadow-sm" style="height: 200px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-1.jpg" class="w-100 h-100 img-cover" style="object-fit: cover;" alt="">
-                            <span class="position-absolute bottom-0 start-0 m-3 px-3 py-1 bg-primary text-white rounded-pill fw-bold small"><?php _e('Qualité', 'gloservices'); ?></span>
+                        <div class="img">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-1.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <span class="txt sub-font"><?php _e('Qualité', 'gloservices'); ?></span>
                         </div>
-                        <div class="img-wrapper position-relative overflow-hidden rounded-4 shadow-sm" style="height: 200px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-2.jpg" class="w-100 h-100 img-cover" style="object-fit: cover;" alt="">
-                            <span class="position-absolute bottom-0 start-0 m-3 px-3 py-1 bg-primary text-white rounded-pill fw-bold small"><?php _e('Optimisation', 'gloservices'); ?></span>
+                        <div class="img">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-2.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <span class="txt sub-font"><?php _e('Optimisation', 'gloservices'); ?></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/prc_bg.png" alt="" class="bg">
 </section>
 
 <!-- ==========================================
