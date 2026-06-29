@@ -707,6 +707,99 @@ function gloservices_get_translations($lang = 'fr') {
             'en' => 'Attentive to your needs, we guarantee quality, respect for deadlines and budget control.',
             'ar' => 'نصغي لاحتياجاتكم، ونضمن الجودة واحترام الآجال والتحكم في الميزانيات.'
         ),
+        'RESSOURCES & LOGISTIQUE' => array(
+            'en' => 'RESOURCES & LOGISTICS',
+            'ar' => 'الموارد والخدمات اللوجستية'
+        ),
+        'Des moyens matériels et numériques à la pointe de l\'ingénierie' => array(
+            'en' => 'State-of-the-art material and digital resources',
+            'ar' => 'وسائل مادية ورقمية في طليعة الهندسة'
+        ),
+        'Afin de garantir la qualité et la fiabilité de ses prestations, GLOBUILD dispose d\'un ensemble de moyens matériels et numériques adaptés aux exigences des missions d\'études et de suivi des travaux. Le bureau est équipé de postes de travail fixes et portables dédiés aux activités de conception, de modélisation, de dimensionnement et de production graphique ainsi que de moyens d\'impression et de reprographie permettant l\'édition des dossiers techniques et plans d\'exécution.' => array(
+            'en' => 'To guarantee the quality and reliability of its services, GLOBUILD has a set of material and digital resources adapted to the requirements of study and work monitoring missions. The office is equipped with fixed and portable workstations dedicated to design, modeling, sizing and graphic production activities, as well as printing and reprography resources for printing technical files and execution plans.',
+            'ar' => 'لضمان جودة وموثوقية خدماتها، تتوفر غلوبيلد على مجموعة من الوسائل المادية والرقمية الملائمة لمتطلبات مهام الدراسات وتتبع الأشغال. المكتب مجهز بمحطات عمل ثابتة ومحمولة مخصصة لأنشطة التصميم والنمذجة والحساب والإنتاج الرسومي، بالإضافة إلى وسائل الطباعة والاستنساخ لطبع الملفات التقنية وتصاميم التنفيذ.'
+        ),
+        'Moyens Logistiques' => array(
+            'en' => 'Logistics Resources',
+            'ar' => 'الوسائل اللوجستية'
+        ),
+        'La mobilité de nos équipes d\'études et de maîtrise d\'œuvre sur le terrain est au cœur de notre réactivité.' => array(
+            'en' => 'The mobility of our study and project management teams in the field is at the heart of our responsiveness.',
+            'ar' => 'تنقل فرق الدراسات وإدارة المشاريع ميدانياً هو جوهر سرعة استجابتنا.'
+        ),
+        'Parc de véhicules de service' => array(
+            'en' => 'Service vehicle fleet',
+            'ar' => 'أسطول سيارات الخدمة'
+        ),
+        'GLOBUILD dispose des moyens logistiques nécessaires pour assurer les déplacements des équipes, les visites de terrain et le suivi des chantiers. Notre flotte permanente est adaptée aux déplacements routiers et chantiers d\'envergure.' => array(
+            'en' => 'GLOBUILD has the logistics resources to ensure team mobility, field visits and site monitoring. Our permanent fleet is adapted to road travel and major construction sites.',
+            'ar' => 'تتوفر غلوبيلد على الوسائل اللوجستية اللازمة لتأمين تنقلات الفرق والزيارات الميدانية وتتبع الأشغال. أسطولنا الدائم ملائم للتنقلات عبر الطرق والأوراش الكبرى.'
+        ),
+        'Véhicules de service :' => array(
+            'en' => 'Service vehicles:',
+            'ar' => 'سيارات الخدمة:'
+        ),
+        '4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).' => array(
+            'en' => '4 service vehicles are at the permanent disposal of our teams for site monitoring (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).',
+            'ar' => '4 سيارات خدمة تحت التصرف الدائم لفرقنا لمتابعة الأوراش (Audi Q5، Jeep Renegade، VW Passat، Dacia Logan).'
+        ),
+        'Véhicules d\'appoint :' => array(
+            'en' => 'Backup vehicles:',
+            'ar' => 'سيارات إضافية:'
+        ),
+        'Mobilité renforcée selon la charge des opérations.' => array(
+            'en' => 'Reinforced mobility according to operational workload.',
+            'ar' => 'تنقل معزز حسب ضغط العمليات.'
+        ),
+        'Bureau équipé en open space' => array(
+            'en' => 'Open space office',
+            'ar' => 'مكتب مجهز بفضاء مفتوح'
+        ),
+        'Nos locaux sont aménagés pour accueillir les activités de conception, de coordination et de gestion des projets dans des conditions optimales d\'ergonomie et de collaboration.' => array(
+            'en' => 'Our offices are designed to host design, coordination and project management activities under optimal ergonomic and collaborative conditions.',
+            'ar' => 'تمت تهيئة مكاتبنا لاستقبال أنشطة التصميم والتنسيق وإدارة المشاريع في ظروف ملائمة من حيث بيئة العمل والتعاون.'
+        ),
+        'Adresse :' => array(
+            'en' => 'Address:',
+            'ar' => 'العنوان:'
+        ),
+        '11 Rue Dayet Aoua, Agdal, Rabat' => array(
+            'en' => '11 Dayet Aoua Street, Agdal, Rabat',
+            'ar' => '11 زنقة ضاية عوا، أكدال، الرباط'
+        ),
+        'Espace de travail :' => array(
+            'en' => 'Workspace:',
+            'ar' => 'فضاء العمل:'
+        ),
+        'Aménagement moderne propice à la synergie d\'équipe et aux réunions techniques.' => array(
+            'en' => 'Modern layout conducive to team synergy and technical meetings.',
+            'ar' => 'تهيئة حديثة ملائمة لانسجام الفريق والاجتماعات التقنية.'
+        ),
+        'Moyens Informatiques' => array(
+            'en' => 'IT Resources',
+            'ar' => 'الوسائل المعلوماتية'
+        ),
+        'Une infrastructure informatique puissante et dédiée à la production graphique rapide et aux calculs complexes.' => array(
+            'en' => 'A powerful IT infrastructure dedicated to fast graphic production and complex calculations.',
+            'ar' => 'بنية تحتية معلوماتية قوية مخصصة للإنتاج الرسومي السريع والحسابات المعقدة.'
+        ),
+        'Stations de Travail Fixes' => array(
+            'en' => 'Fixed Workstations',
+            'ar' => 'محطات عمل ثابتة'
+        ),
+        'Ordinateurs Portables' => array(
+            'en' => 'Laptops',
+            'ar' => 'حواسيب محمولة'
+        ),
+        'Traceur Grand Format' => array(
+            'en' => 'Large Format Plotter',
+            'ar' => 'آلة طبع من الحجم الكبير (Plotter)'
+        ),
+        'Imprimantes Réseau' => array(
+            'en' => 'Network Printers',
+            'ar' => 'طابعات شبكية'
+        ),
+
     );
 
     $result = array();

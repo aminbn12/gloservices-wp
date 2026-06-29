@@ -7,6 +7,110 @@
 
 get_header();
 ?>
+<style>
+/* ============================================================
+   NOS MOYENS PREMIUM DESIGN STYLING
+   ============================================================ */
+.moyen-card {
+    background: #F8FAFC !important;
+    border: 1px solid rgba(16, 185, 129, 0.08) !important;
+    border-radius: 24px !important;
+    padding: 32px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01) !important;
+}
+.moyen-card:hover {
+    background: var(--white) !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04) !important;
+}
+.moyen-section-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.1) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 24px !important;
+}
+.moyen-list li {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+.moyen-list li i {
+    margin-top: 5px !important;
+}
+.stat-card-moyen {
+    background: #F8FAFC !important;
+    border: 1px solid rgba(16, 185, 129, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.stat-card-moyen:hover {
+    background: var(--white) !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.08), 0 10px 10px -5px rgba(16, 185, 129, 0.03) !important;
+}
+.stat-card-moyen .num {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    color: var(--primary) !important;
+    background: linear-gradient(135deg, var(--primary) 0%, #059669 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin-bottom: 8px !important;
+}
+.stat-card-moyen .label {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+}
+.software-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #ECFDF5 !important;
+    color: #065F46 !important;
+    border: 1px solid rgba(16, 185, 129, 0.15) !important;
+    padding: 10px 20px !important;
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.02) !important;
+}
+.software-badge:hover {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2) !important;
+    border-color: var(--primary) !important;
+}
+
+/* ============================================================
+   RTL / ARABIC SPECIFIC STYLING OVERRIDES
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+body.rtl, body.rtl * {
+    font-family: 'Cairo', sans-serif !important;
+}
+body.rtl *:not(.fa):not(.fas):not(.far):not(.fab):not([class^="fa-"]):not([class*=" fa-"]) {
+    font-family: 'Cairo', sans-serif !important;
+}
+body.rtl .moyen-list {
+    padding-right: 0 !important;
+}
+body.rtl .moyen-list li i {
+    transform: rotate(180deg) !important;
+}
+body.rtl .rounded {
+    border-left: none !important;
+    border-right: 4px solid var(--primary) !important;
+}
+</style>
+
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-5 mb-5">
@@ -54,7 +158,7 @@ get_header();
                                 <?php _e('GLOBUILD dispose des moyens logistiques nécessaires pour assurer les déplacements des équipes, les visites de terrain et le suivi des chantiers. Notre flotte permanente est adaptée aux déplacements routiers et chantiers d\'envergure.', 'gloservices'); ?>
                             </p>
                             <ul class="moyen-list mt-3">
-                                <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('4 Véhicules Permanents :', 'gloservices'); ?></strong> <?php _e('Audi Q5, Jeep Renegade, VW Passat, Dacia Logan.', 'gloservices'); ?></li>
+                                <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('Véhicules de service :', 'gloservices'); ?></strong> <?php _e('4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).', 'gloservices'); ?></li>
                                 <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('Véhicules d\'appoint :', 'gloservices'); ?></strong> <?php _e('Mobilité renforcée selon la charge des opérations.', 'gloservices'); ?></li>
                             </ul>
                         </div>
