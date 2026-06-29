@@ -228,7 +228,7 @@ get_header();
     /* Bubble 2 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(2) {
         right: -25px !important;
-        top: 60px !important;
+        top: 90px !important;
         width: 170px !important;
         height: 170px !important;
         z-index: 3 !important;
