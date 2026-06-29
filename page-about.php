@@ -535,11 +535,11 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                         <!-- Step 1 -->
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="accordion-button fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <span class="num"><?php _e('1/', 'gloservices'); ?></span> <h3><?php _e('ÉTUDES & INVESTIGATIONS', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionProcess">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionProcess">
                                 <div class="accordion-body px-4 pb-4 pt-0">
                                     <p class="text-muted mb-0 small">
                                         <?php _e('Analyse approfondie du site, études de faisabilité techniques et environnementales, et investigations géotechniques préalables.', 'gloservices'); ?>
@@ -550,11 +550,11 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                         <!-- Step 2 -->
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     <span class="num"><?php _e('2/', 'gloservices'); ?></span> <h3><?php _e('CONCEPTION TECHNIQUE', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionProcess">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionProcess">
                                 <div class="accordion-body px-4 pb-4 pt-0">
                                     <p class="text-muted mb-0 small">
                                         <?php _e('Élaboration des avant-projets (APS/APD), calculs de structures détaillés, métrés estimatifs et établissement des dossiers de consultation.', 'gloservices'); ?>
