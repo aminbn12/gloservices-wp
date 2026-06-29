@@ -88,6 +88,17 @@ get_header();
     margin-bottom: 8px !important;
     color: var(--dark) !important;
 }
+.tc-about-style3 .top-info .numbers-boxes .md-card p,
+.tc-about-style3 .top-info .numbers-boxes .lg-card p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    margin-bottom: 0 !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .md-card p {
+    color: var(--gray-600) !important;
+}
 .tc-about-style3 .top-info .numbers-boxes .lg-card p {
     color: #065F46 !important;
 }
