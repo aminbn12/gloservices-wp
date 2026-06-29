@@ -519,6 +519,194 @@ function gloservices_get_translations($lang = 'fr') {
             'en' => 'This technical platform enables the production of plans, calculations, quantity surveys, estimates, planning and progress reports in compliance with client requirements and modern engineering standards.',
             'ar' => 'تتيح هذه المنصة التقنية إنتاج المخططات، دفاتر الحسابات، الكشوف، التقديرات، الجداول الزمنية وتقارير المتابعة المطابقة لمتطلبات أرباب العمل ومعايير الهندسة الحديثة.'
         ),
+        'Infrastructures & VRD' => array(
+            'en' => 'Infrastructure & Utilities (VRD)',
+            'ar' => 'البنية التحتية والشبكات المختلفة (VRD)'
+        ),
+        'Maîtrise d\'œuvre, études routières, réseaux divers (assainissement, eau potable, électricité).' => array(
+            'en' => 'Project management, road studies, diverse networks (sanitation, drinking water, electricity).',
+            'ar' => 'إدارة المشاريع، دراسات الطرق، الشبكات المختلفة (التطهير، الماء الشروب، الكهرباء).'
+        ),
+        'Bâtiments & Génie Civil' => array(
+            'en' => 'Buildings & Civil Engineering',
+            'ar' => 'المباني والهندسة المدنية'
+        ),
+        'Études de structures, béton armé, charpente métallique, fluides et coordination technique.' => array(
+            'en' => 'Structural engineering, reinforced concrete, steel frames, fluids and technical coordination.',
+            'ar' => 'دراسات الهياكل، الخرسانة المسلحة، الهياكل المعدنية، السوائل والتنسيق التقني.'
+        ),
+        'Créé en 2018,' => array(
+            'en' => 'Established in 2018,',
+            'ar' => 'تأسست في عام 2018،'
+        ),
+        'GLOBUILD SARL est un bureau d\'études techniques et d\'ingénierie intervenant dans les secteurs des infrastructures, des ouvrages d\'art, du bâtiment, des aménagements urbains et des réseaux divers.' => array(
+            'en' => 'GLOBUILD SARL is a technical engineering consultancy firm operating in the infrastructure, art structures, building, urban planning, and diverse networks sectors.',
+            'ar' => 'شركة غلوبيلد ذ.م.م (GLOBUILD SARL) هي مكتب دراسات تقنية وهندسة يتدخل في قطاعات البنية التحتية، المنشآت الفنية، المباني، التهيئة الحضرية والشبكات المختلفة.'
+        ),
+        'Son organisation repose sur une approche intégrée permettant de couvrir l\'ensemble du cycle de vie des projets, depuis les études préliminaires et les investigations techniques jusqu\'au suivi de l\'exécution des travaux et aux opérations de réception.' => array(
+            'en' => 'Its structure relies on an integrated approach covering the entire project life cycle, from preliminary studies and technical investigations to construction monitoring and handover operations.',
+            'ar' => 'تعتمد هيكلتها على نهج متكامل يغطي دورة حياة المشاريع بالكامل، بدءًا من الدراسات الأولية والتحريات التقنية إلى متابعة تنفيذ الأشغال وعمليات التسليم.'
+        ),
+        'Chez GLOBUILD, nous mettons notre expertise au service de solutions durables et innovantes, pensées pour répondre aux exigences d\'aujourd\'hui tout en anticipant celles de demain.' => array(
+            'en' => 'At GLOBUILD, we put our expertise at the service of sustainable and innovative solutions, designed to meet today\'s requirements while anticipating tomorrow\'s.',
+            'ar' => 'في غلوبيلد، نضع خبرتنا في خدمة حلول مستدامة ومبتكرة، مصممة لتلبية متطلبات اليوم وتوقع متطلبات الغد.'
+        ),
+        'L\'ingénierie au service du' => array(
+            'en' => 'Engineering at the service of',
+            'ar' => 'الهندسة في خدمة'
+        ),
+        'développement' => array(
+            'en' => 'development',
+            'ar' => 'التنمية'
+        ),
+        'et de la' => array(
+            'en' => 'and',
+            'ar' => 'و'
+        ),
+        'performance' => array(
+            'en' => 'performance',
+            'ar' => 'الأداء'
+        ),
+        'Notre signature est la conception sur mesure, l\'exécution rigoureuse et le suivi client pour des projets d\'infrastructures et de bâtiments durables.' => array(
+            'en' => 'Our signature is tailor-made design, rigorous execution and client follow-up for sustainable infrastructure and building projects.',
+            'ar' => 'بصمتنا هي التصميم المصمم خصيصًا، التنفيذ الصارم ومتابعة العملاء لمشاريع البنية التحتية والمباني المستدامة.'
+        ),
+        'Notre Approche' => array(
+            'en' => 'Our Approach',
+            'ar' => 'منهجيتنا'
+        ),
+        '1/' => array(
+            'en' => '1/',
+            'ar' => '/١'
+        ),
+        '2/' => array(
+            'en' => '2/',
+            'ar' => '/٢'
+        ),
+        '3/' => array(
+            'en' => '3/',
+            'ar' => '/٣'
+        ),
+        '4/' => array(
+            'en' => '4/',
+            'ar' => '/٤'
+        ),
+        'ÉTUDES & INVESTIGATIONS' => array(
+            'en' => 'STUDIES & INVESTIGATIONS',
+            'ar' => 'الدراسات والتحريات'
+        ),
+        'Analyse approfondie du site, études de faisabilité techniques et environnementales, et investigations géotechniques préalables.' => array(
+            'en' => 'In-depth site analysis, technical and environmental feasibility studies, and preliminary geotechnical investigations.',
+            'ar' => 'تحليل عميق للموقع، دراسات الجدوى التقنية والبيئية، والتحريات الجيوتقنية الأولية.'
+        ),
+        'CONCEPTION TECHNIQUE' => array(
+            'en' => 'TECHNICAL DESIGN',
+            'ar' => 'التصميم التقني'
+        ),
+        'Élaboration des avant-projets (APS/APD), calculs de structures détaillés, métrés estimatifs et établissement des dossiers de consultation.' => array(
+            'en' => 'Preparation of preliminary drafts (APS/APD), detailed structural calculations, estimated quantity surveys and preparation of consultation files.',
+            'ar' => 'إعداد التصاميم الأولية (APS/APD)، حسابات الهياكل التفصيلية، كشوف التقدير وإعداد ملفات الاستشارة.'
+        ),
+        'RÉALISATION & SUIVI' => array(
+            'en' => 'EXECUTION & MONITORING',
+            'ar' => 'التنفيذ والمتابعة'
+        ),
+        'Assistance technique au maître d\'ouvrage, suivi rigoureux de l\'exécution des travaux de construction et coordination de chantier.' => array(
+            'en' => 'Technical assistance to the owner, rigorous monitoring of construction works execution and site coordination.',
+            'ar' => 'المساعدة التقنية لصاحب المشروع، المتابعة الصارمة لتنفيذ أعمال البناء وتنسيق الورش.'
+        ),
+        'RÉCEPTION DES OUVRAGES' => array(
+            'en' => 'PROJECT HANDOVER',
+            'ar' => 'تسليم المنشآت'
+        ),
+        'Contrôle final de conformité réglementaire, assistance lors des opérations préalables à la réception et mise en service des installations.' => array(
+            'en' => 'Final regulatory compliance control, assistance during pre-handover operations and commissioning of facilities.',
+            'ar' => 'الرقابة النهائية على المطابقة التنظيمية، المساعدة في العمليات السابقة للتسليم وتشغيل المنشآت.'
+        ),
+        'Personnalisé' => array(
+            'en' => 'Customized',
+            'ar' => 'مخصص'
+        ),
+        'Réactif' => array(
+            'en' => 'Responsive',
+            'ar' => 'متجاوب'
+        ),
+        'Qualité' => array(
+            'en' => 'Quality',
+            'ar' => 'الجودة'
+        ),
+        'Optimisation' => array(
+            'en' => 'Optimization',
+            'ar' => 'التحسين'
+        ),
+        'Témoignages' => array(
+            'en' => 'Testimonials',
+            'ar' => 'آراء شركائنا'
+        ),
+        'Ce que disent nos partenaires' => array(
+            'en' => 'What Our Partners Say',
+            'ar' => 'ما يقوله شركاؤنا'
+        ),
+        'Nous avons collaboré avec GLOBUILD pour la conception technique de notre nouveau siège administratif, et nous sommes extrêmement satisfaits de la rigueur et de la réactivité de l\'équipe d\'ingénieurs.' => array(
+            'en' => 'We collaborated with GLOBUILD for the technical design of our new administrative headquarters, and we are extremely satisfied with the rigor and responsiveness of the engineering team.',
+            'ar' => 'لقد تعاونا مع غلوبيلد في التصميم التقني لمقرنا الإداري الجديد، ونحن راضون للغاية عن دقة وتجاوب فريق المهندسين.'
+        ),
+        'Promoteur immobilier' => array(
+            'en' => 'Real estate developer',
+            'ar' => 'منعش عقاري'
+        ),
+        'De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires.' => array(
+            'en' => 'From the preliminary draft study to technical assistance on site, GLOBUILD\'s professionalism guaranteed strict respect for our budgetary and scheduling constraints.',
+            'ar' => 'من دراسة المشروع الأولية إلى المساعدة التقنية في الورش، ضمنت احترافية غلوبيلد الاحترام الصارم لقيودنا المالية والزمنية.'
+        ),
+        'Chef de projet industriel' => array(
+            'en' => 'Industrial project manager',
+            'ar' => 'مدير مشاريع صناعية'
+        ),
+        'Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux.' => array(
+            'en' => 'Exceptional tailor-made support. Their integrated multidisciplinary expertise effectively resolves complex technical interfaces between roads and networks.',
+            'ar' => 'مواكبة متميزة ومخصصة. خبرتهم المتكاملة متعددة التخصصات تسمح بحل التداخلات التقنية المعقدة بين الطرق والشبكات بشكل فعال.'
+        ),
+        'Directeur Technique' => array(
+            'en' => 'Technical Director',
+            'ar' => 'المدير التقني'
+        ),
+        'Ils nous font confiance' => array(
+            'en' => 'They Trust Us',
+            'ar' => 'يثقون بنا'
+        ),
+        'LES FAITS' => array(
+            'en' => 'THE FACTS',
+            'ar' => 'الأرقام والحقائق'
+        ),
+        'Nos Engagements' => array(
+            'en' => 'Our Commitments',
+            'ar' => 'التزاماتنا'
+        ),
+        'Expertise pluridisciplinaire' => array(
+            'en' => 'Multidisciplinary Expertise',
+            'ar' => 'خبرة متعددة التخصصات'
+        ),
+        'GLOBUILD combine des compétences variées pour offrir des solutions techniques complètes et intégrées.' => array(
+            'en' => 'GLOBUILD combines diverse skills to deliver comprehensive and integrated technical solutions.',
+            'ar' => 'تجمع غلوبيلد بين مهارات متنوعة لتقديم حلول تقنية كاملة ومتكاملة.'
+        ),
+        'Innovation & Technique' => array(
+            'en' => 'Innovation & Technique',
+            'ar' => 'الابتكار والتقنية'
+        ),
+        'Nous utilisons des outils et technologies modernes pour optimiser chaque phase de la conception.' => array(
+            'en' => 'We use modern tools and technologies to optimize every design phase.',
+            'ar' => 'نستخدم أدوات وتقنيات حديثة لتحسين كل مرحلة من مراحل التصميم.'
+        ),
+        'Accompagnement sur mesure' => array(
+            'en' => 'Tailored Accompaniment',
+            'ar' => 'مواكبة مخصصة'
+        ),
+        'À l\'écoute de vos besoins, nous garantissons qualité, respect des délais et maîtrise des budgets.' => array(
+            'en' => 'Attentive to your needs, we guarantee quality, respect for deadlines and budget control.',
+            'ar' => 'نصغي لاحتياجاتكم، ونضمن الجودة واحترام الآجال والتحكم في الميزانيات.'
+        ),
     );
 
     $result = array();

@@ -285,6 +285,64 @@ get_header();
         transform: none !important;
     }
 }
+
+/* ============================================================
+   RTL / ARABIC SPECIFIC STYLING OVERRIDES
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+body.rtl, body.rtl * {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+body.rtl .tc-process-style2 .accordion-item .accordion-button .num {
+    margin-left: 30px !important;
+    margin-right: 0 !important;
+}
+
+body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+@media (min-width: 992px) {
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(1) {
+        right: 10px !important;
+        left: auto !important;
+    }
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
+        left: -50px !important;
+        right: auto !important;
+    }
+    
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(2) {
+        left: -25px !important;
+        right: auto !important;
+    }
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(2) .txt {
+        left: 20px !important;
+        right: auto !important;
+    }
+    
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(3) {
+        right: -30px !important;
+        left: auto !important;
+    }
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(3) .txt {
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%) !important;
+    }
+    
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(4) {
+        left: 30px !important;
+        right: auto !important;
+    }
+    body.rtl .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
+        right: -50px !important;
+        left: auto !important;
+    }
+}
 </style>
 
 <!-- ==========================================
