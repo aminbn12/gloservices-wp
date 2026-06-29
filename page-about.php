@@ -11,13 +11,13 @@ get_header();
 <!-- ==========================================
      HERO & STATS SECTION (tc-header-style2)
      ========================================== -->
-<header class="tc-header-style2 bg-light py-5">
+<header class="tc-header-style2 py-5 text-white position-relative" style="background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/archiback.jpg') center center / cover no-repeat;">
     <div class="container">
         <div class="top-info">
             <div class="row align-items-center justify-content-between g-5">
                 <div class="col-lg-8 wow slideInLeft" data-wow-delay="0.1s">
                     <span class="section-badge"><?php _e('À propos', 'gloservices'); ?></span>
-                    <h1 class="display-4 fw-bold mt-3 mb-4" style="line-height: 1.2;">
+                    <h1 class="display-4 fw-bold mt-3 mb-4 text-white" style="line-height: 1.2;">
                         <?php _e('L\'ingénierie au service du', 'gloservices'); ?> 
                         <span class="text-primary"><?php _e('développement', 'gloservices'); ?></span> 
                         <?php _e('et de la', 'gloservices'); ?> 
@@ -47,7 +47,7 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                        <div class="text text-dark" style="font-size: 0.95rem; line-height: 1.6;">
+                        <div class="text text-white" style="font-size: 0.95rem; line-height: 1.6; opacity: 0.95;">
                             <?php _e('Notre signature est la conception sur mesure, l\'exécution rigoureuse et le suivi client pour des projets d\'infrastructures et de bâtiments durables.', 'gloservices'); ?>
                         </div>
                     </div>
