@@ -577,19 +577,19 @@ function gloservices_get_translations($lang = 'fr') {
         ),
         '1/' => array(
             'en' => '1/',
-            'ar' => '/١'
+            'ar' => '1/'
         ),
         '2/' => array(
             'en' => '2/',
-            'ar' => '/٢'
+            'ar' => '2/'
         ),
         '3/' => array(
             'en' => '3/',
-            'ar' => '/٣'
+            'ar' => '3/'
         ),
         '4/' => array(
             'en' => '4/',
-            'ar' => '/٤'
+            'ar' => '4/'
         ),
         'ÉTUDES & INVESTIGATIONS' => array(
             'en' => 'STUDIES & INVESTIGATIONS',

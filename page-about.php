@@ -291,8 +291,12 @@ get_header();
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
 
-body.rtl, body.rtl * {
+body.rtl, body.rtl *:not(.fa):not(.fas):not(.far):not(.fab):not([class^="fa-"]):not([class*=" fa-"]) {
     font-family: 'Cairo', sans-serif !important;
+}
+body.rtl .tc-process-style2 .accordion-item .accordion-button:after,
+body.rtl .tc-process-style2 .accordion-item .accordion-button:not(.collapsed):after {
+    font-family: "Font Awesome 5 Free" !important;
 }
 
 body.rtl .tc-process-style2 .accordion-item .accordion-button .num {
