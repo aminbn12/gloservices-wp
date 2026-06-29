@@ -70,15 +70,26 @@ get_header();
     border: 1px solid rgba(0, 0, 0, 0.05) !important;
     padding: 24px !important;
     transition: var(--transition) !important;
-    transform: none !important;
 }
 .tc-about-style3 .top-info .numbers-boxes .md-card {
-    background-color: var(--gray-50) !important;
+    background-color: #F8FAFC !important;
     color: var(--dark) !important;
 }
 .tc-about-style3 .top-info .numbers-boxes .lg-card {
-    background-color: var(--dark) !important;
-    color: var(--white) !important;
+    background-color: #ECFDF5 !important;
+    color: var(--dark) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .md-card h4,
+.tc-about-style3 .top-info .numbers-boxes .lg-card h4 {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 8px !important;
+    color: var(--dark) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .lg-card p {
+    color: #065F46 !important;
 }
 .tc-about-style3 .top-info .numbers-boxes .md-card:hover {
     background-color: var(--white) !important;
@@ -88,11 +99,14 @@ get_header();
     box-shadow: var(--shadow-lg) !important;
 }
 .tc-about-style3 .top-info .numbers-boxes .lg-card:hover {
-    background-color: var(--dark) !important;
+    background-color: var(--white) !important;
     border: 1px solid var(--primary) !important;
-    color: var(--white) !important;
+    color: var(--dark) !important;
     transform: translateY(-5px) !important;
     box-shadow: var(--shadow-lg) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .lg-card:hover p {
+    color: var(--gray-600) !important;
 }
 
 @media (max-width: 767.98px) {
@@ -103,13 +117,54 @@ get_header();
 }
 
 /* ============================================================
+   ACCORDION TEXT & ACTIVE OVERRIDES
+   ============================================================ */
+.tc-process-style2 .accordion-item .accordion-button:not(.collapsed) {
+    font-size: 26px !important;
+}
+.tc-process-style2 .accordion-item .accordion-button:not(.collapsed) h3 {
+    font-size: 26px !important;
+    text-decoration: underline !important;
+    text-underline-offset: 8px !important;
+    text-decoration-color: var(--primary) !important;
+}
+.tc-process-style2 .accordion-item .accordion-body .text,
+.tc-process-style2 .accordion-item .accordion-body p {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    color: #4B5563 !important;
+}
+
+/* Accordion open/close icon customizations */
+.tc-process-style2 .accordion-item .accordion-button:after {
+    background-image: none !important;
+    content: "\f067" !important; /* Plus icon */
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+    color: var(--dark) !important;
+    transform: none !important;
+    display: inline-block !important;
+}
+.tc-process-style2 .accordion-item .accordion-button:not(.collapsed):after {
+    background-image: none !important;
+    content: "\f068" !important; /* Minus icon */
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+    color: var(--primary) !important;
+    transform: none !important;
+    display: inline-block !important;
+}
+
+/* ============================================================
    DESKTOP NOTRE APPROCHE LAYOUT OVERRIDES (>= 992px)
    ============================================================ */
 @media (min-width: 992px) {
     .tc-process-style2 .imgs {
         display: block !important;
         position: relative !important;
-        height: 640px !important;
+        height: 660px !important;
         margin-top: 0 !important;
         background-size: contain !important;
     }
@@ -124,13 +179,12 @@ get_header();
         object-fit: cover !important;
     }
     
-    /* Bubble 1 */
+    /* Bubble 1 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(1) {
-        width: 360px !important;
-        height: 360px !important;
-        left: 50px !important;
-        top: 0 !important;
-        transform: none !important;
+        width: 350px !important;
+        height: 350px !important;
+        left: 10px !important;
+        top: -10px !important;
         z-index: 2 !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
@@ -149,14 +203,13 @@ get_header();
         transform: none !important;
     }
     
-    /* Bubble 2 */
+    /* Bubble 2 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(2) {
-        right: 0 !important;
-        top: 80px !important;
-        width: 160px !important;
-        height: 160px !important;
+        right: -25px !important;
+        top: 60px !important;
+        width: 170px !important;
+        height: 170px !important;
         z-index: 3 !important;
-        transform: none !important;
         left: auto !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(2) .txt {
@@ -174,14 +227,13 @@ get_header();
         transform: none !important;
     }
     
-    /* Bubble 3 */
+    /* Bubble 3 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(3) {
-        left: 0 !important;
-        top: 280px !important;
-        width: 220px !important;
-        height: 220px !important;
+        left: -30px !important;
+        top: 320px !important;
+        width: 210px !important;
+        height: 210px !important;
         z-index: 3 !important;
-        transform: none !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(3) .txt {
         font-size: 22px !important;
@@ -198,14 +250,13 @@ get_header();
         transform: translate(50%) !important;
     }
     
-    /* Bubble 4 */
+    /* Bubble 4 (spaced slightly) */
     .tc-process-style2 .imgs .img:nth-of-type(4) {
-        right: 80px !important;
-        top: 300px !important;
-        width: 240px !important;
-        height: 240px !important;
+        right: 30px !important;
+        top: 360px !important;
+        width: 230px !important;
+        height: 230px !important;
         z-index: 2 !important;
-        transform: none !important;
         left: auto !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
@@ -303,7 +354,7 @@ get_header();
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="numbers-boxes d-flex flex-column flex-md-row gap-4 h-100 align-items-stretch">
                         <!-- Division Card 1 -->
-                        <div class="md-card flex-fill bg-light p-4 rounded-4 border border-light d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
+                        <div class="md-card flex-fill p-4 rounded-4 d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
                             <div id="infra-slideshow" class="card-slideshow position-relative overflow-hidden mb-3" style="height: 180px;">
                                 <img class="slide-img active position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/autoroute.jpg" style="object-fit: cover; z-index: 1;" alt="Autoroute">
                                 <img class="slide-img position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/tunnel.jpg" style="object-fit: cover; z-index: 1;" alt="Tunnel">
@@ -314,14 +365,14 @@ get_header();
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-dark fw-bold mb-2"><?php _e('Infrastructures & VRD', 'gloservices'); ?></h4>
-                                <p class="text-muted small mb-0">
+                                <h4 class="fw-bold mb-2"><?php _e('Infrastructures & VRD', 'gloservices'); ?></h4>
+                                <p class="small mb-0">
                                     <?php _e('Maîtrise d\'œuvre, études routières, réseaux divers (assainissement, eau potable, électricité).', 'gloservices'); ?>
                                 </p>
                             </div>
                         </div>
                         <!-- Division Card 2 -->
-                        <div class="lg-card flex-fill bg-dark text-white p-4 rounded-4 d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
+                        <div class="lg-card flex-fill p-4 rounded-4 d-flex flex-column justify-content-between shadow-sm" style="transition: var(--transition);">
                             <div id="batiment-slideshow" class="card-slideshow position-relative overflow-hidden mb-3" style="height: 180px;">
                                 <img class="slide-img active position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/batimangrus.jpg" style="object-fit: cover; z-index: 1;" alt="Bâtiment Gros Œuvre">
                                 <img class="slide-img position-absolute w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/plan.jpg" style="object-fit: cover; z-index: 1;" alt="Plan de structure">
@@ -332,8 +383,8 @@ get_header();
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-white fw-bold mb-2"><?php _e('Bâtiments & Génie Civil', 'gloservices'); ?></h4>
-                                <p class="text-light small mb-0" style="opacity: 0.85;">
+                                <h4 class="fw-bold mb-2"><?php _e('Bâtiments & Génie Civil', 'gloservices'); ?></h4>
+                                <p class="small mb-0">
                                     <?php _e('Études de structures, béton armé, charpente métallique, fluides et coordination technique.', 'gloservices'); ?>
                                 </p>
                             </div>
@@ -412,7 +463,7 @@ get_header();
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    <span class="text-primary me-3 fw-light">1/</span> <?php _e('ÉTUDES & INVESTIGATIONS', 'gloservices'); ?>
+                                    <span class="num"><?php _e('1/', 'gloservices'); ?></span> <h3><?php _e('ÉTUDES & INVESTIGATIONS', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionProcess">
@@ -427,7 +478,7 @@ get_header();
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                    <span class="text-primary me-3 fw-light">2/</span> <?php _e('CONCEPTION TECHNIQUE', 'gloservices'); ?>
+                                    <span class="num"><?php _e('2/', 'gloservices'); ?></span> <h3><?php _e('CONCEPTION TECHNIQUE', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionProcess">
@@ -442,7 +493,7 @@ get_header();
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <span class="text-primary me-3 fw-light">3/</span> <?php _e('RÉALISATION & SUIVI', 'gloservices'); ?>
+                                    <span class="num"><?php _e('3/', 'gloservices'); ?></span> <h3><?php _e('RÉALISATION & SUIVI', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionProcess">
@@ -457,7 +508,7 @@ get_header();
                         <div class="accordion-item mb-3 border border-light rounded-4 overflow-hidden shadow-sm">
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <span class="text-primary me-3 fw-light">4/</span> <?php _e('RÉCEPTION DES OUVRAGES', 'gloservices'); ?>
+                                    <span class="num"><?php _e('4/', 'gloservices'); ?></span> <h3><?php _e('RÉCEPTION DES OUVRAGES', 'gloservices'); ?></h3>
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionProcess">
@@ -595,6 +646,37 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     startCardSlideshow('#infra-slideshow');
     startCardSlideshow('#batiment-slideshow');
+
+    // Scroll-based Spring Parallax for Notre Approche bubbles (>= 992px)
+    function initScrollParallax() {
+        if (window.innerWidth < 992) return;
+        
+        const section = document.querySelector('.tc-process-style2');
+        if (!section) return;
+        
+        const bubbles = section.querySelectorAll('.imgs .img');
+        if (bubbles.length === 0) return;
+        
+        const factors = [0.08, -0.15, -0.06, 0.12];
+        
+        window.addEventListener('scroll', function() {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const relativeScroll = (window.innerHeight / 2) - rect.top;
+                
+                bubbles.forEach((bubble, index) => {
+                    const factor = factors[index] || 0.05;
+                    const val = relativeScroll * factor;
+                    
+                    bubble.style.transition = 'transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    bubble.style.setProperty('transform', 'translateY(' + val + 'px)', 'important');
+                });
+            }
+        });
+    }
+    
+    initScrollParallax();
+    window.addEventListener('resize', initScrollParallax);
 });
 </script>
 
