@@ -158,7 +158,7 @@ body.rtl .rounded {
                                 <?php _e('GLOBUILD dispose des moyens logistiques nécessaires pour assurer les déplacements des équipes, les visites de terrain et le suivi des chantiers. Notre flotte permanente est adaptée aux déplacements routiers et chantiers d\'envergure.', 'gloservices'); ?>
                             </p>
                             <ul class="moyen-list mt-3">
-                                <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('Véhicules de service :', 'gloservices'); ?></strong> <?php _e('4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).', 'gloservices'); ?></li>
+                                <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('Véhicules de service :', 'gloservices'); ?></strong> <?php _e('4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers.', 'gloservices'); ?></li>
                                 <li><i class="fa fa-chevron-right"></i> <strong class="text-dark"><?php _e('Véhicules d\'appoint :', 'gloservices'); ?></strong> <?php _e('Mobilité renforcée selon la charge des opérations.', 'gloservices'); ?></li>
                             </ul>
                         </div>

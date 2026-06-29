@@ -739,9 +739,9 @@ function gloservices_get_translations($lang = 'fr') {
             'en' => 'Service vehicles:',
             'ar' => 'سيارات الخدمة:'
         ),
-        '4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).' => array(
-            'en' => '4 service vehicles are at the permanent disposal of our teams for site monitoring (Audi Q5, Jeep Renegade, VW Passat, Dacia Logan).',
-            'ar' => '4 سيارات خدمة تحت التصرف الدائم لفرقنا لمتابعة الأوراش (Audi Q5، Jeep Renegade، VW Passat، Dacia Logan).'
+        '4 véhicules de service sont à la disposition permanente de nos équipes pour le suivi des chantiers.' => array(
+            'en' => '4 service vehicles are at the permanent disposal of our teams for site monitoring.',
+            'ar' => '4 سيارات خدمة تحت التصرف الدائم لفرقنا لمتابعة الأوراش.'
         ),
         'Véhicules d\'appoint :' => array(
             'en' => 'Backup vehicles:',
