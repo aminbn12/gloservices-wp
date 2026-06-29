@@ -36,6 +36,193 @@ get_header();
 .tc-process-style2 .accordion-button {
     border-radius: 20px 20px 0 0 !important;
 }
+
+/* Slideshow Image Fixes (No squishing, cover style) */
+.card-slideshow img {
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Division Cards Layout and Hover Overrides */
+.tc-about-style3 .top-info .numbers-boxes {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .md-card,
+.tc-about-style3 .top-info .numbers-boxes .lg-card {
+    width: auto !important;
+    max-width: 100% !important;
+    flex: 1 1 0% !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-shadow: var(--shadow) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 24px !important;
+    transition: var(--transition) !important;
+    transform: none !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .md-card {
+    background-color: var(--gray-50) !important;
+    color: var(--dark) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .lg-card {
+    background-color: var(--dark) !important;
+    color: var(--white) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .md-card:hover {
+    background-color: var(--white) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--dark) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+.tc-about-style3 .top-info .numbers-boxes .lg-card:hover {
+    background-color: var(--dark) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--white) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+@media (max-width: 767.98px) {
+    .tc-about-style3 .top-info .numbers-boxes {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+}
+
+/* ============================================================
+   DESKTOP NOTRE APPROCHE LAYOUT OVERRIDES (>= 992px)
+   ============================================================ */
+@media (min-width: 992px) {
+    .tc-process-style2 .imgs {
+        display: block !important;
+        position: relative !important;
+        height: 640px !important;
+        margin-top: 0 !important;
+        background-size: contain !important;
+    }
+    .tc-process-style2 .imgs .img {
+        position: absolute !important;
+        border-radius: 50% !important;
+        overflow: visible !important;
+        margin: 0 !important;
+    }
+    .tc-process-style2 .imgs .img img {
+        border-radius: 50% !important;
+        object-fit: cover !important;
+    }
+    
+    /* Bubble 1 */
+    .tc-process-style2 .imgs .img:nth-of-type(1) {
+        width: 360px !important;
+        height: 360px !important;
+        left: 50px !important;
+        top: 0 !important;
+        transform: none !important;
+        z-index: 2 !important;
+    }
+    .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
+        font-size: 26px !important;
+        position: absolute !important;
+        top: 65px !important;
+        right: -50px !important;
+        left: auto !important;
+        bottom: auto !important;
+        z-index: 10 !important;
+        border: 1px solid #ccc !important;
+        background-color: #f1eee9 !important;
+        color: #000 !important;
+        border-radius: 15px !important;
+        padding: 4px 24px !important;
+        transform: none !important;
+    }
+    
+    /* Bubble 2 */
+    .tc-process-style2 .imgs .img:nth-of-type(2) {
+        right: 0 !important;
+        top: 80px !important;
+        width: 160px !important;
+        height: 160px !important;
+        z-index: 3 !important;
+        transform: none !important;
+        left: auto !important;
+    }
+    .tc-process-style2 .imgs .img:nth-of-type(2) .txt {
+        font-size: 20px !important;
+        position: absolute !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        left: auto !important;
+        top: auto !important;
+        z-index: 10 !important;
+        color: #fff !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        transform: none !important;
+    }
+    
+    /* Bubble 3 */
+    .tc-process-style2 .imgs .img:nth-of-type(3) {
+        left: 0 !important;
+        top: 280px !important;
+        width: 220px !important;
+        height: 220px !important;
+        z-index: 3 !important;
+        transform: none !important;
+    }
+    .tc-process-style2 .imgs .img:nth-of-type(3) .txt {
+        font-size: 22px !important;
+        position: absolute !important;
+        bottom: 15px !important;
+        right: 50% !important;
+        left: auto !important;
+        top: auto !important;
+        z-index: 10 !important;
+        color: #fff !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        transform: translate(50%) !important;
+    }
+    
+    /* Bubble 4 */
+    .tc-process-style2 .imgs .img:nth-of-type(4) {
+        right: 80px !important;
+        top: 300px !important;
+        width: 240px !important;
+        height: 240px !important;
+        z-index: 2 !important;
+        transform: none !important;
+        left: auto !important;
+    }
+    .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
+        font-size: 22px !important;
+        position: absolute !important;
+        top: 65px !important;
+        left: -50px !important;
+        right: auto !important;
+        bottom: auto !important;
+        z-index: 10 !important;
+        background-color: #000 !important;
+        color: #fff !important;
+        border-radius: 15px !important;
+        padding: 4px 24px !important;
+        transform: none !important;
+    }
+}
 </style>
 
 <!-- ==========================================
