@@ -136,7 +136,7 @@
         });
     }
 
-    // === PARTNERS SECTION HARDWARE-ACCELERATED PARALLAX SCROLL ===
+    // === PARTNERS SECTION SMOOTH SCROLL PARALLAX + FLOAT MOTION ===
     var partnersBgLayer = document.querySelector('.partners-bg-layer');
     var partnersSection = document.querySelector('.partners-grid-section');
     if (partnersBgLayer && partnersSection) {
@@ -147,8 +147,8 @@
                 var totalRange = windowHeight + rect.height;
                 var currentPos = windowHeight - rect.top;
                 var progress = currentPos / totalRange; // 0 to 1
-                var translateY = (progress - 0.5) * 280; // 280px prominent move
-                partnersBgLayer.style.transform = 'translate3d(0, ' + translateY + 'px, 0)';
+                var marginTop = (progress - 0.5) * 180; // 180px scroll shift
+                partnersBgLayer.style.marginTop = marginTop + 'px';
             }
         };
         window.addEventListener('scroll', updatePartnersParallax, { passive: true });

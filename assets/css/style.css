@@ -4529,12 +4529,24 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
+@keyframes partnersBgFloat {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-55px) scale(1.03);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
 .partners-bg-layer {
     position: absolute;
-    top: -240px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 480px);
+    top: -120px;
+    left: -5%;
+    width: 110%;
+    height: calc(100% + 240px);
     background-image: 
         linear-gradient(rgba(250, 252, 255, 0.88), rgba(250, 252, 255, 0.88)),
         url("../img/archiback.jpg");
@@ -4543,7 +4555,9 @@ html.lenis, html.lenis body {
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
-    will-change: transform;
+    animation: partnersBgFloat 14s ease-in-out infinite alternate !important;
+    will-change: transform, margin-top;
+    transition: margin-top 0.15s ease-out;
 }
 
 .partners-grid-section .container {
