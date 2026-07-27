@@ -178,7 +178,7 @@ get_header();
     .tc-process-style2 .imgs {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 45px 20px !important;
+        gap: 48px 20px !important;
         margin: 40px auto 10px auto !important;
         max-width: 440px !important;
         height: auto !important;
@@ -188,7 +188,11 @@ get_header();
         padding: 0 10px !important;
     }
     
-    .tc-process-style2 .imgs .img {
+    .tc-process-style2 .imgs .img,
+    .tc-process-style2 .imgs .img:nth-of-type(1),
+    .tc-process-style2 .imgs .img:nth-of-type(2),
+    .tc-process-style2 .imgs .img:nth-of-type(3),
+    .tc-process-style2 .imgs .img:nth-of-type(4) {
         position: relative !important;
         top: auto !important;
         left: auto !important;
@@ -196,7 +200,7 @@ get_header();
         bottom: auto !important;
         transform: none !important;
         width: 100% !important;
-        max-width: 175px !important;
+        max-width: 170px !important;
         margin: 0 auto !important;
         aspect-ratio: 1 / 1 !important;
         height: auto !important;
@@ -220,13 +224,17 @@ get_header();
         display: block !important;
     }
 
-    .tc-process-style2 .imgs .img .txt {
+    .tc-process-style2 .imgs .img .txt,
+    .tc-process-style2 .imgs .img:nth-of-type(1) .txt,
+    .tc-process-style2 .imgs .img:nth-of-type(2) .txt,
+    .tc-process-style2 .imgs .img:nth-of-type(3) .txt,
+    .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
         position: absolute !important;
         bottom: -14px !important;
         left: 50% !important;
-        transform: translateX(-50%) !important;
         top: auto !important;
         right: auto !important;
+        transform: translateX(-50%) !important;
         background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
         color: #FFFFFF !important;
         border: 2px solid #FFFFFF !important;
@@ -237,12 +245,6 @@ get_header();
         white-space: nowrap !important;
         box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
         z-index: 10 !important;
-    }
-
-    .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
-        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
-        color: #FFFFFF !important;
-        border: 2px solid #FFFFFF !important;
     }
 }
 
