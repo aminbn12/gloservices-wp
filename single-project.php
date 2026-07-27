@@ -25,16 +25,38 @@ get_header();
 
 <div class="container-xxl py-5">
     <div class="container">
-        <?php while (have_posts()) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); 
+            $img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+            if (!$img_url) {
+                $post_id = get_the_ID();
+                $post_title = get_the_title();
+                $img_num = ($post_id % 6) + 1;
+                if ($post_id === 70 || stripos($post_title, 'Route Nationale') !== false) {
+                    $img_num = 4;
+                } elseif ($post_id === 73 || stripos($post_title, 'Audit') !== false) {
+                    $img_num = 3;
+                }
+                $img_url = get_template_directory_uri() . '/assets/img/img-600x400-' . $img_num . '.jpg';
+            }
+            $terms = get_the_terms(get_the_ID(), 'project_category');
+        ?>
             <div class="row g-5">
                 <div class="col-lg-8">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <div class="mb-4">
-                            <?php the_post_thumbnail('full', ['class' => 'img-fluid rounded']); ?>
+                    <!-- Photo liée au projet dans un cadre stylisé au-dessus du titre -->
+                    <div class="project-single-frame mb-4">
+                        <div class="project-single-img-wrap">
+                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>">
+                            <?php if ($terms && !is_wp_error($terms)) : ?>
+                                <span class="project-frame-badge"><i class="fas fa-tag me-2"></i><?php echo esc_html($terms[0]->name); ?></span>
+                            <?php endif; ?>
                         </div>
-                    <?php endif; ?>
-                    
-                    <h2 class="mb-3"><?php the_title(); ?></h2>
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                    </div>
+
+                    <h2 class="mb-3 font-display fw-bold" style="color: #0F172A;"><?php the_title(); ?></h2>
                     
                     <div class="mb-3">
                         <?php

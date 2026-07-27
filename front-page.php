@@ -6,6 +6,293 @@
  */
 
 get_header();
+
+/**
+ * Helper function to return high-quality architectural CAD vector drawings (SVGs) for services
+ */
+function gloservices_get_service_drawing($slug) {
+    // Normalize slug (in case Polylang appends lang codes)
+    $clean_slug = preg_replace('/-(fr|en|ar)$/', '', strtolower($slug));
+    
+    $svg_start = '<svg class="archi-svg-drawing" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">';
+    // Common background crosshairs / reference grid markings inside the canvas
+    $svg_common = '
+        <line x1="0" y1="70" x2="200" y2="70" stroke="rgba(16,185,129,0.04)" stroke-width="0.5" stroke-dasharray="2 4"/>
+        <line x1="100" y1="0" x2="100" y2="140" stroke="rgba(16,185,129,0.04)" stroke-width="0.5" stroke-dasharray="2 4"/>
+        <circle cx="100" cy="70" r="50" stroke="rgba(16,185,129,0.02)" stroke-width="0.5" fill="none"/>
+    ';
+    $svg_end = '</svg>';
+    
+    switch ($clean_slug) {
+        case 'infrastructures':
+            // Pont Suspendu / Bridge
+            $drawing = '
+                <!-- Pillars -->
+                <line x1="45" y1="35" x2="45" y2="120" stroke="#10B981" stroke-width="1.5" />
+                <line x1="45" y1="35" x2="35" y2="120" stroke="rgba(16,185,129,0.4)" stroke-width="0.75" />
+                <line x1="155" y1="35" x2="155" y2="120" stroke="#10B981" stroke-width="1.5" />
+                <line x1="155" y1="35" x2="165" y2="120" stroke="rgba(16,185,129,0.4)" stroke-width="0.75" />
+                <line x1="45" y1="65" x2="155" y2="65" stroke="rgba(16,185,129,0.3)" stroke-width="0.75" />
+                <line x1="45" y1="90" x2="155" y2="90" stroke="rgba(16,185,129,0.3)" stroke-width="0.75" />
+                
+                <!-- Suspension cables -->
+                <path d="M10,45 Q45,110 100,110" stroke="#34D399" stroke-width="1.25" fill="none" />
+                <path d="M100,110 Q155,110 190,45" stroke="#34D399" stroke-width="1.25" fill="none" />
+                <path d="M10,40 Q45,105 100,105" stroke="rgba(52,211,153,0.3)" stroke-width="0.75" fill="none" />
+                <path d="M100,105 Q155,105 190,40" stroke="rgba(52,211,153,0.3)" stroke-width="0.75" fill="none" />
+                
+                <!-- Deck -->
+                <line x1="10" y1="95" x2="190" y2="95" stroke="#10B981" stroke-width="1.75" />
+                
+                <!-- Hangers -->
+                <line x1="25" y1="70" x2="25" y2="95" stroke="#34D399" stroke-width="0.5" />
+                <line x1="70" y1="105" x2="70" y2="95" stroke="#34D399" stroke-width="0.5" />
+                <line x1="90" y1="110" x2="90" y2="95" stroke="#34D399" stroke-width="0.5" />
+                <line x1="110" y1="110" x2="110" y2="95" stroke="#34D399" stroke-width="0.5" />
+                <line x1="130" y1="105" x2="130" y2="95" stroke="#34D399" stroke-width="0.5" />
+                <line x1="175" y1="70" x2="175" y2="95" stroke="#34D399" stroke-width="0.5" />
+                
+                <!-- Anchorages -->
+                <polygon points="5,95 15,95 10,110" fill="rgba(16,185,129,0.2)" stroke="#10B981" stroke-width="0.5" />
+                <polygon points="185,95 195,95 190,110" fill="rgba(16,185,129,0.2)" stroke="#10B981" stroke-width="0.5" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <line x1="10" y1="122" x2="190" y2="122" stroke="#10B981" stroke-width="0.75" stroke-dasharray="3 3"/>
+                    <path d="M15,119 L10,122 L15,125 M185,119 L190,122 L185,125" stroke="#10B981" stroke-width="0.75" fill="none" />
+                    <text x="100" y="118" fill="#334155" font-size="8" font-family="monospace" font-weight="600" text-anchor="middle">L = 145.00m</text>
+                    <text x="49" y="32" fill="#334155" font-size="7" font-family="monospace" font-weight="600">H = 32.5m</text>
+                </g>
+            ';
+            break;
+            
+        case 'ouvrages-dart':
+            // Pont en arc / Tunnel
+            $drawing = '
+                <!-- Foundation supports -->
+                <rect x="15" y="105" width="20" height="20" fill="rgba(16,185,129,0.15)" stroke="#10B981" stroke-width="0.75" />
+                <rect x="165" y="105" width="20" height="20" fill="rgba(16,185,129,0.15)" stroke="#10B981" stroke-width="0.75" />
+                
+                <!-- Arch curves -->
+                <path d="M25,105 A75,70 0 0,1 175,105" stroke="#10B981" stroke-width="2" fill="none" />
+                <path d="M35,105 A65,60 0 0,1 165,105" stroke="#34D399" stroke-width="1.25" fill="none" />
+                <path d="M25,110 A75,75 0 0,1 175,110" stroke="rgba(16,185,129,0.2)" stroke-width="0.75" fill="none" stroke-dasharray="3 3" />
+                
+                <!-- Deck -->
+                <line x1="10" y1="45" x2="190" y2="45" stroke="#10B981" stroke-width="1.5" />
+                
+                <!-- Spandrel Columns / Struts -->
+                <line x1="50" y1="45" x2="50" y2="82" stroke="#34D399" stroke-width="0.75" />
+                <line x1="75" y1="45" x2="75" y2="52" stroke="#34D399" stroke-width="0.75" />
+                <line x1="100" y1="45" x2="100" y2="40" stroke="#34D399" stroke-width="0.75" />
+                <line x1="125" y1="45" x2="125" y2="52" stroke="#34D399" stroke-width="0.75" />
+                <line x1="150" y1="45" x2="150" y2="82" stroke="#34D399" stroke-width="0.75" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <!-- Radius centerpoint line -->
+                    <line x1="100" y1="105" x2="60" y2="65" stroke="#334155" stroke-width="0.75" stroke-dasharray="2 2" />
+                    <circle cx="100" cy="105" r="2" fill="#10B981" />
+                    <path d="M63,65 L60,65 L60,68" stroke="#334155" stroke-width="0.75" fill="none" />
+                    <text x="80" y="85" fill="#334155" font-size="8" font-family="monospace" font-weight="600" transform="rotate(-45 80 85)">R = 45.0m</text>
+                    <text x="105" y="38" fill="#334155" font-size="7" font-family="monospace" font-weight="600">CL = 100%</text>
+                </g>
+            ';
+            break;
+            
+        case 'batiments':
+            // Structure metallique / Skyscraper facade
+            $drawing = '
+                <!-- Foundation -->
+                <line x1="20" y1="120" x2="180" y2="120" stroke="#10B981" stroke-width="2" />
+                <rect x="45" y="120" width="10" height="5" fill="rgba(16,185,129,0.5)" stroke="#10B981" stroke-width="0.5" />
+                <rect x="95" y="120" width="10" height="5" fill="rgba(16,185,129,0.5)" stroke="#10B981" stroke-width="0.5" />
+                <rect x="145" y="120" width="10" height="5" fill="rgba(16,185,129,0.5)" stroke="#10B981" stroke-width="0.5" />
+                
+                <!-- Vertical Beams (Columns) -->
+                <line x1="50" y1="20" x2="50" y2="120" stroke="#10B981" stroke-width="1.75" />
+                <line x1="100" y1="20" x2="100" y2="120" stroke="#10B981" stroke-width="1.75" />
+                <line x1="150" y1="20" x2="150" y2="120" stroke="#10B981" stroke-width="1.75" />
+                
+                <!-- Horizontal Beams (Floors) -->
+                <line x1="50" y1="30" x2="150" y2="30" stroke="#10B981" stroke-width="1.25" />
+                <line x1="50" y1="60" x2="150" y2="60" stroke="#10B981" stroke-width="1.25" />
+                <line x1="50" y1="90" x2="150" y2="90" stroke="#10B981" stroke-width="1.25" />
+                
+                <!-- Wind Bracing (X-Patterns) -->
+                <line x1="50" y1="30" x2="100" y2="60" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+                <line x1="100" y1="30" x2="50" y2="60" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+                <line x1="100" y1="60" x2="150" y2="90" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+                <line x1="150" y1="60" x2="100" y2="90" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+                <line x1="50" y1="90" x2="100" y2="120" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+                <line x1="100" y1="90" x2="50" y2="120" stroke="rgba(52,211,153,0.4)" stroke-width="0.75" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <!-- Elevation indicators (triangles and text) -->
+                    <path d="M35,30 L40,30 L37.5,26 Z" fill="#10B981" />
+                    <text x="12" y="33" fill="#334155" font-size="7" font-family="monospace" font-weight="600">N3:+9.00</text>
+                    
+                    <path d="M35,60 L40,60 L37.5,56 Z" fill="#10B981" />
+                    <text x="12" y="63" fill="#334155" font-size="7" font-family="monospace" font-weight="600">N2:+6.00</text>
+                    
+                    <path d="M35,90 L40,90 L37.5,86 Z" fill="#10B981" />
+                    <text x="12" y="93" fill="#334155" font-size="7" font-family="monospace" font-weight="600">N1:+3.00</text>
+                    
+                    <!-- Axis names -->
+                    <circle cx="50" cy="132" r="5" stroke="#10B981" stroke-width="0.75" fill="none" />
+                    <text x="50" y="134.5" fill="#334155" font-size="6" font-family="monospace" font-weight="600" text-anchor="middle">A</text>
+                    
+                    <circle cx="100" cy="132" r="5" stroke="#10B981" stroke-width="0.75" fill="none" />
+                    <text x="100" y="134.5" fill="#334155" font-size="6" font-family="monospace" font-weight="600" text-anchor="middle">B</text>
+                    
+                    <circle cx="150" cy="132" r="5" stroke="#10B981" stroke-width="0.75" fill="none" />
+                    <text x="150" y="134.5" fill="#334155" font-size="6" font-family="monospace" font-weight="600" text-anchor="middle">C</text>
+                </g>
+            ';
+            break;
+            
+        case 'voirie-reseaux-divers':
+            // Coupe de voirie / VRD Pipes
+            $drawing = '
+                <!-- Ground profile (road, curb, sidewalk) -->
+                <path d="M10,48 L65,48 L65,44 L80,44 L140,46 L155,44 L155,48 L190,48" stroke="#10B981" stroke-width="1.75" fill="none" />
+                <!-- Sub layers -->
+                <path d="M10,54 L65,54 L65,50 L80,50 L140,52 L155,50 L155,54 L190,54" stroke="rgba(16,185,129,0.3)" stroke-width="0.75" fill="none" stroke-dasharray="2 2" />
+                
+                <!-- Undergound pipe EP (Stormwater) -->
+                <circle cx="70" cy="95" r="14" stroke="#34D399" stroke-width="1.5" fill="none" />
+                <line x1="59" y1="95" x2="81" y2="95" stroke="rgba(52,211,153,0.3)" stroke-width="0.5" />
+                <line x1="70" y1="84" x2="70" y2="106" stroke="rgba(52,211,153,0.3)" stroke-width="0.5" />
+                
+                <!-- Underground pipe EU (Sewage) -->
+                <circle cx="120" cy="85" r="8" stroke="#10B981" stroke-width="1" fill="none" />
+                
+                <!-- Underground cable conduit -->
+                <circle cx="155" cy="75" r="4" stroke="#10B981" stroke-width="0.75" fill="none" />
+                <circle cx="163" cy="75" r="4" stroke="#10B981" stroke-width="0.75" fill="none" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <!-- Dimension lines and arrows -->
+                    <line x1="70" y1="48" x2="70" y2="78" stroke="#10B981" stroke-width="0.75" stroke-dasharray="2 2" />
+                    <line x1="120" y1="46" x2="120" y2="74" stroke="#10B981" stroke-width="0.75" stroke-dasharray="2 2" />
+                    
+                    <text x="70" y="117" fill="#334155" font-size="7" font-family="monospace" font-weight="600" text-anchor="middle">EP Ø400 i=0.5%</text>
+                    <text x="120" y="103" fill="#334155" font-size="7" font-family="monospace" font-weight="600" text-anchor="middle">EU Ø200</text>
+                    <text x="160" y="66" fill="#334155" font-size="6" font-family="monospace" font-weight="600">ELEC</text>
+                </g>
+            ';
+            break;
+            
+        case 'solutions-digitales':
+            // 3D Isometric building model (BIM wireframe)
+            $drawing = '
+                <!-- Base Grid (Isometric) -->
+                <path d="M40,80 L100,110 L160,80" stroke="rgba(16,185,129,0.15)" stroke-width="0.5" fill="none" />
+                <path d="M40,80 L100,50 L160,80" stroke="rgba(16,185,129,0.15)" stroke-width="0.5" fill="none" />
+                
+                <!-- Box Left Face -->
+                <polygon points="60,95 100,115 100,65 60,45" stroke="#10B981" stroke-width="1.5" fill="rgba(16,185,129,0.05)" />
+                <!-- Box Right Face -->
+                <polygon points="100,115 140,95 140,45 100,65" stroke="#10B981" stroke-width="1.5" fill="rgba(16,185,129,0.05)" />
+                <!-- Box Top Face -->
+                <polygon points="60,45 100,65 140,45 100,25" stroke="#34D399" stroke-width="1" fill="rgba(52,211,153,0.05)" />
+                
+                <!-- Internal structural lines -->
+                <line x1="60" y1="45" x2="100" y2="115" stroke="rgba(52,211,153,0.3)" stroke-width="0.5" />
+                <line x1="140" y1="45" x2="100" y2="115" stroke="rgba(52,211,153,0.3)" stroke-width="0.5" />
+                
+                <!-- Joint dots -->
+                <circle cx="60" cy="45" r="2.5" fill="#34D399" />
+                <circle cx="100" cy="25" r="2.5" fill="#34D399" />
+                <circle cx="140" cy="45" r="2.5" fill="#34D399" />
+                <circle cx="100" cy="65" r="2.5" fill="#10B981" />
+                <circle cx="60" cy="95" r="2.5" fill="#10B981" />
+                <circle cx="100" cy="115" r="2.5" fill="#10B981" />
+                <circle cx="140" cy="95" r="2.5" fill="#10B981" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <!-- Coordinate info tag -->
+                    <rect x="5" y="10" width="45" height="15" rx="2" stroke="#10B981" stroke-width="0.75" fill="rgba(16,185,129,0.1)" />
+                    <text x="10" y="20" fill="#334155" font-size="6" font-family="monospace" font-weight="600">BIM-MOD</text>
+                    
+                    <text x="145" y="30" fill="#334155" font-size="6" font-family="monospace" font-weight="600">X: 124.0</text>
+                    <text x="145" y="38" fill="#334155" font-size="6" font-family="monospace" font-weight="600">Y: 285.5</text>
+                    <text x="145" y="46" fill="#334155" font-size="6" font-family="monospace" font-weight="600">Z:  98.1</text>
+                </g>
+            ';
+            break;
+            
+        case 'gestion-de-projet-opc':
+            // Planning Gantt / Compas de dessin
+            $drawing = '
+                <!-- Gantt Rows -->
+                <rect x="30" y="25" width="45" height="8" rx="2" fill="#10B981" />
+                <rect x="80" y="38" width="55" height="8" rx="2" fill="#34D399" />
+                <rect x="140" y="51" width="30" height="8" rx="2" fill="#059669" />
+                
+                <!-- dependency arrow line -->
+                <path d="M75,29 L78,29 L78,42 L80,42" stroke="rgba(16,185,129,0.5)" stroke-width="0.75" fill="none" />
+                <path d="M135,42 L138,42 L138,55 L140,55" stroke="rgba(16,185,129,0.5)" stroke-width="0.75" fill="none" />
+                
+                <!-- Timeline divider lines (Gantt background grid) -->
+                <line x1="30" y1="18" x2="30" y2="70" stroke="rgba(16,185,129,0.1)" stroke-width="0.5" />
+                <line x1="80" y1="18" x2="80" y2="70" stroke="rgba(16,185,129,0.1)" stroke-width="0.5" />
+                <line x1="140" y1="18" x2="140" y2="70" stroke="rgba(16,185,129,0.1)" stroke-width="0.5" />
+                
+                <!-- Compass Overlay -->
+                <!-- Pivot leg -->
+                <line x1="90" y1="115" x2="90" y2="85" stroke="rgba(16,185,129,0.5)" stroke-width="1.5" />
+                <!-- Pen leg -->
+                <line x1="90" y1="85" x2="135" y2="105" stroke="rgba(16,185,129,0.5)" stroke-width="1.5" />
+                <circle cx="90" cy="85" r="2.5" fill="#10B981" />
+                
+                <!-- Arc drawn by compass -->
+                <path d="M110,115 A45,45 0 0,1 135,105" stroke="#10B981" stroke-width="1" stroke-dasharray="3 3" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <line x1="95" y1="15" x2="95" y2="70" stroke="#10B981" stroke-width="0.75" />
+                    <polygon points="92,15 98,15 95,19" fill="#10B981" />
+                    <text x="100" y="27" fill="#334155" font-size="7" font-family="monospace" font-weight="600">J45: Valide</text>
+                    
+                    <text x="30" y="12" fill="#334155" font-size="7" font-family="monospace" font-weight="600">W1</text>
+                    <text x="80" y="12" fill="#334155" font-size="7" font-family="monospace" font-weight="600">W2</text>
+                    <text x="140" y="12" fill="#334155" font-size="7" font-family="monospace" font-weight="600">W3</text>
+                </g>
+            ';
+            break;
+            
+        default:
+            // Plan d'architecte (Plan de sol)
+            $drawing = '
+                <!-- Outer Walls -->
+                <rect x="35" y="20" width="130" height="95" stroke="#10B981" stroke-width="2" fill="none" />
+                <!-- Inner Partition Wall -->
+                <line x1="95" y1="20" x2="95" y2="115" stroke="#10B981" stroke-width="1.5" />
+                <line x1="95" y1="70" x2="165" y2="70" stroke="#10B981" stroke-width="1.5" />
+                
+                <!-- Door swing -->
+                <path d="M95,50 A20,20 0 0,1 75,70" stroke="#34D399" stroke-width="1" fill="none" />
+                <line x1="95" y1="50" x2="95" y2="70" stroke="#34D399" stroke-width="1" />
+                <line x1="95" y1="70" x2="75" y2="70" stroke="#34D399" stroke-width="1" />
+
+                <!-- Annotations -->
+                <g class="tech-annotation">
+                    <text x="65" y="45" fill="#ffffff" font-size="7" font-family="monospace" font-weight="600" text-anchor="middle">S1</text>
+                    <text x="130" y="45" fill="#ffffff" font-size="7" font-family="monospace" font-weight="600" text-anchor="middle">S2</text>
+                    <text x="130" y="95" fill="#ffffff" font-size="7" font-family="monospace" font-weight="600" text-anchor="middle">S3</text>
+                    <text x="100" y="130" fill="#ffffff" font-size="8" font-family="monospace" font-weight="600" text-anchor="middle">S_Total = 85.50m²</text>
+                </g>
+            ';
+            break;
+    }
+    
+    return $svg_start . $svg_common . $drawing . $svg_end;
+}
+
 ?>
 
 <!-- Hero Carousel Start -->
@@ -43,7 +330,62 @@ get_header();
 </style>
 <div class="owl-carousel hero-carousel position-relative">
     <?php
-    $slides_content = [
+    $slides_query = new WP_Query([
+        'post_type'      => 'hero_slide',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC'
+    ]);
+    
+    $slides_content = [];
+    $slides_meta = [];
+    
+    if ($slides_query->have_posts()) {
+        $counter = 1;
+        while ($slides_query->have_posts()) {
+            $slides_query->the_post();
+            $badge_icon = get_post_meta(get_the_ID(), '_hero_badge_icon', true) ?: 'fa-hard-hat';
+            $badge_text = get_post_meta(get_the_ID(), '_hero_badge_text', true) ?: get_the_title();
+            $highlight_text = get_post_meta(get_the_ID(), '_hero_highlight_text', true);
+            $video_url = get_post_meta(get_the_ID(), '_hero_video_url', true);
+            $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: '';
+            
+            $btn1_text = get_post_meta(get_the_ID(), '_hero_btn1_text', true) ?: __('Découvrir', 'gloservices');
+            $btn1_url = get_post_meta(get_the_ID(), '_hero_btn1_url', true) ?: home_url('/about');
+            $btn2_text = get_post_meta(get_the_ID(), '_hero_btn2_text', true) ?: __('Nous contacter', 'gloservices');
+            $btn2_url = get_post_meta(get_the_ID(), '_hero_btn2_url', true) ?: home_url('/contact');
+            
+            $slides_content[$counter] = [
+                'badge_icon' => $badge_icon,
+                'badge_text_fr' => $badge_text,
+                'badge_text_en' => $badge_text,
+                'badge_text_ar' => $badge_text,
+                'title_fr' => get_the_title(),
+                'title_en' => get_the_title(),
+                'title_ar' => get_the_title(),
+                'highlight_fr' => $highlight_text,
+                'highlight_en' => $highlight_text,
+                'highlight_ar' => $highlight_text,
+                'desc_fr' => get_the_excerpt(),
+                'desc_en' => get_the_excerpt(),
+                'desc_ar' => get_the_excerpt(),
+            ];
+            
+            $slides_meta[$counter] = [
+                'video_url' => $video_url,
+                'image_url' => $image_url,
+                'is_video'  => !empty($video_url),
+                'btn1_text' => $btn1_text,
+                'btn1_url'  => $btn1_url,
+                'btn2_text' => $btn2_text,
+                'btn2_url'  => $btn2_url,
+            ];
+            $counter++;
+        }
+        wp_reset_postdata();
+    } else {
+        // Fallback static array
+        $slides_content = [
         1 => [
             'badge_icon' => 'fa-hard-hat',
             'badge_text_fr' => 'Bureau d\'études BTP',
@@ -93,13 +435,30 @@ get_header();
             'desc_ar' => 'أكثر من عقد من الخبرة في الهندسة المدنية والهياكل والمرافق وإدارة المشاريع لإنجازات متميزة.',
             'anim_class' => 'fadeInLeft',
         ],
-    ];
+        ];
+    }
     
-    for ($i = 1; $i <= 3; $i++) : 
-        $video_url = esc_url(get_template_directory_uri() . '/assets/video/carousel-' . $i . '.mp4');
-        $image_url = esc_url(get_template_directory_uri() . '/assets/img/carousel-' . $i . '.jpg');
-        $is_video = ($i === 1);
+    $total_slides = count($slides_content);
+    for ($i = 1; $i <= $total_slides; $i++) : 
         $slide = $slides_content[$i];
+        if (!empty($slides_meta)) {
+            $meta = $slides_meta[$i];
+            $video_url = $meta['video_url'];
+            $image_url = $meta['image_url'];
+            $is_video  = $meta['is_video'];
+            $btn1_text = $meta['btn1_text'];
+            $btn1_url  = $meta['btn1_url'];
+            $btn2_text = $meta['btn2_text'];
+            $btn2_url  = $meta['btn2_url'];
+        } else {
+            $video_url = esc_url(get_template_directory_uri() . '/assets/video/carousel-' . $i . '.mp4');
+            $image_url = esc_url(get_template_directory_uri() . '/assets/img/carousel-' . $i . '.jpg');
+            $is_video = ($i === 1);
+            $btn1_text = __('Découvrir', 'gloservices');
+            $btn1_url  = home_url('/about');
+            $btn2_text = __('Nous contacter', 'gloservices');
+            $btn2_url  = home_url('/contact');
+        }
     ?>
     <div class="hero-slide position-relative" data-dot="<?php if ($is_video) : ?><video src='<?php echo $video_url; ?>#t=0.1' muted playsinline preload='metadata'></video><?php else : ?><img src='<?php echo $image_url; ?>' alt='Slide <?php echo $i; ?>'><?php endif; ?>" <?php if ($is_video) : ?>data-video-src="<?php echo $video_url; ?>"<?php endif; ?> data-slide-index="<?php echo $i; ?>">
         <?php if ($is_video) : ?>
@@ -112,13 +471,14 @@ get_header();
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-10 col-lg-8 hero-content">
-                    <div class="hero-badge wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="hero-badge">
                         <i class="fas <?php echo esc_attr($slide['badge_icon']); ?>"></i>
                         <span class="badge-text" data-fr="<?php echo esc_attr($slide['badge_text_fr']); ?>" data-en="<?php echo esc_attr($slide['badge_text_en']); ?>" data-ar="<?php echo esc_attr($slide['badge_text_ar']); ?>">
                             <?php echo esc_html(gloservices_translate($slide['badge_text_fr'])); ?>
                         </span>
                     </div>
-                    <h1 class="wow <?php echo esc_attr($slide['anim_class']); ?>" data-wow-delay="0.3s">
+                    <?php $hero_tag = ($i === 1) ? 'h1' : 'h2'; ?>
+                    <<?php echo $hero_tag; ?> class="hero-title h1">
                         <span class="title-text" data-fr="<?php echo esc_attr($slide['title_fr']); ?>" data-en="<?php echo esc_attr($slide['title_en']); ?>" data-ar="<?php echo esc_attr($slide['title_ar']); ?>">
                             <?php echo esc_html(gloservices_translate($slide['title_fr'])); ?>
                         </span>
@@ -126,15 +486,15 @@ get_header();
                         <span class="highlight highlight-text" data-fr="<?php echo esc_attr($slide['highlight_fr']); ?>" data-en="<?php echo esc_attr($slide['highlight_en']); ?>" data-ar="<?php echo esc_attr($slide['highlight_ar']); ?>">
                             <?php echo esc_html(gloservices_translate($slide['highlight_fr'])); ?>
                         </span>
-                    </h1>
-                    <p class="wow fadeInUp" data-wow-delay="0.4s">
+                    </<?php echo $hero_tag; ?>>
+                    <p>
                         <span class="desc-text" data-fr="<?php echo esc_attr($slide['desc_fr']); ?>" data-en="<?php echo esc_attr($slide['desc_en']); ?>" data-ar="<?php echo esc_attr($slide['desc_ar']); ?>">
                             <?php echo esc_html(gloservices_translate($slide['desc_fr'])); ?>
                         </span>
                     </p>
-                    <div class="hero-buttons wow fadeInUp" data-wow-delay="0.5s">
-                        <a href="<?php echo esc_url(home_url('/about')); ?>" class="btn btn-primary"><?php _e('Découvrir', 'gloservices'); ?> <i class="fas fa-arrow-right"></i></a>
-                        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-outline"><?php _e('Nous contacter', 'gloservices'); ?></a>
+                    <div class="hero-buttons">
+                        <a href="<?php echo esc_url($btn1_url); ?>" class="btn btn-primary"><?php echo esc_html($btn1_text); ?> <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?php echo esc_url($btn2_url); ?>" class="btn btn-outline"><?php echo esc_html($btn2_text); ?></a>
                     </div>
                 </div>
             </div>
@@ -181,7 +541,7 @@ get_header();
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 ps-lg-0 d-flex flex-column align-self-stretch wow slideInLeft" data-wow-delay="0.1s" style="min-height: 500px; padding: 20px;">
                 <div class="position-relative flex-grow-1" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" style="object-fit: cover;" alt="">
+                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" style="object-fit: cover;" alt="<?php esc_attr_e('Bureau d\'études BTP Globuild Rabat', 'gloservices'); ?>" loading="lazy">
                 </div>
             </div>
             <div class="col-lg-6 about-text py-5 wow slideInLeft" data-wow-delay="0.1s">
@@ -201,13 +561,50 @@ get_header();
 <!-- About End -->
 
 <!-- Service Start -->
-<div class="container-fluid services py-5">
-    <div class="container">
+<div class="services-blueprint">
+    <!-- Blueprint grid background -->
+    <div class="blueprint-grid"></div>
+
+    <!-- Decorative architectural SVG elements -->
+    <div class="blueprint-decorations">
+        <!-- Protractor / compass arc (top-right) -->
+        <svg class="deco-protractor" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0" cy="200" r="160" stroke="rgba(16,185,129,0.12)" stroke-width="0.5" stroke-dasharray="4 6"/>
+            <circle cx="0" cy="200" r="120" stroke="rgba(16,185,129,0.08)" stroke-width="0.5" stroke-dasharray="2 4"/>
+            <circle cx="0" cy="200" r="80" stroke="rgba(16,185,129,0.06)" stroke-width="0.5"/>
+            <?php for ($a = 0; $a <= 90; $a += 15) : $rad = deg2rad($a); $x1 = cos($rad)*155; $y1 = 200-sin($rad)*155; $x2 = cos($rad)*165; $y2 = 200-sin($rad)*165; ?>
+            <line x1="<?php echo $x1; ?>" y1="<?php echo $y1; ?>" x2="<?php echo $x2; ?>" y2="<?php echo $y2; ?>" stroke="rgba(16,185,129,0.15)" stroke-width="0.5"/>
+            <?php endfor; ?>
+        </svg>
+
+        <!-- Dimension lines (bottom-left) -->
+        <svg class="deco-dimensions" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="180" x2="280" y2="180" stroke="rgba(16,185,129,0.1)" stroke-width="0.5" stroke-dasharray="6 3"/>
+            <line x1="20" y1="175" x2="20" y2="185" stroke="rgba(16,185,129,0.15)" stroke-width="0.5"/>
+            <line x1="280" y1="175" x2="280" y2="185" stroke="rgba(16,185,129,0.15)" stroke-width="0.5"/>
+            <line x1="40" y1="40" x2="40" y2="160" stroke="rgba(16,185,129,0.08)" stroke-width="0.5" stroke-dasharray="4 4"/>
+            <line x1="35" y1="40" x2="45" y2="40" stroke="rgba(16,185,129,0.12)" stroke-width="0.5"/>
+            <line x1="35" y1="160" x2="45" y2="160" stroke="rgba(16,185,129,0.12)" stroke-width="0.5"/>
+        </svg>
+
+        <!-- Crosshairs scattered -->
+        <svg class="deco-cross deco-cross-1" viewBox="0 0 20 20" fill="none"><line x1="10" y1="0" x2="10" y2="20" stroke="rgba(16,185,129,0.15)" stroke-width="0.5"/><line x1="0" y1="10" x2="20" y2="10" stroke="rgba(16,185,129,0.15)" stroke-width="0.5"/><circle cx="10" cy="10" r="4" stroke="rgba(16,185,129,0.1)" stroke-width="0.5"/></svg>
+        <svg class="deco-cross deco-cross-2" viewBox="0 0 20 20" fill="none"><line x1="10" y1="0" x2="10" y2="20" stroke="rgba(16,185,129,0.12)" stroke-width="0.5"/><line x1="0" y1="10" x2="20" y2="10" stroke="rgba(16,185,129,0.12)" stroke-width="0.5"/><circle cx="10" cy="10" r="4" stroke="rgba(16,185,129,0.08)" stroke-width="0.5"/></svg>
+        <svg class="deco-cross deco-cross-3" viewBox="0 0 20 20" fill="none"><line x1="10" y1="0" x2="10" y2="20" stroke="rgba(16,185,129,0.1)" stroke-width="0.5"/><line x1="0" y1="10" x2="20" y2="10" stroke="rgba(16,185,129,0.1)" stroke-width="0.5"/><circle cx="10" cy="10" r="4" stroke="rgba(16,185,129,0.07)" stroke-width="0.5"/></svg>
+
+        <!-- Angle mark (mid-left) -->
+        <svg class="deco-angle" viewBox="0 0 100 100" fill="none">
+            <path d="M10 90 L10 30 L70 90" stroke="rgba(16,185,129,0.1)" stroke-width="0.5" fill="none"/>
+            <path d="M10 70 A20 20 0 0 1 30 90" stroke="rgba(16,185,129,0.15)" stroke-width="0.5" fill="none"/>
+        </svg>
+    </div>
+
+    <div class="container position-relative" style="z-index: 2;">
         <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <span class="section-badge"><?php _e('SERVICES & EXPERTISE', 'gloservices'); ?></span>
-            <h2 class="section-main-title mb-4"><?php _e('L\'alliance de l\'ingénierie de précision et de l\'innovation digitale', 'gloservices'); ?></h2>
+            <span class="blueprint-badge"><i class="fas fa-drafting-compass me-2"></i><?php _e('SERVICES & EXPERTISE', 'gloservices'); ?></span>
+            <h2 class="blueprint-title mb-4"><?php _e('L\'alliance de l\'ingénierie de précision et de l\'innovation digitale', 'gloservices'); ?></h2>
         </div>
-        <div class="services-grid-bento">
+        <div class="services-archi-grid">
             <?php
             $services_query = new WP_Query([
                 'post_type'      => 'service',
@@ -215,22 +612,41 @@ get_header();
             ]);
 
             if ($services_query->have_posts()) :
-                $delays = ['0.1s', '0.3s', '0.5s', '0.1s', '0.3s', '0.5s'];
+                $delays = ['0.1s', '0.2s', '0.3s', '0.15s', '0.25s', '0.35s'];
                 $counter = 0;
                 while ($services_query->have_posts()) : $services_query->the_post();
-                    $icon = get_post_meta(get_the_ID(), '_service_icon', true) ?: 'fas fa-road';
-                    $is_featured = ($counter === 1 || $counter === 2 || $counter === 5);
-                    $bento_class = $is_featured ? 'service-card-bento featured' : 'service-card-bento';
             ?>
-                <div class="<?php echo esc_attr($bento_class); ?> wow fadeInUp" data-wow-delay="<?php echo esc_attr($delays[$counter % 6]); ?>">
-                    <div class="icon-wrap">
-                        <i class="<?php echo esc_attr($icon); ?>"></i>
+                <div class="service-archi-card wow fadeInUp" data-wow-delay="<?php echo esc_attr($delays[$counter % 6]); ?>">
+                    <!-- Accent line top -->
+                    <div class="archi-card-accent"></div>
+
+                    <!-- Drawing Canvas instead of icon -->
+                    <div class="archi-drawing-canvas">
+                        <?php 
+                        $service_post_id = get_the_ID();
+                        $service_slug = get_post_field('post_name');
+                        if (function_exists('pll_get_post')) {
+                            $fr_post_id = pll_get_post($service_post_id, 'fr');
+                            if ($fr_post_id) {
+                                $service_slug = get_post_field('post_name', $fr_post_id);
+                            }
+                        }
+                        echo gloservices_get_service_drawing($service_slug); 
+                        ?>
                     </div>
-                    <div class="card-content">
+
+                    <!-- Content -->
+                    <div class="archi-card-content">
                         <h4><?php the_title(); ?></h4>
-                        <p><?php echo wp_trim_words(get_the_excerpt(), $is_featured ? 30 : 18); ?></p>
-                        <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e('Lire la suite', 'gloservices'); ?><i class="fa fa-arrow-right ms-2"></i></a>
+                        <p><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                        <a class="archi-learn-more" href="<?php the_permalink(); ?>"><?php _e('Lire la suite', 'gloservices'); ?> <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
+
+                    <!-- Technical corner marks -->
+                    <div class="corner-mark corner-tl"></div>
+                    <div class="corner-mark corner-tr"></div>
+                    <div class="corner-mark corner-bl"></div>
+                    <div class="corner-mark corner-br"></div>
                 </div>
             <?php
                     $counter++;
@@ -238,27 +654,33 @@ get_header();
                 wp_reset_postdata();
             else :
                 $static_services = [
-                    ['infrastructures_service', 'infrastructures_desc', 'fas fa-road'],
-                    ['ouvrages_art_service', 'ouvrages_art_desc', 'fas fa-drafting-compass'],
-                    ['batiments_service', 'batiments_desc', 'fas fa-building'],
-                    ['vrd_service', 'vrd_desc', 'fas fa-city'],
-                    ['solutions_digitales_service', 'solutions_digitales_desc', 'fas fa-laptop-code'],
-                    ['gestion_projet_service', 'gestion_projet_desc', 'fas fa-tasks'],
+                    ['infrastructures_service', 'infrastructures_desc', 'infrastructures'],
+                    ['ouvrages_art_service', 'ouvrages_art_desc', 'ouvrages-dart'],
+                    ['batiments_service', 'batiments_desc', 'batiments'],
+                    ['vrd_service', 'vrd_desc', 'voirie-reseaux-divers'],
+                    ['solutions_digitales_service', 'solutions_digitales_desc', 'solutions-digitales'],
+                    ['gestion_projet_service', 'gestion_projet_desc', 'gestion-de-projet-opc'],
                 ];
-                $delays = ['0.1s', '0.3s', '0.5s', '0.1s', '0.3s', '0.5s'];
+                $delays = ['0.1s', '0.2s', '0.3s', '0.15s', '0.25s', '0.35s'];
                 foreach ($static_services as $idx => $service) :
-                    $is_featured = ($idx === 1 || $idx === 2 || $idx === 5);
-                    $bento_class = $is_featured ? 'service-card-bento featured' : 'service-card-bento';
             ?>
-                <div class="<?php echo esc_attr($bento_class); ?> wow fadeInUp" data-wow-delay="<?php echo esc_attr($delays[$idx]); ?>">
-                    <div class="icon-wrap">
-                        <i class="<?php echo esc_attr($service[2]); ?>"></i>
+                <div class="service-archi-card wow fadeInUp" data-wow-delay="<?php echo esc_attr($delays[$idx]); ?>">
+                    <div class="archi-card-accent"></div>
+                    
+                    <!-- Drawing Canvas instead of icon -->
+                    <div class="archi-drawing-canvas">
+                        <?php echo gloservices_get_service_drawing($service[2]); ?>
                     </div>
-                    <div class="card-content">
+                    
+                    <div class="archi-card-content">
                         <h4><?php _e($service[0], 'gloservices'); ?></h4>
                         <p><?php _e($service[1], 'gloservices'); ?></p>
-                        <a class="learn-more" href="<?php echo esc_url(home_url('/contact')); ?>"><?php _e('Lire la suite', 'gloservices'); ?><i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="archi-learn-more" href="<?php echo esc_url(home_url('/contact')); ?>"><?php _e('Lire la suite', 'gloservices'); ?> <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
+                    <div class="corner-mark corner-tl"></div>
+                    <div class="corner-mark corner-tr"></div>
+                    <div class="corner-mark corner-bl"></div>
+                    <div class="corner-mark corner-br"></div>
                 </div>
             <?php
                 endforeach;
@@ -329,7 +751,7 @@ get_header();
             </div>
             <div class="col-lg-6 pe-lg-0 d-flex flex-column align-self-stretch wow slideInRight" data-wow-delay="0.1s" style="min-height: 500px; padding: 20px;">
                 <div class="position-relative flex-grow-1" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" style="object-fit: cover;" alt="">
+                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" style="object-fit: cover;" alt="<?php esc_attr_e('Ingénierie de précision et solutions BTP Globuild', 'gloservices'); ?>" loading="lazy">
                 </div>
             </div>
         </div>
@@ -344,13 +766,13 @@ get_header();
             <span class="section-badge"><?php _e('RÉALISATIONS', 'gloservices'); ?></span>
             <h2 class="section-main-title mb-4"><?php _e('Des projets d\'envergure menés avec rigueur et excellence', 'gloservices'); ?></h2>
         </div>
-        <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="row mb-5 wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-12 text-center">
-                <ul class="list-inline mb-5" id="portfolio-flters">
-                    <li class="mx-2 active" data-filter="*"><?php _e('Tous', 'gloservices'); ?></li>
-                    <li class="mx-2" data-filter=".first"><?php _e('Solution Numérique', 'gloservices'); ?></li>
-                    <li class="mx-2" data-filter=".second"><?php _e('Développement Urbain', 'gloservices'); ?></li>
-                    <li class="mx-2" data-filter=".third"><?php _e('Infrastructures Routières', 'gloservices'); ?></li>
+                <ul class="list-inline mb-0" id="portfolio-flters">
+                    <li class="active" data-filter="*"><i class="fas fa-layer-group me-2"></i><?php _e('Tous les projets', 'gloservices'); ?></li>
+                    <li data-filter=".first"><i class="fas fa-laptop-code me-2"></i><?php _e('Solution Numérique', 'gloservices'); ?></li>
+                    <li data-filter=".second"><i class="fas fa-city me-2"></i><?php _e('Développement Urbain', 'gloservices'); ?></li>
+                    <li data-filter=".third"><i class="fas fa-road me-2"></i><?php _e('Infrastructures Routières', 'gloservices'); ?></li>
                 </ul>
             </div>
         </div>
@@ -555,7 +977,7 @@ get_header();
     <div class="container">
         <div class="quote-card">
             <div class="quote-image">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg" alt="">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg" alt="<?php esc_attr_e('Demande de devis projet ingénierie Globuild', 'gloservices'); ?>" loading="lazy">
             </div>
             <div class="quote-form-wrap">
                 <div class="quote-tag"><i class="fa fa-file-invoice"></i> <?php _e('Devis Gratuit', 'gloservices'); ?></div>

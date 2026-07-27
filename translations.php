@@ -92,8 +92,10 @@ function gloservices_get_translations($lang = 'fr') {
 
         // ===== PROJECTS =====
         'RÉALISATIONS' => array('en' => 'Portfolio', 'ar' => 'إنجازاتنا'),
+        'RÉALISATIONS & RÉFÉRENCES' => array('en' => 'PROJECTS & REFERENCES', 'ar' => 'الإنجازات والمراجع'),
         'Nos Projets' => array('en' => 'Our Projects', 'ar' => 'مشاريعنا'),
         'Des projets d\'envergure menés avec rigueur et excellence' => array('en' => 'Major projects executed with rigor and excellence', 'ar' => 'مشاريع كبرى تم تنفيذها بدقة وتميز'),
+        'Découvrez nos références majeures en génie civil, infrastructures routières, ouvrages d\'art et solutions numériques BTP.' => array('en' => 'Discover our major references in civil engineering, road infrastructure, engineering structures, and digital construction solutions.', 'ar' => 'اكتشف أبرز مراجعنا في الهندسة المدنية، البنية التحتية الطرقية، المنشآت الفنية والحلول الرقمية للبناء.'),
         'Découvrez Nos Projets en Ingénierie Civile et Solutions Numériques' => array('en' => 'Discover Our Civil Engineering and Digital Solutions Projects', 'ar' => 'اكتشف مشاريعنا في الهندسة المدنية والحلول الرقمية'),
         'Client :' => array('en' => 'Client:', 'ar' => 'الزبون:'),
         'Année :' => array('en' => 'Year:', 'ar' => 'السنة:'),
@@ -160,7 +162,39 @@ function gloservices_get_translations($lang = 'fr') {
         'Croissance maîtrisée au service de la vision et des valeurs de Gloservices INGENIERIE' => array('en' => 'Controlled growth serving the vision and values of Gloservices INGENIERIE', 'ar' => 'نمو مضبوط في خدمة رؤية وقيم غلوسيرفسيس'),
         'Curiosité et créativité pour proposer des solutions techniques ou méthodologiques innovantes' => array('en' => 'Curiosity and creativity to offer innovative technical or methodological solutions', 'ar' => 'الفضول والإبداع لتقديم حلول تقنية أو منهجية مبتكرة'),
         'Un environnement de travail en cohérence avec nos valeurs' => array('en' => 'A work environment consistent with our values', 'ar' => 'بيئة عمل متسقة مع قيمنا'),
+        
+        // ===== NOTRE APPROCHE =====
+        'Notre Approche' => array('en' => 'Our Approach', 'ar' => 'نهجنا'),
+        'Une méthodologie rigoureuse pour vos projets' => array('en' => 'A Rigorous Methodology for Your Projects', 'ar' => 'منهجية صارمة لمشاريعكم'),
+        '1/' => array('en' => '1/', 'ar' => '١/'),
+        '2/' => array('en' => '2/', 'ar' => '٢/'),
+        '3/' => array('en' => '3/', 'ar' => '٣/'),
+        '4/' => array('en' => '4/', 'ar' => '٤/'),
+        'ÉTUDES & INVESTIGATIONS' => array('en' => 'STUDIES & INVESTIGATIONS', 'ar' => 'الدراسات والتحقيقات'),
+        'Analyse approfondie du site, études de faisabilité techniques et environnementales, et investigations géotechniques préalables.' => array('en' => 'In-depth site analysis, technical and environmental feasibility studies, and prior geotechnical investigations.', 'ar' => 'تحليل عميق للموقع، دراسات الجدوى التقنية والبيئية، والتحقيقات الجيوتقنية الأولية.'),
+        'CONCEPTION TECHNIQUE' => array('en' => 'TECHNICAL DESIGN', 'ar' => 'التصميم التقني'),
+        'Élaboration des avant-projets (APS/APD), calculs de structures détaillés, métrés estimatifs et établissement des dossiers de consultation.' => array('en' => 'Preparation of preliminary designs (APS/APD), detailed structural calculations, quantity estimates, and tender documentation.', 'ar' => 'إعداد التصاميم الأولية والتفصيلية، الحسابات الهيكلية الدقيقة، حساب الكميات وإعداد ملفات الاستشارة.'),
+        'RÉALISATION & SUIVI' => array('en' => 'EXECUTION & MONITORING', 'ar' => 'التنفيذ والمتابعة'),
+        'Assistance technique au maître d\'ouvrage, suivi rigoureux de l\'exécution des travaux de construction et coordination de chantier.' => array('en' => 'Technical assistance to project owner, rigorous monitoring of construction works execution, and site coordination.', 'ar' => 'المساعدة التقنية لصاحب المشروع، المتابعة الدقيقة لتنفيذ الأشغال وتنسيق الموقع.'),
+        'RÉCEPTION DES OUVRAGES' => array('en' => 'PROJECT RECEPTION', 'ar' => 'استلام المنشآت'),
+        'Contrôle final de conformité réglementaire, assistance lors des opérations préalables à la réception et mise en service des installations.' => array('en' => 'Final regulatory compliance check, assistance during pre-reception operations, and commissioning of facilities.', 'ar' => 'المراقبة النهائية للمطابقة التنظيمية، المساعدة في عمليات الاستلام والأشغال والتسليم.'),
+        'Personnalisé' => array('en' => 'Customized', 'ar' => 'مخصص'),
+        'Réactif' => array('en' => 'Responsive', 'ar' => 'سريع الاستجابة'),
+        'Qualité' => array('en' => 'Quality', 'ar' => 'الجودة'),
+        'Optimisation' => array('en' => 'Optimization', 'ar' => 'التحسين'),
+
         'Nos Engagements :' => array('en' => 'Our Commitments:', 'ar' => 'التزاماتنا:'),
+        'Nos Engagements' => array('en' => 'Our Commitments', 'ar' => 'التزاماتنا'),
+        'Garantir la performance, la sécurité et la durabilité' => array('en' => 'Ensuring Performance, Safety, and Sustainability', 'ar' => 'ضمان الأداء والأمان والاستدامة'),
+        'Les piliers fondamentaux qui guident l\'ensemble de nos interventions d\'ingénierie et de conseil BTP.' => array('en' => 'The fundamental pillars guiding all our engineering and construction consulting services.', 'ar' => 'الركائز الأساسية التي توجه جميع تدخلاتنا الهندسية والاستشارية في مجال البناء.'),
+        'Expertise Pluridisciplinaire' => array('en' => 'Multidisciplinary Expertise', 'ar' => 'خبرة متعددة التخصصات'),
+        'GLOBUILD combine des compétences variées en structures, VRD et bâtiment pour offrir des solutions complètes et pérennes.' => array('en' => 'GLOBUILD combines diverse skills in structures, utilities, and building to offer comprehensive and sustainable solutions.', 'ar' => 'تجمع غلوسيرفسيس بين مهارات متنوعة في الهياكل والطرق والمباني لتقديم حلول متكاملة ومستدامة.'),
+        'Innovation & Technologie' => array('en' => 'Innovation & Technology', 'ar' => 'الابتكار والتكنولوجيا'),
+        'Modélisation 3D avancée, outils de calcul de pointe et audits digitaux pour optimiser chaque phase de la conception.' => array('en' => 'Advanced 3D modeling, cutting-edge calculation tools, and digital audits to optimize every design phase.', 'ar' => 'نمذجة ثلاثية الأبعاد متقدمة وأدوات حسابية متطورة وتدقيق رقمي لتحسين كل مرحلة من مراحل التصميم.'),
+        'Respect des Délais & Budget' => array('en' => 'Deadline & Budget Compliance', 'ar' => 'احترام المواعيد والميزانية'),
+        'Planification rigoureuse et suivi continu pour assurer la livraison de vos ouvrages dans le strict respect de vos exigences.' => array('en' => 'Rigor plan and continuous monitoring to ensure the delivery of your projects in strict compliance with your requirements.', 'ar' => 'تخطيط دقيق ومتابعة مستمرة لضمان تسليم منشآتك مع الالتزام التام بمتطلباتك.'),
+        'Accompagnement & Éco-Conception' => array('en' => 'Tailored Support & Eco-Design', 'ar' => 'المواكبة والتصميم البيئي'),
+        'Présence proactive à vos côtés de la faisabilité au parfait achèvement, engagés envers la durabilité environnementale.' => array('en' => 'Proactive support by your side from feasibility to completion, committed to environmental sustainability.', 'ar' => 'تواجد استباقي بجانبكم من الجدوى حتى الإنجاز التام، مع الالتزام بالاستدامة البيئية.'),
         'Optimiser les coûts et améliorer la qualité' => array('en' => 'Optimize costs and improve quality', 'ar' => 'تحسين التكاليف ورفع الجودة'),
         'Offrir un service personnalisé' => array('en' => 'Offer personalized service', 'ar' => 'تقديم خدمة مخصصة'),
         'Respecter les délais' => array('en' => 'Respect deadlines', 'ar' => 'احترام المواعيد النهائية'),
@@ -168,6 +202,17 @@ function gloservices_get_translations($lang = 'fr') {
         'Efficacité' => array('en' => 'Efficiency', 'ar' => 'الكفاءة'),
         'Créativité' => array('en' => 'Creativity', 'ar' => 'الإبداع'),
         'Transparence' => array('en' => 'Transparency', 'ar' => 'الشفافية'),
+
+        // ===== TÉMOIGNAGES / TESTIMONIALS =====
+        'Témoignages' => array('en' => 'Testimonials', 'ar' => 'آراء العملاء'),
+        'Ce que disent nos partenaires' => array('en' => 'What Our Partners Say', 'ar' => 'ما يقوله شركاؤنا'),
+        'Promoteur immobilier' => array('en' => 'Real Estate Developer', 'ar' => 'منعش عقاري'),
+        'Chef de projet industriel' => array('en' => 'Industrial Project Manager', 'ar' => 'مدير مشروع صنعتی'),
+        'Directeur Technique' => array('en' => 'Technical Director', 'ar' => 'مدير تقني'),
+        'Partenaire' => array('en' => 'Partner', 'ar' => 'شريك'),
+        'GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !' => array('en' => 'GLOBUILD successfully transformed our vision into reality with incredible precision. Their multidisciplinary expertise and responsiveness made all the difference. A trusted partner for complex projects!', 'ar' => 'تمكنت غلوسيرفسيس من تحويل رؤيتنا إلى واقع بدقة مذهلة. خبرتهم متعددة التخصصات واستجابتهم السريعة أحدثت كل الفارق. شريك موثوق للمشاريع المعقدة!'),
+        'De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires.' => array('en' => 'From pre-project study to technical assistance on site, GLOBUILD professionalism guaranteed strict adherence to our budget and schedule constraints.', 'ar' => 'من دراسة ما قبل المشروع إلى المساعدة التقنية في الموقع، ضمنت احترافية غلوسيرفسيس الاحترام التام لقيودنا المالية والزمنية.'),
+        'Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux.' => array('en' => 'Exceptional tailored support. Their integrated multidisciplinary expertise effectively resolves complex technical interfaces between roads and networks.', 'ar' => 'مواكبة مخصصة واستثنائية. تتيح خبرتهم متعددة التخصصات حل التوافقات التقنية المعقدة بين الطرق والشبكات بفعالية.'),
 
         // ===== PAGE MOYEN =====
         'Nos Moyens' => array('en' => 'Our Resources', 'ar' => 'إمكانياتنا'),
@@ -255,6 +300,12 @@ function gloservices_get_translations($lang = 'fr') {
         'Message' => array('en' => 'Message', 'ar' => 'الرسالة'),
         'Envoyer le message' => array('en' => 'Send Message', 'ar' => 'إرسال الرسالة'),
         'Notre Emplacement' => array('en' => 'Our Location', 'ar' => 'موقعنا'),
+        'Téléphone' => array('en' => 'Phone', 'ar' => 'الهاتف'),
+        'E-mail' => array('en' => 'Email', 'ar' => 'البريد الإلكتروني'),
+        'Localisation' => array('en' => 'Location', 'ar' => 'الموقع'),
+        'Appelez-nous' => array('en' => 'Call us', 'ar' => 'اتصل بنا'),
+        'Écrivez-nous' => array('en' => 'Write to us', 'ar' => 'راسلنا'),
+        'Rendez-nous visite' => array('en' => 'Visit us', 'ar' => 'زورونا'),
 
         // ===== SINGLE PROJECT =====
         'Détails du Projet' => array('en' => 'Project Details', 'ar' => 'تفاصيل المشروع'),
@@ -814,6 +865,86 @@ function gloservices_get_translations($lang = 'fr') {
             }
         }
     }
+    $extra = array(
+        'Voir le projet' => array('en' => 'View Project', 'ar' => 'عرض المشروع'),
+        'Agrandir' => array('en' => 'Enlarge', 'ar' => 'تكبير'),
+        'Sidebar' => array('en' => 'Sidebar', 'ar' => 'الشريط الجانبي'),
+        'Widgets de la barre latérale.' => array('en' => 'Sidebar widgets.', 'ar' => 'مربعات الشريط الجانبي.'),
+        'Footer Colonne %d' => array('en' => 'Footer Column %d', 'ar' => 'تذييل العمود %d'),
+        'Widgets du footer, colonne %d.' => array('en' => 'Footer widgets, column %d.', 'ar' => 'مربعات التذييل، العمود %d.'),
+        'Projet' => array('en' => 'Project', 'ar' => 'المشروع'),
+        'Ajouter un projet' => array('en' => 'Add Project', 'ar' => 'إضافة مشروع'),
+        'Ajouter un nouveau projet' => array('en' => 'Add New Project', 'ar' => 'إضافة مشروع جديد'),
+        'Modifier le projet' => array('en' => 'Edit Project', 'ar' => 'تعديل المشروع'),
+        'Nouveau projet' => array('en' => 'New Project', 'ar' => 'مشروع جديد'),
+        'Rechercher des projets' => array('en' => 'Search Projects', 'ar' => 'البحث عن مشاريع'),
+        'Aucun projet trouvé' => array('en' => 'No projects found', 'ar' => 'لم يتم العثور على مشاريع'),
+        'Aucun projet dans la corbeille' => array('en' => 'No projects in trash', 'ar' => 'لا توجد مشاريع في سلة المهملات'),
+        'Ajouter un service' => array('en' => 'Add Service', 'ar' => 'إضافة خدمة'),
+        'Ajouter un nouveau service' => array('en' => 'Add New Service', 'ar' => 'إضافة خدمة جديدة'),
+        'Modifier le service' => array('en' => 'Edit Service', 'ar' => 'تعديل الخدمة'),
+        'Nouveau service' => array('en' => 'New Service', 'ar' => 'خدمة جديدة'),
+        'Voir le service' => array('en' => 'View Service', 'ar' => 'عرض الخدمة'),
+        'Rechercher des services' => array('en' => 'Search Services', 'ar' => 'البحث عن خدمات'),
+        'Aucun service trouvé' => array('en' => 'No services found', 'ar' => 'لم يتم العثور على خدمات'),
+        'Aucun service dans la corbeille' => array('en' => 'No services in trash', 'ar' => 'لا توجد خدمات في سلة المهملات'),
+        "L'équipe" => array('en' => 'The Team', 'ar' => 'الفريق'),
+        'Membre' => array('en' => 'Member', 'ar' => 'عضو'),
+        'Ajouter un membre' => array('en' => 'Add Member', 'ar' => 'إضافة عضو'),
+        'Ajouter un nouveau membre' => array('en' => 'Add New Member', 'ar' => 'إضافة عضو جديد'),
+        'Modifier le membre' => array('en' => 'Edit Member', 'ar' => 'تعديل العضو'),
+        'Nouveau membre' => array('en' => 'New Member', 'ar' => 'عضو جديد'),
+        'Voir le membre' => array('en' => 'View Member', 'ar' => 'عرض العضو'),
+        'Rechercher des membres' => array('en' => 'Search Members', 'ar' => 'البحث عن أعضاء'),
+        'Aucun membre trouvé' => array('en' => 'No members found', 'ar' => 'لم يتم العثور على أعضاء'),
+        'Aucun membre dans la corbeille' => array('en' => 'No members in trash', 'ar' => 'لا توجد أعضاء في سلة المهملات'),
+        'Catégories de projet' => array('en' => 'Project Categories', 'ar' => 'فئات المشاريع'),
+        'Catégorie' => array('en' => 'Category', 'ar' => 'الفئة'),
+        'Rechercher des catégories' => array('en' => 'Search Categories', 'ar' => 'البحث عن الفئات'),
+        'Toutes les catégories' => array('en' => 'All Categories', 'ar' => 'جميع الفئات'),
+        'Modifier la catégorie' => array('en' => 'Edit Category', 'ar' => 'تعديل الفئة'),
+        'Mettre à jour' => array('en' => 'Update', 'ar' => 'تحديث'),
+        'Ajouter une catégorie' => array('en' => 'Add Category', 'ar' => 'إضافة فئة'),
+        'Nouvelle catégorie' => array('en' => 'New Category', 'ar' => 'فئة جديدة'),
+        'Catégories' => array('en' => 'Categories', 'ar' => 'الفئات'),
+        'Informations du membre' => array('en' => 'Member Information', 'ar' => 'معلومات العضو'),
+        'Icône du service' => array('en' => 'Service Icon', 'ar' => 'أيقونة الخدمة'),
+        'Informations du projet' => array('en' => 'Project Information', 'ar' => 'معلومات المشروع'),
+        'Client' => array('en' => 'Client', 'ar' => 'العميل'),
+        'Année de réalisation' => array('en' => 'Year of Completion', 'ar' => 'سنة الإنجاز'),
+        'Budget / Coût' => array('en' => 'Budget / Cost', 'ar' => 'الميزانية / التكلفة'),
+        'Facebook URL' => array('en' => 'Facebook URL', 'ar' => 'رابط فيسبوك'),
+        'Twitter URL' => array('en' => 'Twitter URL', 'ar' => 'رابط تويتر'),
+        'Instagram URL' => array('en' => 'Instagram URL', 'ar' => 'رابط إنستغرام'),
+        'Icône Font Awesome' => array('en' => 'Font Awesome Icon', 'ar' => 'أيقونة فونت أوسم'),
+        'Ex: fa fa-road, fa fa-hard-hat, fa fa-lightbulb' => array('en' => 'Ex: fa fa-road, fa fa-hard-hat, fa fa-lightbulb', 'ar' => 'مثال: fa fa-road, fa fa-hard-hat, fa fa-lightbulb'),
+        'Gloservices Options' => array('en' => 'Gloservices Options', 'ar' => 'خيارات غلوسيرفيس'),
+        'Gloservices' => array('en' => 'Gloservices', 'ar' => 'غلوسيرفيس'),
+        'Gloservices - Options du thème' => array('en' => 'Gloservices - Theme Options', 'ar' => 'غلوسيرفيس - خيارات القالب'),
+        'Téléphone' => array('en' => 'Phone', 'ar' => 'الهاتف'),
+        'Email' => array('en' => 'Email', 'ar' => 'البريد الإلكتروني'),
+        'Adresse' => array('en' => 'Address', 'ar' => 'العنوان'),
+        'Heures d\'ouverture' => array('en' => 'Opening Hours', 'ar' => 'ساعات العمل'),
+        'LinkedIn URL' => array('en' => 'LinkedIn URL', 'ar' => 'رابط لينكد إن'),
+        'YouTube URL' => array('en' => 'YouTube URL', 'ar' => 'رابط يوتيوب'),
+        'Clients satisfaits' => array('en' => 'Satisfied Clients', 'ar' => 'العملاء الراضون'),
+        'Projets réalisés' => array('en' => 'Completed Projects', 'ar' => 'المشاريع المنجزة'),
+        'Travailleurs experts' => array('en' => 'Expert Workers', 'ar' => 'العمال الخبراء'),
+        'Les Faits' => array('en' => 'The Facts', 'ar' => 'الحقائق')
+    );
+
+    foreach ($extra as $key => $trans) {
+        if ($lang === 'fr') {
+            if (isset($trans['fr'])) {
+                $result[$key] = $trans['fr'];
+            }
+        } else {
+            if (isset($trans[$lang])) {
+                $result[$key] = $trans[$lang];
+            }
+        }
+    }
+
     return $result;
 }
 

@@ -95,7 +95,7 @@
                         <div class="col-4">
                             <a href="<?php the_permalink(); ?>" class="d-block">
                                 <div class="gallery-item-wrap overflow-hidden rounded">
-                                    <img class="img-fluid" src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>">
+                                    <img class="img-fluid" src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
                                 </div>
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                         <div class="col-4">
                             <a href="<?php echo esc_url(home_url('/projet')); ?>" class="d-block">
                                 <div class="gallery-item-wrap overflow-hidden rounded">
-                                    <img class="img-fluid" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/img-600x400-<?php echo $i; ?>.jpg" alt="Gallery <?php echo $i; ?>">
+                                    <img class="img-fluid" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/img-600x400-<?php echo $i; ?>.jpg" alt="Gallery <?php echo $i; ?>" loading="lazy">
                                 </div>
                             </a>
                         </div>

@@ -101,9 +101,12 @@ body.rtl .fa, body.rtl .fas, body.rtl .far, body.rtl .fab, body.rtl i {
 }
 body.rtl .moyen-list {
     padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 body.rtl .moyen-list li i {
-    transform: rotate(180deg) !important;
+    transform: none !important;
+    margin-left: 10px !important;
+    margin-right: 0 !important;
 }
 body.rtl .rounded {
     border-left: none !important;

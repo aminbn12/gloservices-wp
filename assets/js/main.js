@@ -1,5 +1,14 @@
 (function ($) {
-    "use strict";
+    // Safety guard to prevent invalid/undefined event handlers from crashing jQuery dispatch
+    if ($.event && $.event.add) {
+        var _origEventAdd = $.event.add;
+        $.event.add = function (elem, types, handler, data, selector) {
+            if (!handler || (typeof handler !== 'function' && typeof handler !== 'object')) {
+                return;
+            }
+            return _origEventAdd.apply(this, arguments);
+        };
+    }
 
     // Spinner
     var spinner = function () {
@@ -7,7 +16,7 @@
             if ($('#spinner').length > 0) {
                 $('#spinner').removeClass('show');
             }
-        }, 1);
+        }, 300);
     };
     spinner();
 
@@ -32,7 +41,56 @@
     $(window).scroll(stickyNavbar);
     stickyNavbar();
 
-    // Back to top button - increased timeout for homepage
+    // === LENIS ULTRA-FLUID HIGH-FPS SMOOTH SCROLL ===
+    var lenis;
+    if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+            duration: 1.5,
+            easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); },
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 0.85,
+            smoothTouch: false,
+            touchMultiplier: 1.5,
+            infinite: false
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Synchronize Lenis scroll with navbar and back-to-top
+        lenis.on('scroll', function (e) {
+            if (e.scroll > 50) {
+                navbar.addClass('scrolled');
+            } else {
+                navbar.removeClass('scrolled');
+            }
+
+            var btt = document.querySelector('.back-to-top');
+            if (btt) {
+                if (e.scroll > 100) {
+                    btt.classList.add('show');
+                } else {
+                    btt.classList.remove('show');
+                }
+            }
+        });
+
+        // Smooth scroll to anchor links using Lenis
+        $(document).on('click', 'a[href^="#"]:not([href="#"])', function (e) {
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                e.preventDefault();
+                lenis.scrollTo(target[0], { offset: -80, duration: 1.2 });
+            }
+        });
+    }
+
+    // Back to top button
     setTimeout(function() {
         var backToTop = document.querySelector('.back-to-top');
         
@@ -54,10 +112,14 @@
             // Smooth scroll to top
             backToTop.addEventListener('click', function (e) {
                 e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                if (lenis) {
+                    lenis.scrollTo(0, { duration: 1.2 });
+                } else {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
             });
         }
     }, 500);
@@ -68,8 +130,43 @@
         time: 2000
     });
 
-    // Hero carousel (full width)
-    $('.hero-carousel').owlCarousel({
+    // =========================================================
+    // Hero carousel (full width) with text animations
+    // =========================================================
+    var $heroCarousel = $('.hero-carousel');
+
+    /**
+     * Trigger hero text animation on the active slide.
+     * Removes the class first (resets animation), then re-adds on next frame
+     * so CSS @keyframes replay cleanly.
+     */
+    function triggerHeroAnim($carousel) {
+        var $activeItem = $carousel.find('.owl-item.active:not(.cloned)').first();
+        var $slide = $activeItem.find('.hero-slide');
+
+        if (!$slide.length) return;
+
+        // Reset all slides
+        $carousel.find('.hero-slide').removeClass('slide-anim-active');
+
+        // Force reflow on next two frames so animation restarts
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                $slide.addClass('slide-anim-active');
+            });
+        });
+    }
+
+    // Attach events BEFORE owlCarousel init so 'initialized' fires
+    $heroCarousel
+        .on('initialized.owl.carousel', function () {
+            triggerHeroAnim($(this));
+        })
+        .on('translated.owl.carousel', function () {
+            triggerHeroAnim($(this));
+        });
+
+    $heroCarousel.owlCarousel({
         loop: true,
         items: 1,
         autoplay: true,
@@ -84,6 +181,17 @@
             992: { dots: true }
         }
     });
+
+    // Fallback: ensure first slide animates even if 'initialized' was missed
+    setTimeout(function () {
+        if (!$heroCarousel.find('.hero-slide.slide-anim-active').length) {
+            triggerHeroAnim($heroCarousel);
+        }
+    }, 300);
+
+
+
+
 
     // Vendor carousel
     $('.vendor-carousel').owlCarousel({

@@ -22,6 +22,60 @@ get_header();
 </div>
 <!-- Page Header End -->
 
+<!-- Contact Info Cards Start -->
+<div class="container-xxl py-4">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <!-- Téléphone Card -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="contact-card bg-white rounded-3 p-4 text-center h-100 shadow-sm border border-light d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
+                    <div class="contact-icon-wrapper rounded-circle mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background-color: rgba(0, 114, 188, 0.1); color: var(--primary, #0072bc);">
+                        <i class="fas fa-phone-alt fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1"><?php echo esc_html(gloservices_translate('Téléphone')); ?></h5>
+                    <span class="text-muted small mb-3"><?php echo esc_html(gloservices_translate('Appelez-nous')); ?></span>
+                    <p class="mb-0 fs-6" dir="ltr">
+                        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', get_option('gloservices_phone', '+212 5 37 77 14 50'))); ?>" class="text-dark fw-bold text-decoration-none hover-primary">
+                            <?php echo esc_html(get_option('gloservices_phone', '+212 5 37 77 14 50')); ?>
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="contact-card bg-white rounded-3 p-4 text-center h-100 shadow-sm border border-light d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
+                    <div class="contact-icon-wrapper rounded-circle mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background-color: rgba(0, 114, 188, 0.1); color: var(--primary, #0072bc);">
+                        <i class="fas fa-envelope fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1"><?php echo esc_html(gloservices_translate('E-mail')); ?></h5>
+                    <span class="text-muted small mb-3"><?php echo esc_html(gloservices_translate('Écrivez-nous')); ?></span>
+                    <p class="mb-0 fs-6">
+                        <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@gloservices.ma')); ?>" class="text-dark fw-bold text-decoration-none hover-primary">
+                            <?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?>
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Localisation Card -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="contact-card bg-white rounded-3 p-4 text-center h-100 shadow-sm border border-light d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
+                    <div class="contact-icon-wrapper rounded-circle mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background-color: rgba(0, 114, 188, 0.1); color: var(--primary, #0072bc);">
+                        <i class="fas fa-map-marker-alt fs-3"></i>
+                    </div>
+                    <h5 class="fw-bold mb-1"><?php echo esc_html(gloservices_translate('Localisation')); ?></h5>
+                    <span class="text-muted small mb-3"><?php echo esc_html(gloservices_translate('Rendez-nous visite')); ?></span>
+                    <p class="mb-0 fs-6 text-dark fw-bold">
+                        <?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Info Cards End -->
+
 <!-- Contact Start -->
 <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 4rem 0;">
     <div class="container contact px-lg-0">
@@ -29,7 +83,7 @@ get_header();
             <div class="col-lg-5 contact-text py-4 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-4 ps-lg-0">
                     <h6 class="text-primary"><?php _e('Contactez-nous', 'gloservices'); ?></h6>
-                    <h1 class="mb-4 h2"><?php _e('N\'hésitez pas à nous contacter', 'gloservices'); ?></h1>
+                    <h2 class="mb-4 h2"><?php _e('N\'hésitez pas à nous contacter', 'gloservices'); ?></h2>
                     <p class="mb-4"><?php _e('Une question, un projet, une demande de devis ? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.', 'gloservices'); ?></p>
                     
                     <?php

@@ -142,7 +142,7 @@ get_header();
             </div>
             <div class="col-lg-6 pe-lg-0 d-flex flex-column align-self-stretch wow slideInRight" data-wow-delay="0.1s" style="min-height: 500px; padding: 20px;">
                 <div class="position-relative flex-grow-1" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" style="object-fit: cover;" alt="">
+                    <img class="position-absolute img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" style="object-fit: cover;" alt="<?php esc_attr_e('Ingénierie BTP Globuild', 'gloservices'); ?>" loading="lazy">
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ get_header();
     <div class="container">
         <div class="quote-card">
             <div class="quote-image">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg" alt="">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg" alt="<?php esc_attr_e('Demande de Devis BTP Globuild', 'gloservices'); ?>" loading="lazy">
             </div>
             <div class="quote-form-wrap">
                 <div class="quote-tag"><i class="fa fa-file-invoice"></i> <?php _e('Devis Gratuit', 'gloservices'); ?></div>

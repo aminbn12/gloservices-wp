@@ -9,7 +9,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta name="description" content="<?php echo esc_attr(gloservices_get_seo_description()); ?>">
     <?php if (!function_exists('has_site_icon') || !has_site_icon()) : ?>
         <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" type="image/png">
     <?php endif; ?>
@@ -24,9 +24,9 @@
 <?php wp_body_open(); ?>
 
 <!-- Spinner -->
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only"><?php _e('Chargement...', 'gloservices'); ?></span>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" style="z-index: 99999;">
+    <div class="spinner-logo-wrapper text-center">
+        <img class="spinner-favicon-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Gloservices Loading">
     </div>
 </div>
 

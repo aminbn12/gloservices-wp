@@ -81,6 +81,7 @@ function gloservices_scripts()
 
     // jQuery
     wp_enqueue_script('jquery');
+    wp_add_inline_script('jquery', '(function($){if($&&$.event&&$.event.add){var _orig=$.event.add;$.event.add=function(elem,types,handler,data,selector){if(!handler||(typeof handler!=="function"&&typeof handler!=="object"))return;return _orig.apply(this,arguments);};}})(jQuery);', 'after');
 
     // Bootstrap JS
     wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js', ['jquery'], '5.0.0', true);
@@ -106,8 +107,11 @@ function gloservices_scripts()
     // Lightbox JS
     wp_enqueue_script('lightbox', $theme_dir . '/assets/lib/lightbox/js/lightbox.min.js', ['jquery'], '2.11.3', true);
 
+    // Lenis Ultra-Smooth 120fps Smooth Scroll
+    wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.18', true);
+
     // Theme main JS
-    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery'], '2.6.0', true);
+    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '2.7.0', true);
 
     // RTL support
     if (is_rtl()) {
@@ -119,6 +123,46 @@ function gloservices_scripts()
     }
 }
 add_action('wp_enqueue_scripts', 'gloservices_scripts');
+
+/**
+ * Early jQuery Error Shield to prevent invalid handler dispatch exceptions
+ */
+function gloservices_jquery_error_shield() {
+    ?>
+    <script>
+    (function() {
+        function guard() {
+            if (window.jQuery && window.jQuery.event && !window.jQuery.event.__shielded) {
+                window.jQuery.event.__shielded = true;
+                var origAdd = window.jQuery.event.add;
+                window.jQuery.event.add = function(elem, types, handler, data, selector) {
+                    if (!handler || (typeof handler !== 'function' && typeof handler.handler !== 'function')) {
+                        return;
+                    }
+                    return origAdd.apply(this, arguments);
+                };
+                var origDispatch = window.jQuery.event.dispatch;
+                if (origDispatch) {
+                    window.jQuery.event.dispatch = function(event) {
+                        try {
+                            return origDispatch.apply(this, arguments);
+                        } catch (err) {
+                            if (err && err.message && err.message.indexOf('apply is not a function') !== -1) {
+                                return;
+                            }
+                            throw err;
+                        }
+                    };
+                }
+            }
+        }
+        guard();
+        document.addEventListener('DOMContentLoaded', guard);
+    })();
+    </script>
+    <?php
+}
+add_action('wp_head', 'gloservices_jquery_error_shield', 1);
 
 /**
  * Register widget areas
@@ -169,13 +213,37 @@ function gloservices_register_post_types()
             'not_found_in_trash' => __('Aucun projet dans la corbeille', 'gloservices'),
         ],
         'public'       => true,
-        'has_archive'  => true,
+        'has_archive'  => false,
         'menu_icon'    => 'dashicons-portfolio',
         'menu_position' => 5,
         'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
         'show_in_rest' => true,
-        'rewrite'      => ['slug' => 'projets'],
+        'rewrite'      => ['slug' => 'projet'],
     ]);
+
+/**
+ * Redirection 301 permanente pour supprimer l'URL /projets/ et renvoyer vers /projet/
+ */
+function gloservices_redirect_projets_archive() {
+    if (is_admin()) return;
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    if (preg_match('#^/gloservices/projets/?(\?.*)?$#i', $request_uri) || is_post_type_archive('project')) {
+        wp_redirect(home_url('/projet/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'gloservices_redirect_projets_archive', 1);
+
+/**
+ * Auto-flush des règles de réécriture pour éviter toute erreur 404 sur les fiches projets
+ */
+function gloservices_ensure_rewrite_rules() {
+    if (get_option('gloservices_cpt_version') !== '2.2') {
+        flush_rewrite_rules();
+        update_option('gloservices_cpt_version', '2.2');
+    }
+}
+add_action('init', 'gloservices_ensure_rewrite_rules', 99);
 
     register_post_type('service', [
         'labels' => [
@@ -239,6 +307,72 @@ function gloservices_register_post_types()
         'show_in_rest' => true,
         'rewrite' => ['slug' => 'projet-categorie'],
     ]);
+
+    register_post_type('hero_slide', [
+        'labels' => [
+            'name'               => __('Diapositives', 'gloservices'),
+            'singular_name'      => __('Diapositive', 'gloservices'),
+            'menu_name'          => __('Diapositives', 'gloservices'),
+            'add_new'            => __('Ajouter une diapositive', 'gloservices'),
+            'add_new_item'       => __('Ajouter une nouvelle diapositive', 'gloservices'),
+            'edit_item'          => __('Modifier la diapositive', 'gloservices'),
+            'new_item'           => __('Nouvelle diapositive', 'gloservices'),
+            'view_item'          => __('Voir la diapositive', 'gloservices'),
+            'search_items'       => __('Rechercher des diapositives', 'gloservices'),
+            'not_found'          => __('Aucune diapositive trouvée', 'gloservices'),
+            'not_found_in_trash' => __('Aucune diapositive dans la corbeille', 'gloservices'),
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-images-alt2',
+        'menu_position' => 4,
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+        'show_in_rest' => true,
+    ]);
+
+    register_post_type('partner', [
+        'labels' => [
+            'name'               => __('Partenaires', 'gloservices'),
+            'singular_name'      => __('Partenaire', 'gloservices'),
+            'menu_name'          => __('Partenaires', 'gloservices'),
+            'add_new'            => __('Ajouter un partenaire', 'gloservices'),
+            'add_new_item'       => __('Ajouter un nouveau partenaire', 'gloservices'),
+            'edit_item'          => __('Modifier le partenaire', 'gloservices'),
+            'new_item'           => __('Nouveau partenaire', 'gloservices'),
+            'view_item'          => __('Voir le partenaire', 'gloservices'),
+            'search_items'       => __('Rechercher des partenaires', 'gloservices'),
+            'not_found'          => __('Aucun partenaire trouvé', 'gloservices'),
+            'not_found_in_trash' => __('Aucun partenaire dans la corbeille', 'gloservices'),
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-awards',
+        'menu_position' => 8,
+        'supports'     => ['title', 'thumbnail', 'custom-fields'],
+        'show_in_rest' => true,
+    ]);
+
+    register_post_type('testimonial', [
+        'labels' => [
+            'name'               => __('Témoignages', 'gloservices'),
+            'singular_name'      => __('Témoignage', 'gloservices'),
+            'menu_name'          => __('Témoignages', 'gloservices'),
+            'add_new'            => __('Ajouter un témoignage', 'gloservices'),
+            'add_new_item'       => __('Ajouter un nouveau témoignage', 'gloservices'),
+            'edit_item'          => __('Modifier le témoignage', 'gloservices'),
+            'new_item'           => __('Nouveau témoignage', 'gloservices'),
+            'view_item'          => __('Voir le témoignage', 'gloservices'),
+            'search_items'       => __('Rechercher des témoignages', 'gloservices'),
+            'not_found'          => __('Aucun témoignage trouvé', 'gloservices'),
+            'not_found_in_trash' => __('Aucun témoignage dans la corbeille', 'gloservices'),
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-format-quote',
+        'menu_position' => 9,
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+        'show_in_rest' => true,
+    ]);
 }
 add_action('init', 'gloservices_register_post_types');
 
@@ -250,6 +384,9 @@ function gloservices_add_meta_boxes()
     add_meta_box('team_member_info', __('Informations du membre', 'gloservices'), 'gloservices_team_meta_callback', 'team_member', 'normal', 'high');
     add_meta_box('service_icon', __('Icône du service', 'gloservices'), 'gloservices_service_meta_callback', 'service', 'side', 'default');
     add_meta_box('project_info', __('Informations du projet', 'gloservices'), 'gloservices_project_meta_callback', 'project', 'normal', 'high');
+    add_meta_box('hero_slide_info', __('Informations de la Diapositive', 'gloservices'), 'gloservices_hero_slide_meta_callback', 'hero_slide', 'normal', 'high');
+    add_meta_box('partner_info', __('Informations du Partenaire', 'gloservices'), 'gloservices_partner_meta_callback', 'partner', 'normal', 'high');
+    add_meta_box('testimonial_info', __('Informations du Témoignage', 'gloservices'), 'gloservices_testimonial_meta_callback', 'testimonial', 'normal', 'high');
 }
 add_action('add_meta_boxes', 'gloservices_add_meta_boxes');
 
@@ -299,6 +436,71 @@ function gloservices_service_meta_callback($post)
     <?php
 }
 
+function gloservices_hero_slide_meta_callback($post)
+{
+    wp_nonce_field('gloservices_hero_slide_meta', 'gloservices_hero_slide_nonce');
+    $badge_icon = get_post_meta($post->ID, '_hero_badge_icon', true);
+    $badge_text = get_post_meta($post->ID, '_hero_badge_text', true);
+    $highlight_text = get_post_meta($post->ID, '_hero_highlight_text', true);
+    $video_url = get_post_meta($post->ID, '_hero_video_url', true);
+    $btn1_text = get_post_meta($post->ID, '_hero_btn1_text', true);
+    $btn1_url = get_post_meta($post->ID, '_hero_btn1_url', true);
+    $btn2_text = get_post_meta($post->ID, '_hero_btn2_text', true);
+    $btn2_url = get_post_meta($post->ID, '_hero_btn2_url', true);
+    ?>
+    <p><label for="hero_badge_text"><strong><?php _e('Texte du Badge', 'gloservices'); ?></strong></label><br>
+    <input type="text" id="hero_badge_text" name="hero_badge_text" value="<?php echo esc_attr($badge_text); ?>" class="widefat" placeholder="Ex: Bureau d'études BTP"></p>
+    
+    <p><label for="hero_badge_icon"><strong><?php _e('Icône du Badge (FontAwesome class)', 'gloservices'); ?></strong></label><br>
+    <input type="text" id="hero_badge_icon" name="hero_badge_icon" value="<?php echo esc_attr($badge_icon); ?>" class="widefat" placeholder="Ex: fa-hard-hat"></p>
+
+    <p><label for="hero_highlight_text"><strong><?php _e('Titre en Surligné Vert (Highlight)', 'gloservices'); ?></strong></label><br>
+    <input type="text" id="hero_highlight_text" name="hero_highlight_text" value="<?php echo esc_attr($highlight_text); ?>" class="widefat" placeholder="Ex: CLÉS EN MAIN"></p>
+
+    <p><label for="hero_video_url"><strong><?php _e('URL Vidéo d\'arrière-plan (MP4)', 'gloservices'); ?></strong></label><br>
+    <input type="text" id="hero_video_url" name="hero_video_url" value="<?php echo esc_attr($video_url); ?>" class="widefat" placeholder="Ex: /wp-content/uploads/2026/07/video.mp4"><br>
+    <small><?php _e('Optionnel. Si vide, l\'image mise à la une sera utilisée.', 'gloservices'); ?></small></p>
+
+    <hr/>
+    <h3><?php _e('Boutons d\'action', 'gloservices'); ?></h3>
+    <div style="display: flex; gap: 10px;">
+        <div style="flex: 1;">
+            <p><label for="hero_btn1_text"><strong><?php _e('Texte Bouton 1 (Principal)', 'gloservices'); ?></strong></label><br>
+            <input type="text" id="hero_btn1_text" name="hero_btn1_text" value="<?php echo esc_attr($btn1_text); ?>" class="widefat" placeholder="Ex: Découvrir"></p>
+            <p><label for="hero_btn1_url"><strong><?php _e('Lien Bouton 1', 'gloservices'); ?></strong></label><br>
+            <input type="text" id="hero_btn1_url" name="hero_btn1_url" value="<?php echo esc_attr($btn1_url); ?>" class="widefat" placeholder="Ex: /about"></p>
+        </div>
+        <div style="flex: 1;">
+            <p><label for="hero_btn2_text"><strong><?php _e('Texte Bouton 2 (Secondaire)', 'gloservices'); ?></strong></label><br>
+            <input type="text" id="hero_btn2_text" name="hero_btn2_text" value="<?php echo esc_attr($btn2_text); ?>" class="widefat" placeholder="Ex: Nous contacter"></p>
+            <p><label for="hero_btn2_url"><strong><?php _e('Lien Bouton 2', 'gloservices'); ?></strong></label><br>
+            <input type="text" id="hero_btn2_url" name="hero_btn2_url" value="<?php echo esc_attr($btn2_url); ?>" class="widefat" placeholder="Ex: /contact"></p>
+        </div>
+    </div>
+    <?php
+}
+
+function gloservices_partner_meta_callback($post)
+{
+    wp_nonce_field('gloservices_partner_meta', 'gloservices_partner_nonce');
+    $url = get_post_meta($post->ID, '_partner_url', true);
+    ?>
+    <p><label for="partner_url"><strong><?php _e('Lien du site web', 'gloservices'); ?></strong></label><br>
+    <input type="url" id="partner_url" name="partner_url" value="<?php echo esc_attr($url); ?>" class="widefat" placeholder="https://example.com"></p>
+    <?php
+}
+
+function gloservices_testimonial_meta_callback($post)
+{
+    wp_nonce_field('gloservices_testimonial_meta', 'gloservices_testimonial_nonce');
+    $role = get_post_meta($post->ID, '_testimonial_role', true);
+    ?>
+    <p><label for="testimonial_role"><strong><?php _e('Fonction / Poste / Profession de l\'auteur', 'gloservices'); ?></strong></label><br>
+    <input type="text" id="testimonial_role" name="testimonial_role" value="<?php echo esc_attr($role); ?>" class="widefat" placeholder="Ex: Promoteur immobilier"></p>
+    <small><?php _e('Astuce : Le nom de l\'auteur est le titre de ce témoignage. Le texte de la citation est le contenu ci-dessus.', 'gloservices'); ?></small>
+    <?php
+}
+
 function gloservices_save_meta($post_id)
 {
     if (isset($_POST['gloservices_team_nonce']) && wp_verify_nonce($_POST['gloservices_team_nonce'], 'gloservices_team_meta')) {
@@ -320,6 +522,24 @@ function gloservices_save_meta($post_id)
             if (isset($_POST[$field])) {
                 update_post_meta($post_id, '_' . $field, sanitize_text_field($_POST[$field]));
             }
+        }
+    }
+    if (isset($_POST['gloservices_hero_slide_nonce']) && wp_verify_nonce($_POST['gloservices_hero_slide_nonce'], 'gloservices_hero_slide_meta')) {
+        $fields = ['hero_badge_icon', 'hero_badge_text', 'hero_highlight_text', 'hero_video_url', 'hero_btn1_text', 'hero_btn1_url', 'hero_btn2_text', 'hero_btn2_url'];
+        foreach ($fields as $field) {
+            if (isset($_POST[$field])) {
+                update_post_meta($post_id, '_' . $field, sanitize_text_field($_POST[$field]));
+            }
+        }
+    }
+    if (isset($_POST['gloservices_partner_nonce']) && wp_verify_nonce($_POST['gloservices_partner_nonce'], 'gloservices_partner_meta')) {
+        if (isset($_POST['partner_url'])) {
+            update_post_meta($post_id, '_partner_url', esc_url_raw($_POST['partner_url']));
+        }
+    }
+    if (isset($_POST['gloservices_testimonial_nonce']) && wp_verify_nonce($_POST['gloservices_testimonial_nonce'], 'gloservices_testimonial_meta')) {
+        if (isset($_POST['testimonial_role'])) {
+            update_post_meta($post_id, '_testimonial_role', sanitize_text_field($_POST['testimonial_role']));
         }
     }
 }
@@ -433,26 +653,49 @@ function gloservices_language_switcher()
  */
 function gloservices_vendor_carousel()
 {
-    $vendors = [
-        'vendor-1.jpg',
-        'vendor-2.jpg',
-        'vendor-3.jpg',
-        'vendor-4.jpg',
-        'vendor-5.jpg',
-        'vendor-6.jpg',
-        'vendor-7.jpg',
-        'vendor-8.jpg',
-        'vendor-9.jpg',
-        'vendor-10.png',
-        'vendor-11.png',
-        'vendor-12.png',
-        'vendor-13.png',
-        'vendor-14.png',
-    ];
+    $partners = new WP_Query([
+        'post_type'      => 'partner',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC'
+    ]);
+
     echo '<div class="owl-carousel vendor-carousel" style="direction:ltr;">';
-    foreach ($vendors as $vendor) {
-        $img = get_template_directory_uri() . '/assets/img/' . $vendor;
-        echo sprintf('<div class="ref-logo-item"><img src="%s" alt=""></div>', esc_url($img));
+    if ($partners->have_posts()) {
+        while ($partners->have_posts()) {
+            $partners->the_post();
+            $img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+            $partner_url = get_post_meta(get_the_ID(), '_partner_url', true);
+            if ($img_url) {
+                if ($partner_url) {
+                    echo sprintf('<div class="ref-logo-item"><a href="%s" target="_blank"><img src="%s" alt="%s"></a></div>', esc_url($partner_url), esc_url($img_url), esc_attr(get_the_title()));
+                } else {
+                    echo sprintf('<div class="ref-logo-item"><img src="%s" alt="%s"></div>', esc_url($img_url), esc_attr(get_the_title()));
+                }
+            }
+        }
+        wp_reset_postdata();
+    } else {
+        $vendors = [
+            'vendor-1.jpg',
+            'vendor-2.jpg',
+            'vendor-3.jpg',
+            'vendor-4.jpg',
+            'vendor-5.jpg',
+            'vendor-6.jpg',
+            'vendor-7.jpg',
+            'vendor-8.jpg',
+            'vendor-9.jpg',
+            'vendor-10.png',
+            'vendor-11.png',
+            'vendor-12.png',
+            'vendor-13.png',
+            'vendor-14.png',
+        ];
+        foreach ($vendors as $vendor) {
+            $img = get_template_directory_uri() . '/assets/img/' . $vendor;
+            echo sprintf('<div class="ref-logo-item"><img src="%s" alt=""></div>', esc_url($img));
+        }
     }
     echo '</div>';
 }
@@ -710,57 +953,171 @@ add_filter('nav_menu_link_attributes', function($atts, $item, $args, $depth) {
  * 2. Use 'init' action to also remove WordPress core redirect_canonical early.
  * 3. Use 'wp_redirect' filter as a last-resort safety net.
  */
-add_action('init', function() {
-    if (!defined('WP_HOME')) return;
-    $current_host = parse_url(WP_HOME, PHP_URL_HOST);
-    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return;
-
-    // Remove WordPress core canonical redirect
-    remove_action('template_redirect', 'redirect_canonical');
-}, 1);
 
 /**
- * Fix Polylang's canonical redirect on tunnels (Ngrok, etc).
- * When not on localhost, we cancel ALL Polylang canonical redirects because:
- * - Our home_url() filter already outputs the correct Ngrok URLs in the nav
- * - Polylang's cache stores localhost URLs and would cause redirect loops
- * - The HTTPS detection via X-Forwarded-Proto causes URL scheme mismatches
+ * =========================================================================
+ * GLOSERVICES SEO OPTIMIZATIONS (GOOGLE & BING)
+ * =========================================================================
  */
-add_filter('pll_check_canonical_url', function($redirect_url, $language) {
-    if (!defined('WP_HOME')) return $redirect_url;
-    $current_host = parse_url(WP_HOME, PHP_URL_HOST);
-    // Only cancel when we are NOT on localhost
-    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $redirect_url;
-    // On Ngrok/tunnel: cancel all Polylang canonical redirects
-    return false;
-}, 99, 2);
 
 /**
- * Fix Polylang's home redirect (choose-lang.php) on tunnels (Ngrok, etc).
- * Polylang reads get_home_url() from its internal PLL_Language cache which stores
- * the localhost URL from the database. This causes it to redirect to localhost.
- * We intercept and rewrite the redirect URL, or cancel it if already on the right page.
+ * Get dynamic localized SEO meta description for each page
  */
-add_filter('pll_redirect_home', function($redirect) {
-    if (!defined('WP_HOME')) return $redirect;
-    $current_host   = parse_url(WP_HOME, PHP_URL_HOST);
-    $current_scheme = parse_url(WP_HOME, PHP_URL_SCHEME);
-    // Only act when we are NOT on localhost
-    if ($current_host === 'localhost' || $current_host === '127.0.0.1') return $redirect;
-    // Rewrite the redirect URL from localhost to the current tunnel host
-    $fixed = preg_replace(
-        '#https?://(localhost|127\.0\.0\.1)(/.*)#i',
-        $current_scheme . '://' . $current_host . '$2',
-        $redirect
-    );
-    // Build the actual current URL being requested
-    $actual_scheme  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
-    $actual_host    = $_SERVER['HTTP_HOST'] ?? $current_host;
-    $actual_uri     = $_SERVER['REQUEST_URI'] ?? '/';
-    $current_url    = $actual_scheme . '://' . $actual_host . $actual_uri;
-    // If the redirect target (after fix) matches the current URL, cancel the redirect
-    if (rtrim($fixed, '/') === rtrim($current_url, '/') || rtrim($fixed, '/') === rtrim(strtok($current_url, '?'), '/')) {
-        return false;
+function gloservices_get_seo_description() {
+    $lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'fr';
+    
+    if (is_front_page()) {
+        $desc = [
+            'fr' => "Globuild - Bureau d'études BTP et ingénierie à Rabat, Maroc. Spécialiste des structures, VRD, ouvrages d'art, infrastructures et solutions digitales BTP.",
+            'en' => "Globuild - Civil Engineering Firm & BTP Consultancy in Rabat, Morocco. Expert in structures, VRD, art structures, infrastructure & digital solutions.",
+            'ar' => "Globuild - مكتب دراسات هندسية وبناء في الرباط، المغرب. متخصص في الهياكل، الطرق، المنشآت الفنية والحلول الرقمية.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
     }
-    return $fixed;
-}, 99);
+
+    if (is_page('about') || is_page_template('page-about.php')) {
+        $desc = [
+            'fr' => "Découvrez Globuild, bureau d'études en génie civil et BTP fort de plus de 10 ans d'expertise dans les projets de construction et d'ingénierie au Maroc.",
+            'en' => "Discover Globuild, civil engineering firm with over 10 years of expertise in construction and engineering projects in Morocco.",
+            'ar' => "تعرف على Globuild، مكتب دراسات الهندسة المدنية مع أكثر من 10 سنوات من الخبرة في مشاريع البناء والهندسة بالمغرب.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
+    }
+
+    if (is_page('service') || is_page_template('page-service.php')) {
+        $desc = [
+            'fr' => "Nos services d'ingénierie BTP : infrastructures routières, ouvrages d'art, bâtiments, VRD, maîtrise d'œuvre (OPC) et solutions numériques sur-mesure.",
+            'en' => "Our civil engineering services: road infrastructure, art structures, buildings, VRD, project management (OPC) & custom digital solutions.",
+            'ar' => "خدماتنا الهندسية: البنية التحتية للطرق، المنشآت الفنية، المباني، الطرق والشبكات، وإدارة المشاريع والحلول الرقمية.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
+    }
+
+    if (is_page('contact') || is_page_template('page-contact.php')) {
+        $desc = [
+            'fr' => "Contactez Globuild à Rabat, Maroc. Téléphone : +212 5 37 77 14 50. Demandez un devis ou une consultation pour vos projets BTP et ingénierie.",
+            'en' => "Contact Globuild in Rabat, Morocco. Phone: +212 5 37 77 14 50. Request a quote or consultation for your civil engineering & construction projects.",
+            'ar' => "اتصل بـ Globuild في الرباط، المغرب. هاتف: 50 14 77 37 5 212+. اطلب استشارة أو عرض سعر لمشاريعك البنائية والهندسية.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
+    }
+
+    if (is_page('moyen') || is_page_template('page-moyen.php')) {
+        $desc = [
+            'fr' => "Nos moyens humains et matériels : des équipes d'ingénieurs qualifiés et des équipements technologiques de pointe pour vos projets BTP au Maroc.",
+            'en' => "Our human and technical resources: qualified engineering teams and cutting-edge equipment for your construction projects in Morocco.",
+            'ar' => "معداتنا ومواردنا البشرية: فرق هندسية مؤهلة وتقنيات متطورة لمشاريعك الهندسية بالمغرب.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
+    }
+
+    if (is_page('projet') || is_page_template('page-projet.php')) {
+        $desc = [
+            'fr' => "Explorez les réalisations et projets de Globuild : études de structures, routes, ponts, aménagements urbains et modélisations BTP au Maroc.",
+            'en' => "Explore Globuild portfolio & projects: structural engineering, roads, bridges, urban developments & digital BTP modeling in Morocco.",
+            'ar' => "استكشف إنجازات ومشاريع Globuild: دراسات الهياكل، الطرق، الجسور، التهيئة الحضرية والنمذجة الهندسية بالمغرب.",
+        ];
+        return isset($desc[$lang]) ? $desc[$lang] : $desc['fr'];
+    }
+
+    if (is_singular()) {
+        $excerpt = get_the_excerpt();
+        if (!empty($excerpt)) {
+            return wp_strip_all_tags($excerpt);
+        }
+    }
+
+    return get_bloginfo('description');
+}
+
+/**
+ * Output SEO Meta Tags, Open Graph, Twitter Cards, and Schema.org JSON-LD
+ */
+function gloservices_seo_meta_head() {
+    $seo_desc = gloservices_get_seo_description();
+    $page_title = wp_get_document_title();
+    $canonical_url = is_singular() ? get_permalink() : (is_front_page() ? home_url('/') : get_pagenum_link());
+    if (empty($canonical_url)) {
+        $canonical_url = home_url($_SERVER['REQUEST_URI']);
+    }
+    $site_name = 'Globuild';
+    $logo_url = get_template_directory_uri() . '/assets/img/logo-dark.png';
+    $phone = get_option('gloservices_phone', '+212 5 37 77 14 50');
+    $email = get_option('gloservices_email', 'contact@gloservices.ma');
+
+    // Canonical link
+    echo '<link rel="canonical" href="' . esc_url($canonical_url) . '" />' . "\n";
+
+    // Open Graph Tags
+    echo '<meta property="og:locale" content="' . esc_attr(get_locale()) . '" />' . "\n";
+    echo '<meta property="og:type" content="' . (is_singular() ? 'article' : 'website') . '" />' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($page_title) . '" />' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($seo_desc) . '" />' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($canonical_url) . '" />' . "\n";
+    echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '" />' . "\n";
+    echo '<meta property="og:image" content="' . esc_url($logo_url) . '" />' . "\n";
+
+    // Twitter Card Tags
+    echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr($page_title) . '" />' . "\n";
+    echo '<meta name="twitter:description" content="' . esc_attr($seo_desc) . '" />' . "\n";
+    echo '<meta name="twitter:image" content="' . esc_url($logo_url) . '" />' . "\n";
+
+    // Schema.org JSON-LD Structured Data
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@graph' => [
+            [
+                '@type' => 'Organization',
+                '@id' => home_url('/#organization'),
+                'name' => 'Globuild',
+                'url' => home_url('/'),
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => $logo_url
+                ],
+                'contactPoint' => [
+                    '@type' => 'ContactPoint',
+                    'telephone' => $phone,
+                    'contactType' => 'customer service',
+                    'email' => $email
+                ],
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => '11 Rue Dayet Aoua, Agdal',
+                    'addressLocality' => 'Rabat',
+                    'addressCountry' => 'MA'
+                ]
+            ],
+            [
+                '@type' => 'LocalBusiness',
+                '@id' => home_url('/#localbusiness'),
+                'name' => 'Globuild - Bureau d\'études BTP & Ingénierie',
+                'url' => home_url('/'),
+                'image' => $logo_url,
+                'telephone' => $phone,
+                'email' => $email,
+                'priceRange' => '$$$',
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => '11 Rue Dayet Aoua, Agdal',
+                    'addressLocality' => 'Rabat',
+                    'addressCountry' => 'MA'
+                ]
+            ],
+            [
+                '@type' => 'WebSite',
+                '@id' => home_url('/#website'),
+                'url' => home_url('/'),
+                'name' => 'Globuild',
+                'publisher' => [
+                    '@id' => home_url('/#organization')
+                ]
+            ]
+        ]
+    ];
+
+    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . '</script>' . "\n";
+}
+add_action('wp_head', 'gloservices_seo_meta_head', 1);
+

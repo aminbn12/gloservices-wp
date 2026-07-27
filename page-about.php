@@ -168,15 +168,85 @@ get_header();
     display: inline-block !important;
 }
 
-/* Mobile spacing & light gradient masks */
-.tc-process-style2 .imgs .img {
-    margin: 15px 1% !important; /* Space out rows on mobile */
+/* ============================================================
+   RESPONSIVE NOTRE APPROCHE LAYOUT FOR MOBILE & TABLET (< 992px)
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .tc-process-style2 .imgs {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 28px 16px !important;
+        margin-top: 35px !important;
+        height: auto !important;
+        position: relative !important;
+        background-image: none !important;
+        background: none !important;
+    }
+    
+    .tc-process-style2 .imgs .img {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 210px !important;
+        margin: 0 auto !important;
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+        border-radius: 50% !important;
+        overflow: visible !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .tc-process-style2 .imgs .img img {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    .tc-process-style2 .imgs .img .txt {
+        position: absolute !important;
+        bottom: -12px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: auto !important;
+        right: auto !important;
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        color: #FFFFFF !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 9999px !important;
+        padding: 5px 18px !important;
+        font-size: 0.88rem !important;
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+        z-index: 10 !important;
+    }
+
+    .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        color: #FFFFFF !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
 }
-.tc-process-style2 .imgs .img:after {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.25)), to(transparent)) !important;
-    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.25), transparent) !important;
-    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.25), transparent) !important;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, transparent 100%) !important;
+
+@media (max-width: 480px) {
+    .tc-process-style2 .imgs {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px 10px !important;
+    }
+    .tc-process-style2 .imgs .img {
+        max-width: 150px !important;
+    }
+    .tc-process-style2 .imgs .img .txt {
+        font-size: 0.78rem !important;
+        padding: 3px 12px !important;
+        bottom: -10px !important;
+    }
 }
 
 /* ============================================================
@@ -188,7 +258,16 @@ get_header();
         position: relative !important;
         height: 720px !important;
         margin-top: 0 !important;
-        background-size: contain !important;
+        background-image: none !important; /* Suppression du cadre / motif dégradé arrière-plan */
+        background: none !important;
+    }
+    /* Removal of dark gradient overlays on photo bubbles */
+    .tc-process-style2 .imgs .img:after,
+    .tc-process-style2 .imgs .img:before {
+        display: none !important;
+        content: none !important;
+        background: none !important;
+        background-image: none !important;
     }
     .tc-process-style2 .imgs .img {
         position: absolute !important;
@@ -201,78 +280,85 @@ get_header();
         object-fit: cover !important;
     }
     
-    /* Bubble 1 (spaced slightly) */
+    /* Bubble 1: Personnalisé */
     .tc-process-style2 .imgs .img:nth-of-type(1) {
-        width: 350px !important;
-        height: 350px !important;
-        left: 10px !important;
-        top: -10px !important;
+        width: 340px !important;
+        height: 340px !important;
+        left: 20px !important;
+        top: -30px !important;
         z-index: 2 !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
-        font-size: 26px !important;
+        font-size: 20px !important;
         position: absolute !important;
         top: 65px !important;
         right: -50px !important;
         left: auto !important;
         bottom: auto !important;
         z-index: 10 !important;
-        border: 1px solid #ccc !important;
-        background-color: #f1eee9 !important;
-        color: #000 !important;
-        border-radius: 15px !important;
-        padding: 4px 24px !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        color: #ffffff !important;
+        border-radius: 9999px !important;
+        padding: 5px 22px !important;
         transform: none !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
     }
     
-    /* Bubble 2 (spaced slightly) */
+    /* Bubble 2: Réactif (Rapprochée de la bulle Optimisation) */
     .tc-process-style2 .imgs .img:nth-of-type(2) {
-        right: -25px !important;
-        top: 90px !important;
+        right: 25px !important;
+        top: 260px !important; /* Rapprochée de la bulle Optimisation (à top: 420px) */
         width: 170px !important;
         height: 170px !important;
         z-index: 3 !important;
         left: auto !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(2) .txt {
-        font-size: 20px !important;
+        font-size: 17px !important;
         position: absolute !important;
-        bottom: 20px !important;
-        right: 20px !important;
+        bottom: -10px !important;
+        right: 50% !important;
         left: auto !important;
         top: auto !important;
         z-index: 10 !important;
-        color: #fff !important;
-        background: none !important;
-        border: none !important;
-        padding: 0 !important;
-        transform: none !important;
+        color: #ffffff !important;
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 9999px !important;
+        padding: 4px 18px !important;
+        transform: translateX(50%) !important;
+        white-space: nowrap !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
     }
     
-    /* Bubble 3 (spaced slightly) */
+    /* Bubble 3: Qualité */
     .tc-process-style2 .imgs .img:nth-of-type(3) {
         left: -30px !important;
-        top: 370px !important;
+        top: 390px !important;
         width: 210px !important;
         height: 210px !important;
         z-index: 3 !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(3) .txt {
-        font-size: 22px !important;
+        font-size: 17px !important;
         position: absolute !important;
-        bottom: 15px !important;
+        bottom: -10px !important;
         right: 50% !important;
         left: auto !important;
         top: auto !important;
         z-index: 10 !important;
-        color: #fff !important;
-        background: none !important;
-        border: none !important;
-        padding: 0 !important;
-        transform: translate(50%) !important;
+        color: #ffffff !important;
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 9999px !important;
+        padding: 4px 18px !important;
+        transform: translateX(50%) !important;
+        white-space: nowrap !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
     }
     
-    /* Bubble 4 (spaced slightly) */
+    /* Bubble 4: Optimisation */
     .tc-process-style2 .imgs .img:nth-of-type(4) {
         right: 30px !important;
         top: 420px !important;
@@ -282,18 +368,20 @@ get_header();
         left: auto !important;
     }
     .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
-        font-size: 22px !important;
+        font-size: 19px !important;
         position: absolute !important;
         top: 65px !important;
         left: -50px !important;
         right: auto !important;
         bottom: auto !important;
         z-index: 10 !important;
-        background-color: #000 !important;
-        color: #fff !important;
-        border-radius: 15px !important;
-        padding: 4px 24px !important;
+        background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 9999px !important;
+        padding: 4px 22px !important;
         transform: none !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
     }
 }
 
@@ -322,8 +410,9 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
 
 @media (min-width: 992px) {
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(1) {
-        right: 10px !important;
+        right: 20px !important;
         left: auto !important;
+        top: -30px !important;
     }
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
         left: -50px !important;
@@ -331,17 +420,19 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
     }
     
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(2) {
-        left: -25px !important;
+        left: 10px !important;
         right: auto !important;
+        top: 210px !important;
     }
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(2) .txt {
-        left: 20px !important;
-        right: auto !important;
+        left: auto !important;
+        right: 20px !important;
     }
     
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(3) {
         right: -30px !important;
         left: auto !important;
+        top: 390px !important;
     }
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(3) .txt {
         left: 50% !important;
@@ -352,6 +443,7 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(4) {
         left: 30px !important;
         right: auto !important;
+        top: 420px !important;
     }
     body.rtl .tc-process-style2 .imgs .img:nth-of-type(4) .txt {
         right: -50px !important;
@@ -430,7 +522,7 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                         <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.7;">
                             <?php _e('Chez GLOBUILD, nous mettons notre expertise au service de solutions durables et innovantes, pensées pour répondre aux exigences d\'aujourd\'hui tout en anticipant celles de demain.', 'gloservices'); ?>
                         </p>
-                        <a href="<?php echo esc_url(home_url('/projets')); ?>" class="btn btn-primary mt-3">
+                        <a href="<?php echo esc_url(gloservices_translated_page_url('projet')); ?>" class="btn btn-primary mt-3">
                             <span><?php _e('Nos Références', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></span>
                         </a>
                     </div>
@@ -481,51 +573,78 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
 </section>
 
 <!-- ==========================================
-     FEATURES SWIPER / ENGAGEMENTS SECTION
+     NOS ENGAGEMENTS SECTION (HIGH-END ARCHITECTURAL DESIGN)
      ========================================== -->
-<section class="tc-header-style2 py-5 bg-light">
+<section class="engagements-section py-5">
     <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
             <span class="section-badge"><?php _e('Nos Engagements', 'gloservices'); ?></span>
-            <h2 class="section-main-title mb-4"><?php _e('Garantir la performance et la durabilité', 'gloservices'); ?></h2>
+            <h2 class="section-main-title mt-2 mb-3"><?php _e('Garantir la performance, la sécurité et la durabilité', 'gloservices'); ?></h2>
+            <p class="section-subtext text-muted mb-0"><?php _e('Les piliers fondamentaux qui guident l\'ensemble de nos interventions d\'ingénierie et de conseil BTP.', 'gloservices'); ?></p>
         </div>
         
-        <!-- Engagements Static Carousel/Grid -->
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4">
             <!-- Pillar 1 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column align-items-center text-center">
-                    <div class="btn-sm-square bg-primary-light text-primary rounded-circle mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-award fa-lg"></i>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="engagement-card h-100">
+                    <div class="card-top-bar"></div>
+                    <span class="engagement-num">01</span>
+                    <div class="engagement-icon-box">
+                        <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h5 class="text-dark fw-bold mb-2"><?php _e('Expertise pluridisciplinaire', 'gloservices'); ?></h5>
-                    <p class="text-muted small mb-0">
-                        <?php _e('GLOBUILD combine des compétences variées pour offrir des solutions techniques complètes et intégrées.', 'gloservices'); ?>
+                    <h4 class="engagement-title"><?php _e('Expertise Pluridisciplinaire', 'gloservices'); ?></h4>
+                    <p class="engagement-text">
+                        <?php _e('GLOBUILD combine des compétences variées en structures, VRD et bâtiment pour offrir des solutions complètes et pérennes.', 'gloservices'); ?>
                     </p>
+                    <div class="card-bottom-line"></div>
                 </div>
             </div>
+
             <!-- Pillar 2 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column align-items-center text-center">
-                    <div class="btn-sm-square bg-primary-light text-primary rounded-circle mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-lightbulb fa-lg"></i>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="engagement-card h-100">
+                    <div class="card-top-bar"></div>
+                    <span class="engagement-num">02</span>
+                    <div class="engagement-icon-box">
+                        <i class="fas fa-cube"></i>
                     </div>
-                    <h5 class="text-dark fw-bold mb-2"><?php _e('Innovation & Technique', 'gloservices'); ?></h5>
-                    <p class="text-muted small mb-0">
-                        <?php _e('Nous utilisons des outils et technologies modernes pour optimiser chaque phase de la conception.', 'gloservices'); ?>
+                    <h4 class="engagement-title"><?php _e('Innovation & Technologie', 'gloservices'); ?></h4>
+                    <p class="engagement-text">
+                        <?php _e('Modélisation 3D avancée, outils de calcul de pointe et audits digitaux pour optimiser chaque phase de la conception.', 'gloservices'); ?>
                     </p>
+                    <div class="card-bottom-line"></div>
                 </div>
             </div>
+
             <!-- Pillar 3 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column align-items-center text-center">
-                    <div class="btn-sm-square bg-primary-light text-primary rounded-circle mb-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-handshake fa-lg"></i>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="engagement-card h-100">
+                    <div class="card-top-bar"></div>
+                    <span class="engagement-num">03</span>
+                    <div class="engagement-icon-box">
+                        <i class="fas fa-stopwatch"></i>
                     </div>
-                    <h5 class="text-dark fw-bold mb-2"><?php _e('Accompagnement sur mesure', 'gloservices'); ?></h5>
-                    <p class="text-muted small mb-0">
-                        <?php _e('À l\'écoute de vos besoins, nous garantissons qualité, respect des délais et maîtrise des budgets.', 'gloservices'); ?>
+                    <h4 class="engagement-title"><?php _e('Respect des Délais & Budget', 'gloservices'); ?></h4>
+                    <p class="engagement-text">
+                        <?php _e('Planification rigoureuse et suivi continu pour assurer la livraison de vos ouvrages dans le strict respect de vos exigences.', 'gloservices'); ?>
                     </p>
+                    <div class="card-bottom-line"></div>
+                </div>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="engagement-card h-100">
+                    <div class="card-top-bar"></div>
+                    <span class="engagement-num">04</span>
+                    <div class="engagement-icon-box">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="engagement-title"><?php _e('Accompagnement & Éco-Conception', 'gloservices'); ?></h4>
+                    <p class="engagement-text">
+                        <?php _e('Présence proactive à vos côtés de la faisabilité au parfait achèvement, engagés envers la durabilité environnementale.', 'gloservices'); ?>
+                    </p>
+                    <div class="card-bottom-line"></div>
                 </div>
             </div>
         </div>
@@ -537,7 +656,10 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
      ========================================== -->
 <section class="tc-process-style2 py-5">
     <div class="container py-5">
-        <h2 class="section-main-title text-center mb-5"><?php _e('Notre Approche', 'gloservices'); ?></h2>
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <span class="section-badge"><?php _e('Notre Approche', 'gloservices'); ?></span>
+            <h2 class="section-main-title mt-3 mb-4"><?php _e('Une méthodologie rigoureuse pour vos projets', 'gloservices'); ?></h2>
+        </div>
         <div class="content mt-5">
             <div class="row g-5 align-items-center">
                 <!-- Accordion Side -->
@@ -609,19 +731,19 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="imgs">
                         <div class="img">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="<?php esc_attr_e('Bureau d\'études Globuild', 'gloservices'); ?>" loading="lazy">
                             <span class="txt sub-font"><?php _e('Personnalisé', 'gloservices'); ?></span>
                         </div>
                         <div class="img">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="<?php esc_attr_e('Ingénierie BTP et Structures Globuild', 'gloservices'); ?>" loading="lazy">
                             <span class="txt sub-font"><?php _e('Réactif', 'gloservices'); ?></span>
                         </div>
                         <div class="img">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-1.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-1.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="<?php esc_attr_e('Projet BTP Globuild au Maroc', 'gloservices'); ?>" loading="lazy">
                             <span class="txt sub-font"><?php _e('Qualité', 'gloservices'); ?></span>
                         </div>
                         <div class="img">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-2.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="">
+                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/carousel-2.jpg" class="img-cover w-100 h-100" style="object-fit: cover;" alt="<?php esc_attr_e('Solutions Numériques BTP Globuild', 'gloservices'); ?>" loading="lazy">
                             <span class="txt sub-font"><?php _e('Optimisation', 'gloservices'); ?></span>
                         </div>
                     </div>
@@ -629,66 +751,57 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
             </div>
         </div>
     </div>
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/prc_bg.png" alt="" class="bg">
+    <div class="bg"></div>
 </section>
 
 <!-- ==========================================
-     TESTIMONIALS SECTION (tc-testimonials-style2)
+     TESTIMONIALS SECTION (SLIDER STYLE MATCHING BETB)
      ========================================== -->
-<section class="tc-testimonials-style2 py-5 bg-light">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <span class="section-badge"><?php _e('Témoignages', 'gloservices'); ?></span>
-            <h2 class="section-main-title mb-4"><?php _e('Ce que disent nos partenaires', 'gloservices'); ?></h2>
-        </div>
-        <div class="row g-4">
-            <!-- Testimonial 1 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column justify-content-between">
-                    <p class="text-dark small style-italic mb-4" style="line-height: 1.6;">
-                        "<?php _e('Nous avons collaboré avec GLOBUILD pour la conception technique de notre nouveau siège administratif, et nous sommes extrêmement satisfaits de la rigueur et de la réactivité de l\'équipe d\'ingénieurs.', 'gloservices'); ?>"
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-primary-light text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-weight: 700;">
-                            T
-                        </div>
-                        <div>
-                            <h6 class="text-dark fw-bold mb-0">Tarik</h6>
-                            <small class="text-muted"><?php _e('Promoteur immobilier', 'gloservices'); ?></small>
-                        </div>
+<section class="tc-testimonials-dark py-5">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <!-- Left Side: Project Image Slider -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-img-card">
+                    <div class="testimonial-img-wrapper" id="testimonial-img-container">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/autoroute.jpg" id="testimonial-img" alt="<?php esc_attr_e('Projet Globuild', 'gloservices'); ?>" class="img-fluid">
+                    </div>
+                    <!-- Image Bottom Navigation Arrows -->
+                    <div class="testimonial-img-controls">
+                        <button type="button" class="img-nav-btn prev-btn" aria-label="<?php esc_attr_e('Précédent', 'gloservices'); ?>"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="img-nav-btn next-btn" aria-label="<?php esc_attr_e('Suivant', 'gloservices'); ?>"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
-            <!-- Testimonial 2 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column justify-content-between">
-                    <p class="text-dark small style-italic mb-4" style="line-height: 1.6;">
-                        "<?php _e('De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires.', 'gloservices'); ?>"
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-primary-light text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-weight: 700;">
-                            L
-                        </div>
-                        <div>
-                            <h6 class="text-dark fw-bold mb-0">Lamia</h6>
-                            <small class="text-muted"><?php _e('Chef de projet industriel', 'gloservices'); ?></small>
-                        </div>
+
+            <!-- Right Side: Quote, Author & Counter Navigation -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="testimonial-quote-box">
+                    <div class="quote-content-wrapper">
+                        <p class="testimonial-quote-text" id="testimonial-text">
+                            "<?php _e('GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !', 'gloservices'); ?>"
+                        </p>
                     </div>
-                </div>
-            </div>
-            <!-- Testimonial 3 -->
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column justify-content-between">
-                    <p class="text-dark small style-italic mb-4" style="line-height: 1.6;">
-                        "<?php _e('Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux.', 'gloservices'); ?>"
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-primary-light text-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; font-weight: 700;">
-                            A
+
+                    <div class="testimonial-divider"></div>
+
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <!-- Author Info -->
+                        <div class="d-flex align-items-center">
+                            <div class="testimonial-avatar-wrap me-3" id="testimonial-avatar">
+                                <span class="avatar-letter">T</span>
+                            </div>
+                            <div>
+                                <h5 class="testimonial-name text-white fw-bold mb-1" id="testimonial-name">Tarik</h5>
+                                <small class="testimonial-role text-white-50" id="testimonial-role"><?php _e('Promoteur immobilier', 'gloservices'); ?></small>
+                            </div>
                         </div>
-                        <div>
-                            <h6 class="text-dark fw-bold mb-0">Ahmed</h6>
-                            <small class="text-muted"><?php _e('Directeur Technique', 'gloservices'); ?></small>
+
+                        <!-- Right Counter & Arrows Pill -->
+                        <div class="testimonial-counter-pill">
+                            <button type="button" class="pill-nav-btn prev-btn" aria-label="<?php esc_attr_e('Précédent', 'gloservices'); ?>"><i class="fas fa-chevron-left"></i></button>
+                            <span class="pill-counter-text" id="testimonial-counter">1 / 3</span>
+                            <button type="button" class="pill-nav-btn next-btn" aria-label="<?php esc_attr_e('Suivant', 'gloservices'); ?>"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -761,6 +874,135 @@ document.addEventListener("DOMContentLoaded", function() {
     
     initScrollParallax();
     window.addEventListener('resize', initScrollParallax);
+
+    // Synchronized 10-Second Testimonial Slider dynamically loaded from WordPress
+    <?php
+    $testimonials_query = new WP_Query([
+        'post_type'      => 'testimonial',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'orderby'        => 'menu_order title',
+        'order'          => 'ASC',
+    ]);
+
+    $js_testimonials = [];
+    if ($testimonials_query->have_posts()) {
+        while ($testimonials_query->have_posts()) {
+            $testimonials_query->the_post();
+            $t_id = get_the_ID();
+            $name = get_the_title();
+            $role = get_post_meta($t_id, '_testimonial_role', true) ?: __('Partenaire', 'gloservices');
+            $raw_content = get_the_content() ? get_the_content() : get_the_excerpt();
+            $quote = '"' . wp_strip_all_tags(gloservices_translate($raw_content)) . '"';
+            $img_url = get_the_post_thumbnail_url($t_id, 'full');
+            if (!$img_url) {
+                $img_url = get_template_directory_uri() . '/assets/img/autoroute.jpg';
+            }
+            $translated_name = gloservices_translate($name);
+            $letter = mb_substr(trim($translated_name), 0, 1, 'UTF-8');
+
+            $js_testimonials[] = [
+                'image'  => $img_url,
+                'text'   => $quote,
+                'name'   => $translated_name,
+                'role'   => gloservices_translate($role),
+                'letter' => strtoupper($letter),
+            ];
+        }
+        wp_reset_postdata();
+    }
+
+    if (empty($js_testimonials)) {
+        $js_testimonials = [
+            [
+                'image'  => get_template_directory_uri() . '/assets/img/autoroute.jpg',
+                'text'   => '"GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !"',
+                'name'   => 'Tarik',
+                'role'   => __('Promoteur immobilier', 'gloservices'),
+                'letter' => 'T',
+            ],
+            [
+                'image'  => get_template_directory_uri() . '/assets/img/tunnel.jpg',
+                'text'   => '"De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires."',
+                'name'   => 'Lamia',
+                'role'   => __('Chef de projet industriel', 'gloservices'),
+                'letter' => 'L',
+            ],
+            [
+                'image'  => get_template_directory_uri() . '/assets/img/carousel-1.jpg',
+                'text'   => '"Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux."',
+                'name'   => 'Ahmed',
+                'role'   => __('Directeur Technique', 'gloservices'),
+                'letter' => 'A',
+            ]
+        ];
+    }
+    ?>
+    const testimonials = <?php echo json_encode($js_testimonials); ?>;
+
+    let currentTestimonialIndex = 0;
+    let testimonialTimer;
+
+    const imgEl = document.getElementById("testimonial-img");
+    const textEl = document.getElementById("testimonial-text");
+    const nameEl = document.getElementById("testimonial-name");
+    const roleEl = document.getElementById("testimonial-role");
+    const counterEl = document.getElementById("testimonial-counter");
+    const avatarWrap = document.getElementById("testimonial-avatar");
+
+    function updateTestimonial(index) {
+        if (!imgEl || !textEl || !testimonials.length) return;
+        currentTestimonialIndex = index;
+        const item = testimonials[currentTestimonialIndex];
+
+        imgEl.classList.add("fade-out");
+        textEl.classList.add("fade-out");
+
+        setTimeout(function() {
+            imgEl.src = item.image;
+            textEl.innerHTML = item.text;
+            if (nameEl) nameEl.textContent = item.name;
+            if (roleEl) roleEl.textContent = item.role;
+            if (counterEl) counterEl.textContent = (currentTestimonialIndex + 1) + " / " + testimonials.length;
+            if (avatarWrap) avatarWrap.querySelector('.avatar-letter').textContent = item.letter;
+
+            imgEl.classList.remove("fade-out");
+            textEl.classList.remove("fade-out");
+        }, 300);
+    }
+
+    function nextTestimonial() {
+        if (!testimonials.length) return;
+        const newIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        updateTestimonial(newIndex);
+    }
+
+    function prevTestimonial() {
+        if (!testimonials.length) return;
+        const newIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+        updateTestimonial(newIndex);
+    }
+
+    function resetTestimonialTimer() {
+        clearInterval(testimonialTimer);
+        testimonialTimer = setInterval(nextTestimonial, 10000);
+    }
+
+    document.querySelectorAll(".tc-testimonials-dark .next-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            nextTestimonial();
+            resetTestimonialTimer();
+        });
+    });
+
+    document.querySelectorAll(".tc-testimonials-dark .prev-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            prevTestimonial();
+            resetTestimonialTimer();
+        });
+    });
+
+    testimonialTimer = setInterval(nextTestimonial, 10000);
 });
 </script>
 
