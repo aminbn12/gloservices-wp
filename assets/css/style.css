@@ -4531,17 +4531,16 @@ html.lenis, html.lenis body {
 
 .partners-bg-layer {
     position: absolute;
-    top: -220px;
+    top: -240px;
     left: 0;
     width: 100%;
-    height: calc(100% + 440px);
+    height: calc(100% + 480px);
     background-image: 
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%2364748B' fill-opacity='0.2'%3E%3Cpath d='M30 26h-4v4h4v4h4v-4h4v-4h-4v-4h-4v4z'/%3E%3C/g%3E%3C/svg%3E"),
-        url("../img/prc_bg.png");
-    background-size: 60px 60px, cover;
-    background-position: center, center;
-    background-repeat: repeat, no-repeat;
-    opacity: 0.18;
+        linear-gradient(rgba(250, 252, 255, 0.88), rgba(250, 252, 255, 0.88)),
+        url("../img/archiback.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     pointer-events: none;
     z-index: 1;
     will-change: transform;

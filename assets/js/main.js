@@ -55,6 +55,7 @@
             touchMultiplier: 1.5,
             infinite: false
         });
+        window.gloLenis = lenis;
 
         function raf(time) {
             lenis.raf(time);
@@ -146,16 +147,16 @@
                 var totalRange = windowHeight + rect.height;
                 var currentPos = windowHeight - rect.top;
                 var progress = currentPos / totalRange; // 0 to 1
-                var translateY = (progress - 0.5) * 220; // 220px prominent move
+                var translateY = (progress - 0.5) * 280; // 280px prominent move
                 partnersBgLayer.style.transform = 'translate3d(0, ' + translateY + 'px, 0)';
             }
         };
         window.addEventListener('scroll', updatePartnersParallax, { passive: true });
+        if (window.gloLenis) {
+            window.gloLenis.on('scroll', updatePartnersParallax);
+        }
         updatePartnersParallax();
         setTimeout(updatePartnersParallax, 300);
-        if (typeof lenis !== 'undefined') {
-            lenis.on('scroll', updatePartnersParallax);
-        }
     }
 
     // Counter Up
