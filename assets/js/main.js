@@ -135,18 +135,23 @@
         });
     }
 
-    // === PARTNERS SECTION SMOOTH PARALLAX BACKGROUND SCROLL ===
+    // === PARTNERS SECTION HARDWARE-ACCELERATED PARALLAX SCROLL ===
+    var partnersBgLayer = document.querySelector('.partners-bg-layer');
     var partnersSection = document.querySelector('.partners-grid-section');
-    if (partnersSection) {
+    if (partnersBgLayer && partnersSection) {
         var updatePartnersParallax = function() {
             var rect = partnersSection.getBoundingClientRect();
             var windowHeight = window.innerHeight;
             if (rect.top < windowHeight && rect.bottom > 0) {
-                var scrollFactor = (windowHeight - rect.top) * 0.22;
-                partnersSection.style.backgroundPositionY = scrollFactor + 'px, ' + (scrollFactor + 18) + 'px';
+                var totalRange = windowHeight + rect.height;
+                var currentPos = windowHeight - rect.top;
+                var progress = currentPos / totalRange; // 0 to 1
+                var translateY = (progress - 0.5) * 140; // Moves 140px smoothly
+                partnersBgLayer.style.transform = 'translate3d(0, ' + translateY + 'px, 0)';
             }
         };
         window.addEventListener('scroll', updatePartnersParallax, { passive: true });
+        updatePartnersParallax();
         setTimeout(updatePartnersParallax, 300);
         if (typeof lenis !== 'undefined') {
             lenis.on('scroll', updatePartnersParallax);

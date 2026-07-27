@@ -4525,15 +4525,29 @@ html.lenis, html.lenis body {
 .partners-grid-section {
     position: relative;
     background-color: #FAFCFF;
-    background-image: 
-        radial-gradient(rgba(15, 23, 42, 0.1) 1.5px, transparent 1.5px),
-        radial-gradient(rgba(16, 185, 129, 0.08) 1.5px, transparent 1.5px);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
-    will-change: background-position;
-    transition: background-position 0.05s linear;
     padding: 70px 0 90px 0;
     overflow: hidden;
+}
+
+.partners-bg-layer {
+    position: absolute;
+    top: -120px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 240px);
+    background-image: 
+        radial-gradient(rgba(15, 23, 42, 0.12) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(16, 185, 129, 0.1) 1.5px, transparent 1.5px);
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+.partners-grid-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .partners-main-title {

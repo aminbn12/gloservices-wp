@@ -266,6 +266,7 @@ get_header();
 
 <!-- Partners Section Start -->
 <div class="partners-grid-section py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="partners-bg-layer"></div>
     <div class="container py-4">
         <!-- Section Header matching screenshot -->
         <div class="row align-items-center mb-5">
