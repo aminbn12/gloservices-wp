@@ -4057,25 +4057,31 @@ html.lenis, html.lenis body {
     transform: scale(1.1);
 }
 
-/* ===== UNIFORM PROJECT CARD IMAGES (HOME & PROJECTS PAGE) ===== */
-.project-card-v2 .project-img-box,
-.project-card-modern .project-img-wrap,
-.portfolio-item .project-img-box,
-.portfolio-item .project-img-wrap {
+/* ===== UNIFORM PROJECT CARD IMAGES ===== */
+.project-card-v2 .project-img-box {
     position: relative !important;
     width: 100% !important;
     height: 240px !important;
     min-height: 240px !important;
     max-height: 240px !important;
-    aspect-ratio: 16 / 10 !important;
     overflow: hidden !important;
     border-radius: 18px 18px 0 0 !important;
     background: #0F172A !important;
 }
 
+.project-card-modern .project-img-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    border-radius: var(--radius-lg) !important;
+    background: #0F172A !important;
+}
+
 .project-card-v2 .project-img-box img,
-.project-card-modern .project-img-wrap img,
-.portfolio-item img {
+.project-card-modern .project-img-wrap img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
@@ -4084,7 +4090,7 @@ html.lenis, html.lenis body {
 }
 
 .project-card-v2:hover .project-img-box img,
-.portfolio-item:hover img {
+.project-card-modern:hover .project-img-wrap img {
     transform: scale(1.08) !important;
 }
 
