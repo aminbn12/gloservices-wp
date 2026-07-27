@@ -816,37 +816,35 @@ function gloservices_get_service_drawing($slug) {
                     }
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($cat_class); ?>">
-                    <div class="project-card-modern">
-                        <div class="project-img-wrap">
+                    <div class="project-card-v2">
+                        <div class="project-img-box">
                             <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>">
-                            <span class="project-badge-glass"><?php echo esc_html($cat_name); ?></span>
-                            <div class="project-content-overlay">
-                                <div class="project-text">
-                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px;"><?php the_title(); ?></h3>
-                                    <?php
-                                    $client = get_post_meta(get_the_ID(), '_project_client', true);
-                                    $year = get_post_meta(get_the_ID(), '_project_year', true) ?: get_the_date('Y');
-                                    $cost = get_post_meta(get_the_ID(), '_project_cost', true);
-                                    ?>
-                                    <?php if ($client) : ?>
-                                        <p class="mb-1 text-white-50" style="font-size: 0.8rem; font-weight: 500;">
-                                            <strong><?php _e('Client :', 'gloservices'); ?></strong> <?php echo esc_html(gloservices_translate($client)); ?>
-                                        </p>
-                                    <?php endif; ?>
-                                    <p class="mb-1 text-white-50" style="font-size: 0.8rem; font-weight: 500;">
-                                        <strong><?php _e('Année :', 'gloservices'); ?></strong> <?php echo esc_html($year); ?>
-                                        <?php if ($cost) : ?>
-                                            | <strong><?php _e('Budget :', 'gloservices'); ?></strong> <?php echo esc_html($cost); ?>
-                                        <?php endif; ?>
-                                    </p>
-                                    <p class="mb-0 mt-2 text-white-50" style="font-size: 0.78rem; line-height: 1.4;">
-                                        <?php echo wp_trim_words(get_the_excerpt(), 12); ?>
-                                    </p>
-                                </div>
-                                <div class="project-actions mt-3">
-                                    <a class="action-btn-circle" href="<?php the_permalink(); ?>" title="<?php esc_attr_e('Voir le projet', 'gloservices'); ?>"><i class="fas fa-arrow-right"></i></a>
-                                    <a class="action-btn-circle" href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                            <span class="project-badge-tag"><?php echo esc_html($cat_name); ?></span>
+                            <div class="corner-mark corner-tl"></div>
+                            <div class="corner-mark corner-tr"></div>
+                            <div class="corner-mark corner-bl"></div>
+                            <div class="corner-mark corner-br"></div>
+                        </div>
+                        <div class="project-body-content">
+                            <h3 class="project-card-title"><?php the_title(); ?></h3>
+                            <?php
+                            $client = get_post_meta(get_the_ID(), '_project_client', true);
+                            $year = get_post_meta(get_the_ID(), '_project_year', true) ?: get_the_date('Y');
+                            $cost = get_post_meta(get_the_ID(), '_project_cost', true);
+                            ?>
+                            <div class="project-meta-pills">
+                                <?php if ($client) : ?>
+                                    <span class="project-meta-pill"><i class="fas fa-building me-1"></i><?php echo esc_html(gloservices_translate($client)); ?></span>
+                                <?php endif; ?>
+                                <span class="project-meta-pill"><i class="fas fa-calendar-alt me-1"></i><?php echo esc_html($year); ?></span>
+                                <?php if ($cost) : ?>
+                                    <span class="project-meta-pill"><i class="fas fa-coins me-1"></i><?php echo esc_html($cost); ?></span>
+                                <?php endif; ?>
+                            </div>
+                            <p class="project-excerpt-text"><?php echo wp_trim_words(get_the_excerpt(), 18); ?></p>
+                            <div class="project-card-footer">
+                                <a href="<?php the_permalink(); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" class="btn-project-zoom" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -858,6 +856,7 @@ function gloservices_get_service_drawing($slug) {
             else :
                 $static_projects = [
                     [
+                        'id' => 64,
                         'title' => 'Trémie sous la voie ferrée à Sidi Bernoussi',
                         'cat_class' => 'third',
                         'cat_name' => __('Infrastructures Routières', 'gloservices'),
@@ -868,6 +867,7 @@ function gloservices_get_service_drawing($slug) {
                         'image' => 'img-600x400-1.jpg'
                     ],
                     [
+                        'id' => 67,
                         'title' => 'Aménagement du boulevard Azbane',
                         'cat_class' => 'third',
                         'cat_name' => __('Infrastructures Routières', 'gloservices'),
@@ -878,6 +878,7 @@ function gloservices_get_service_drawing($slug) {
                         'image' => 'img-600x400-2.jpg'
                     ],
                     [
+                        'id' => 70,
                         'title' => 'Route Nationale 6 (Dar Essakah - Sidi Allal Bahraoui)',
                         'cat_class' => 'third',
                         'cat_name' => __('Infrastructures Routières', 'gloservices'),
@@ -888,6 +889,7 @@ function gloservices_get_service_drawing($slug) {
                         'image' => 'img-600x400-4.jpg'
                     ],
                     [
+                        'id' => 73,
                         'title' => 'Audit Technique & Gestion Digitale de Maintenance',
                         'cat_class' => 'first',
                         'cat_name' => __('Solution Numérique', 'gloservices'),
@@ -898,6 +900,7 @@ function gloservices_get_service_drawing($slug) {
                         'image' => 'img-600x400-3.jpg'
                     ],
                     [
+                        'id' => 75,
                         'title' => 'Centre d\'affaires Crédit Agricole à Hay Riad',
                         'cat_class' => 'second',
                         'cat_name' => __('Développement Urbain', 'gloservices'),
@@ -908,6 +911,7 @@ function gloservices_get_service_drawing($slug) {
                         'image' => 'img-600x400-5.jpg'
                     ],
                     [
+                        'id' => 78,
                         'title' => 'Complexes résidentiels El Menzah (17 Zaer Park)',
                         'cat_class' => 'second',
                         'cat_name' => __('Développement Urbain', 'gloservices'),
@@ -922,27 +926,26 @@ function gloservices_get_service_drawing($slug) {
                     $img_url = get_template_directory_uri() . '/assets/img/' . $project['image'];
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($project['cat_class']); ?>">
-                    <div class="project-card-modern">
-                        <div class="project-img-wrap">
+                    <div class="project-card-v2">
+                        <div class="project-img-box">
                             <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($project['title']); ?>">
-                            <span class="project-badge-glass"><?php echo esc_html($project['cat_name']); ?></span>
-                            <div class="project-content-overlay">
-                                <div class="project-text">
-                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px;"><?php echo esc_html(gloservices_translate($project['title'])); ?></h3>
-                                    <p class="mb-1 text-white-50" style="font-size: 0.8rem; font-weight: 500;">
-                                        <strong><?php _e('Client :', 'gloservices'); ?></strong> <?php echo esc_html(gloservices_translate($project['client'])); ?>
-                                    </p>
-                                    <p class="mb-1 text-white-50" style="font-size: 0.8rem; font-weight: 500;">
-                                        <strong><?php _e('Année :', 'gloservices'); ?></strong> <?php echo esc_html($project['year']); ?> | <strong><?php _e('Budget :', 'gloservices'); ?></strong> <?php echo esc_html($project['cost']); ?>
-                                    </p>
-                                    <p class="mb-0 mt-2 text-white-50" style="font-size: 0.78rem; line-height: 1.4;">
-                                        <?php echo esc_html(gloservices_translate($project['desc'])); ?>
-                                    </p>
-                                </div>
-                                <div class="project-actions mt-3">
-                                    <a class="action-btn-circle" href="<?php echo esc_url(home_url('/contact')); ?>" title="<?php esc_attr_e('Nous contacter', 'gloservices'); ?>"><i class="fas fa-envelope"></i></a>
-                                    <a class="action-btn-circle" href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
-                                </div>
+                            <span class="project-badge-tag"><?php echo esc_html($project['cat_name']); ?></span>
+                            <div class="corner-mark corner-tl"></div>
+                            <div class="corner-mark corner-tr"></div>
+                            <div class="corner-mark corner-bl"></div>
+                            <div class="corner-mark corner-br"></div>
+                        </div>
+                        <div class="project-body-content">
+                            <h3 class="project-card-title"><?php echo esc_html(gloservices_translate($project['title'])); ?></h3>
+                            <div class="project-meta-pills">
+                                <span class="project-meta-pill"><i class="fas fa-building me-1"></i><?php echo esc_html(gloservices_translate($project['client'])); ?></span>
+                                <span class="project-meta-pill"><i class="fas fa-calendar-alt me-1"></i><?php echo esc_html($project['year']); ?></span>
+                                <span class="project-meta-pill"><i class="fas fa-coins me-1"></i><?php echo esc_html($project['cost']); ?></span>
+                            </div>
+                            <p class="project-excerpt-text"><?php echo esc_html(gloservices_translate($project['desc'])); ?></p>
+                            <div class="project-card-footer">
+                                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" class="btn-project-zoom" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
