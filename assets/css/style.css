@@ -4687,6 +4687,7 @@ html.lenis, html.lenis body {
     inset: 0;
     pointer-events: none;
     animation: continuousOrbit 50s linear infinite;
+    transform-origin: center center;
 }
 
 @keyframes continuousOrbit {
@@ -4716,23 +4717,9 @@ html.lenis, html.lenis body {
     pointer-events: auto;
     cursor: pointer;
     z-index: 15;
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index)));
+    transform-origin: center center;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    animation: counterRotateNode 50s linear infinite;
-}
-
-@keyframes counterRotateNode {
-    from {
-        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(0deg);
-    }
-    to {
-        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(-360deg);
-    }
-}
-
-/* Pause rotation smoothly on hover so user can interact! */
-.globuild-partners-orbit-container:hover .globuild-orbit-nodes,
-.globuild-partners-orbit-container:hover .orbit-partner-node {
-    animation-play-state: paused !important;
 }
 
 .node-number {
@@ -4751,6 +4738,7 @@ html.lenis, html.lenis body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+    z-index: 2;
 }
 
 .node-logo-wrapper {
@@ -4763,12 +4751,30 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
+/* Counter Spin Image to keep every logo 100% UPRIGHT and LEVEL (0 degree tilt) */
 .node-logo-wrapper img {
     max-width: 85%;
     max-height: 85%;
     object-fit: contain;
     filter: grayscale(20%);
-    transition: all 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    animation: counterSpinLogo 50s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes counterSpinLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Pause rotation smoothly on hover so user can interact! */
+.globuild-partners-orbit-container:hover .globuild-orbit-nodes,
+.globuild-partners-orbit-container:hover .node-logo-wrapper img {
+    animation-play-state: paused !important;
 }
 
 /* Tooltip Hover Badge */
@@ -4793,23 +4799,23 @@ html.lenis, html.lenis body {
     display: flex;
     align-items: center;
     gap: 6px;
+    z-index: 25;
 }
 
 .node-tooltip .tooltip-num {
     color: #10B981;
 }
 
-/* Node Hover Effects */
+/* Node Hover Effects - Dead Centered Zoom without shifting to the right */
 .orbit-partner-node:hover {
     z-index: 30;
-    border-color: #10B981;
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2), 0 15px 35px rgba(16, 185, 129, 0.3);
-    scale: 1.25;
+    border-color: #10B981 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25), 0 12px 30px rgba(16, 185, 129, 0.35) !important;
 }
 
 .orbit-partner-node:hover .node-logo-wrapper img {
     filter: grayscale(0%);
-    transform: scale(1.1);
+    transform: scale(1.22);
 }
 
 .orbit-partner-node:hover .node-tooltip {
@@ -4833,15 +4839,7 @@ html.lenis, html.lenis body {
         height: 68px;
         margin-top: -34px;
         margin-left: -34px;
-        animation-name: counterRotateNode991;
-    }
-    @keyframes counterRotateNode991 {
-        from {
-            transform: rotate(calc(360deg / var(--total) * var(--index))) translate(195px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(0deg);
-        }
-        to {
-            transform: rotate(calc(360deg / var(--total) * var(--index))) translate(195px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(-360deg);
-        }
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(195px) rotate(calc(-360deg / var(--total) * var(--index)));
     }
 }
 
@@ -4909,15 +4907,11 @@ html.lenis, html.lenis body {
         align-items: center;
         justify-content: center;
         pointer-events: auto;
-        animation: counterRotateNodeMobile 45s linear infinite !important;
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) !important;
+        animation: none !important;
     }
-    @keyframes counterRotateNodeMobile {
-        from {
-            transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(0deg);
-        }
-        to {
-            transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) rotate(-360deg);
-        }
+    .node-logo-wrapper img {
+        animation: counterSpinLogo 45s linear infinite !important;
     }
     .node-number {
         display: flex;
@@ -4969,7 +4963,6 @@ html.lenis, html.lenis body {
     }
     .orbit-partner-node:hover,
     .orbit-partner-node:active {
-        scale: 1.25 !important;
         border-color: #10B981 !important;
         box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 8px 20px rgba(16, 185, 129, 0.35) !important;
         z-index: 40;
