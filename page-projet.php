@@ -264,19 +264,73 @@ get_header();
 </div>
 <!-- Projects End -->
 
-<!-- References Start -->
-<div class="references-section wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="references-header">
-            <span class="references-label"><?php _e('Ils nous font confiance', 'gloservices'); ?></span>
-            <h2><?php _e('Nos Références', 'gloservices'); ?></h2>
+<!-- Partners Section Start -->
+<div class="partners-grid-section py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-4">
+        <!-- Section Header matching screenshot -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <h2 class="partners-main-title m-0"><?php echo esc_html(gloservices_translate('NOS PARTENAIRES')); ?></h2>
+            </div>
+            <div class="col-lg-8">
+                <p class="partners-desc-text m-0">
+                    <?php echo esc_html(gloservices_translate('Ils nous font confiance pour leurs projets. Nos partenaires s\'appuient sur notre expertise technique pour concrétiser leurs idées. Ensemble, nous formons une équipe soudée, engagée dans la réussite de chaque chantier. Découvrez ceux qui choisissent de travailler avec nous !')); ?>
+                </p>
+            </div>
         </div>
-        <div class="references-track">
-            <?php gloservices_vendor_carousel(); ?>
+
+        <!-- 30 Partners Grid -->
+        <?php
+        $partners = [
+            ['num' => 1,  'name' => 'MARJANE',                 'logo' => 'vendor-1.jpg'],
+            ['num' => 2,  'name' => 'ONCF',                    'logo' => 'vendor-2.jpg'],
+            ['num' => 3,  'name' => 'BMCE',                    'logo' => 'vendor-3.jpg'],
+            ['num' => 4,  'name' => 'CNSS',                    'logo' => 'vendor-4.jpg'],
+            ['num' => 5,  'name' => 'AL OMARANE',              'logo' => 'vendor-5.jpg'],
+            ['num' => 6,  'name' => 'RAM',                     'logo' => 'vendor-6.jpg'],
+            ['num' => 7,  'name' => 'OCP',                     'logo' => 'vendor-7.jpg'],
+            ['num' => 8,  'name' => 'ONAPAR',                  'logo' => 'vendor-8.jpg'],
+            ['num' => 9,  'name' => 'ONDA',                    'logo' => 'vendor-9.jpg'],
+            ['num' => 10, 'name' => 'DÉCATHLON',               'logo' => 'vendor-10.png'],
+            ['num' => 11, 'name' => 'CIH',                     'logo' => 'vendor-11.png'],
+            ['num' => 12, 'name' => 'AMETYS',                  'logo' => 'vendor-12.png'],
+            ['num' => 13, 'name' => 'CGI',                     'logo' => 'vendor-13.png'],
+            ['num' => 14, 'name' => 'PALMERAIE',               'logo' => 'vendor-14.png'],
+            ['num' => 15, 'name' => 'CENTRALE LAITIÈRE',        'logo' => 'vendor-1.jpg'],
+            ['num' => 16, 'name' => 'ECOLE BELGE',              'logo' => 'vendor-2.jpg'],
+            ['num' => 17, 'name' => 'ECOLE YASSAMINE',          'logo' => 'vendor-3.jpg'],
+            ['num' => 18, 'name' => 'AUTO NEJMA',              'logo' => 'vendor-4.jpg'],
+            ['num' => 19, 'name' => 'SNI',                     'logo' => 'vendor-5.jpg'],
+            ['num' => 20, 'name' => 'VILLE DE CASABLANCA',      'logo' => 'vendor-6.jpg'],
+            ['num' => 21, 'name' => 'MARINE ROYALE',           'logo' => 'vendor-7.jpg'],
+            ['num' => 22, 'name' => 'CASA MODA ACADEMY',        'logo' => 'vendor-8.jpg'],
+            ['num' => 23, 'name' => 'MINISTÈRE D\'ÉDUCATION',   'logo' => 'vendor-9.jpg'],
+            ['num' => 24, 'name' => 'MAROC AVIATION',           'logo' => 'vendor-10.png'],
+            ['num' => 25, 'name' => 'BENISHA',                  'logo' => 'vendor-11.png'],
+            ['num' => 26, 'name' => 'APMA',                     'logo' => 'vendor-12.png'],
+            ['num' => 27, 'name' => 'VILLE DE MARRAKECH',       'logo' => 'vendor-13.png'],
+            ['num' => 28, 'name' => 'SOMED',                    'logo' => 'vendor-14.png'],
+            ['num' => 29, 'name' => 'PHARMA5',                  'logo' => 'vendor-1.jpg'],
+            ['num' => 30, 'name' => 'MERCURE INDUSTRIE',        'logo' => 'vendor-2.jpg'],
+        ];
+        ?>
+
+        <div class="partners-grid-wrapper">
+            <?php foreach ($partners as $partner) : 
+                $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
+            ?>
+                <div class="partner-grid-item">
+                    <span class="partner-number"><?php echo esc_html($partner['num']); ?></span>
+                    <div class="partner-logo-box">
+                        <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+                    </div>
+                    <span class="partner-name"><?php echo esc_html($partner['name']); ?></span>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
-<!-- References End -->
+<!-- Partners Section End -->
 
 <?php
 get_footer();

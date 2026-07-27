@@ -93,6 +93,11 @@ function gloservices_get_translations($lang = 'fr') {
         // ===== PROJECTS =====
         'RÉALISATIONS' => array('en' => 'Portfolio', 'ar' => 'إنجازاتنا'),
         'RÉALISATIONS & RÉFÉRENCES' => array('en' => 'PROJECTS & REFERENCES', 'ar' => 'الإنجازات والمراجع'),
+        'NOS PARTENAIRES' => array('en' => 'OUR PARTNERS', 'ar' => 'شركاؤنا'),
+        'Ils nous font confiance pour leurs projets. Nos partenaires s\'appuient sur notre expertise technique pour concrétiser leurs idées. Ensemble, nous formons une équipe soudée, engagée dans la réussite de chaque chantier. Découvrez ceux qui choisissent de travailler avec nous !' => array(
+            'en' => 'They trust us for their projects. Our partners rely on our technical expertise to make their ideas a reality. Together, we form a cohesive team dedicated to the success of every site. Discover those who choose to work with us!',
+            'ar' => 'إنهم يثقون بنا في مشاريعهم. يعتمد شركاؤنا على خبرتنا الفنية لتحقيق أفكارهم. معاً، نُشكل فريقاً متماسكاً مكرساً لنجاح كل مشروع. اكتشف من يختارون العمل معنا!'
+        ),
         'Nos Projets' => array('en' => 'Our Projects', 'ar' => 'مشاريعنا'),
         'Des projets d\'envergure menés avec rigueur et excellence' => array('en' => 'Major projects executed with rigor and excellence', 'ar' => 'مشاريع كبرى تم تنفيذها بدقة وتميز'),
         'Découvrez nos références majeures en génie civil, infrastructures routières, ouvrages d\'art et solutions numériques BTP.' => array('en' => 'Discover our major references in civil engineering, road infrastructure, engineering structures, and digital construction solutions.', 'ar' => 'اكتشف أبرز مراجعنا في الهندسة المدنية، البنية التحتية الطرقية، المنشآت الفنية والحلول الرقمية للبناء.'),
