@@ -4130,6 +4130,46 @@ html.lenis, html.lenis body {
     object-position: center !important;
     border-radius: 20px !important;
     border: none !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Always-Visible Navigation Arrows & Fast-Click Guard */
+#lightbox .lb-nav {
+    display: block !important;
+    pointer-events: auto !important;
+    height: 100% !important;
+}
+
+#lightbox .lb-outerContainer.animating .lb-nav {
+    pointer-events: none !important;
+}
+
+#lightbox .lb-nav a.lb-prev,
+#lightbox .lb-nav a.lb-next {
+    opacity: 0.9 !important;
+    filter: alpha(Opacity=90) !important;
+    display: block !important;
+    transition: all 0.25s ease !important;
+}
+
+#lightbox .lb-nav a.lb-prev {
+    width: 30% !important;
+    left: 10px !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10' fill='rgba(15, 23, 42, 0.75)'/%3E%3Cpolyline points='14 8 10 12 14 16'/%3E%3C/svg%3E") left 50% no-repeat !important;
+}
+
+#lightbox .lb-nav a.lb-next {
+    width: 30% !important;
+    right: 10px !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10' fill='rgba(15, 23, 42, 0.75)'/%3E%3Cpolyline points='10 8 14 12 10 16'/%3E%3C/svg%3E") right 50% no-repeat !important;
+}
+
+#lightbox .lb-nav a.lb-prev:hover,
+#lightbox .lb-nav a.lb-next:hover {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
 }
 
 #lightbox .lb-dataContainer {

@@ -124,6 +124,17 @@
         }
     }, 500);
 
+    // === LIGHTBOX OPTIMIZED OPTIONS & FAST-CLICK GUARD ===
+    if (typeof lightbox !== 'undefined') {
+        lightbox.option({
+            fadeDuration: 150,
+            resizeDuration: 150,
+            imageFadeDuration: 150,
+            wrapAround: true,
+            showImageNumberLabel: true
+        });
+    }
+
     // Counter Up
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,

@@ -110,7 +110,7 @@ get_header();
                             <p class="project-excerpt-text"><?php echo wp_trim_words(get_the_excerpt(), 18); ?></p>
                             <div class="project-card-footer">
                                 <a href="<?php the_permalink(); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" class="btn-project-zoom" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
+                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" data-title="<?php echo esc_attr(get_the_title()); ?>" class="btn-project-zoom" title="<?php echo esc_attr(get_the_title()); ?>"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -216,7 +216,7 @@ get_header();
                             <p class="project-excerpt-text"><?php echo esc_html(gloservices_translate($project['desc'])); ?></p>
                             <div class="project-card-footer">
                                 <a href="<?php echo esc_url($proj_link); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" class="btn-project-zoom" title="<?php esc_attr_e('Agrandir', 'gloservices'); ?>"><i class="fas fa-search-plus"></i></a>
+                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" data-title="<?php echo esc_attr(gloservices_translate($project['title'])); ?>" class="btn-project-zoom" title="<?php echo esc_attr(gloservices_translate($project['title'])); ?>"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
