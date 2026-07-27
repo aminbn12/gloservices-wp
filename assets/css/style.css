@@ -4531,15 +4531,12 @@ html.lenis, html.lenis body {
 
 .partners-bg-layer {
     position: absolute;
-    top: -120px;
+    top: -200px;
     left: 0;
     width: 100%;
-    height: calc(100% + 240px);
-    background-image: 
-        radial-gradient(rgba(15, 23, 42, 0.12) 1.5px, transparent 1.5px),
-        radial-gradient(rgba(16, 185, 129, 0.1) 1.5px, transparent 1.5px);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
+    height: calc(100% + 400px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%2364748B' fill-opacity='0.25'%3E%3Cpath d='M30 26h-4v4h4v4h4v-4h4v-4h-4v-4h-4v4z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: 1;
     will-change: transform;

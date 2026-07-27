@@ -146,7 +146,7 @@
                 var totalRange = windowHeight + rect.height;
                 var currentPos = windowHeight - rect.top;
                 var progress = currentPos / totalRange; // 0 to 1
-                var translateY = (progress - 0.5) * 140; // Moves 140px smoothly
+                var translateY = (progress - 0.5) * 220; // 220px prominent move
                 partnersBgLayer.style.transform = 'translate3d(0, ' + translateY + 'px, 0)';
             }
         };
