@@ -171,16 +171,21 @@ get_header();
 /* ============================================================
    RESPONSIVE NOTRE APPROCHE LAYOUT FOR MOBILE & TABLET (< 992px)
    ============================================================ */
+/* ============================================================
+   RESPONSIVE NOTRE APPROCHE LAYOUT FOR MOBILE & TABLET (< 992px)
+   ============================================================ */
 @media (max-width: 991.98px) {
     .tc-process-style2 .imgs {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 28px 16px !important;
-        margin-top: 35px !important;
+        gap: 45px 20px !important;
+        margin: 40px auto 10px auto !important;
+        max-width: 440px !important;
         height: auto !important;
         position: relative !important;
         background-image: none !important;
         background: none !important;
+        padding: 0 10px !important;
     }
     
     .tc-process-style2 .imgs .img {
@@ -191,13 +196,20 @@ get_header();
         bottom: auto !important;
         transform: none !important;
         width: 100% !important;
-        max-width: 210px !important;
+        max-width: 175px !important;
         margin: 0 auto !important;
         aspect-ratio: 1 / 1 !important;
         height: auto !important;
         border-radius: 50% !important;
+        border: 5px solid #FFFFFF !important;
         overflow: visible !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12), 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    .tc-process-style2 .imgs .img:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 16px 36px rgba(16, 185, 129, 0.22), 0 0 0 2px rgba(16, 185, 129, 0.4) !important;
     }
 
     .tc-process-style2 .imgs .img img {
@@ -210,41 +222,59 @@ get_header();
 
     .tc-process-style2 .imgs .img .txt {
         position: absolute !important;
-        bottom: -12px !important;
+        bottom: -14px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         top: auto !important;
         right: auto !important;
         background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
         color: #FFFFFF !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border: 2px solid #FFFFFF !important;
         border-radius: 9999px !important;
-        padding: 5px 18px !important;
-        font-size: 0.88rem !important;
+        padding: 4px 16px !important;
+        font-size: 0.82rem !important;
         font-weight: 600 !important;
         white-space: nowrap !important;
-        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
         z-index: 10 !important;
     }
 
     .tc-process-style2 .imgs .img:nth-of-type(1) .txt {
         background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%) !important;
         color: #FFFFFF !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border: 2px solid #FFFFFF !important;
     }
 }
 
 @media (max-width: 480px) {
     .tc-process-style2 .imgs {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 24px 10px !important;
+        gap: 38px 12px !important;
+        max-width: 340px !important;
     }
     .tc-process-style2 .imgs .img {
-        max-width: 150px !important;
+        max-width: 140px !important;
+        border-width: 4px !important;
     }
     .tc-process-style2 .imgs .img .txt {
-        font-size: 0.78rem !important;
+        font-size: 0.76rem !important;
         padding: 3px 12px !important;
+        bottom: -12px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .tc-process-style2 .imgs {
+        gap: 34px 8px !important;
+        max-width: 290px !important;
+    }
+    .tc-process-style2 .imgs .img {
+        max-width: 125px !important;
+        border-width: 3px !important;
+    }
+    .tc-process-style2 .imgs .img .txt {
+        font-size: 0.7rem !important;
+        padding: 2px 10px !important;
         bottom: -10px !important;
     }
 }
@@ -272,8 +302,15 @@ get_header();
     .tc-process-style2 .imgs .img {
         position: absolute !important;
         border-radius: 50% !important;
+        border: 6px solid #FFFFFF !important;
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14), 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
         overflow: visible !important;
         margin: 0 !important;
+        transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+    }
+    .tc-process-style2 .imgs .img:hover {
+        transform: scale(1.04) !important;
+        box-shadow: 0 20px 48px rgba(16, 185, 129, 0.22), 0 0 0 3px rgba(16, 185, 129, 0.4) !important;
     }
     .tc-process-style2 .imgs .img img {
         border-radius: 50% !important;
