@@ -4569,7 +4569,10 @@ html.lenis, html.lenis body {
     font-family: var(--font-display);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #0F172A;
+    background: linear-gradient(135deg, #10B981 0%, #0EA5E9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: -0.5px;
     line-height: 1.2;
 }
