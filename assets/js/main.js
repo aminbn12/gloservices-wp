@@ -135,6 +135,24 @@
         });
     }
 
+    // === PARTNERS SECTION SMOOTH PARALLAX BACKGROUND SCROLL ===
+    var partnersSection = document.querySelector('.partners-grid-section');
+    if (partnersSection) {
+        var updatePartnersParallax = function() {
+            var rect = partnersSection.getBoundingClientRect();
+            var windowHeight = window.innerHeight;
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                var scrollFactor = (windowHeight - rect.top) * 0.22;
+                partnersSection.style.backgroundPositionY = scrollFactor + 'px, ' + (scrollFactor + 18) + 'px';
+            }
+        };
+        window.addEventListener('scroll', updatePartnersParallax, { passive: true });
+        setTimeout(updatePartnersParallax, 300);
+        if (typeof lenis !== 'undefined') {
+            lenis.on('scroll', updatePartnersParallax);
+        }
+    }
+
     // Counter Up
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,

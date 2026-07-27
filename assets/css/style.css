@@ -4526,10 +4526,12 @@ html.lenis, html.lenis body {
     position: relative;
     background-color: #FAFCFF;
     background-image: 
-        radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px),
-        radial-gradient(rgba(16, 185, 129, 0.06) 1.2px, transparent 1.2px);
+        radial-gradient(rgba(15, 23, 42, 0.1) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(16, 185, 129, 0.08) 1.5px, transparent 1.5px);
     background-size: 36px 36px;
     background-position: 0 0, 18px 18px;
+    will-change: background-position;
+    transition: background-position 0.05s linear;
     padding: 70px 0 90px 0;
     overflow: hidden;
 }
