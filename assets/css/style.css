@@ -4905,6 +4905,12 @@ html.lenis, html.lenis body {
         height: 82px;
         border-width: 3px;
         box-shadow: 0 0 22px rgba(16, 185, 129, 0.35);
+        transition: transform 0.35s ease, box-shadow 0.3s ease;
+    }
+    .globuild-orbit-center-link:hover .globuild-orbit-center,
+    .globuild-orbit-center-link:active .globuild-orbit-center {
+        transform: translate(-50%, -50%) scale(1.18) !important;
+        box-shadow: 0 0 35px rgba(16, 185, 129, 0.6) !important;
     }
     .center-brand-logo {
         width: 34px;
