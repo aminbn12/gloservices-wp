@@ -280,54 +280,56 @@ get_header();
             </div>
         </div>
 
-        <!-- 30 Partners Grid -->
+        <!-- Globuild Globe Orbit Partners Layout -->
         <?php
         $partners = [
-            ['num' => 1,  'name' => 'CID',                            'logo' => 'favicon-circle.png'],
-            ['num' => 2,  'name' => 'GROUPE MOJAZINE',                 'logo' => 'favicon-circle.png'],
-            ['num' => 3,  'name' => 'TGCC',                           'logo' => 'favicon-circle.png'],
-            ['num' => 4,  'name' => 'MINISTÈRE DE L\'ÉQUIPEMENT',       'logo' => 'favicon-circle.png'],
-            ['num' => 5,  'name' => 'S.N.L TRAVAUX',                   'logo' => 'favicon-circle.png'],
-            ['num' => 6,  'name' => 'GENERALE ROUTIERE',              'logo' => 'favicon-circle.png'],
-            ['num' => 7,  'name' => 'L.P.E.E',                        'logo' => 'favicon-circle.png'],
-            ['num' => 8,  'name' => 'REDAL',                          'logo' => 'favicon-circle.png'],
-            ['num' => 9,  'name' => 'TOTALENERGIES',                  'logo' => 'favicon-circle.png'],
-            ['num' => 10, 'name' => 'COLAS RAIL',                     'logo' => 'favicon-circle.png'],
-            ['num' => 11, 'name' => 'GCR',                            'logo' => 'favicon-circle.png'],
-            ['num' => 12, 'name' => 'AUTOROUTES DU MAROC',            'logo' => 'favicon-circle.png'],
-            ['num' => 13, 'name' => 'AMDL',                           'logo' => 'favicon-circle.png'],
-            ['num' => 14, 'name' => 'CRÉDIT AGRICOLE DU MAROC',        'logo' => 'favicon-circle.png'],
-            ['num' => 15, 'name' => 'CID',                            'logo' => 'favicon-circle.png'],
-            ['num' => 16, 'name' => 'GROUPE MOJAZINE',                 'logo' => 'favicon-circle.png'],
-            ['num' => 17, 'name' => 'TGCC',                           'logo' => 'favicon-circle.png'],
-            ['num' => 18, 'name' => 'MINISTÈRE DE L\'ÉQUIPEMENT',       'logo' => 'favicon-circle.png'],
-            ['num' => 19, 'name' => 'S.N.L TRAVAUX',                   'logo' => 'favicon-circle.png'],
-            ['num' => 20, 'name' => 'GENERALE ROUTIERE',              'logo' => 'favicon-circle.png'],
-            ['num' => 21, 'name' => 'L.P.E.E',                        'logo' => 'favicon-circle.png'],
-            ['num' => 22, 'name' => 'REDAL',                          'logo' => 'favicon-circle.png'],
-            ['num' => 23, 'name' => 'TOTALENERGIES',                  'logo' => 'favicon-circle.png'],
-            ['num' => 24, 'name' => 'COLAS RAIL',                     'logo' => 'favicon-circle.png'],
-            ['num' => 25, 'name' => 'GCR',                            'logo' => 'favicon-circle.png'],
-            ['num' => 26, 'name' => 'AUTOROUTES DU MAROC',            'logo' => 'favicon-circle.png'],
-            ['num' => 27, 'name' => 'AMDL',                           'logo' => 'favicon-circle.png'],
-            ['num' => 28, 'name' => 'CRÉDIT AGRICOLE DU MAROC',        'logo' => 'favicon-circle.png'],
-            ['num' => 29, 'name' => 'CID',                            'logo' => 'favicon-circle.png'],
-            ['num' => 30, 'name' => 'TGCC',                           'logo' => 'favicon-circle.png'],
+            ['num' => 1,  'name' => 'CID',                            'logo' => 'vendor-1.jpg'],
+            ['num' => 2,  'name' => 'GROUPE MOJAZINE',                 'logo' => 'vendor-2.jpg'],
+            ['num' => 3,  'name' => 'TGCC',                           'logo' => 'vendor-3.jpg'],
+            ['num' => 4,  'name' => 'MINISTÈRE DE L\'ÉQUIPEMENT',       'logo' => 'vendor-4.jpg'],
+            ['num' => 5,  'name' => 'S.N.L TRAVAUX',                   'logo' => 'vendor-5.jpg'],
+            ['num' => 6,  'name' => 'GENERALE ROUTIERE',              'logo' => 'vendor-6.jpg'],
+            ['num' => 7,  'name' => 'L.P.E.E',                        'logo' => 'vendor-7.jpg'],
+            ['num' => 8,  'name' => 'REDAL',                          'logo' => 'vendor-8.jpg'],
+            ['num' => 9,  'name' => 'TOTALENERGIES',                  'logo' => 'vendor-9.jpg'],
+            ['num' => 10, 'name' => 'COLAS RAIL',                     'logo' => 'vendor-10.png'],
+            ['num' => 11, 'name' => 'GCR',                            'logo' => 'vendor-11.png'],
+            ['num' => 12, 'name' => 'AUTOROUTES DU MAROC',            'logo' => 'vendor-12.png'],
+            ['num' => 13, 'name' => 'AMDL',                           'logo' => 'vendor-13.png'],
+            ['num' => 14, 'name' => 'CRÉDIT AGRICOLE DU MAROC',        'logo' => 'vendor-14.png'],
         ];
+        $total = count($partners);
         ?>
 
-        <div class="partners-grid-wrapper">
-            <?php foreach ($partners as $partner) : 
-                $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
-            ?>
-                <div class="partner-grid-item">
-                    <span class="partner-number"><?php echo esc_html($partner['num']); ?></span>
-                    <div class="partner-logo-box">
-                        <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+        <div class="globuild-partners-orbit-container">
+            <!-- Decorative Orbit Concentric Rings -->
+            <div class="globuild-orbit-ring inner-ring"></div>
+            <div class="globuild-orbit-ring outer-ring"></div>
+
+            <!-- Central Globuild Sphere Core Badge -->
+            <div class="globuild-orbit-center">
+                <div class="center-pulse-glow"></div>
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Globuild Logo Core" class="center-brand-logo">
+                <span class="center-brand-tag">GLOBUILD</span>
+            </div>
+
+            <!-- 14 Radial Partner Nodes arranged in Globuild Sphere shape -->
+            <div class="globuild-orbit-nodes">
+                <?php foreach ($partners as $index => $partner) : 
+                    $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
+                ?>
+                    <div class="orbit-partner-node" style="--index: <?php echo $index; ?>; --total: <?php echo $total; ?>;">
+                        <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
+                        <div class="node-logo-wrapper">
+                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+                        </div>
+                        <div class="node-tooltip">
+                            <span class="tooltip-num">#<?php echo $partner['num']; ?></span>
+                            <span class="tooltip-name"><?php echo esc_html($partner['name']); ?></span>
+                        </div>
                     </div>
-                    <span class="partner-name"><?php echo esc_html($partner['name']); ?></span>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 </div>
