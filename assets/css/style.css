@@ -4849,24 +4849,36 @@ html.lenis, html.lenis body {
     .globuild-partners-orbit-container {
         width: 100%;
         height: auto;
-        margin: 20px 0;
+        margin: 15px 0 25px 0;
     }
     .globuild-orbit-ring {
         display: none;
     }
     .globuild-orbit-center {
         position: relative;
-        top: 0;
-        left: 0;
+        top: auto;
+        left: auto;
         transform: none !important;
-        margin: 0 auto 30px auto;
+        margin: 0 auto 25px auto;
+        width: 96px;
+        height: 96px;
+        border-width: 3px;
+        box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+    }
+    .center-brand-logo {
+        width: 40px;
+        height: 40px;
+    }
+    .center-brand-tag {
+        font-size: 0.62rem;
+        margin-top: 2px;
     }
     .globuild-orbit-nodes {
         position: relative;
         inset: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 12px;
         animation: none !important;
     }
     .orbit-partner-node {
@@ -4875,18 +4887,31 @@ html.lenis, html.lenis body {
         left: auto;
         transform: none !important;
         animation: none !important;
-        margin: 0 auto;
+        margin: 0;
         width: 100%;
-        height: 75px;
-        border-radius: 16px;
-        padding: 10px;
+        height: 72px;
+        border-radius: 14px;
+        padding: 8px 10px;
+        display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: flex-start;
-        gap: 12px;
+        gap: 10px;
+        border: 1.5px solid #E2E8F0;
+        box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+        background: #FFFFFF;
     }
-    .orbit-partner-node:hover {
-        transform: translateY(-3px) !important;
-        scale: 1 !important;
+    .node-number {
+        display: none;
+    }
+    .node-logo-wrapper {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+    .node-logo-wrapper img {
+        max-width: 90%;
+        max-height: 90%;
     }
     .node-tooltip {
         position: relative;
@@ -4899,6 +4924,34 @@ html.lenis, html.lenis body {
         color: #0F172A;
         padding: 0;
         box-shadow: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1px;
+        overflow: hidden;
+    }
+    .node-tooltip .tooltip-num {
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: #10B981;
+    }
+    .node-tooltip .tooltip-name {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #0F172A;
+        text-transform: uppercase;
+        line-height: 1.15;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .orbit-partner-node:hover,
+    .orbit-partner-node:active {
+        border-color: #10B981 !important;
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25) !important;
+        transform: translateY(-2px) !important;
+        scale: 1 !important;
     }
 }
 
