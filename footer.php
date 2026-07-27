@@ -86,11 +86,7 @@
                         $footer_counter = 0;
                         if ($footer_projects->have_posts()) :
                             while ($footer_projects->have_posts()) : $footer_projects->the_post();
-                                $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-                                if (!$thumb_url) {
-                                    $img_num = ($footer_counter % 6) + 1;
-                                    $thumb_url = get_template_directory_uri() . '/assets/img/img-600x400-' . $img_num . '.jpg';
-                                }
+                                $thumb_url = gloservices_get_project_image_url(get_the_ID(), 'thumbnail');
                         ?>
                         <div class="col-4">
                             <a href="<?php the_permalink(); ?>" class="d-block">

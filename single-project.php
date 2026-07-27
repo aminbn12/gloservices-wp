@@ -26,18 +26,7 @@ get_header();
 <div class="container-xxl py-5">
     <div class="container">
         <?php while (have_posts()) : the_post(); 
-            $img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-            if (!$img_url) {
-                $post_id = get_the_ID();
-                $post_title = get_the_title();
-                $img_num = ($post_id % 6) + 1;
-                if ($post_id === 70 || stripos($post_title, 'Route Nationale') !== false) {
-                    $img_num = 4;
-                } elseif ($post_id === 73 || stripos($post_title, 'Audit') !== false) {
-                    $img_num = 3;
-                }
-                $img_url = get_template_directory_uri() . '/assets/img/img-600x400-' . $img_num . '.jpg';
-            }
+            $img_url = gloservices_get_project_image_url(get_the_ID(), 'full');
             $terms = get_the_terms(get_the_ID(), 'project_category');
         ?>
             <div class="row g-5">

@@ -165,6 +165,33 @@ function gloservices_jquery_error_shield() {
 add_action('wp_head', 'gloservices_jquery_error_shield', 1);
 
 /**
+ * Helper function to retrieve a consistent, deterministic project image URL.
+ * Checks for WP Featured Image first; if missing, computes a stable fallback image URL based on Post ID.
+ */
+function gloservices_get_project_image_url($post_id = null, $size = 'gloservices-600x400')
+{
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+
+    $img_url = get_the_post_thumbnail_url($post_id, $size);
+    if ($img_url) {
+        return $img_url;
+    }
+
+    $post_title = get_the_title($post_id);
+    if ($post_id === 70 || stripos($post_title, 'Route Nationale') !== false) {
+        $img_num = 4;
+    } elseif ($post_id === 73 || stripos($post_title, 'Audit') !== false) {
+        $img_num = 3;
+    } else {
+        $img_num = ($post_id % 6) + 1;
+    }
+
+    return get_template_directory_uri() . '/assets/img/img-600x400-' . $img_num . '.jpg';
+}
+
+/**
  * Register widget areas
  */
 function gloservices_widgets_init()

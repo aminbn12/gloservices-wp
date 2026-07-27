@@ -788,18 +788,7 @@ function gloservices_get_service_drawing($slug) {
                 $counter = 0;
                 while ($projects_query->have_posts()) : $projects_query->the_post();
                     $cat_class = $categories[$counter % 3];
-                    $img_url = get_the_post_thumbnail_url(get_the_ID(), 'gloservices-600x400');
-                    if (!$img_url) {
-                        $post_id = get_the_ID();
-                        $post_title = get_the_title();
-                        $img_num = ($counter % 6) + 1;
-                        if ($post_id === 70 || stripos($post_title, 'Route Nationale 6') !== false) {
-                            $img_num = 4;
-                        } elseif ($post_id === 73 || stripos($post_title, 'Audit Technique') !== false) {
-                            $img_num = 3;
-                        }
-                        $img_url = get_template_directory_uri() . '/assets/img/img-600x400-' . $img_num . '.jpg';
-                    }
+                    $img_url = gloservices_get_project_image_url(get_the_ID(), 'gloservices-600x400');
 
                     // Get project category dynamically
                     $terms = get_the_terms(get_the_ID(), 'project_category');
