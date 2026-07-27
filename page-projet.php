@@ -319,13 +319,15 @@ get_header();
                     $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
                 ?>
                     <div class="orbit-partner-node" style="--index: <?php echo $index; ?>; --total: <?php echo $total; ?>;">
-                        <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
-                        <div class="node-logo-wrapper">
-                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
-                        </div>
-                        <div class="node-tooltip">
-                            <span class="tooltip-num">#<?php echo $partner['num']; ?></span>
-                            <span class="tooltip-name"><?php echo esc_html($partner['name']); ?></span>
+                        <div class="orbit-partner-node-inner">
+                            <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
+                            <div class="node-logo-wrapper">
+                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-num">#<?php echo $partner['num']; ?></span>
+                                <span class="tooltip-name"><?php echo esc_html($partner['name']); ?></span>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
