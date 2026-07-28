@@ -149,15 +149,23 @@
             ));
         } else {
             $mob_items = [
-                [home_url('/'),                                   __('Accueil', 'gloservices')],
-                [gloservices_translated_page_url('about'),   __('Qui sommes-nous', 'gloservices')],
-                [gloservices_translated_page_url('service'), __('Services', 'gloservices')],
-                [gloservices_translated_page_url('moyen'),   __('Nos moyens', 'gloservices')],
-                [gloservices_translated_page_url('projet'),  __('Projets', 'gloservices')],
+                ['slug' => '',        'label' => __('Accueil', 'gloservices')],
+                ['slug' => 'about',   'label' => __('Qui sommes-nous', 'gloservices')],
+                ['slug' => 'service', 'label' => __('Services', 'gloservices')],
+                ['slug' => 'moyen',   'label' => __('Nos moyens', 'gloservices')],
+                ['slug' => 'projet',  'label' => __('Projets', 'gloservices')],
             ];
             echo '<ul class="mobile-nav-list">';
             foreach ($mob_items as $mob_item) {
-                echo '<li><a href="' . esc_url($mob_item[0]) . '">' . esc_html($mob_item[1]) . '</a></li>';
+                if ($mob_item['slug'] === '') {
+                    $url = home_url('/');
+                    $is_active = is_front_page() || is_home();
+                } else {
+                    $url = gloservices_fix_url_host(gloservices_translated_page_url($mob_item['slug']));
+                    $is_active = is_page($mob_item['slug']) || is_page_template('page-' . $mob_item['slug'] . '.php') || (is_singular('project') && $mob_item['slug'] === 'projet') || (is_post_type_archive('project') && $mob_item['slug'] === 'projet');
+                }
+                $active_class = $is_active ? ' class="active"' : '';
+                echo '<li><a' . $active_class . ' href="' . esc_url($url) . '">' . esc_html($mob_item['label']) . '</a></li>';
             }
             echo '</ul>';
         }

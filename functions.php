@@ -77,7 +77,7 @@ function gloservices_scripts()
     wp_enqueue_style('bootstrap', $theme_dir . '/assets/css/bootstrap.min.css', [], '5.0.0');
 
     // Theme style
-    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '2.9.8');
+    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '2.9.9');
 
     // jQuery
     wp_enqueue_script('jquery');
@@ -762,12 +762,14 @@ function gloservices_fallback_menu()
     echo '<ul class="navbar-nav ms-auto p-4 p-lg-0">';
     foreach ($items as $item) {
         if ($item['slug'] === '') {
-            // Use home_url('/') which is correctly filtered for the current dynamic host
             $url = home_url('/');
+            $is_active = is_front_page() || is_home();
         } else {
             $url = gloservices_fix_url_host(gloservices_translated_page_url($item['slug']));
+            $is_active = is_page($item['slug']) || is_page_template('page-' . $item['slug'] . '.php') || (is_singular('project') && $item['slug'] === 'projet') || (is_post_type_archive('project') && $item['slug'] === 'projet');
         }
-        echo '<li><a class="nav-item nav-link" href="' . esc_url($url) . '">' . esc_html($item['label']) . '</a></li>';
+        $active_class = $is_active ? ' active' : '';
+        echo '<li class="' . ($is_active ? 'active current-menu-item' : '') . '"><a class="nav-item nav-link' . $active_class . '" href="' . esc_url($url) . '">' . esc_html($item['label']) . '</a></li>';
     }
     echo '</ul>';
 }
@@ -797,6 +799,22 @@ function gloservices_nav_menu_css_class($classes, $item, $args) {
     return $classes;
 }
 add_filter('nav_menu_css_class', 'gloservices_nav_menu_css_class', 1, 3);
+
+function gloservices_nav_menu_link_attributes($atts, $item, $args) {
+    $existing = isset($atts['class']) ? $atts['class'] : '';
+    $classes = explode(' ', $existing);
+    if (!in_array('nav-link', $classes)) {
+        $classes[] = 'nav-link';
+    }
+    if (is_array($item->classes) && (in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes) || in_array('current-menu-ancestor', $item->classes))) {
+        if (!in_array('active', $classes)) {
+            $classes[] = 'active';
+        }
+    }
+    $atts['class'] = trim(implode(' ', array_filter($classes)));
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'gloservices_nav_menu_link_attributes', 10, 3);
 
 /**
  * Add Bootstrap classes to primary menu links

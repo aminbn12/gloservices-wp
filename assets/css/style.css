@@ -154,8 +154,53 @@ a:hover{color:var(--primary-dark)}
     transform:scaleX(0);
     transition:var(--transition);
 }
-.navbar .nav-link:hover,.navbar .nav-link.active{color:var(--primary-dark)}
-.navbar .nav-link:hover::after,.navbar .nav-link.active::after{transform:scaleX(1)}
+.navbar .nav-link:hover,
+.navbar .nav-link.active,
+.navbar .navbar-nav .current-menu-item > a,
+.navbar .navbar-nav .current_page_item > a,
+.navbar .navbar-nav .current-menu-ancestor > a,
+.navbar .navbar-nav li.active > a {
+    color: #10B981 !important;
+    font-weight: 700 !important;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after,
+.navbar .navbar-nav .current-menu-item > a::after,
+.navbar .navbar-nav .current_page_item > a::after,
+.navbar .navbar-nav .current-menu-ancestor > a::after,
+.navbar .navbar-nav li.active > a::after {
+    transform: scaleX(1) !important;
+    background: #10B981 !important;
+    height: 3px !important;
+    opacity: 1 !important;
+}
+
+/* Ensure active menu item remains visible on homepage transparent navbar header */
+.home .navbar:not(.scrolled) .nav-link.active,
+.home .navbar:not(.scrolled) .navbar-nav .current-menu-item > a,
+.home .navbar:not(.scrolled) .navbar-nav .current_page_item > a {
+    color: #10B981 !important;
+    font-weight: 700 !important;
+}
+
+.home .navbar:not(.scrolled) .nav-link.active::after,
+.home .navbar:not(.scrolled) .navbar-nav .current-menu-item > a::after,
+.home .navbar:not(.scrolled) .navbar-nav .current_page_item > a::after {
+    transform: scaleX(1) !important;
+    background: #10B981 !important;
+}
+
+/* Mobile Sidebar Active Menu Items */
+.mobile-sidebar .mobile-nav-list li.active > a,
+.mobile-sidebar .mobile-nav-list a.active,
+.mobile-sidebar .mobile-nav-list .current-menu-item > a {
+    color: #10B981 !important;
+    font-weight: 700 !important;
+    background: rgba(16, 185, 129, 0.08) !important;
+    border-left: 3px solid #10B981 !important;
+}
+
 .navbar .nav-link:hover{letter-spacing:0.02em}
 .navbar .btn-primary{
     border-radius:var(--radius-full);
