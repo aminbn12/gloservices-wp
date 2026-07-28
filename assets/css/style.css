@@ -5127,16 +5127,33 @@ html.lenis, html.lenis body {
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
+    width: 160px !important;
+    height: 160px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     pointer-events: none !important;
     z-index: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .spinner-bg-icon {
     position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
     font-size: 160px !important; /* Double the 80px Globuild logo size */
     color: #10B981 !important;
     opacity: 0;
-    transform: translateY(60px) scale(0.85);
+    width: 160px !important;
+    height: 160px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translate(-50%, -50%) translateY(60px) scale(0.85);
     animation: riseAndFadeSequence 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -5191,189 +5208,40 @@ html.lenis, html.lenis body {
     visibility: hidden;
 }
 
-/* Pure White Laser Rays Framed with Green Glow - ACTIVE ONLY DURING FINAL ZOOM */
-#spinner.play-cinematic .cinematic-intro-wrapper::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    width: 900px !important;
-    height: 900px !important;
-    transform: translate(-50%, -50%) !important;
-    background: conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        rgba(255, 255, 255, 0.95) 0.6deg,
-        transparent 1.2deg,
-        transparent 10deg,
-        rgba(255, 255, 255, 0.95) 10.6deg,
-        transparent 11.2deg,
-        transparent 20deg,
-        rgba(255, 255, 255, 0.95) 20.6deg,
-        transparent 21.2deg,
-        transparent 30deg,
-        rgba(255, 255, 255, 0.95) 30.6deg,
-        transparent 31.2deg,
-        transparent 40deg,
-        rgba(255, 255, 255, 0.95) 40.6deg,
-        transparent 41.2deg,
-        transparent 50deg,
-        rgba(255, 255, 255, 0.95) 50.6deg,
-        transparent 51.2deg,
-        transparent 60deg,
-        rgba(255, 255, 255, 0.95) 60.6deg,
-        transparent 61.2deg,
-        transparent 70deg,
-        rgba(255, 255, 255, 0.95) 70.6deg,
-        transparent 71.2deg,
-        transparent 80deg,
-        rgba(255, 255, 255, 0.95) 80.6deg,
-        transparent 81.2deg,
-        transparent 90deg,
-        rgba(255, 255, 255, 0.95) 90.6deg,
-        transparent 91.2deg,
-        transparent 100deg,
-        rgba(255, 255, 255, 0.95) 100.6deg,
-        transparent 101.2deg,
-        transparent 110deg,
-        rgba(255, 255, 255, 0.95) 110.6deg,
-        transparent 111.2deg,
-        transparent 120deg,
-        rgba(255, 255, 255, 0.95) 120.6deg,
-        transparent 121.2deg,
-        transparent 130deg,
-        rgba(255, 255, 255, 0.95) 130.6deg,
-        transparent 131.2deg,
-        transparent 140deg,
-        rgba(255, 255, 255, 0.95) 140.6deg,
-        transparent 141.2deg,
-        transparent 150deg,
-        rgba(255, 255, 255, 0.95) 150.6deg,
-        transparent 151.2deg,
-        transparent 160deg,
-        rgba(255, 255, 255, 0.95) 160.6deg,
-        transparent 161.2deg,
-        transparent 170deg,
-        rgba(255, 255, 255, 0.95) 170.6deg,
-        transparent 171.2deg,
-        transparent 180deg,
-        rgba(255, 255, 255, 0.95) 180.6deg,
-        transparent 181.2deg,
-        transparent 190deg,
-        rgba(255, 255, 255, 0.95) 190.6deg,
-        transparent 191.2deg,
-        transparent 200deg,
-        rgba(255, 255, 255, 0.95) 200.6deg,
-        transparent 201.2deg,
-        transparent 210deg,
-        rgba(255, 255, 255, 0.95) 210.6deg,
-        transparent 211.2deg,
-        transparent 220deg,
-        rgba(255, 255, 255, 0.95) 220.6deg,
-        transparent 221.2deg,
-        transparent 230deg,
-        rgba(255, 255, 255, 0.95) 230.6deg,
-        transparent 231.2deg,
-        transparent 240deg,
-        rgba(255, 255, 255, 0.95) 240.6deg,
-        transparent 241.2deg,
-        transparent 250deg,
-        rgba(255, 255, 255, 0.95) 250.6deg,
-        transparent 251.2deg,
-        transparent 260deg,
-        rgba(255, 255, 255, 0.95) 260.6deg,
-        transparent 261.2deg,
-        transparent 270deg,
-        rgba(255, 255, 255, 0.95) 270.6deg,
-        transparent 271.2deg,
-        transparent 280deg,
-        rgba(255, 255, 255, 0.95) 280.6deg,
-        transparent 281.2deg,
-        transparent 290deg,
-        rgba(255, 255, 255, 0.95) 290.6deg,
-        transparent 291.2deg,
-        transparent 300deg,
-        rgba(255, 255, 255, 0.95) 300.6deg,
-        transparent 301.2deg,
-        transparent 310deg,
-        rgba(255, 255, 255, 0.95) 310.6deg,
-        transparent 311.2deg,
-        transparent 320deg,
-        rgba(255, 255, 255, 0.95) 320.6deg,
-        transparent 321.2deg,
-        transparent 330deg,
-        rgba(255, 255, 255, 0.95) 330.6deg,
-        transparent 331.2deg,
-        transparent 340deg,
-        rgba(255, 255, 255, 0.95) 340.6deg,
-        transparent 341.2deg,
-        transparent 350deg,
-        rgba(255, 255, 255, 0.95) 350.6deg,
-        transparent 351.2deg,
-        transparent 360deg
-    ) !important;
-    border-radius: 50% !important;
-    filter: drop-shadow(0 0 3px rgba(0, 200, 83, 0.95)) drop-shadow(0 0 10px rgba(16, 185, 129, 0.85)) drop-shadow(0 0 20px rgba(52, 211, 153, 0.6)) blur(0.8px) !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-    animation: sunburstRaySpin 4s linear infinite !important;
-}
-
-/* Focused Green Solar Glow Aura ONLY DURING FINAL ZOOM */
-#spinner.play-cinematic .cinematic-intro-wrapper::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    width: 100% !important;
-    height: 100% !important;
-    transform: translate(-50%, -50%) !important;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, rgba(0, 200, 83, 0.25) 50%, transparent 80%) !important;
-    filter: blur(15px) !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-}
-
-@keyframes sunburstRaySpin {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.8); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.15); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(0.8); }
-}
-
 .cinematic-zoom-text {
     font-family: var(--font-display, 'Outfit', 'Inter', sans-serif) !important;
-    font-size: clamp(2.2rem, 6.5vw, 4.5rem) !important;
+    font-size: clamp(2.8rem, 8vw, 5.5rem) !important;
     font-weight: 900 !important;
-    letter-spacing: clamp(3px, 1vw, 10px) !important;
-    background: linear-gradient(135deg, #00E676 0%, #00C853 45%, #00B050 75%, #059669 100%) !important;
+    letter-spacing: clamp(4px, 1.2vw, 12px) !important;
+    background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #059669 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    filter: drop-shadow(0 0 18px rgba(0, 230, 118, 0.95)) drop-shadow(0 0 40px rgba(0, 200, 83, 0.85)) drop-shadow(0 0 80px rgba(0, 176, 80, 0.7)) !important;
+    filter: drop-shadow(0 0 35px rgba(16, 185, 129, 0.75)) !important;
     margin: 0 !important;
     padding: 0 15px !important;
     white-space: nowrap !important;
     text-transform: uppercase !important;
     display: inline-block !important;
     max-width: 95vw !important;
-    position: relative !important;
-    z-index: 2 !important;
 }
 
 @media (max-width: 768px) {
     .spinner-bg-icons-container {
-        width: 160px !important;
-        height: 160px !important;
+        width: 140px !important;
+        height: 140px !important;
     }
     .spinner-bg-icon {
         font-size: 110px !important;
+        width: 110px !important;
+        height: 110px !important;
     }
     .spinner-favicon-img.spinning-logo {
         width: 70px !important;
         height: 70px !important;
     }
     .cinematic-zoom-text {
-        font-size: clamp(1.4rem, 6.5vw, 2.2rem) !important;
-        letter-spacing: clamp(1px, 0.8vw, 3px) !important;
+        font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
+        letter-spacing: clamp(1px, 0.8vw, 4px) !important;
         padding: 0 10px !important;
         white-space: normal !important;
         line-height: 1.15 !important;
@@ -5382,7 +5250,7 @@ html.lenis, html.lenis body {
 
 @media (max-width: 420px) {
     .cinematic-zoom-text {
-        font-size: clamp(1.25rem, 6vw, 1.7rem) !important;
+        font-size: clamp(1.35rem, 6.5vw, 1.9rem) !important;
         letter-spacing: 1px !important;
     }
 }
@@ -5429,19 +5297,19 @@ html.lenis, html.lenis body {
 @keyframes riseAndFadeSequence {
     0% {
         opacity: 0;
-        transform: translateY(60px) scale(0.8);
+        transform: translate(-50%, -50%) translateY(60px) scale(0.8);
     }
     15% {
-        opacity: 0.15;
-        transform: translateY(12px) scale(1);
+        opacity: 0.18;
+        transform: translate(-50%, -50%) translateY(12px) scale(1);
     }
     33% {
-        opacity: 0.15;
-        transform: translateY(-12px) scale(1);
+        opacity: 0.18;
+        transform: translate(-50%, -50%) translateY(-12px) scale(1);
     }
     45%, 100% {
         opacity: 0;
-        transform: translateY(-60px) scale(1.1);
+        transform: translate(-50%, -50%) translateY(-60px) scale(1.1);
     }
 }
 
