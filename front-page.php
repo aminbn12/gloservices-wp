@@ -462,7 +462,7 @@ function gloservices_get_service_drawing($slug) {
     ?>
     <div class="hero-slide position-relative" data-dot="<?php if ($is_video) : ?><video src='<?php echo $video_url; ?>#t=0.1' muted playsinline preload='metadata'></video><?php else : ?><img src='<?php echo $image_url; ?>' alt='Slide <?php echo $i; ?>'><?php endif; ?>" <?php if ($is_video) : ?>data-video-src="<?php echo $video_url; ?>"<?php endif; ?> data-slide-index="<?php echo $i; ?>">
         <?php if ($is_video) : ?>
-        <video autoplay loop muted playsinline class="hero-video" preload="auto">
+        <video loop muted playsinline class="hero-video" preload="auto">
             <source src="<?php echo $video_url; ?>" type="video/mp4">
         </video>
         <?php else : ?>

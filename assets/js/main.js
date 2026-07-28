@@ -29,6 +29,25 @@
         var startTime = Date.now();
         var minIconSequenceDuration = 3500; // 3.5 seconds for all 3 icons to display behind spinning logo
 
+        // Pause all hero videos during preloader display
+        var $heroVideos = $('.hero-video');
+        $heroVideos.each(function () {
+            this.pause();
+        });
+
+        var playHeroVideos = function () {
+            $heroVideos.each(function () {
+                var videoEl = this;
+                try {
+                    videoEl.currentTime = 0;
+                    var playPromise = videoEl.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(function () {});
+                    }
+                } catch (e) {}
+            });
+        };
+
         var hidePreloader = function () {
             if ($spinner.data('done')) return;
             $spinner.data('done', true);
@@ -36,9 +55,10 @@
             // Step 1: Trigger Cinematic Intro "BUILD THE FUTURE" Text & Zoom
             $spinner.addClass('play-cinematic');
 
-            // Step 2: After 1200ms zoom animation completes, hide preloader overlay
+            // Step 2: After 1200ms zoom animation completes, hide preloader overlay AND START VIDEO
             setTimeout(function () {
                 $spinner.removeClass('show');
+                playHeroVideos();
             }, 1200);
         };
 
