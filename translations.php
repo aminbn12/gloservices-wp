@@ -1045,6 +1045,8 @@ function gloservices_get_translations($lang = 'fr') {
         'Pôle IT Dédié' => array('en' => 'Dedicated IT Division', 'ar' => 'قسم رقمي متخصص'),
         'Logiciels Métier' => array('en' => 'Custom Software', 'ar' => 'برمجيات متخصصة'),
         'ETUDE & DEVIS GRATUIT' => array('en' => 'FREE STUDY & QUOTE', 'ar' => 'دراسة وعرض سعر مجاني'),
+        'ÉTUDE & DEVIS GRATUIT' => array('en' => 'FREE STUDY & QUOTE', 'ar' => 'دراسة وعرض سعر مجاني'),
+        'Étude & Devis gratuit' => array('en' => 'Free Study & Quote', 'ar' => 'دراسة وعرض سعر مجاني'),
         'Obtenez une proposition technique sur-mesure' => array('en' => 'Get a customized technical proposal', 'ar' => 'احصل على عرض تقني مخصص'),
         'Transmettez-nous les éléments clés de votre projet. Nos ingénieurs analyseront votre besoin sous 24h et vous proposeront une offre d\'études adaptée.' => array('en' => 'Send us your project details. Our engineers will analyze your requirements within 24h and provide a tailored study proposal.', 'ar' => 'أرسلوا لنا العناصر الأساسية لمشروعكم. سيقوم مهندسونا بتحليل طلبكم في غضون 24 ساعة وتقديم عرض مخصص.'),
         'Une question urgente ?' => array('en' => 'Urgent question?', 'ar' => 'سؤال عاجل؟'),

@@ -508,21 +508,12 @@ body.rtl .quote-section-bg .btn i {
                 <div class="col-lg-5">
                     <div class="quality-badge-pill mb-3">
                         <i class="fas fa-file-invoice"></i>
-                        <span><?php _e('ETUDE & DEVIS GRATUIT', 'gloservices'); ?></span>
+                        <span><?php _e('ÉTUDE & DEVIS GRATUIT', 'gloservices'); ?></span>
                     </div>
                     <h3 class="text-white fw-bold display-6 mb-3"><?php _e('Obtenez une proposition technique sur-mesure', 'gloservices'); ?></h3>
-                    <p class="text-light opacity-75 leading-relaxed mb-4">
+                    <p class="text-light opacity-75 leading-relaxed mb-0">
                         <?php _e('Transmettez-nous les éléments clés de votre projet. Nos ingénieurs analyseront votre besoin sous 24h et vous proposeront une offre d\'études adaptée.', 'gloservices'); ?>
                     </p>
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="btn-sm-square bg-success text-white rounded-circle" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-phone-alt fs-5"></i>
-                        </div>
-                        <div>
-                            <small class="text-light opacity-75 d-block"><?php _e('Une question urgente ?', 'gloservices'); ?></small>
-                            <strong class="text-white fs-5">+212 537 77 88 99</strong>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="col-lg-7">
