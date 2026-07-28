@@ -334,7 +334,7 @@ html[dir="rtl"] .back-to-top {
                     <span><?php _e('SERVICES & EXPERTISE TECHNIQUE', 'gloservices'); ?></span>
                 </div>
                 <h1 class="service-hero-title">
-                    <?php _e('L\'alliance de l\'ingénierie de précision et des <span>solutions digitales BTP</span>', 'gloservices'); ?>
+                    <?php echo gloservices_translate('L\'alliance de l\'ingénierie de précision et des <span>solutions digitales BTP</span>'); ?>
                 </h1>
                 <p class="service-hero-lead">
                     <?php _e('Du tracé routier à la modélisation BIM 3D, de la maîtrise d\'œuvre sur chantier aux logiciels sur-mesure, GLOBUILD apporte une valeur ajoutée décisive à chaque étape de vos projets de construction et d\'aménagement.', 'gloservices'); ?>
@@ -596,13 +596,9 @@ html[dir="rtl"] .back-to-top {
                             </div>
                             <div class="col-12 col-sm-6">
                                 <select name="quote_service" class="form-select quote-select-custom">
-                                    <option selected><?php echo esc_html(gloservices_translate('Sélectionner le Domaine')); ?></option>
-                                    <option value="routier"><?php echo esc_html(gloservices_translate('Infrastructures Routières & Ponts')); ?></option>
-                                    <option value="structure"><?php echo esc_html(gloservices_translate('Ouvrages d\'Art & Structure Béton')); ?></option>
-                                    <option value="batiment"><?php echo esc_html(gloservices_translate('Bâtiments & Ingénierie BIM 3D')); ?></option>
-                                    <option value="vrd"><?php echo esc_html(gloservices_translate('VRD & Hydraulique Urbaine')); ?></option>
-                                    <option value="it"><?php echo esc_html(gloservices_translate('Solutions Numériques & Logiciels BTP')); ?></option>
-                                    <option value="opc"><?php echo esc_html(gloservices_translate('Assistance Maîtrise d\'Ouvrage & OPC')); ?></option>
+                                    <option selected><?php echo esc_html(gloservices_translate('Sélectionner un Service')); ?></option>
+                                    <option value="btp"><?php echo esc_html(gloservices_translate('Ingénierie Civile (BTP)')); ?></option>
+                                    <option value="it"><?php echo esc_html(gloservices_translate('Solutions Numériques (IT)')); ?></option>
                                 </select>
                             </div>
                             <div class="col-12">

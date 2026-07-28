@@ -1003,8 +1003,10 @@ function gloservices_get_translations($lang = 'fr') {
         'PARTENAIRES & CONFIANCE' => array('en' => 'PARTNERS & TRUST', 'ar' => 'الشركاء والثقة'),
 
         // ===== PAGE SERVICE =====
-        'SERVICES & EXPERTISE TECHNIQUE' => array('en' => 'SERVICES & TECHNICAL EXPERTISE', 'ar' => 'الخدمات والخبرة التقنية'),
-        'L\'alliance de l\'ingénierie de precision et des <span>solutions digitales BTP</span>' => array('en' => 'The alliance of precision engineering and <span>construction digital solutions</span>', 'ar' => 'الجمع بين الهندسة الدقيقة و<span>الحلول الرقمية للإنشاءات</span>'),
+        'L\'alliance de l\'ingénierie de précision et des solutions digitales BTP' => array('en' => 'The alliance of precision engineering and digital construction solutions', 'ar' => 'الجمع بين الهندسة عالية الدقة والحلول الرقمية للبناء'),
+        'L\'alliance de l\'ingénierie de precision et des solutions digitales BTP' => array('en' => 'The alliance of precision engineering and digital construction solutions', 'ar' => 'الجمع بين الهندسة عالية الدقة والحلول الرقمية للبناء'),
+        'L\'alliance de l\'ingénierie de précision et des <span>solutions digitales BTP</span>' => array('en' => 'The alliance of precision engineering and <span>digital construction solutions</span>', 'ar' => 'الجمع بين الهندسة عالية الدقة و<span>الحلول الرقمية للبناء</span>'),
+        'L\'alliance de l\'ingénierie de precision et des <span>solutions digitales BTP</span>' => array('en' => 'The alliance of precision engineering and <span>digital construction solutions</span>', 'ar' => 'الجمع بين الهندسة عالية الدقة و<span>الحلول الرقمية للبناء</span>'),
         'Du tracé routier à la modélisation BIM 3D, de la maîtrise d\'œuvre sur chantier aux logiciels sur-mesure, GLOBUILD apporte une valeur ajoutée décisive à chaque étape de vos projets de construction et d\'aménagement.' => array('en' => 'From road design to 3D BIM modeling, from site supervision to custom software, GLOBUILD brings decisive value to every stage of your construction projects.', 'ar' => 'من تصميم الطرق إلى نمذجة BIM ثلاثية الأبعاد، ومن الإشراف الميداني إلى البرمجيات المخصصة، يقدم غلوبيلد قيمة مضافة حاسمة لكل مرحلة من مشاريعكم.'),
         'NOS DOMAINES D\'INTERVENTION' => array('en' => 'OUR FIELDS OF EXPERTISE', 'ar' => 'مجالات تدخلنا'),
         'Des prestations clés en main pour vos projets' => array('en' => 'Turnkey services for your projects', 'ar' => 'خدمات متكاملة لمشاريعكم'),
@@ -1063,7 +1065,10 @@ function gloservices_get_translations($lang = 'fr') {
         'Note Spéciale' => array('en' => 'Special Note', 'ar' => 'وصف مختصر للمشروع'),
         'Sélectionner un Service' => array('en' => 'Select Service', 'ar' => 'اختر الخدمة'),
         'Ingénierie Civile (BTP)' => array('en' => 'Civil Engineering (BTP)', 'ar' => 'الهندسة المدنية (BTP)'),
-        'Solutions Numériques (IT)' => array('en' => 'Digital Solutions (IT)', 'ar' => 'الحلول الرقمية (IT)')
+        'Solutions Numériques (IT)' => array('en' => 'Digital Solutions (IT)', 'ar' => 'الحلول الرقمية (IT)'),
+        'Tous les projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع'),
+        'Tous les Projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع'),
+        'Tous Les Projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع')
     );
 
     foreach ($extra as $key => $trans) {

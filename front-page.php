@@ -769,7 +769,7 @@ function gloservices_get_service_drawing($slug) {
         <div class="row mb-5 wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-12 text-center">
                 <ul class="list-inline mb-0" id="portfolio-flters">
-                    <li class="active" data-filter="*"><i class="fas fa-layer-group me-2"></i><?php _e('Tous les projets', 'gloservices'); ?></li>
+                    <li class="active" data-filter="*"><i class="fas fa-layer-group me-2"></i><?php echo esc_html(gloservices_translate('Tous les projets')); ?></li>
                     <li data-filter=".first"><i class="fas fa-laptop-code me-2"></i><?php _e('Solution Numérique', 'gloservices'); ?></li>
                     <li data-filter=".second"><i class="fas fa-city me-2"></i><?php _e('Développement Urbain', 'gloservices'); ?></li>
                     <li data-filter=".third"><i class="fas fa-road me-2"></i><?php _e('Infrastructures Routières', 'gloservices'); ?></li>
