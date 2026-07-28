@@ -5142,12 +5142,12 @@ html.lenis, html.lenis body {
     color: #10B981 !important;
     opacity: 0;
     transform: translateY(60px) scale(0.85);
-    animation: riseAndFadeSequence 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
+    animation: riseAndFadeSequence 3.1s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .spinner-bg-icon.icon-1 { animation-delay: 0s !important; }
-.spinner-bg-icon.icon-2 { animation-delay: 1.15s !important; }
-.spinner-bg-icon.icon-3 { animation-delay: 2.3s !important; }
+.spinner-bg-icon.icon-2 { animation-delay: 1.03s !important; }
+.spinner-bg-icon.icon-3 { animation-delay: 2.06s !important; }
 
 .spinner-logo-wrapper {
     position: absolute !important;
