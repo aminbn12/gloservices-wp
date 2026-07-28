@@ -291,11 +291,58 @@ get_header();
     margin-bottom: 28px;
 }
 
+.quality-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #10B981, #0EA5E9);
+    color: #FFFFFF !important;
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    letter-spacing: 1.2px;
+    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+.quality-badge-pill span,
+.quality-badge-pill i {
+    color: #FFFFFF !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .moyen-hero-title { font-size: 2.2rem; }
     .moyen-stats-section { margin-top: 0; padding-top: 30px; }
     .quality-assurance-box { padding: 32px 24px; }
+}
+
+@media (max-width: 575.98px) {
+    .moyen-stat-box {
+        padding: 16px 10px !important;
+        gap: 8px !important;
+        border-radius: 16px !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    .moyen-stat-icon {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+        border-radius: 12px !important;
+    }
+    .moyen-stat-number {
+        font-size: 1.6rem !important;
+        margin-bottom: 2px !important;
+    }
+    .moyen-stat-label {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0px !important;
+    }
+    .moyen-hero-title { font-size: 1.8rem !important; }
+    .moyen-card-wrapper { padding: 24px 18px !important; }
 }
 </style>
 
@@ -652,7 +699,7 @@ get_header();
         <div class="quality-assurance-box">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-success bg-opacity-25 text-success font-monospace mb-3" style="font-size: 0.82rem; letter-spacing: 1px;">
+                    <div class="quality-badge-pill mb-3">
                         <i class="fas fa-shield-alt"></i>
                         <span><?php _e('ENGAGEMENT DE QUALITÉ', 'gloservices'); ?></span>
                     </div>
