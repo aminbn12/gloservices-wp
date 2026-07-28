@@ -27,9 +27,9 @@
 <div id="spinner" class="show <?php echo is_front_page() ? 'is-homepage-preloader' : 'is-innerpage-preloader'; ?>">
     <!-- Background Floating Category Icons -->
     <div class="spinner-bg-icons-container">
-        <i class="fas fa-laptop-code spinner-bg-icon icon-1"></i>
-        <i class="fas fa-city spinner-bg-icon icon-2"></i>
-        <i class="fas fa-road spinner-bg-icon icon-3"></i>
+        <i class="fas fa-city spinner-bg-icon icon-1"></i>
+        <i class="fas fa-road spinner-bg-icon icon-2"></i>
+        <i class="fas fa-laptop-code spinner-bg-icon icon-3"></i>
     </div>
 
     <!-- Central Spinning Globuild Logo -->

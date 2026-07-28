@@ -25,7 +25,10 @@
             return;
         }
 
-        // HOMEPAGE ONLY: Wait for Hero Media & window load
+        // HOMEPAGE ONLY: Guaranteed 3-Icon Sequence (City -> Road -> IT) + Media Load Wait
+        var startTime = Date.now();
+        var minIconSequenceDuration = 5400; // 5.4 seconds to let all 3 icons display in sequence behind spinning logo
+
         var hidePreloader = function () {
             if ($spinner.data('done')) return;
             $spinner.data('done', true);
@@ -37,6 +40,15 @@
             setTimeout(function () {
                 $spinner.removeClass('show');
             }, 1200);
+        };
+
+        var tryTriggerCinematic = function () {
+            var elapsedTime = Date.now() - startTime;
+            var remainingTime = Math.max(0, minIconSequenceDuration - elapsedTime);
+
+            setTimeout(function () {
+                hidePreloader();
+            }, remainingTime);
         };
 
         var $heroCarousel = $('.hero-carousel');
@@ -68,7 +80,7 @@
                         resolve();
                         return;
                     }
-                    var timeout = setTimeout(resolve, 4000);
+                    var timeout = setTimeout(resolve, 5000);
                     videoEl.addEventListener('canplaythrough', function () {
                         clearTimeout(timeout);
                         resolve();
@@ -88,17 +100,17 @@
         $(window).on('load', function () {
             if (promises.length > 0) {
                 Promise.all(promises).then(function () {
-                    hidePreloader();
+                    tryTriggerCinematic();
                 });
             } else {
-                hidePreloader();
+                tryTriggerCinematic();
             }
         });
 
-        // Fallback safety timeout (max 4.5s)
+        // Fallback safety timeout (max 7s)
         setTimeout(function () {
-            hidePreloader();
-        }, 4500);
+            tryTriggerCinematic();
+        }, 7000);
     };
 
     spinner();
