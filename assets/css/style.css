@@ -5115,11 +5115,102 @@ html.lenis, html.lenis body {
     text-align: center !important;
 }
 
-.spinner-favicon-img {
-    width: 85px !important;
-    height: 85px !important;
+.spinner-favicon-img.spinning-logo {
+    width: 90px !important;
+    height: 90px !important;
     object-fit: contain !important;
-    animation: spinnerPulseGlow 2s infinite ease-in-out !important;
+    animation: logoSpinAndPulse 2.5s linear infinite !important;
+}
+
+@keyframes logoSpinAndPulse {
+    0% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.2));
+    }
+    50% {
+        transform: rotate(180deg) scale(1.08);
+        filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.2));
+    }
+}
+
+/* Cinematic Intro Text (BUILD THE FUTURE) for Homepage */
+.cinematic-intro-wrapper {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    z-index: 10 !important;
+    text-align: center !important;
+    pointer-events: none !important;
+    width: 100% !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cinematic-zoom-text {
+    font-family: var(--font-display, 'Outfit', 'Inter', sans-serif) !important;
+    font-size: 4.2rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 8px !important;
+    background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #059669 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.7)) !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+}
+
+@media (max-width: 768px) {
+    .cinematic-zoom-text {
+        font-size: 2.2rem !important;
+        letter-spacing: 3px !important;
+    }
+}
+
+/* Animation classes triggered by JS */
+#spinner.play-cinematic .spinner-logo-wrapper,
+#spinner.play-cinematic .spinner-bg-icons-container {
+    animation: fadeOutFast 0.35s forwards ease-out !important;
+}
+
+#spinner.play-cinematic .cinematic-intro-wrapper {
+    visibility: visible !important;
+    animation: zoomForwardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes fadeOutFast {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+@keyframes zoomForwardReveal {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+        filter: blur(12px);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0px);
+    }
+    65% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(3.5);
+        filter: blur(25px);
+    }
 }
 
 @keyframes riseAndFadeSequence {

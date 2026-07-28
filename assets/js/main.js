@@ -10,14 +10,97 @@
         };
     }
 
-    // Spinner
+    // Enhanced Spinner & Homepage Cinematic Intro Sequence
     var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
+        var $spinner = $('#spinner');
+        if ($spinner.length === 0) return;
+
+        var isHomepage = $spinner.hasClass('is-homepage-preloader') || $('body').hasClass('home') || $('body').hasClass('page-template-front-page');
+
+        if (!isHomepage) {
+            // Inner Pages: Quick smooth hide
+            setTimeout(function () {
+                $spinner.removeClass('show');
+            }, 250);
+            return;
+        }
+
+        // HOMEPAGE ONLY: Wait for Hero Media & window load
+        var hidePreloader = function () {
+            if ($spinner.data('done')) return;
+            $spinner.data('done', true);
+
+            // Step 1: Trigger Cinematic Intro "BUILD THE FUTURE" Text & Zoom
+            $spinner.addClass('play-cinematic');
+
+            // Step 2: After 1200ms zoom animation completes, hide preloader overlay
+            setTimeout(function () {
+                $spinner.removeClass('show');
+            }, 1200);
+        };
+
+        var $heroCarousel = $('.hero-carousel');
+        var promises = [];
+
+        // 1. Preload slide background images & img tags
+        if ($heroCarousel.length > 0) {
+            $heroCarousel.find('.hero-bg-image, [style*="background-image"]').each(function () {
+                var bgUrl = $(this).css('background-image');
+                if (bgUrl && bgUrl !== 'none') {
+                    var match = bgUrl.match(/^url\((['"]?)(.*)\1\)$/);
+                    if (match && match[2]) {
+                        var url = match[2];
+                        promises.push(new Promise(function (resolve) {
+                            var img = new Image();
+                            img.onload = function () { resolve(); };
+                            img.onerror = function () { resolve(); };
+                            img.src = url;
+                        }));
+                    }
+                }
+            });
+
+            // 2. Preload hero videos
+            $heroCarousel.find('video').each(function () {
+                var videoEl = this;
+                promises.push(new Promise(function (resolve) {
+                    if (videoEl.readyState >= 2) {
+                        resolve();
+                        return;
+                    }
+                    var timeout = setTimeout(resolve, 4000);
+                    videoEl.addEventListener('canplaythrough', function () {
+                        clearTimeout(timeout);
+                        resolve();
+                    }, { once: true });
+                    videoEl.addEventListener('loadeddata', function () {
+                        clearTimeout(timeout);
+                        resolve();
+                    }, { once: true });
+                    videoEl.addEventListener('error', function () {
+                        clearTimeout(timeout);
+                        resolve();
+                    }, { once: true });
+                }));
+            });
+        }
+
+        $(window).on('load', function () {
+            if (promises.length > 0) {
+                Promise.all(promises).then(function () {
+                    hidePreloader();
+                });
+            } else {
+                hidePreloader();
             }
-        }, 300);
+        });
+
+        // Fallback safety timeout (max 4.5s)
+        setTimeout(function () {
+            hidePreloader();
+        }, 4500);
     };
+
     spinner();
 
     // Init WOW with optimized settings

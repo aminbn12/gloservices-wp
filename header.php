@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 
 <!-- Spinner -->
-<div id="spinner" class="show">
+<div id="spinner" class="show <?php echo is_front_page() ? 'is-homepage-preloader' : 'is-innerpage-preloader'; ?>">
     <!-- Background Floating Category Icons -->
     <div class="spinner-bg-icons-container">
         <i class="fas fa-laptop-code spinner-bg-icon icon-1"></i>
@@ -32,9 +32,17 @@
         <i class="fas fa-road spinner-bg-icon icon-3"></i>
     </div>
 
+    <!-- Central Spinning Globuild Logo -->
     <div class="spinner-logo-wrapper text-center">
-        <img class="spinner-favicon-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Gloservices Loading">
+        <img class="spinner-favicon-img spinning-logo" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Gloservices Loading">
     </div>
+
+    <!-- Homepage Cinematic Intro Zoom Text (Build The Future) -->
+    <?php if (is_front_page()) : ?>
+        <div class="cinematic-intro-wrapper">
+            <h1 class="cinematic-zoom-text">BUILD THE FUTURE</h1>
+        </div>
+    <?php endif; ?>
 </div>
 
 <!-- Topbar -->
