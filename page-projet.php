@@ -205,7 +205,7 @@ body.rtl .projet-cta-banner {
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="projet-stat-card">
-                            <div class="projet-stat-num">150+</div>
+                            <div class="projet-stat-num">30+</div>
                             <p class="projet-stat-label"><?php echo esc_html(gloservices_translate('Projets Livrés')); ?></p>
                         </div>
                     </div>
