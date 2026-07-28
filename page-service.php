@@ -280,23 +280,46 @@ get_header();
     .quote-section-bg { padding: 30px 20px; }
 }
 
-/* RTL ARABIC SPECIFIC OVERRIDES FOR QUOTE FORM */
-body.rtl .quote-section-bg {
+/* RTL ARABIC SPECIFIC OVERRIDES FOR QUOTE FORM & ICONS */
+body.rtl .quote-section-bg,
+html[dir="rtl"] .quote-section-bg {
     text-align: right !important;
     direction: rtl !important;
 }
-body.rtl .quote-section-bg .quality-badge-pill {
+body.rtl .quote-section-bg .gradient-degrade-badge,
+html[dir="rtl"] .quote-section-bg .gradient-degrade-badge {
     flex-direction: row-reverse !important;
 }
 body.rtl .quote-input-custom,
-body.rtl .quote-select-custom {
+html[dir="rtl"] .quote-input-custom {
     text-align: right !important;
     direction: rtl !important;
 }
-body.rtl .quote-section-bg .btn i {
-    transform: rotate(180deg) !important;
+body.rtl .quote-select-custom,
+body.rtl .form-select,
+html[dir="rtl"] .quote-select-custom,
+html[dir="rtl"] .form-select {
+    text-align: right !important;
+    direction: rtl !important;
+    background-position: left 0.85rem center !important;
+    padding-left: 2.5rem !important;
+    padding-right: 1.1rem !important;
+}
+body.rtl .quote-section-bg .btn i.fa-paper-plane,
+html[dir="rtl"] .quote-section-bg .btn i.fa-paper-plane {
+    transform: scaleX(-1) !important;
     margin-right: 8px !important;
     margin-left: 0 !important;
+}
+
+/* Ensure Back-to-Top Floating Button always points straight UP in RTL */
+body.rtl .back-to-top .fa-chevron-right:before,
+html[dir="rtl"] .back-to-top .fa-chevron-right:before {
+    content: "\f054" !important;
+}
+body.rtl .back-to-top,
+html[dir="rtl"] .back-to-top {
+    transform: none !important;
 }
 </style>
 

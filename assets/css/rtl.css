@@ -98,6 +98,7 @@ html[dir="rtl"] .border-start {
 html[dir="rtl"] .fa-arrow-right:before { content: "\f060"; }
 html[dir="rtl"] .fa-arrow-left:before { content: "\f061"; }
 html[dir="rtl"] .fa-chevron-right:before { content: "\f053"; }
+html[dir="rtl"] .back-to-top .fa-chevron-right:before { content: "\f054" !important; }
 html[dir="rtl"] .fa-chevron-left:before { content: "\f054"; }
 html[dir="rtl"] .fa-angle-right:before { content: "\f104"; }
 html[dir="rtl"] .fa-angle-left:before { content: "\f105"; }
