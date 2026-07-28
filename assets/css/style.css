@@ -5053,8 +5053,13 @@ html.lenis, html.lenis body {
    PRELOADER BACKGROUND ICON ANIMATION (FA-LAPTOP-CODE, FA-CITY, FA-ROAD)
    ============================================================ */
 #spinner {
-    position: relative !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     overflow: hidden !important;
+    z-index: 99999 !important;
 }
 
 .spinner-bg-icons-container {
