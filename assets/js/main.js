@@ -25,9 +25,9 @@
             return;
         }
 
-        // HOMEPAGE ONLY: Guaranteed 3.1s 3-Icon Sequence (City -> Road -> IT) + Media Load Wait
+        // HOMEPAGE ONLY: Guaranteed 2.5s 3-Icon Sequence (City -> Road -> IT) + Media Load Wait
         var startTime = Date.now();
-        var minIconSequenceDuration = 3100; // 3.1 seconds for all 3 icons to display behind spinning logo
+        var minIconSequenceDuration = 2500; // 2.5 seconds for all 3 icons to display behind spinning logo
 
         // Pause all hero videos during preloader display
         var $heroVideos = $('.hero-video');

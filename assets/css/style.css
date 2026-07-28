@@ -5139,15 +5139,15 @@ html.lenis, html.lenis body {
 .spinner-bg-icon {
     position: absolute !important;
     font-size: 160px !important; /* Double the 80px Globuild logo size */
-    color: #10B981 !important;
+    color: #00C853 !important;
     opacity: 0;
     transform: translateY(60px) scale(0.85);
-    animation: riseAndFadeSequence 3.1s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
+    animation: riseAndFadeSequence 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .spinner-bg-icon.icon-1 { animation-delay: 0s !important; }
-.spinner-bg-icon.icon-2 { animation-delay: 1.03s !important; }
-.spinner-bg-icon.icon-3 { animation-delay: 2.06s !important; }
+.spinner-bg-icon.icon-2 { animation-delay: 0.83s !important; }
+.spinner-bg-icon.icon-3 { animation-delay: 1.66s !important; }
 
 .spinner-logo-wrapper {
     position: absolute !important;
@@ -5170,19 +5170,19 @@ html.lenis, html.lenis body {
 @keyframes logoSpinAndPulse {
     0% {
         transform: rotate(0deg) scale(1);
-        filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.2));
+        filter: drop-shadow(0 0 5px rgba(0, 200, 83, 0.3));
     }
     50% {
         transform: rotate(180deg) scale(1.08);
-        filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
+        filter: drop-shadow(0 0 20px rgba(0, 230, 118, 0.7));
     }
     100% {
         transform: rotate(360deg) scale(1);
-        filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.2));
+        filter: drop-shadow(0 0 5px rgba(0, 200, 83, 0.3));
     }
 }
 
-/* Cinematic Intro Text (BUILD THE FUTURE) for Homepage */
+/* Cinematic Intro Text (BUILD THE FUTURE) for Homepage with Solar Sunburst Rays */
 .cinematic-intro-wrapper {
     position: absolute !important;
     top: 50% !important;
@@ -5196,21 +5196,88 @@ html.lenis, html.lenis body {
     visibility: hidden;
 }
 
+/* Rotating Solar Sunburst Rays in Text Extremities */
+.cinematic-intro-wrapper::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 750px !important;
+    height: 750px !important;
+    transform: translate(-50%, -50%) !important;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        rgba(0, 200, 83, 0) 0deg,
+        rgba(0, 230, 118, 0.5) 10deg,
+        rgba(0, 200, 83, 0) 22deg,
+        rgba(0, 200, 83, 0) 45deg,
+        rgba(52, 211, 153, 0.55) 58deg,
+        rgba(0, 200, 83, 0) 70deg,
+        rgba(0, 200, 83, 0) 90deg,
+        rgba(0, 230, 118, 0.5) 102deg,
+        rgba(0, 200, 83, 0) 115deg,
+        rgba(0, 200, 83, 0) 135deg,
+        rgba(52, 211, 153, 0.55) 148deg,
+        rgba(0, 200, 83, 0) 160deg,
+        rgba(0, 200, 83, 0) 180deg,
+        rgba(0, 230, 118, 0.5) 192deg,
+        rgba(0, 200, 83, 0) 205deg,
+        rgba(0, 200, 83, 0) 225deg,
+        rgba(52, 211, 153, 0.55) 238deg,
+        rgba(0, 200, 83, 0) 250deg,
+        rgba(0, 200, 83, 0) 270deg,
+        rgba(0, 230, 118, 0.5) 282deg,
+        rgba(0, 200, 83, 0) 295deg,
+        rgba(0, 200, 83, 0) 315deg,
+        rgba(52, 211, 153, 0.55) 328deg,
+        rgba(0, 200, 83, 0) 340deg,
+        rgba(0, 200, 83, 0) 360deg
+    ) !important;
+    border-radius: 50% !important;
+    filter: blur(5px) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    animation: sunburstRaySpin 6s linear infinite !important;
+}
+
+/* Solar Radial Aura Glow Background */
+.cinematic-intro-wrapper::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: translate(-50%, -50%) !important;
+    background: radial-gradient(ellipse at center, rgba(0, 230, 118, 0.4) 0%, rgba(0, 200, 83, 0.2) 45%, transparent 75%) !important;
+    filter: blur(20px) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+@keyframes sunburstRaySpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.8); }
+    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.15); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scale(0.8); }
+}
+
 .cinematic-zoom-text {
     font-family: var(--font-display, 'Outfit', 'Inter', sans-serif) !important;
     font-size: clamp(2.2rem, 6.5vw, 4.5rem) !important;
     font-weight: 900 !important;
     letter-spacing: clamp(3px, 1vw, 10px) !important;
-    background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #059669 100%) !important;
+    background: linear-gradient(135deg, #00E676 0%, #00C853 45%, #00B050 75%, #059669 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.7)) !important;
+    filter: drop-shadow(0 0 18px rgba(0, 230, 118, 0.95)) drop-shadow(0 0 40px rgba(0, 200, 83, 0.85)) drop-shadow(0 0 80px rgba(0, 176, 80, 0.7)) !important;
     margin: 0 !important;
     padding: 0 15px !important;
     white-space: nowrap !important;
     text-transform: uppercase !important;
     display: inline-block !important;
     max-width: 95vw !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 @media (max-width: 768px) {
