@@ -801,32 +801,22 @@ function gloservices_nav_menu_css_class($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'gloservices_nav_menu_css_class', 1, 3);
 
 function gloservices_nav_menu_link_attributes($atts, $item, $args) {
-    $existing = isset($atts['class']) ? $atts['class'] : '';
-    $classes = explode(' ', $existing);
-    if (!in_array('nav-link', $classes)) {
-        $classes[] = 'nav-link';
-    }
-    if (is_array($item->classes) && (in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes) || in_array('current-menu-ancestor', $item->classes))) {
-        if (!in_array('active', $classes)) {
-            $classes[] = 'active';
+    if (isset($args->theme_location) && $args->theme_location === 'primary') {
+        $existing = isset($atts['class']) ? $atts['class'] : '';
+        $classes = explode(' ', $existing);
+        if (!in_array('nav-link', $classes)) {
+            $classes[] = 'nav-link';
         }
+        if (is_array($item->classes) && (in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes) || in_array('current-menu-ancestor', $item->classes))) {
+            if (!in_array('active', $classes)) {
+                $classes[] = 'active';
+            }
+        }
+        $atts['class'] = trim(implode(' ', array_filter($classes)));
     }
-    $atts['class'] = trim(implode(' ', array_filter($classes)));
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'gloservices_nav_menu_link_attributes', 10, 3);
-
-/**
- * Add Bootstrap classes to primary menu links
- */
-function gloservices_nav_menu_link_attributes($atts, $item, $args) {
-    if(isset($args->theme_location) && $args->theme_location === 'primary') {
-        $class = isset($atts['class']) ? $atts['class'] : '';
-        $atts['class'] = $class . ' nav-link';
-    }
-    return $atts;
-}
-add_filter('nav_menu_link_attributes', 'gloservices_nav_menu_link_attributes', 1, 3);
 
 add_action('after_switch_theme', function() {
     gloservices_register_post_types();
