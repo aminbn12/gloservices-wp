@@ -1068,7 +1068,27 @@ function gloservices_get_translations($lang = 'fr') {
         'Solutions Numériques (IT)' => array('en' => 'Digital Solutions (IT)', 'ar' => 'الحلول الرقمية (IT)'),
         'Tous les projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع'),
         'Tous les Projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع'),
-        'Tous Les Projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع')
+        'Tous Les Projets' => array('en' => 'All Projects', 'ar' => 'جميع المشاريع'),
+
+        // ===== PAGE PROJET ENHANCEMENTS =====
+        'PORTEFEUILLE DE RÉALISATIONS' => array('en' => 'PROJECT PORTFOLIO', 'ar' => 'محفظة الإنجازات'),
+        'Des ouvrages d\'exception et des <span>projets d\'ingénierie durables</span>' => array('en' => 'Exceptional engineering structures & <span>sustainable infrastructure</span>', 'ar' => 'منشآت استثنائية و<span>مشاريع هندسية مستدامة</span>'),
+        'Découvrez nos références majeures à travers le Maroc, alliant ingénierie de précision, normes parasismiques et modélisation BIM 3D.' => array('en' => 'Discover our major project benchmarks across Morocco, combining precision engineering, seismic compliance, and 3D BIM modeling.', 'ar' => 'اكتشفوا مشاريعنا المرجعية الكبرى في جميع أنحاء المغرب، والتي تجمع بين الهندسة الدقيقة والمعايير الزلزالية ونمذجة BIM ثلاثية الأبعاد.'),
+        'Projets Livrés' => array('en' => 'Completed Projects', 'ar' => 'مشروعاً منجزاً'),
+        'Conformité RPS 2000' => array('en' => 'RPS 2000 Compliant', 'ar' => 'مطابقة معايير الزلازل'),
+        'Partenaires Majeurs' => array('en' => 'Major Partners', 'ar' => 'شركاء رئيسيون'),
+        'Villes Couvertes' => array('en' => 'Cities Covered', 'ar' => 'مدينة بالمغرب'),
+        'EXCELLENCE & IMPACT' => array('en' => 'EXCELLENCE & IMPACT', 'ar' => 'التميز والأثر'),
+        'Notre méthodologie de conduite de projet' => array('en' => 'Our project management methodology', 'ar' => 'منهجيتنا في قيادة المشاريع'),
+        'Études & Diagnostic' => array('en' => 'Studies & Assessment', 'ar' => 'الدراسات والتشخيص'),
+        'Relevés topographiques, études géotechniques et analyse approfondie des contraintes du site.' => array('en' => 'Topographical surveys, geotechnical studies, and thorough analysis of site constraints.', 'ar' => 'المسوحات الطبوغرافية، الدراسات الجيوتقنية والتحليل العميق لإكراهات الموقع.'),
+        'Calculs & Modélisation' => array('en' => 'Calculations & Modeling', 'ar' => 'الحساب والنمذجة'),
+        'Dimensionnement sous Robot Structural, tracé sous Covadis et maquette numérique BIM 3D sous Revit.' => array('en' => 'Structural sizing in Robot, road alignment in Covadis, and 3D BIM model in Revit.', 'ar' => 'الحساب الهيكلي عبر Robot، التخطيط عبر Covadis والمجسم الرقمي BIM عبر Revit.'),
+        'Contrôle & Maîtrise d\'Œuvre' => array('en' => 'Quality Control & Supervision', 'ar' => 'المراقبة والإشراف الميداني'),
+        'Suivi rigoureux sur chantier, respect des délais, contrôle qualité des matériaux et réception.' => array('en' => 'Strict site monitoring, schedule compliance, material quality control, and final acceptance.', 'ar' => 'متابعة صارمة في الموقع، الالتزام بالمواعيد، مراقبة جودة المواد والتسليم النهائي.'),
+        'VOUS AVEZ UN PROJET D\'INFRASTRUCTURE OU DE BÂTIMENT ?' => array('en' => 'HAVE AN INFRASTRUCTURE OR BUILDING PROJECT?', 'ar' => 'هل لديكم مشروع بنية تحتية أو مباني؟'),
+        'Discutons de vos besoins avec nos ingénieurs' => array('en' => 'Discuss your requirements with our engineers', 'ar' => 'ناقشوا احتیاجاتكم مع مهندسينا'),
+        'Demander une étude projet' => array('en' => 'Request Project Study', 'ar' => 'طلب دراسة مشروع')
     );
 
     foreach ($extra as $key => $trans) {

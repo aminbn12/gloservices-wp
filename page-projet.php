@@ -8,29 +8,243 @@
 get_header();
 ?>
 
-<!-- Page Header Start -->
-<div class="container-fluid page-header py-5 mb-5">
-    <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown"><?php _e('Projets', 'gloservices'); ?></h1>
-        <nav aria-label="breadcrumb animated slideInDown">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-white" href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Accueil', 'gloservices'); ?></a></li>
-                <li class="breadcrumb-item text-white active" aria-current="page"><?php _e('Projets', 'gloservices'); ?></li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<!-- Page Header End -->
+<!-- Custom Styling for Page Projet Enhancements -->
+<style>
+/* ============================================================
+   PAGE PROJET - WORLD CLASS MODERN DESIGN SYSTEM
+   ============================================================ */
+.projet-hero-banner {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #064E3B 100%);
+    position: relative;
+    padding: 85px 0 65px 0;
+    overflow: hidden;
+}
+.projet-hero-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+}
+.projet-hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.projet-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34D399;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.projet-hero-title {
+    font-family: var(--font-display);
+    font-size: 2.9rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.projet-hero-title span {
+    background: linear-gradient(135deg, #10B981, #34D399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.projet-hero-lead {
+    color: #94A3B8;
+    font-size: 1.12rem;
+    line-height: 1.8;
+    max-width: 820px;
+}
 
-<!-- Projects Start -->
+/* Stat Box Cards inside Hero Header */
+.projet-stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.projet-stat-card:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-4px);
+}
+.projet-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #34D399;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.projet-stat-label {
+    color: #CBD5E1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Project Methodology Cards */
+.method-step-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 28px 24px;
+    height: 100%;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.method-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #10B981, #0EA5E9);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.method-step-card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    transform: translateY(-5px);
+}
+.method-step-card:hover::before {
+    opacity: 1;
+}
+.method-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #10B981, #0EA5E9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+.method-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 10px;
+}
+.method-desc {
+    color: #64748B;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Project Consultation CTA Banner */
+.projet-cta-banner {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    border-radius: 24px;
+    padding: 44px 36px;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+.projet-cta-banner::before {
+    content: '';
+    position: absolute;
+    right: -10%;
+    top: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+@media (max-width: 991.98px) {
+    .projet-hero-title { font-size: 2.1rem; }
+    .projet-cta-banner { padding: 30px 20px; }
+}
+
+body.rtl .projet-cta-banner {
+    text-align: right !important;
+    direction: rtl !important;
+}
+</style>
+
+<!-- Hero Banner Header Start -->
+<section class="projet-hero-banner">
+    <div class="projet-hero-grid-pattern"></div>
+    <div class="container relative z-10">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <div class="projet-badge-pill">
+                    <i class="fas fa-layer-group"></i>
+                    <span><?php echo esc_html(gloservices_translate('PORTEFEUILLE DE RÉALISATIONS')); ?></span>
+                </div>
+                <h1 class="projet-hero-title">
+                    <?php echo gloservices_translate('Des ouvrages d\'exception et des <span>projets d\'ingénierie durables</span>'); ?>
+                </h1>
+                <p class="projet-hero-lead">
+                    <?php echo esc_html(gloservices_translate('Découvrez nos références majeures à travers le Maroc, alliant ingénierie de précision, normes parasismiques et modélisation BIM 3D.')); ?>
+                </p>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="projet-stat-card">
+                            <div class="projet-stat-num">150+</div>
+                            <p class="projet-stat-label"><?php echo esc_html(gloservices_translate('Projets Livrés')); ?></p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="projet-stat-card">
+                            <div class="projet-stat-num">100%</div>
+                            <p class="projet-stat-label"><?php echo esc_html(gloservices_translate('Conformité RPS 2000')); ?></p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="projet-stat-card">
+                            <div class="projet-stat-num">14+</div>
+                            <p class="projet-stat-label"><?php echo esc_html(gloservices_translate('Partenaires Majeurs')); ?></p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="projet-stat-card">
+                            <div class="projet-stat-num">10+</div>
+                            <p class="projet-stat-label"><?php echo esc_html(gloservices_translate('Villes Couvertes')); ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Banner Header End -->
+
+<!-- Projects Grid Section Start -->
 <div class="container-xxl py-5">
-    <div class="container">
+    <div class="container py-4">
+        
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <span class="section-badge"><?php _e('RÉALISATIONS & RÉFÉRENCES', 'gloservices'); ?></span>
             <h2 class="section-main-title mt-3 mb-4"><?php _e('Des projets d\'envergure menés avec rigueur et excellence', 'gloservices'); ?></h2>
             <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;"><?php _e('Découvrez nos références majeures en génie civil, infrastructures routières, ouvrages d\'art et solutions numériques BTP.', 'gloservices'); ?></p>
         </div>
 
+        <!-- Category Filter Tabs -->
         <div class="row mb-5 wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-12 text-center">
                 <ul class="list-inline mb-0" id="portfolio-flters">
@@ -42,6 +256,7 @@ get_header();
             </div>
         </div>
 
+        <!-- Projects Cards Grid -->
         <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.4s">
             <?php
             $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
@@ -262,13 +477,73 @@ get_header();
         <?php endif; ?>
     </div>
 </div>
-<!-- Projects End -->
+<!-- Projects Grid Section End -->
+
+<!-- Methodology / Process Section Start -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        
+        <div class="text-center mx-auto mb-5" style="max-width: 750px;">
+            <span class="section-badge mb-2"><?php echo esc_html(gloservices_translate('EXCELLENCE & IMPACT')); ?></span>
+            <h2 class="section-main-title"><?php echo esc_html(gloservices_translate('Notre méthodologie de conduite de projet')); ?></h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="method-step-card">
+                    <div class="method-num">01</div>
+                    <h4 class="method-title"><?php echo esc_html(gloservices_translate('Études & Diagnostic')); ?></h4>
+                    <p class="method-desc"><?php echo esc_html(gloservices_translate('Relevés topographiques, études géotechniques et analyse approfondie des contraintes du site.')); ?></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="method-step-card">
+                    <div class="method-num">02</div>
+                    <h4 class="method-title"><?php echo esc_html(gloservices_translate('Calculs & Modélisation')); ?></h4>
+                    <p class="method-desc"><?php echo esc_html(gloservices_translate('Dimensionnement sous Robot Structural, tracé sous Covadis et maquette numérique BIM 3D sous Revit.')); ?></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="method-step-card">
+                    <div class="method-num">03</div>
+                    <h4 class="method-title"><?php echo esc_html(gloservices_translate('Contrôle & Maîtrise d\'Œuvre')); ?></h4>
+                    <p class="method-desc"><?php echo esc_html(gloservices_translate('Suivi rigoureux sur chantier, respect des délais, contrôle qualité des matériaux et réception.')); ?></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Methodology / Process Section End -->
+
+<!-- Call to Action Banner Start -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="projet-cta-banner">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <span class="badge bg-success px-3 py-2 rounded-pill mb-3 fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">
+                        <i class="fas fa-hard-hat me-2"></i><?php echo esc_html(gloservices_translate('VOUS AVEZ UN PROJET D\'INFRASTRUCTURE OU DE BÂTIMENT ?')); ?>
+                    </span>
+                    <h3 class="text-white fw-bold display-6 mb-2"><?php echo esc_html(gloservices_translate('Discutons de vos besoins avec nos ingénieurs')); ?></h3>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-success rounded-pill py-3 px-5 fw-bold shadow-lg">
+                        <span><?php echo esc_html(gloservices_translate('Demander une étude projet')); ?></span>
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call to Action Banner End -->
 
 <!-- Partners Section Start -->
 <div class="partners-grid-section py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="partners-bg-layer"></div>
     <div class="container py-4">
-        <!-- Section Header matching screenshot -->
+        <!-- Section Header -->
         <div class="row align-items-center mb-5">
             <div class="col-lg-4 mb-3 mb-lg-0">
                 <h2 class="partners-main-title m-0"><?php echo esc_html(gloservices_translate('NOS PARTENAIRES')); ?></h2>
