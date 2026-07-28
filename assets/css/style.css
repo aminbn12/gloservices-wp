@@ -5182,7 +5182,7 @@ html.lenis, html.lenis body {
     }
 }
 
-/* Cinematic Intro Text (BUILD THE FUTURE) for Homepage with Solar Sunburst Rays */
+/* Cinematic Intro Text (BUILD THE FUTURE) for Homepage */
 .cinematic-intro-wrapper {
     position: absolute !important;
     top: 50% !important;
@@ -5196,52 +5196,136 @@ html.lenis, html.lenis body {
     visibility: hidden;
 }
 
-/* Rotating Solar Sunburst Rays in Text Extremities */
-.cinematic-intro-wrapper::before {
+/* Fine Sharp Laser Rays Radiating at Text Extremities - ACTIVE ONLY DURING FINAL ZOOM */
+#spinner.play-cinematic .cinematic-intro-wrapper::before {
     content: '' !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    width: 750px !important;
-    height: 750px !important;
+    width: 900px !important;
+    height: 900px !important;
     transform: translate(-50%, -50%) !important;
     background: conic-gradient(
         from 0deg at 50% 50%,
-        rgba(0, 200, 83, 0) 0deg,
-        rgba(0, 230, 118, 0.5) 10deg,
-        rgba(0, 200, 83, 0) 22deg,
-        rgba(0, 200, 83, 0) 45deg,
-        rgba(52, 211, 153, 0.55) 58deg,
-        rgba(0, 200, 83, 0) 70deg,
-        rgba(0, 200, 83, 0) 90deg,
-        rgba(0, 230, 118, 0.5) 102deg,
-        rgba(0, 200, 83, 0) 115deg,
-        rgba(0, 200, 83, 0) 135deg,
-        rgba(52, 211, 153, 0.55) 148deg,
-        rgba(0, 200, 83, 0) 160deg,
-        rgba(0, 200, 83, 0) 180deg,
-        rgba(0, 230, 118, 0.5) 192deg,
-        rgba(0, 200, 83, 0) 205deg,
-        rgba(0, 200, 83, 0) 225deg,
-        rgba(52, 211, 153, 0.55) 238deg,
-        rgba(0, 200, 83, 0) 250deg,
-        rgba(0, 200, 83, 0) 270deg,
-        rgba(0, 230, 118, 0.5) 282deg,
-        rgba(0, 200, 83, 0) 295deg,
-        rgba(0, 200, 83, 0) 315deg,
-        rgba(52, 211, 153, 0.55) 328deg,
-        rgba(0, 200, 83, 0) 340deg,
-        rgba(0, 200, 83, 0) 360deg
+        transparent 0deg,
+        rgba(0, 230, 118, 0.9) 0.6deg,
+        transparent 1.2deg,
+        transparent 10deg,
+        rgba(52, 211, 153, 0.85) 10.6deg,
+        transparent 11.2deg,
+        transparent 20deg,
+        rgba(0, 200, 83, 0.9) 20.6deg,
+        transparent 21.2deg,
+        transparent 30deg,
+        rgba(0, 230, 118, 0.9) 30.6deg,
+        transparent 31.2deg,
+        transparent 40deg,
+        rgba(52, 211, 153, 0.85) 40.6deg,
+        transparent 41.2deg,
+        transparent 50deg,
+        rgba(0, 200, 83, 0.9) 50.6deg,
+        transparent 51.2deg,
+        transparent 60deg,
+        rgba(0, 230, 118, 0.9) 60.6deg,
+        transparent 61.2deg,
+        transparent 70deg,
+        rgba(52, 211, 153, 0.85) 70.6deg,
+        transparent 71.2deg,
+        transparent 80deg,
+        rgba(0, 200, 83, 0.9) 80.6deg,
+        transparent 81.2deg,
+        transparent 90deg,
+        rgba(0, 230, 118, 0.9) 90.6deg,
+        transparent 91.2deg,
+        transparent 100deg,
+        rgba(52, 211, 153, 0.85) 100.6deg,
+        transparent 101.2deg,
+        transparent 110deg,
+        rgba(0, 200, 83, 0.9) 110.6deg,
+        transparent 111.2deg,
+        transparent 120deg,
+        rgba(0, 230, 118, 0.9) 120.6deg,
+        transparent 121.2deg,
+        transparent 130deg,
+        rgba(52, 211, 153, 0.85) 130.6deg,
+        transparent 131.2deg,
+        transparent 140deg,
+        rgba(0, 200, 83, 0.9) 140.6deg,
+        transparent 141.2deg,
+        transparent 150deg,
+        rgba(0, 230, 118, 0.9) 150.6deg,
+        transparent 151.2deg,
+        transparent 160deg,
+        rgba(52, 211, 153, 0.85) 160.6deg,
+        transparent 161.2deg,
+        transparent 170deg,
+        rgba(0, 200, 83, 0.9) 170.6deg,
+        transparent 171.2deg,
+        transparent 180deg,
+        rgba(0, 230, 118, 0.9) 180.6deg,
+        transparent 181.2deg,
+        transparent 190deg,
+        rgba(52, 211, 153, 0.85) 190.6deg,
+        transparent 191.2deg,
+        transparent 200deg,
+        rgba(0, 200, 83, 0.9) 200.6deg,
+        transparent 201.2deg,
+        transparent 210deg,
+        rgba(0, 230, 118, 0.9) 210.6deg,
+        transparent 211.2deg,
+        transparent 220deg,
+        rgba(52, 211, 153, 0.85) 220.6deg,
+        transparent 221.2deg,
+        transparent 230deg,
+        rgba(0, 200, 83, 0.9) 230.6deg,
+        transparent 231.2deg,
+        transparent 240deg,
+        rgba(0, 230, 118, 0.9) 240.6deg,
+        transparent 241.2deg,
+        transparent 250deg,
+        rgba(52, 211, 153, 0.85) 250.6deg,
+        transparent 251.2deg,
+        transparent 260deg,
+        rgba(0, 200, 83, 0.9) 260.6deg,
+        transparent 261.2deg,
+        transparent 270deg,
+        rgba(0, 230, 118, 0.9) 270.6deg,
+        transparent 271.2deg,
+        transparent 280deg,
+        rgba(52, 211, 153, 0.85) 280.6deg,
+        transparent 281.2deg,
+        transparent 290deg,
+        rgba(0, 200, 83, 0.9) 290.6deg,
+        transparent 291.2deg,
+        transparent 300deg,
+        rgba(0, 230, 118, 0.9) 300.6deg,
+        transparent 301.2deg,
+        transparent 310deg,
+        rgba(52, 211, 153, 0.85) 310.6deg,
+        transparent 311.2deg,
+        transparent 320deg,
+        rgba(0, 200, 83, 0.9) 320.6deg,
+        transparent 321.2deg,
+        transparent 330deg,
+        rgba(0, 230, 118, 0.9) 330.6deg,
+        transparent 331.2deg,
+        transparent 340deg,
+        rgba(52, 211, 153, 0.85) 340.6deg,
+        transparent 341.2deg,
+        transparent 350deg,
+        rgba(0, 200, 83, 0.9) 350.6deg,
+        transparent 351.2deg,
+        transparent 360deg
     ) !important;
     border-radius: 50% !important;
-    filter: blur(5px) !important;
+    filter: blur(1.2px) !important;
     pointer-events: none !important;
     z-index: 1 !important;
-    animation: sunburstRaySpin 6s linear infinite !important;
+    animation: sunburstRaySpin 4s linear infinite !important;
 }
 
-/* Solar Radial Aura Glow Background */
-.cinematic-intro-wrapper::after {
+/* Focused Solar Glow Aura ONLY DURING FINAL ZOOM */
+#spinner.play-cinematic .cinematic-intro-wrapper::after {
     content: '' !important;
     position: absolute !important;
     top: 50% !important;
@@ -5249,8 +5333,8 @@ html.lenis, html.lenis body {
     width: 100% !important;
     height: 100% !important;
     transform: translate(-50%, -50%) !important;
-    background: radial-gradient(ellipse at center, rgba(0, 230, 118, 0.4) 0%, rgba(0, 200, 83, 0.2) 45%, transparent 75%) !important;
-    filter: blur(20px) !important;
+    background: radial-gradient(ellipse at center, rgba(0, 230, 118, 0.35) 0%, rgba(0, 200, 83, 0.15) 50%, transparent 80%) !important;
+    filter: blur(15px) !important;
     pointer-events: none !important;
     z-index: 1 !important;
 }
