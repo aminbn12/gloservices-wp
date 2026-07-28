@@ -232,6 +232,25 @@ get_header();
     font-size: 0.95rem !important;
 }
 
+/* Gradient Badge for ETUDE & DEVIS GRATUIT */
+.gradient-degrade-badge {
+    background: linear-gradient(135deg, #10B981 0%, #0EA5E9 50%, #6366F1 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45) !important;
+    padding: 8px 20px !important;
+    border-radius: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+.gradient-degrade-badge span,
+.gradient-degrade-badge i {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.2px !important;
+}
+
 @media (max-width: 991.98px) {
     .service-hero-title { font-size: 2.2rem; }
     .quote-section-bg { padding: 30px 20px; }
@@ -506,13 +525,13 @@ body.rtl .quote-section-bg .btn i {
         <div class="quote-section-bg">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5">
-                    <div class="quality-badge-pill mb-3">
+                    <div class="gradient-degrade-badge mb-3">
                         <i class="fas fa-file-invoice"></i>
-                        <span><?php _e('ÉTUDE & DEVIS GRATUIT', 'gloservices'); ?></span>
+                        <span><?php echo esc_html(gloservices_translate('ÉTUDE & DEVIS GRATUIT')); ?></span>
                     </div>
-                    <h3 class="text-white fw-bold display-6 mb-3"><?php _e('Obtenez une proposition technique sur-mesure', 'gloservices'); ?></h3>
+                    <h3 class="text-white fw-bold display-6 mb-3"><?php echo esc_html(gloservices_translate('Obtenez une proposition technique sur-mesure')); ?></h3>
                     <p class="text-light opacity-75 leading-relaxed mb-0">
-                        <?php _e('Transmettez-nous les éléments clés de votre projet. Nos ingénieurs analyseront votre besoin sous 24h et vous proposeront une offre d\'études adaptée.', 'gloservices'); ?>
+                        <?php echo esc_html(gloservices_translate('Transmettez-nous les éléments clés de votre projet. Nos ingénieurs analyseront votre besoin sous 24h et vous proposeront une offre d\'études adaptée.')); ?>
                     </p>
                 </div>
                 
@@ -525,31 +544,31 @@ body.rtl .quote-section-bg .btn i {
                     <form action="<?php echo esc_url(home_url('/contact')); ?>" method="post">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" name="quote_name" class="form-control quote-input-custom" placeholder="<?php esc_attr_e('Votre Nom complet', 'gloservices'); ?>" required>
+                                <input type="text" name="quote_name" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Votre Nom complet')); ?>" required>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" name="quote_email" class="form-control quote-input-custom" placeholder="<?php esc_attr_e('Votre Email professionnel', 'gloservices'); ?>" required>
+                                <input type="email" name="quote_email" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Votre Email professionnel')); ?>" required>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" name="quote_mobile" class="form-control quote-input-custom" placeholder="<?php esc_attr_e('Numéro de Téléphone', 'gloservices'); ?>" required>
+                                <input type="text" name="quote_mobile" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Numéro de Téléphone')); ?>" required>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <select name="quote_service" class="form-select quote-select-custom">
-                                    <option selected><?php _e('Sélectionner le Domaine', 'gloservices'); ?></option>
-                                    <option value="routier"><?php _e('Infrastructures Routières & Ponts', 'gloservices'); ?></option>
-                                    <option value="structure"><?php _e('Ouvrages d\'Art & Structure Béton', 'gloservices'); ?></option>
-                                    <option value="batiment"><?php _e('Bâtiments & Ingénierie BIM 3D', 'gloservices'); ?></option>
-                                    <option value="vrd"><?php _e('VRD & Hydraulique Urbaine', 'gloservices'); ?></option>
-                                    <option value="it"><?php _e('Solutions Numériques & Logiciels BTP', 'gloservices'); ?></option>
-                                    <option value="opc"><?php _e('Assistance Maîtrise d\'Ouvrage & OPC', 'gloservices'); ?></option>
+                                    <option selected><?php echo esc_html(gloservices_translate('Sélectionner le Domaine')); ?></option>
+                                    <option value="routier"><?php echo esc_html(gloservices_translate('Infrastructures Routières & Ponts')); ?></option>
+                                    <option value="structure"><?php echo esc_html(gloservices_translate('Ouvrages d\'Art & Structure Béton')); ?></option>
+                                    <option value="batiment"><?php echo esc_html(gloservices_translate('Bâtiments & Ingénierie BIM 3D')); ?></option>
+                                    <option value="vrd"><?php echo esc_html(gloservices_translate('VRD & Hydraulique Urbaine')); ?></option>
+                                    <option value="it"><?php echo esc_html(gloservices_translate('Solutions Numériques & Logiciels BTP')); ?></option>
+                                    <option value="opc"><?php echo esc_html(gloservices_translate('Assistance Maîtrise d\'Ouvrage & OPC')); ?></option>
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea name="quote_note" class="form-control quote-input-custom" placeholder="<?php esc_attr_e('Description succincte du projet (localisation, délai, contraintes...)', 'gloservices'); ?>" rows="3"></textarea>
+                                <textarea name="quote_note" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Description succincte du projet (localisation, délai, contraintes...)')); ?>" rows="3"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5 fw-bold shadow-lg" type="submit">
-                                    <span><?php _e('Envoyer ma demande', 'gloservices'); ?></span>
+                                    <span><?php echo esc_html(gloservices_translate('Soumettre')); ?></span>
                                     <i class="fas fa-paper-plane ms-2"></i>
                                 </button>
                             </div>

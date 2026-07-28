@@ -1055,7 +1055,8 @@ function gloservices_get_translations($lang = 'fr') {
         'Numéro de Téléphone' => array('en' => 'Phone Number', 'ar' => 'رقم الهاتف'),
         'Sélectionner le Domaine' => array('en' => 'Select Sector', 'ar' => 'اختر المجال'),
         'Description succincte du projet (localisation, délai, contraintes...)' => array('en' => 'Brief project description (location, timeframe, constraints...)', 'ar' => 'وصف مختصر للمشروع (الموقع، الأجل، الإكراهات...)'),
-        'Envoyer ma demande' => array('en' => 'Send Request', 'ar' => 'إرسال الطلب')
+        'Envoyer ma demande' => array('en' => 'Send Request', 'ar' => 'إرسال الطلب'),
+        'Soumettre' => array('en' => 'Submit', 'ar' => 'إرسال')
     );
 
     foreach ($extra as $key => $trans) {
