@@ -236,6 +236,25 @@ get_header();
     .service-hero-title { font-size: 2.2rem; }
     .quote-section-bg { padding: 30px 20px; }
 }
+
+/* RTL ARABIC SPECIFIC OVERRIDES FOR QUOTE FORM */
+body.rtl .quote-section-bg {
+    text-align: right !important;
+    direction: rtl !important;
+}
+body.rtl .quote-section-bg .quality-badge-pill {
+    flex-direction: row-reverse !important;
+}
+body.rtl .quote-input-custom,
+body.rtl .quote-select-custom {
+    text-align: right !important;
+    direction: rtl !important;
+}
+body.rtl .quote-section-bg .btn i {
+    transform: rotate(180deg) !important;
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+}
 </style>
 
 <!-- Hero Banner Header Start -->
