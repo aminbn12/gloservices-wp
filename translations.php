@@ -1056,7 +1056,14 @@ function gloservices_get_translations($lang = 'fr') {
         'Sélectionner le Domaine' => array('en' => 'Select Sector', 'ar' => 'اختر المجال'),
         'Description succincte du projet (localisation, délai, contraintes...)' => array('en' => 'Brief project description (location, timeframe, constraints...)', 'ar' => 'وصف مختصر للمشروع (الموقع، الأجل، الإكراهات...)'),
         'Envoyer ma demande' => array('en' => 'Send Request', 'ar' => 'إرسال الطلب'),
-        'Soumettre' => array('en' => 'Submit', 'ar' => 'إرسال')
+        'Soumettre' => array('en' => 'Submit', 'ar' => 'إرسال'),
+        'Votre Nom' => array('en' => 'Your Name', 'ar' => 'اسمكم الكامل'),
+        'Votre Email' => array('en' => 'Your Email', 'ar' => 'البريد الإلكتروني المهني'),
+        'Votre Mobile' => array('en' => 'Your Mobile', 'ar' => 'رقم الهاتف'),
+        'Note Spéciale' => array('en' => 'Special Note', 'ar' => 'وصف مختصر للمشروع'),
+        'Sélectionner un Service' => array('en' => 'Select Service', 'ar' => 'اختر الخدمة'),
+        'Ingénierie Civile (BTP)' => array('en' => 'Civil Engineering (BTP)', 'ar' => 'الهندسة المدنية (BTP)'),
+        'Solutions Numériques (IT)' => array('en' => 'Digital Solutions (IT)', 'ar' => 'الحلول الرقمية (IT)')
     );
 
     foreach ($extra as $key => $trans) {
@@ -1083,7 +1090,11 @@ function gloservices_translate($text) {
     }
 
     $lang = 'fr';
-    if (function_exists('pll_current_language')) {
+    if (isset($_SERVER['REQUEST_URI']) && (strpos($_SERVER['REQUEST_URI'], '/ar/') !== false || strpos($_SERVER['REQUEST_URI'], 'service-ar') !== false)) {
+        $lang = 'ar';
+    } elseif (isset($_SERVER['REQUEST_URI']) && (strpos($_SERVER['REQUEST_URI'], '/en/') !== false || strpos($_SERVER['REQUEST_URI'], 'service-en') !== false)) {
+        $lang = 'en';
+    } elseif (function_exists('pll_current_language')) {
         $lang = pll_current_language('slug') ?: 'fr';
     } elseif (isset($_GET['lang'])) {
         $lang = sanitize_text_field($_GET['lang']);
@@ -1121,3 +1132,18 @@ add_filter('gettext', function($translated, $original, $domain) {
     }
     return $translated;
 }, 10, 3);
+
+/**
+ * Intercept Contact Form 7 HTML elements to translate placeholders & buttons dynamically
+ */
+add_filter('wpcf7_form_elements', function($content) {
+    if (function_exists('gloservices_translate')) {
+        $content = preg_replace_callback('/placeholder=["\']([^"\']+)["\']/', function($m) {
+            return 'placeholder="' . esc_attr(gloservices_translate($m[1])) . '"';
+        }, $content);
+        $content = preg_replace_callback('/value=["\'](Soumettre|Envoyer|Envoyer ma demande)["\']/', function($m) {
+            return 'value="' . esc_attr(gloservices_translate($m[1])) . '"';
+        }, $content);
+    }
+    return $content;
+});

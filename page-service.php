@@ -536,11 +536,6 @@ body.rtl .quote-section-bg .btn i {
                 </div>
                 
                 <div class="col-lg-7">
-                    <?php
-                    if (shortcode_exists('contact-form-7')) {
-                        echo do_shortcode('[contact-form-7 title="Devis"]');
-                    } else {
-                    ?>
                     <form action="<?php echo esc_url(home_url('/contact')); ?>" method="post">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
@@ -574,7 +569,6 @@ body.rtl .quote-section-bg .btn i {
                             </div>
                         </div>
                     </form>
-                    <?php } ?>
                 </div>
             </div>
         </div>
