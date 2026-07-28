@@ -311,6 +311,9 @@ get_header();
                 <div class="center-pulse-glow"></div>
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Globuild Logo Core" class="center-brand-logo">
                 <span class="center-brand-tag">GLOBUILD</span>
+                <div class="center-tooltip">
+                    <span class="center-tooltip-text">BUILD THE FUTURE</span>
+                </div>
             </div>
 
             <!-- 14 Radial Partner Nodes arranged in Globuild Sphere shape -->
