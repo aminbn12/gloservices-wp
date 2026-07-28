@@ -207,29 +207,53 @@ get_header();
     background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
     pointer-events: none;
 }
-.quote-input-custom {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    color: #FFFFFF !important;
-    border-radius: 12px !important;
-    padding: 14px 18px !important;
-    font-size: 0.95rem !important;
-}
-.quote-input-custom::placeholder {
-    color: #94A3B8 !important;
-}
-.quote-input-custom:focus {
-    border-color: #10B981 !important;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25) !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-}
+/* White Input Background Design System for Quote Form */
+.quote-section-bg .form-control,
+.quote-section-bg .form-select,
+.quote-section-bg input[type="text"],
+.quote-section-bg input[type="email"],
+.quote-section-bg input[type="tel"],
+.quote-section-bg textarea,
+.quote-section-bg select,
+.quote-input-custom,
 .quote-select-custom {
-    background-color: #1E293B !important;
-    color: #FFFFFF !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 12px !important;
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: #0F172A !important;
+    border-radius: 14px !important;
     padding: 14px 18px !important;
     font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+.quote-section-bg .form-control::placeholder,
+.quote-section-bg textarea::placeholder,
+.quote-input-custom::placeholder {
+    color: #64748B !important;
+    opacity: 0.9 !important;
+}
+
+.quote-section-bg .form-control:focus,
+.quote-section-bg .form-select:focus,
+.quote-section-bg input:focus,
+.quote-section-bg textarea:focus,
+.quote-section-bg select:focus,
+.quote-input-custom:focus,
+.quote-select-custom:focus {
+    background-color: #FFFFFF !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25) !important;
+    color: #0F172A !important;
+    outline: none !important;
+}
+
+.quote-section-bg select option,
+.quote-select-custom option {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    padding: 10px !important;
 }
 
 /* Gradient Badge for ETUDE & DEVIS GRATUIT */
