@@ -25,6 +25,13 @@
 
 <!-- Spinner -->
 <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" style="z-index: 99999;">
+    <!-- Background Floating Category Icons -->
+    <div class="spinner-bg-icons-container">
+        <i class="fas fa-laptop-code spinner-bg-icon icon-1"></i>
+        <i class="fas fa-city spinner-bg-icon icon-2"></i>
+        <i class="fas fa-road spinner-bg-icon icon-3"></i>
+    </div>
+
     <div class="spinner-logo-wrapper text-center">
         <img class="spinner-favicon-img" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Gloservices Loading">
     </div>

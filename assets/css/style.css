@@ -5048,3 +5048,74 @@ html.lenis, html.lenis body {
         font-size: 0.65rem;
     }
 }
+
+/* ============================================================
+   PRELOADER BACKGROUND ICON ANIMATION (FA-LAPTOP-CODE, FA-CITY, FA-ROAD)
+   ============================================================ */
+#spinner {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.spinner-bg-icons-container {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 220px !important;
+    height: 220px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.spinner-bg-icon {
+    position: absolute !important;
+    font-size: 160px !important; /* Double the 80px Globuild logo size */
+    color: #10B981 !important;
+    opacity: 0;
+    transform: translateY(60px) scale(0.85);
+    animation: riseAndFadeSequence 6s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.spinner-bg-icon.icon-1 { animation-delay: 0s !important; }
+.spinner-bg-icon.icon-2 { animation-delay: 2s !important; }
+.spinner-bg-icon.icon-3 { animation-delay: 4s !important; }
+
+.spinner-logo-wrapper {
+    position: relative !important;
+    z-index: 2 !important; /* Sits above background icons */
+}
+
+.spinner-favicon-img {
+    width: 85px !important;
+    height: 85px !important;
+    object-fit: contain !important;
+    animation: spinnerPulseGlow 2s infinite ease-in-out !important;
+}
+
+@keyframes riseAndFadeSequence {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.8);
+    }
+    15% {
+        opacity: 0.28;
+        transform: translateY(12px) scale(1);
+    }
+    33% {
+        opacity: 0.28;
+        transform: translateY(-12px) scale(1);
+    }
+    45%, 100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(1.1);
+    }
+}
+
+@keyframes spinnerPulseGlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4)); }
+}
