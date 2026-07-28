@@ -25,9 +25,9 @@
             return;
         }
 
-        // HOMEPAGE ONLY: Guaranteed 3-Icon Sequence (City -> Road -> IT) + Media Load Wait
+        // HOMEPAGE ONLY: Guaranteed 3.5s 3-Icon Sequence (City -> Road -> IT) + Media Load Wait
         var startTime = Date.now();
-        var minIconSequenceDuration = 5400; // 5.4 seconds to let all 3 icons display in sequence behind spinning logo
+        var minIconSequenceDuration = 3500; // 3.5 seconds for all 3 icons to display behind spinning logo
 
         var hidePreloader = function () {
             if ($spinner.data('done')) return;
