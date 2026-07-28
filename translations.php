@@ -1078,25 +1078,35 @@ function gloservices_get_translations($lang = 'fr') {
  * Translate a string from French to the current language.
  */
 function gloservices_translate($text) {
-    static $translations = null;
-    static $current_lang = null;
-
-    $lang = 'fr';
-    if (function_exists('pll_current_language')) {
-        $lang = pll_current_language('slug') ?: 'fr';
-    }
-
     if (empty($text)) {
         return $text;
     }
 
-    if ($translations === null || $current_lang !== $lang) {
-        $current_lang = $lang;
-        $translations = gloservices_get_translations($lang);
+    $lang = 'fr';
+    if (function_exists('pll_current_language')) {
+        $lang = pll_current_language('slug') ?: 'fr';
+    } elseif (isset($_GET['lang'])) {
+        $lang = sanitize_text_field($_GET['lang']);
+    } else {
+        $locale = get_locale();
+        if (strpos($locale, 'ar') === 0) {
+            $lang = 'ar';
+        } elseif (strpos($locale, 'en') === 0) {
+            $lang = 'en';
+        }
     }
 
-    if (isset($translations[$text])) {
-        return $translations[$text];
+    $clean_key = trim($text);
+    $translations = gloservices_get_translations($lang);
+
+    if (isset($translations[$clean_key])) {
+        return $translations[$clean_key];
+    }
+
+    foreach ($translations as $k => $v) {
+        if (strcasecmp($k, $clean_key) === 0) {
+            return $v;
+        }
     }
 
     return $text;
