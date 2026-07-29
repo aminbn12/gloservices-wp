@@ -693,19 +693,19 @@ get_header();
 </section>
 <!-- Software Stack Section End -->
 
-<!-- References Carousel Start -->
-<section class="references-section moyen-references-bubbles-section py-5">
+<!-- References Start -->
+<div class="references-section wow fadeInUp py-5" data-wow-delay="0.1s">
     <div class="container">
         <div class="references-header text-center mb-5">
-            <span class="references-label mb-2 d-inline-block"><?php _e('PARTENAIRES & CONFIANCE', 'gloservices'); ?></span>
-            <h2 class="fw-bold display-6"><?php _e('Nos Références', 'gloservices'); ?></h2>
+            <span class="section-badge"><?php _e('Ils nous font confiance', 'gloservices'); ?></span>
+            <h2 class="section-main-title mt-2"><?php _e('Nos Références', 'gloservices'); ?></h2>
         </div>
-        <div class="references-track moyen-bubbles-track">
-            <?php if (function_exists('gloservices_vendor_carousel')) { gloservices_vendor_carousel(); } ?>
+        <div class="references-track">
+            <?php gloservices_vendor_carousel(); ?>
         </div>
     </div>
-</section>
-<!-- References Carousel End -->
+</div>
+<!-- References End -->
 
 <?php
 get_footer();
