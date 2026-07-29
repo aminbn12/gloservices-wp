@@ -4003,6 +4003,17 @@ html.lenis, html.lenis body {
     max-height: 275px;
 }
 
+.archi-svg-drawing text,
+.service-single-drawing-wrap .archi-svg-drawing text {
+    fill: #FFFFFF !important;
+    font-size: 8px !important;
+    font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    letter-spacing: 0.5px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9));
+}
+
 .service-single-drawing-wrap .archi-svg-drawing line,
 .service-single-drawing-wrap .archi-svg-drawing path,
 .service-single-drawing-wrap .archi-svg-drawing rect,
