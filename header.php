@@ -51,22 +51,22 @@
         <div class="row align-items-center">
             <div class="col-md-7">
                 <div class="topbar-info">
+                    <a href="https://maps.google.com/?q=<?php echo urlencode(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat')); ?>" target="_blank" rel="noopener noreferrer" class="topbar-info-item text-decoration-none topbar-address-link" title="<?php echo esc_attr(gloservices_translate('Voir l\'emplacement sur Google Maps')); ?>">
+                        <i class="fas fa-map-marker-alt text-primary"></i>
+                        <span><?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?></span>
+                    </a>
                     <span class="topbar-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?>
-                    </span>
-                    <span class="topbar-info-item">
-                        <i class="far fa-clock"></i>
-                        <?php echo esc_html(gloservices_translate(get_option('gloservices_hours', 'Lundi - Vendredi : 09h00 - 18h00'))); ?>
+                        <i class="far fa-clock text-primary"></i>
+                        <span><?php echo esc_html(gloservices_translate(get_option('gloservices_hours', 'Lundi - Vendredi : 09h00 - 18h00'))); ?></span>
                     </span>
                 </div>
             </div>
             <div class="col-md-5 text-end">
                 <div class="d-inline-flex align-items-center gap-3">
-                    <span class="topbar-info-item">
-                        <i class="fas fa-phone-alt"></i>
+                    <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', get_option('gloservices_phone', '+212 5 37 77 14 50'))); ?>" class="topbar-info-item text-decoration-none">
+                        <i class="fas fa-phone-alt text-primary"></i>
                         <span dir="ltr"><?php echo esc_html(get_option('gloservices_phone', '+212 5 37 77 14 50')); ?></span>
-                    </span>
+                    </a>
                     <?php
                     $facebook = get_option('gloservices_facebook');
                     $linkedin = get_option('gloservices_linkedin');

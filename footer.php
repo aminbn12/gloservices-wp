@@ -84,17 +84,23 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="footer-title text-white mb-4"><?php _e('Contact', 'gloservices'); ?></h5>
                     <ul class="footer-contact-list list-unstyled m-0">
-                        <li class="d-flex align-items-start gap-3 mb-3">
-                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
-                            <span><?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?></span>
+                        <li class="mb-3">
+                            <a href="https://maps.google.com/?q=<?php echo urlencode(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat')); ?>" target="_blank" rel="noopener noreferrer" class="d-flex align-items-start gap-3 text-white-50 text-decoration-none footer-address-link" title="<?php echo esc_attr(gloservices_translate('Voir l\'emplacement sur Google Maps')); ?>">
+                                <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                                <span><?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?></span>
+                            </a>
                         </li>
-                        <li class="d-flex align-items-center gap-3 mb-3">
-                            <i class="fas fa-phone-alt text-primary"></i>
-                            <span dir="ltr"><?php echo esc_html(get_option('gloservices_phone', '+212 5 37 77 14 50')); ?></span>
+                        <li class="mb-3">
+                            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', get_option('gloservices_phone', '+212 5 37 77 14 50'))); ?>" class="d-flex align-items-center gap-3 text-white-50 text-decoration-none footer-phone-link">
+                                <i class="fas fa-phone-alt text-primary"></i>
+                                <span dir="ltr"><?php echo esc_html(get_option('gloservices_phone', '+212 5 37 77 14 50')); ?></span>
+                            </a>
                         </li>
-                        <li class="d-flex align-items-center gap-3">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <span><?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?></span>
+                        <li>
+                            <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@gloservices.ma')); ?>" class="d-flex align-items-center gap-3 text-white-50 text-decoration-none footer-email-link">
+                                <i class="fas fa-envelope text-primary"></i>
+                                <span><?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?></span>
+                            </a>
                         </li>
                     </ul>
                 </div>

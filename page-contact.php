@@ -60,9 +60,11 @@ get_header();
                     </div>
                     <h5 class="fw-bold mb-1"><?php echo esc_html(gloservices_translate('Localisation')); ?></h5>
                     <span class="text-muted small mb-3"><?php echo esc_html(gloservices_translate('Rendez-nous visite')); ?></span>
-                    <p class="mb-0 fs-6 text-dark fw-bold">
-                        <?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?>
-                    </p>
+                    <a href="https://maps.google.com/?q=<?php echo urlencode(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat')); ?>" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark" title="<?php echo esc_attr(gloservices_translate('Voir l\'emplacement sur Google Maps')); ?>">
+                        <p class="mb-0 fs-6 text-dark fw-bold">
+                            <?php echo esc_html(gloservices_translate(get_option('gloservices_address', '11 Rue Dayet Aoua, Agdal, Rabat'))); ?> <i class="fas fa-external-link-alt ms-1 text-primary small"></i>
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
