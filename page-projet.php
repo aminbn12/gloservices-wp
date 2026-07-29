@@ -668,28 +668,5 @@ body.rtl .projet-cta-banner {
 </div>
 <!-- Partners Section End -->
 
-<!-- Call to Action Banner Start -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="projet-cta-banner">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-8">
-                    <span class="badge bg-success px-3 py-2 rounded-pill mb-3 fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">
-                        <i class="fas fa-hard-hat me-2"></i><?php echo esc_html(gloservices_translate('VOUS AVEZ UN PROJET D\'INFRASTRUCTURE OU DE BÂTIMENT ?')); ?>
-                    </span>
-                    <h3 class="text-white fw-bold display-6 mb-2"><?php echo esc_html(gloservices_translate('Discutons de vos besoins avec nos ingénieurs')); ?></h3>
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-success rounded-pill py-3 px-5 fw-bold shadow-lg">
-                        <span><?php echo esc_html(gloservices_translate('Demander une étude projet')); ?></span>
-                        <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Call to Action Banner End -->
-
 <?php
 get_footer();
