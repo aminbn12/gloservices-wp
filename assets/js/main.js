@@ -29,11 +29,12 @@
         var startTime = Date.now();
         var minIconSequenceDuration = 2500; // 2.5 seconds for all 3 icons to display behind spinning logo
 
-        // Pause all hero videos during preloader display
+        // Pause all hero videos & stop carousel autoplay during preloader display
         var $heroVideos = $('.hero-video');
         $heroVideos.each(function () {
             this.pause();
         });
+        $('.hero-carousel').trigger('stop.owl.autoplay');
 
         var playHeroVideos = function () {
             $heroVideos.each(function () {
@@ -46,6 +47,12 @@
                     }
                 } catch (e) {}
             });
+            // Restart Hero Carousel autoplay 10s timer FROM ZERO now that preloader is gone
+            var $carousel = $('.hero-carousel');
+            if ($carousel.length) {
+                $carousel.trigger('stop.owl.autoplay');
+                $carousel.trigger('play.owl.autoplay', [10000]);
+            }
         };
 
         var hidePreloader = function () {
@@ -331,6 +338,11 @@
             992: { dots: true }
         }
     });
+
+    // If preloader is currently active on homepage, pause carousel autoplay until preloader finishes
+    if ($('#spinner').length && $('#spinner').hasClass('show')) {
+        $heroCarousel.trigger('stop.owl.autoplay');
+    }
 
     // Fallback: ensure first slide animates even if 'initialized' was missed
     setTimeout(function () {
