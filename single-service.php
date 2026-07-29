@@ -35,9 +35,6 @@ get_header();
                     <div class="service-single-frame mb-4">
                         <div class="service-single-drawing-wrap">
                             <?php echo $drawing_svg; ?>
-                            <span class="service-frame-badge">
-                                <i class="fas fa-drafting-compass me-2"></i><?php _e('CONCEPTION & ÉTUDE TECHNIQUE', 'gloservices'); ?>
-                            </span>
                         </div>
                         <div class="corner-mark corner-tl"></div>
                         <div class="corner-mark corner-tr"></div>
