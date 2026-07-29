@@ -1667,13 +1667,18 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
         0 0 30px rgba(16, 185, 129, 0.06);
 }
 
-/* === Drawing Canvas in Blueprint theme === */
+/* === Drawing Canvas in Blueprint theme (Dark CAD style matching Single Service pages) === */
 .archi-drawing-canvas {
     position: relative;
     width: 100%;
     height: 145px;
-    background: #f8fafc; /* Light canvas background, no dark filter */
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #0F172A;
+    background-image: 
+        linear-gradient(to right, rgba(16, 185, 129, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.07) 1px, transparent 1px),
+        linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    background-size: 20px 20px, 20px 20px, 100% 100%;
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 24px;
@@ -1682,12 +1687,12 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
     justify-content: center;
     transition: all 0.4s var(--ease-out);
     z-index: 2;
+    box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.08);
 }
 
 .service-archi-card:hover .archi-drawing-canvas {
-    background: #ffffff;
-    border-color: rgba(16, 185, 129, 0.35);
-    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: inset 0 0 25px rgba(16, 185, 129, 0.15), 0 5px 15px rgba(16, 185, 129, 0.08);
 }
 
 .archi-svg-drawing {
@@ -1696,13 +1701,10 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
     transition: all 0.4s var(--ease-out);
 }
 
-.archi-svg-drawing text {
-    fill: #0F1923 !important; /* Force white text to be dark for readability */
-}
-
-.archi-svg-drawing [stroke="#ffffff"],
-.archi-svg-drawing [stroke="white"] {
-    stroke: #0F1923 !important; /* Force white strokes to be dark */
+/* Homepage CAD Drawing: SVG strokes and text are now on a dark canvas, so keep white/green native colors */
+.service-archi-card .archi-svg-drawing text {
+    fill: #FFFFFF !important;
+    opacity: 0.85 !important;
 }
 
 .service-archi-card:hover .archi-svg-drawing {
@@ -4010,13 +4012,13 @@ html.lenis, html.lenis body {
     max-height: 275px;
 }
 
-/* Homepage / Services Grid CAD Drawing Text Annotations (Light Background): Dark Slate Blue (#334155) */
+/* Homepage / Services Grid CAD Drawing Text Annotations (Dark Canvas): White with subtle opacity */
 .service-archi-card .archi-svg-drawing text {
-    fill: #334155 !important;
+    fill: #FFFFFF !important;
     font-size: 8px !important;
     font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
     font-weight: 600 !important;
-    opacity: 0.9 !important;
+    opacity: 0.85 !important;
     filter: none !important;
 }
 
