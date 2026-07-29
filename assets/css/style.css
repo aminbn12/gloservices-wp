@@ -3955,7 +3955,8 @@ html.lenis, html.lenis body {
 /* ============================================================
    SINGLE PROJECT HERO IMAGE FRAME & STYLING
    ============================================================ */
-.project-single-frame {
+.project-single-frame,
+.service-single-frame {
     position: relative;
     border-radius: 20px;
     padding: 8px;
@@ -3966,9 +3967,29 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
-.project-single-frame:hover {
+.project-single-frame:hover,
+.service-single-frame:hover {
     border-color: rgba(16, 185, 129, 0.45);
     box-shadow: 0 18px 45px rgba(16, 185, 129, 0.15);
+}
+
+.service-single-drawing-wrap {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 24px;
+}
+
+.service-single-drawing-wrap .archi-svg-drawing {
+    width: 100%;
+    height: 100%;
+    max-height: 270px;
 }
 
 .project-single-img-wrap {
@@ -3992,7 +4013,8 @@ html.lenis, html.lenis body {
     transform: scale(1.03);
 }
 
-.project-frame-badge {
+.project-frame-badge,
+.service-frame-badge {
     position: absolute;
     top: 18px;
     left: 18px;
@@ -4006,9 +4028,11 @@ html.lenis, html.lenis body {
     border-radius: 9999px;
     border: 1px solid rgba(16, 185, 129, 0.4);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    z-index: 5;
 }
 
-.project-single-frame .corner-mark {
+.project-single-frame .corner-mark,
+.service-single-frame .corner-mark {
     position: absolute;
     width: 10px;
     height: 10px;
@@ -4018,12 +4042,13 @@ html.lenis, html.lenis body {
     transition: all 0.3s ease;
 }
 
-.project-single-frame .corner-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
-.project-single-frame .corner-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
-.project-single-frame .corner-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
-.project-single-frame .corner-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+.project-single-frame .corner-tl, .service-single-frame .corner-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+.project-single-frame .corner-tr, .service-single-frame .corner-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+.project-single-frame .corner-bl, .service-single-frame .corner-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+.project-single-frame .corner-br, .service-single-frame .corner-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
 
-.project-single-frame:hover .corner-mark {
+.project-single-frame:hover .corner-mark,
+.service-single-frame:hover .corner-mark {
     border-color: #10B981;
     width: 14px;
     height: 14px;
