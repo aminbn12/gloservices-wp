@@ -1007,19 +1007,81 @@ function gloservices_get_service_drawing($slug) {
 </div>
 <!-- Quote End -->
 
-<!-- References Start -->
-<div class="references-section wow fadeInUp py-5" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="references-header text-center mb-5">
-            <span class="section-badge"><?php _e('Ils nous font confiance', 'gloservices'); ?></span>
-            <h2 class="section-main-title mt-2"><?php _e('Nos Références', 'gloservices'); ?></h2>
+<!-- Partners Section Start -->
+<div class="partners-grid-section py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="partners-bg-layer"></div>
+    <div class="container py-4">
+        <!-- Section Header -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <h2 class="partners-main-title m-0"><?php echo esc_html(gloservices_translate('NOS PARTENAIRES')); ?></h2>
+            </div>
+            <div class="col-lg-8">
+                <p class="partners-desc-text m-0">
+                    <?php echo esc_html(gloservices_translate('Ils nous font confiance pour leurs projets. Nos partenaires s\'appuient sur notre expertise technique pour concrétiser leurs idées. Ensemble, nous formons une équipe soudée, engagée dans la réussite de chaque chantier. Découvrez ceux qui choisissent de travailler avec nous !')); ?>
+                </p>
+            </div>
         </div>
-        <div class="references-track">
-            <?php gloservices_vendor_carousel(); ?>
+
+        <!-- Globuild Globe Orbit Partners Layout -->
+        <?php
+        $partners = [
+            ['num' => 1,  'name' => 'CID',                            'logo' => 'vendor-1.jpg'],
+            ['num' => 2,  'name' => 'GROUPE MOJAZINE',                 'logo' => 'vendor-2.jpg'],
+            ['num' => 3,  'name' => 'TGCC',                           'logo' => 'vendor-3.jpg'],
+            ['num' => 4,  'name' => 'MINISTÈRE DE L\'ÉQUIPEMENT',       'logo' => 'vendor-4.jpg'],
+            ['num' => 5,  'name' => 'S.N.L TRAVAUX',                   'logo' => 'vendor-5.jpg'],
+            ['num' => 6,  'name' => 'GENERALE ROUTIERE',              'logo' => 'vendor-6.jpg'],
+            ['num' => 7,  'name' => 'L.P.E.E',                        'logo' => 'vendor-7.jpg'],
+            ['num' => 8,  'name' => 'REDAL',                          'logo' => 'vendor-8.jpg'],
+            ['num' => 9,  'name' => 'TOTALENERGIES',                  'logo' => 'vendor-9.jpg'],
+            ['num' => 10, 'name' => 'COLAS RAIL',                     'logo' => 'vendor-10.png'],
+            ['num' => 11, 'name' => 'GCR',                            'logo' => 'vendor-11.png'],
+            ['num' => 12, 'name' => 'AUTOROUTES DU MAROC',            'logo' => 'vendor-12.png'],
+            ['num' => 13, 'name' => 'AMDL',                           'logo' => 'vendor-13.png'],
+            ['num' => 14, 'name' => 'CRÉDIT AGRICOLE DU MAROC',        'logo' => 'vendor-14.png'],
+        ];
+        $total = count($partners);
+        ?>
+
+        <div class="globuild-partners-orbit-container">
+            <!-- Decorative Orbit Concentric Rings -->
+            <div class="globuild-orbit-ring inner-ring"></div>
+            <div class="globuild-orbit-ring outer-ring"></div>
+
+            <!-- Central Globuild Sphere Core Badge -->
+            <div class="globuild-orbit-center">
+                <div class="center-pulse-glow"></div>
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon-circle.png" alt="Globuild Logo Core" class="center-brand-logo">
+                <span class="center-brand-tag">GLOBUILD</span>
+                <div class="center-tooltip">
+                    <span class="center-tooltip-text">BUILD THE FUTURE</span>
+                </div>
+            </div>
+
+            <!-- 14 Radial Partner Nodes arranged in Globuild Sphere shape -->
+            <div class="globuild-orbit-nodes">
+                <?php foreach ($partners as $index => $partner) : 
+                    $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
+                ?>
+                    <div class="orbit-partner-node" style="--index: <?php echo $index; ?>; --total: <?php echo $total; ?>;">
+                        <div class="orbit-partner-node-inner">
+                            <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
+                            <div class="node-logo-wrapper">
+                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-num">#<?php echo $partner['num']; ?></span>
+                                <span class="tooltip-name"><?php echo esc_html($partner['name']); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 </div>
-<!-- References End -->
+<!-- Partners Section End -->
 
 <?php
 get_footer();
