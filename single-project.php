@@ -111,7 +111,7 @@ get_header();
             <span class="section-badge"><?php _e('Ils nous font confiance', 'gloservices'); ?></span>
             <h2 class="section-main-title mt-2"><?php _e('Nos Références', 'gloservices'); ?></h2>
         </div>
-        <div class="references-track moyen-bubbles-track">
+        <div class="references-track">
             <?php gloservices_vendor_carousel(); ?>
         </div>
     </div>
