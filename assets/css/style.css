@@ -5541,9 +5541,9 @@ html.lenis, html.lenis body {
     transform: scale(1.12);
 }
 
-/* 3-Second Synchronized Pulse State triggered when video/photo slide changes */
+/* 5-Second Synchronized Pulse State triggered when video/photo slide changes */
 .hero-scroll-reminder.pulse-active .scroll-reminder-circle {
-    animation: heroArrowBounce 2s infinite cubic-bezier(0.45, 0, 0.55, 1), heroPulseGlow 3s ease-in-out;
+    animation: heroArrowBounce 2s infinite cubic-bezier(0.45, 0, 0.55, 1), heroPulseGlow 5s ease-in-out;
 }
 
 @keyframes heroArrowBounce {

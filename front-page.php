@@ -506,7 +506,7 @@ function gloservices_get_service_drawing($slug) {
 
 <!-- Hero Scroll Reminder Arrow Indicator -->
 <div class="hero-scroll-wrapper text-center">
-    <a href="#services-section" class="hero-scroll-reminder" id="heroScrollReminder" title="<?php echo esc_attr(gloservices_translate('Découvrir nos services')); ?>">
+    <a href="#stats-section" class="hero-scroll-reminder" id="heroScrollReminder" title="<?php echo esc_attr(gloservices_translate('Découvrir Globuild')); ?>">
         <div class="scroll-reminder-circle">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -514,7 +514,7 @@ function gloservices_get_service_drawing($slug) {
 </div>
 
 <!-- Stats Bar Start -->
-<div class="stats-bar wow fadeIn" data-wow-delay="0.1s">
+<div class="stats-bar wow fadeIn" id="stats-section" data-wow-delay="0.1s">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">

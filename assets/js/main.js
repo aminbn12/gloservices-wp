@@ -66,6 +66,9 @@
             setTimeout(function () {
                 $spinner.removeClass('show');
                 playHeroVideos();
+                if (typeof triggerHeroScrollReminderPulse === 'function') {
+                    triggerHeroScrollReminderPulse();
+                }
             }, 1200);
         };
 
@@ -316,6 +319,9 @@
 
     var pulseTimer = null;
     function triggerHeroScrollReminderPulse() {
+        // Do not display/pulse arrow while preloader overlay is active on homepage
+        if ($('#spinner').length && $('#spinner').hasClass('show')) return;
+
         var $reminder = $('#heroScrollReminder');
         if (!$reminder.length) return;
 
@@ -327,7 +333,7 @@
         if (pulseTimer) clearTimeout(pulseTimer);
         pulseTimer = setTimeout(function () {
             $reminder.removeClass('pulse-active');
-        }, 3000);
+        }, 5000); // 5 seconds display duration!
     }
 
     // Attach events BEFORE owlCarousel init so 'initialized' fires
@@ -357,10 +363,10 @@
         }
     });
 
-    // Handle scroll reminder arrow click to smoothly scroll to services section
+    // Handle scroll reminder arrow click to smoothly scroll to stats section (100 Clients, 30 Projets...)
     $(document).on('click', '#heroScrollReminder', function (e) {
         e.preventDefault();
-        var $target = $('#services-section');
+        var $target = $('#stats-section');
         if ($target.length) {
             if (window.gloLenis) {
                 window.gloLenis.scrollTo($target[0], { duration: 1.2 });
