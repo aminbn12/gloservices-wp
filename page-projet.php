@@ -172,14 +172,90 @@ get_header();
     pointer-events: none;
 }
 
+/* Responsive adjustments for Mobile & Tablet */
 @media (max-width: 991.98px) {
-    .projet-hero-title { font-size: 2.1rem; }
-    .projet-cta-banner { padding: 30px 20px; }
+    .projet-hero-banner {
+        padding: 50px 0 40px;
+    }
+    .projet-hero-title {
+        font-size: clamp(1.75rem, 5.5vw, 2.4rem);
+        margin-bottom: 16px;
+    }
+    .projet-hero-lead {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 24px;
+    }
+    .projet-cta-banner {
+        padding: 32px 24px;
+        text-align: center;
+    }
+    .projet-cta-banner .text-lg-end {
+        text-align: center !important;
+    }
+    .projet-cta-banner h3 {
+        font-size: clamp(1.35rem, 4.5vw, 1.9rem) !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .projet-hero-banner {
+        padding: 36px 0 30px;
+    }
+    .projet-badge-pill {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+        margin-bottom: 14px;
+    }
+    .projet-hero-title {
+        font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+    }
+    .projet-hero-lead {
+        font-size: 0.92rem;
+    }
+    .projet-stat-card {
+        padding: 14px 8px;
+        border-radius: 14px;
+    }
+    .projet-stat-num {
+        font-size: 1.55rem;
+        margin-bottom: 4px;
+    }
+    .projet-stat-label {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+    .projet-cta-banner {
+        padding: 24px 16px;
+        border-radius: 18px;
+    }
+    .projet-cta-banner .badge {
+        font-size: 0.72rem !important;
+        padding: 6px 12px !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+    .projet-cta-banner h3 {
+        font-size: 1.25rem !important;
+    }
+    .projet-cta-banner .btn-success {
+        width: 100% !important;
+        padding: 14px 20px !important;
+        font-size: 0.9rem !important;
+        justify-content: center !important;
+    }
 }
 
 body.rtl .projet-cta-banner {
-    text-align: right !important;
     direction: rtl !important;
+}
+@media (max-width: 991.98px) {
+    body.rtl .projet-cta-banner {
+        text-align: center !important;
+    }
 }
 </style>
 
