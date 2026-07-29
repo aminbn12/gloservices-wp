@@ -7,16 +7,14 @@
 ?>
 
 <!-- Footer Start -->
-<div class="container-fluid footer text-body mt-5 pt-4 wow fadeIn" data-wow-delay="0.1s">
-    <!-- Top Gradient Glow Transition on top -->
-    <div class="footer-top-gradient-glow"></div>
+<div class="container-fluid footer text-body mt-5 pt-0 position-relative overflow-hidden wow fadeIn" data-wow-delay="0.1s">
     
-    <!-- Background image -->
+    <!-- Background image with gradient mask transition -->
     <div class="footer-image-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/footer.jpg');"></div>
     
     <!-- Content overlay -->
     <div class="footer-content-overlay">
-        <div class="container pt-5 pb-5 mt-2">
+        <div class="container pb-5 footer-content-container">
             <div class="row g-5">
                 <!-- Brand Column -->
                 <div class="col-lg-3 col-md-6 footer-brand-column">

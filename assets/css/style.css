@@ -712,16 +712,6 @@ html[dir="rtl"] .hero-slide.slide-anim-active .hero-content .hero-title .highlig
     padding: 0 !important;
 }
 
-/* Top gradient glow transition on top of footer */
-.footer-top-gradient-glow {
-    height: 40px;
-    width: 100%;
-    position: relative;
-    z-index: 3;
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.45) 0%, rgba(16, 185, 129, 0.12) 50%, transparent 100%);
-    border-top: 3px solid #10B981;
-}
-
 /* Quality Certification Badge under Brand Text */
 .footer-quality-badge {
     display: inline-flex;
@@ -734,6 +724,16 @@ html[dir="rtl"] .hero-slide.slide-anim-active .hero-content .hero-title .highlig
     padding: 7px 14px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.footer-content-container {
+    padding-top: 100px !important;
+}
+
+@media (max-width: 768px) {
+    .footer-content-container {
+        padding-top: 60px !important;
+    }
 }
 
 /* Background image with slide-left animation */
@@ -750,12 +750,12 @@ html[dir="rtl"] .hero-slide.slide-anim-active .hero-content .hero-title .highlig
     transition: background-position 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light overlay filter for better text readability */
+/* Smooth top-to-bottom gradient transition fading out the background image gracefully */
 .footer-image-bg::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.75);
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.55) 25%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.94) 100%);
     z-index: 1;
     pointer-events: none;
 }
