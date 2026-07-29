@@ -314,13 +314,31 @@
         });
     }
 
+    var pulseTimer = null;
+    function triggerHeroScrollReminderPulse() {
+        var $reminder = $('#heroScrollReminder');
+        if (!$reminder.length) return;
+
+        $reminder.removeClass('pulse-active');
+        // Force reflow
+        void $reminder[0].offsetWidth;
+        $reminder.addClass('pulse-active');
+
+        if (pulseTimer) clearTimeout(pulseTimer);
+        pulseTimer = setTimeout(function () {
+            $reminder.removeClass('pulse-active');
+        }, 3000);
+    }
+
     // Attach events BEFORE owlCarousel init so 'initialized' fires
     $heroCarousel
         .on('initialized.owl.carousel', function () {
             triggerHeroAnim($(this));
+            triggerHeroScrollReminderPulse();
         })
         .on('translated.owl.carousel', function () {
             triggerHeroAnim($(this));
+            triggerHeroScrollReminderPulse();
         });
 
     $heroCarousel.owlCarousel({
@@ -339,6 +357,21 @@
         }
     });
 
+    // Handle scroll reminder arrow click to smoothly scroll to services section
+    $(document).on('click', '#heroScrollReminder', function (e) {
+        e.preventDefault();
+        var $target = $('#services-section');
+        if ($target.length) {
+            if (window.gloLenis) {
+                window.gloLenis.scrollTo($target[0], { duration: 1.2 });
+            } else {
+                $('html, body').animate({
+                    scrollTop: $target.offset().top - 80
+                }, 800);
+            }
+        }
+    });
+
     // If preloader is currently active on homepage, pause carousel autoplay until preloader finishes
     if ($('#spinner').length && $('#spinner').hasClass('show')) {
         $heroCarousel.trigger('stop.owl.autoplay');
@@ -348,6 +381,7 @@
     setTimeout(function () {
         if (!$heroCarousel.find('.hero-slide.slide-anim-active').length) {
             triggerHeroAnim($heroCarousel);
+            triggerHeroScrollReminderPulse();
         }
     }, 300);
 

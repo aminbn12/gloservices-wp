@@ -500,9 +500,17 @@ function gloservices_get_service_drawing($slug) {
             </div>
         </div>
     </div>
-    <?php endfor; ?>
 </div>
 <!-- Hero Carousel End -->
+
+<!-- Hero Scroll Reminder Arrow Indicator -->
+<div class="hero-scroll-wrapper text-center">
+    <a href="#services-section" class="hero-scroll-reminder" id="heroScrollReminder" title="<?php echo esc_attr(gloservices_translate('Découvrir nos services')); ?>">
+        <div class="scroll-reminder-circle">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </a>
+</div>
 
 <!-- Stats Bar Start -->
 <div class="stats-bar wow fadeIn" data-wow-delay="0.1s">
@@ -561,7 +569,7 @@ function gloservices_get_service_drawing($slug) {
 <!-- About End -->
 
 <!-- Service Start -->
-<div class="services-blueprint">
+<div class="services-blueprint" id="services-section">
     <!-- Blueprint grid background -->
     <div class="blueprint-grid"></div>
 
