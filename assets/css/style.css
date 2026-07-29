@@ -1505,19 +1505,22 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 .services-blueprint {
     position: relative;
     padding: clamp(60px, 10vw, 120px) 0;
-    background-color: #0B132B;
-    background-image: 
-        linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
-        radial-gradient(circle at 80% 15%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
-        radial-gradient(circle at 20% 85%, rgba(14, 165, 233, 0.1) 0%, transparent 45%);
-    background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%;
+    background: #F8FAFC;
     overflow: hidden;
     z-index: 1;
 }
 
 .services-blueprint::before {
-    display: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/services-bg.png?v=2');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Technical grid overlay */
@@ -1595,7 +1598,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 }
 
 .blueprint-title {
-    color: #FFFFFF !important;
+    color: #0F1923 !important;
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-family: var(--font-display);
     font-weight: 700;
