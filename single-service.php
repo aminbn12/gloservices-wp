@@ -6,17 +6,6 @@
  */
 
 get_header();
-
-// Fetch CAD vector drawing for current service
-$service_post_id = get_the_ID();
-$service_slug = get_post_field('post_name');
-if (function_exists('pll_get_post')) {
-    $fr_post_id = pll_get_post($service_post_id, 'fr');
-    if ($fr_post_id) {
-        $service_slug = get_post_field('post_name', $fr_post_id);
-    }
-}
-$drawing_svg = function_exists('gloservices_get_service_drawing') ? gloservices_get_service_drawing($service_slug) : '';
 ?>
 
 <!-- Page Header Start -->
@@ -29,7 +18,17 @@ $drawing_svg = function_exists('gloservices_get_service_drawing') ? gloservices_
 
 <div class="container-xxl py-5">
     <div class="container">
-        <?php while (have_posts()) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); 
+            $service_post_id = get_the_ID();
+            $service_slug = get_post_field('post_name', $service_post_id);
+            if (function_exists('pll_get_post')) {
+                $fr_post_id = pll_get_post($service_post_id, 'fr');
+                if ($fr_post_id) {
+                    $service_slug = get_post_field('post_name', $fr_post_id);
+                }
+            }
+            $drawing_svg = function_exists('gloservices_get_service_drawing') ? gloservices_get_service_drawing($service_slug) : '';
+        ?>
             <div class="row g-5">
                 <div class="col-lg-8">
                     <!-- Architectural CAD Vector Drawing Canvas Frame Above Service Title -->
