@@ -3955,8 +3955,7 @@ html.lenis, html.lenis body {
 /* ============================================================
    SINGLE PROJECT HERO IMAGE FRAME & STYLING
    ============================================================ */
-.project-single-frame,
-.service-single-frame {
+.project-single-frame {
     position: relative;
     border-radius: 20px;
     padding: 8px;
@@ -3967,8 +3966,18 @@ html.lenis, html.lenis body {
     overflow: hidden;
 }
 
-.project-single-frame:hover,
-.service-single-frame:hover {
+.service-single-frame {
+    position: relative;
+    border-radius: 20px;
+    padding: 8px;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(16, 185, 129, 0.6);
+    box-shadow: 0 18px 45px rgba(16, 185, 129, 0.18), 0 0 25px rgba(16, 185, 129, 0.12);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.project-single-frame:hover {
     border-color: rgba(16, 185, 129, 0.45);
     box-shadow: 0 18px 45px rgba(16, 185, 129, 0.15);
 }
@@ -3976,7 +3985,7 @@ html.lenis, html.lenis body {
 .service-single-drawing-wrap {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 330px;
     background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
     border-radius: 14px;
     display: flex;
@@ -3984,12 +3993,33 @@ html.lenis, html.lenis body {
     justify-content: center;
     overflow: hidden;
     padding: 24px;
+    box-shadow: inset 0 0 35px rgba(16, 185, 129, 0.15);
 }
 
+/* Continuously active SVG vector line animations for Single Service detail page */
 .service-single-drawing-wrap .archi-svg-drawing {
     width: 100%;
     height: 100%;
-    max-height: 270px;
+    max-height: 275px;
+}
+
+.service-single-drawing-wrap .archi-svg-drawing line,
+.service-single-drawing-wrap .archi-svg-drawing path,
+.service-single-drawing-wrap .archi-svg-drawing rect,
+.service-single-drawing-wrap .archi-svg-drawing polygon,
+.service-single-drawing-wrap .archi-svg-drawing circle {
+    animation: archiSingleNeonGlow 3.5s infinite ease-in-out;
+}
+
+@keyframes archiSingleNeonGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 3px rgba(52, 211, 153, 0.5));
+        opacity: 0.88;
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.95)) drop-shadow(0 0 18px rgba(16, 185, 129, 0.7));
+        opacity: 1;
+    }
 }
 
 .project-single-img-wrap {
@@ -4018,7 +4048,7 @@ html.lenis, html.lenis body {
     position: absolute;
     top: 18px;
     left: 18px;
-    background: rgba(11, 19, 43, 0.85);
+    background: rgba(11, 19, 43, 0.88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #FFFFFF;
@@ -4026,19 +4056,30 @@ html.lenis, html.lenis body {
     font-weight: 600;
     padding: 6px 18px;
     border-radius: 9999px;
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.6);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 12px rgba(16, 185, 129, 0.3);
     z-index: 5;
 }
 
-.project-single-frame .corner-mark,
-.service-single-frame .corner-mark {
+.project-single-frame .corner-mark {
     position: absolute;
     width: 10px;
     height: 10px;
     border-color: rgba(16, 185, 129, 0.4);
     border-style: solid;
     pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Permanently active technical corner marks for single service frame */
+.service-single-frame .corner-mark {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: #10B981 !important;
+    border-style: solid;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
     transition: all 0.3s ease;
 }
 
