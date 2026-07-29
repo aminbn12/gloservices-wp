@@ -7,8 +7,39 @@
 ?>
 
 <!-- Footer Start -->
-<div class="container-fluid footer text-body mt-5 pt-0 position-relative overflow-hidden wow fadeIn" data-wow-delay="0.1s">
+<div class="container-fluid footer text-body position-relative overflow-visible wow fadeIn" data-wow-delay="0.1s" style="margin-top: 100px;">
     
+    <!-- 50/50 Overlapping Consultation Banner Card -->
+    <div class="footer-cta-overlap-wrapper">
+        <div class="container">
+            <div class="footer-consultation-card p-4 p-md-5">
+                <!-- CAD Grid blueprint pattern inside the card -->
+                <div class="footer-card-blueprint"></div>
+                
+                <div class="row align-items-center g-4 position-relative z-10">
+                    <div class="col-lg-8">
+                        <div class="footer-strip-badge mb-3">
+                            <i class="fas fa-drafting-compass me-2"></i>
+                            <span><?php echo esc_html(gloservices_translate('BUREAU D\'ÉTUDES DE RÉFÉRENCE')); ?></span>
+                        </div>
+                        <h3 class="footer-strip-title text-white fw-bold mb-2">
+                            <?php echo esc_html(gloservices_translate('Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?')); ?>
+                        </h3>
+                        <p class="footer-strip-sub text-slate-300 mb-0">
+                            <?php echo esc_html(gloservices_translate('Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.')); ?>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn footer-cta-btn rounded-pill px-4 py-3 fw-bold shadow-lg">
+                            <span><?php echo esc_html(gloservices_translate('Demander une étude projet')); ?></span>
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Background image with gradient mask transition -->
     <div class="footer-image-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/footer.jpg');"></div>
     
