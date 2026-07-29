@@ -7,16 +7,16 @@
 ?>
 
 <!-- Footer Start -->
-<div class="container-fluid footer text-body mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-    <!-- Green horizontal line on top -->
-    <div class="footer-top-line"></div>
+<div class="container-fluid footer text-body mt-5 pt-4 wow fadeIn" data-wow-delay="0.1s">
+    <!-- Top Gradient Glow Transition on top -->
+    <div class="footer-top-gradient-glow"></div>
     
     <!-- Background image -->
     <div class="footer-image-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/footer.jpg');"></div>
     
     <!-- Content overlay -->
     <div class="footer-content-overlay">
-        <div class="container py-5">
+        <div class="container pt-5 pb-5 mt-2">
             <div class="row g-5">
                 <!-- Brand Column -->
                 <div class="col-lg-3 col-md-6 footer-brand-column">
@@ -25,7 +25,14 @@
                             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/logo-dark.png" alt="Globuild Logo" style="height: 42px; width: auto; object-fit: contain;">
                         </a>
                     </div>
-                    <p class="mb-4"><?php _e('Bureau d\'études d\'ingénierie et de solutions numériques. Nous façonnons le futur de la construction.', 'gloservices'); ?></p>
+                    <p class="mb-3"><?php _e('Bureau d\'études d\'ingénierie et de solutions numériques. Nous façonnons le futur de la construction.', 'gloservices'); ?></p>
+                    
+                    <!-- Certification Quality Badge -->
+                    <div class="footer-quality-badge mb-4">
+                        <i class="fas fa-shield-alt text-success me-2"></i>
+                        <span><?php echo esc_html(gloservices_translate('Agrément & Conformité RPS 2000 / Eurocodes')); ?></span>
+                    </div>
+
                     <div class="d-flex gap-2">
                         <?php
                         $socials = [
