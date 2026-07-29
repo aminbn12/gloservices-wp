@@ -4003,7 +4003,18 @@ html.lenis, html.lenis body {
     max-height: 275px;
 }
 
-.archi-svg-drawing text,
+/* Homepage / General CAD Drawing Text Annotations: Dark Slate Blue (#334155) */
+.service-archi-card .archi-svg-drawing text,
+.archi-svg-drawing text {
+    fill: #334155 !important;
+    font-size: 8px !important;
+    font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
+    font-weight: 600 !important;
+    opacity: 0.9 !important;
+    filter: none !important;
+}
+
+/* Service Detail Page CAD Drawing Text Annotations: Pure White (#FFFFFF) */
 .service-single-drawing-wrap .archi-svg-drawing text {
     fill: #FFFFFF !important;
     font-size: 8px !important;
@@ -4011,7 +4022,7 @@ html.lenis, html.lenis body {
     font-weight: 700 !important;
     opacity: 1 !important;
     letter-spacing: 0.5px;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9)) !important;
 }
 
 .service-single-drawing-wrap .archi-svg-drawing line,
