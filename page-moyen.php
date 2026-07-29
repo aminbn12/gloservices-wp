@@ -694,13 +694,13 @@ get_header();
 <!-- Software Stack Section End -->
 
 <!-- References Carousel Start -->
-<section class="references-section py-5">
+<section class="references-section moyen-references-bubbles-section py-5">
     <div class="container">
-        <div class="references-header text-center mb-4">
-            <span class="references-label"><?php _e('PARTENAIRES & CONFIANCE', 'gloservices'); ?></span>
-            <h2><?php _e('Nos Références', 'gloservices'); ?></h2>
+        <div class="references-header text-center mb-5">
+            <span class="references-label mb-2 d-inline-block"><?php _e('PARTENAIRES & CONFIANCE', 'gloservices'); ?></span>
+            <h2 class="fw-bold display-6"><?php _e('Nos Références', 'gloservices'); ?></h2>
         </div>
-        <div class="references-track">
+        <div class="references-track moyen-bubbles-track">
             <?php if (function_exists('gloservices_vendor_carousel')) { gloservices_vendor_carousel(); } ?>
         </div>
     </div>

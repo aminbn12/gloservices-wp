@@ -5439,3 +5439,50 @@ html.lenis, html.lenis body {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.08); filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4)); }
 }
+
+/* ============================================================
+   PAGE MOYEN - BUBBLE LOGO REFERENCES DESIGN
+   ============================================================ */
+.moyen-references-bubbles-section {
+    background: transparent !important;
+}
+
+.moyen-bubbles-track .owl-stage-outer {
+    padding: 25px 0 !important;
+}
+
+.moyen-bubbles-track .ref-logo-item {
+    background: #FFFFFF !important;
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: 16px !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
+    border: 2px solid rgba(226, 232, 240, 0.9) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.moyen-bubbles-track .ref-logo-item:hover {
+    transform: translateY(-8px) scale(1.08) !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 18px 40px rgba(16, 185, 129, 0.25) !important;
+}
+
+.moyen-bubbles-track .ref-logo-item img {
+    max-width: 70px !important;
+    max-height: 55px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: grayscale(100%) opacity(0.75);
+    transition: all 0.3s ease-in-out;
+}
+
+.moyen-bubbles-track .ref-logo-item:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.06);
+}
