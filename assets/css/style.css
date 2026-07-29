@@ -782,6 +782,11 @@ html[dir="rtl"] .hero-slide.slide-anim-active .hero-content .hero-title .highlig
     color: #FFFFFF !important;
 }
 
+.footer-strip-sub {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
 .footer-cta-btn {
     background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
     color: #FFFFFF !important;
