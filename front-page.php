@@ -500,6 +500,7 @@ function gloservices_get_service_drawing($slug) {
             </div>
         </div>
     </div>
+    <?php endfor; ?>
 </div>
 <!-- Hero Carousel End -->
 

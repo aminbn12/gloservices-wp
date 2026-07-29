@@ -77,7 +77,7 @@ function gloservices_scripts()
     wp_enqueue_style('bootstrap', $theme_dir . '/assets/css/bootstrap.min.css', [], '5.0.0');
 
     // Theme style
-    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '6.7.0');
+    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '6.8.0');
 
     // jQuery
     wp_enqueue_script('jquery');
