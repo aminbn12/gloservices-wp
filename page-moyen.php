@@ -693,33 +693,6 @@ get_header();
 </section>
 <!-- Software Stack Section End -->
 
-<!-- Quality & Guarantee Banner Start -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="quality-assurance-box">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <div class="quality-badge-pill mb-3">
-                        <i class="fas fa-shield-alt"></i>
-                        <span><?php _e('ENGAGEMENT DE QUALITÉ', 'gloservices'); ?></span>
-                    </div>
-                    <h3 class="quality-title"><?php _e('Une plateforme technique au service des exigences les plus strictes', 'gloservices'); ?></h3>
-                    <p class="quality-desc">
-                        <?php _e('Nos équipements et logiciels sous licence permettent la production de notes de calcul certifiées, de métrés précis et de plans d\'exécution conformes aux normes marocaines (RPS 2000, NM) et aux Eurocodes.', 'gloservices'); ?>
-                    </p>
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary rounded-pill px-4 py-3 font-family-display fw-bold shadow-lg">
-                        <i class="fas fa-paper-plane me-2"></i>
-                        <?php _e('Demander une étude technique', 'gloservices'); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Quality & Guarantee Banner End -->
-
 <!-- References Carousel Start -->
 <section class="references-section py-5">
     <div class="container">
