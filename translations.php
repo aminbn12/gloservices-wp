@@ -1088,7 +1088,9 @@ function gloservices_get_translations($lang = 'fr') {
         'Suivi rigoureux sur chantier, respect des délais, contrôle qualité des matériaux et réception.' => array('en' => 'Strict site monitoring, schedule compliance, material quality control, and final acceptance.', 'ar' => 'متابعة صارمة في الموقع، الالتزام بالمواعيد، مراقبة جودة المواد والتسليم النهائي.'),
         'VOUS AVEZ UN PROJET D\'INFRASTRUCTURE OU DE BÂTIMENT ?' => array('en' => 'HAVE AN INFRASTRUCTURE OR BUILDING PROJECT?', 'ar' => 'هل لديكم مشروع بنية تحتية أو مباني؟'),
         'Discutons de vos besoins avec nos ingénieurs' => array('en' => 'Discuss your requirements with our engineers', 'ar' => 'ناقشوا احتیاجاتكم مع مهندسينا'),
-        'Demander une étude projet' => array('en' => 'Request Project Study', 'ar' => 'طلب دراسة مشروع')
+        'Demander une étude projet' => array('en' => 'Request Project Study', 'ar' => 'طلب دراسة مشروع'),
+        'Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?' => array('en' => 'An infrastructure, building, or BIM modeling project?', 'ar' => 'مشروع بنية تحتية، مبنى أو نمذجة BIM؟'),
+        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية إلى متابعة الموقع.')
     );
 
     foreach ($extra as $key => $trans) {
