@@ -14,7 +14,7 @@ get_header();
    PAGE PROJET - WORLD CLASS MODERN DESIGN SYSTEM
    ============================================================ */
 .projet-hero-banner {
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #064E3B 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.75) 100%), url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/HeroSection.jpg') center/cover no-repeat !important;
     position: relative;
     padding: 85px 0 65px 0;
     overflow: hidden;
