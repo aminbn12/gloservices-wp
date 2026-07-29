@@ -1011,6 +1011,11 @@ function gloservices_get_service_drawing($slug) {
 <div class="partners-grid-section py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="partners-bg-layer"></div>
     <div class="container py-4">
+        <!-- Centered Section Badge -->
+        <div class="text-center mb-4">
+            <span class="section-badge"><?php echo esc_html(gloservices_translate('Ils nous font confiance')); ?></span>
+        </div>
+
         <!-- Section Header -->
         <div class="row align-items-center mb-5">
             <div class="col-lg-4 mb-3 mb-lg-0">
@@ -1018,7 +1023,7 @@ function gloservices_get_service_drawing($slug) {
             </div>
             <div class="col-lg-8">
                 <p class="partners-desc-text m-0">
-                    <?php echo esc_html(gloservices_translate('Ils nous font confiance pour leurs projets. Nos partenaires s\'appuient sur notre expertise technique pour concrétiser leurs idées. Ensemble, nous formons une équipe soudée, engagée dans la réussite de chaque chantier. Découvrez ceux qui choisissent de travailler avec nous !')); ?>
+                    <?php echo esc_html(gloservices_translate('Nos partenaires s\'appuient sur notre expertise technique pour concrétiser leurs idées. Ensemble, nous formons une équipe soudée, engagée dans la réussite de chaque chantier. Découvrez ceux qui choisissent de travailler avec nous !')); ?>
                 </p>
             </div>
         </div>
