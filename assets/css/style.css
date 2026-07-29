@@ -5453,36 +5453,35 @@ html.lenis, html.lenis body {
 
 .moyen-bubbles-track .ref-logo-item {
     background: #FFFFFF !important;
-    width: 120px !important;
-    height: 120px !important;
+    width: 85px !important;
+    height: 85px !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     margin: 0 auto !important;
-    padding: 16px !important;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
-    border: 2px solid rgba(226, 232, 240, 0.9) !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 12px !important;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08) !important;
+    border: none !important;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .moyen-bubbles-track .ref-logo-item:hover {
-    transform: translateY(-8px) scale(1.08) !important;
-    border-color: #10B981 !important;
-    box-shadow: 0 18px 40px rgba(16, 185, 129, 0.25) !important;
+    transform: translateY(-6px) scale(1.08) !important;
+    box-shadow: 0 14px 32px rgba(16, 185, 129, 0.22) !important;
 }
 
 .moyen-bubbles-track .ref-logo-item img {
-    max-width: 70px !important;
-    max-height: 55px !important;
+    max-width: 52px !important;
+    max-height: 42px !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    filter: grayscale(100%) opacity(0.75);
-    transition: all 0.3s ease-in-out;
+    filter: none !important;
+    opacity: 1 !important;
+    transition: transform 0.3s ease-in-out;
 }
 
 .moyen-bubbles-track .ref-logo-item:hover img {
-    filter: grayscale(0%) opacity(1);
-    transform: scale(1.06);
+    transform: scale(1.08);
 }
