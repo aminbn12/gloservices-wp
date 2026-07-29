@@ -116,8 +116,10 @@
                     <div class="row g-2 footer-gallery">
                         <?php
                         $footer_projects = new WP_Query([
-                            'post_type'      => 'project',
-                            'posts_per_page' => 6,
+                            'post_type'        => 'project',
+                            'posts_per_page'   => 6,
+                            'suppress_filters' => true,
+                            'lang'             => '',
                         ]);
                         $footer_counter = 0;
                         if ($footer_projects->have_posts()) :
