@@ -45,8 +45,8 @@
     
     <!-- Content overlay -->
     <div class="footer-content-overlay">
-        <div class="container pb-5 footer-content-container">
-            <div class="row g-5">
+        <div class="container pb-3 footer-content-container">
+            <div class="row g-4 g-lg-5 mb-0">
                 <!-- Brand Column -->
                 <div class="col-lg-3 col-md-6 footer-brand-column">
                     <div class="footer-brand mb-4">
