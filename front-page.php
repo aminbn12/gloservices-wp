@@ -601,7 +601,7 @@ function gloservices_get_service_drawing($slug) {
 
     <div class="container position-relative" style="z-index: 2;">
         <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <span class="blueprint-badge"><i class="fas fa-drafting-compass me-2"></i><?php _e('SERVICES & EXPERTISE', 'gloservices'); ?></span>
+            <span class="section-badge mb-2"><?php _e('SERVICES & EXPERTISE', 'gloservices'); ?></span>
             <h2 class="blueprint-title mb-4"><?php _e('L\'alliance de l\'ingénierie de précision et de l\'innovation digitale', 'gloservices'); ?></h2>
         </div>
         <div class="services-archi-grid">
