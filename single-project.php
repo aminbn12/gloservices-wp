@@ -104,5 +104,19 @@ get_header();
     </div>
 </div>
 
+<!-- References Start -->
+<div class="references-section wow fadeInUp py-5" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="references-header text-center mb-5">
+            <span class="section-badge"><?php _e('Ils nous font confiance', 'gloservices'); ?></span>
+            <h2 class="section-main-title mt-2"><?php _e('Nos Références', 'gloservices'); ?></h2>
+        </div>
+        <div class="references-track moyen-bubbles-track">
+            <?php gloservices_vendor_carousel(); ?>
+        </div>
+    </div>
+</div>
+<!-- References End -->
+
 <?php
 get_footer();
