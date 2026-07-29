@@ -1090,7 +1090,9 @@ function gloservices_get_translations($lang = 'fr') {
         'Discutons de vos besoins avec nos ingénieurs' => array('en' => 'Discuss your requirements with our engineers', 'ar' => 'ناقشوا احتیاجاتكم مع مهندسينا'),
         'Demander une étude projet' => array('en' => 'Request Project Study', 'ar' => 'طلب دراسة مشروع'),
         'Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?' => array('en' => 'An infrastructure, building, or BIM modeling project?', 'ar' => 'مشروع بنية تحتية، مبنى أو نمذجة BIM؟'),
-        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية إلى متابعة الموقع.')
+        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية إلى متابعة الموقع.'),
+        'Un projet d\'infrastructure, de bâtiment, de modélisation BIM ou de solution numérique ?' => array('en' => 'An infrastructure, building, BIM modeling, or digital solution project?', 'ar' => 'مشروع بنية تحتية، مبنى، نمذجة BIM أو حل رقمي؟'),
+        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire et la conception numérique jusqu\'au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study and digital design to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية والتصميم الرقمي حتى متابعة الموقع.')
     );
 
     foreach ($extra as $key => $trans) {

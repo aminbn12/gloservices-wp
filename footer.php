@@ -23,10 +23,10 @@
                             <span><?php echo esc_html(gloservices_translate('ENGAGEMENT DE QUALITÉ')); ?></span>
                         </div>
                         <h3 class="footer-strip-title text-white fw-bold mb-3">
-                            <?php echo esc_html(gloservices_translate('Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?')); ?>
+                            <?php echo esc_html(gloservices_translate('Un projet d\'infrastructure, de bâtiment, de modélisation BIM ou de solution numérique ?')); ?>
                         </h3>
                         <p class="footer-strip-sub text-white mb-0" style="font-size: 1.05rem; line-height: 1.6; opacity: 1;">
-                            <?php echo esc_html(gloservices_translate('Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.')); ?>
+                            <?php echo esc_html(gloservices_translate('Nos ingénieurs experts vous accompagnent de l\'étude préliminaire et la conception numérique jusqu\'au suivi de chantier.')); ?>
                         </p>
                     </div>
                     <div class="col-lg-4 text-lg-end">
