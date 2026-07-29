@@ -273,32 +273,44 @@ a:hover{color:var(--primary-dark)}
 }
 
 /* Quand JS ajoute .slide-anim-active au slide actif */
-.hero-slide.slide-anim-active .hero-content .hero-badge {
+.hero-slide.slide-anim-active .hero-content .hero-badge,
+.owl-item.active .hero-slide .hero-content .hero-badge {
     animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
 }
 
 /* h1 / h2 / .hero-title : remonte depuis le bas (le conteneur lui-même) */
 .hero-slide.slide-anim-active .hero-content h1,
 .hero-slide.slide-anim-active .hero-content h2,
-.hero-slide.slide-anim-active .hero-content .hero-title {
+.hero-slide.slide-anim-active .hero-content .hero-title,
+.owl-item.active .hero-slide .hero-content h1,
+.owl-item.active .hero-slide .hero-content h2,
+.owl-item.active .hero-slide .hero-content .hero-title {
     animation: heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
 }
 
 /* Les mots du titre glissent en décalé depuis la gauche */
 .hero-slide.slide-anim-active .hero-content h1 .title-text,
 .hero-slide.slide-anim-active .hero-content h2 .title-text,
-.hero-slide.slide-anim-active .hero-content .hero-title .title-text {
+.hero-slide.slide-anim-active .hero-content .hero-title .title-text,
+.owl-item.active .hero-slide .hero-content h1 .title-text,
+.owl-item.active .hero-slide .hero-content h2 .title-text,
+.owl-item.active .hero-slide .hero-content .hero-title .title-text {
     animation: heroSlideIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
 }
 .hero-slide.slide-anim-active .hero-content h1 .highlight-text,
 .hero-slide.slide-anim-active .hero-content h2 .highlight-text,
-.hero-slide.slide-anim-active .hero-content .hero-title .highlight-text {
+.hero-slide.slide-anim-active .hero-content .hero-title .highlight-text,
+.owl-item.active .hero-slide .hero-content h1 .highlight-text,
+.owl-item.active .hero-slide .hero-content h2 .highlight-text,
+.owl-item.active .hero-slide .hero-content .hero-title .highlight-text {
     animation: heroSlideIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
 }
-.hero-slide.slide-anim-active .hero-content p {
+.hero-slide.slide-anim-active .hero-content p,
+.owl-item.active .hero-slide .hero-content p {
     animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
 }
-.hero-slide.slide-anim-active .hero-content .hero-buttons {
+.hero-slide.slide-anim-active .hero-content .hero-buttons,
+.owl-item.active .hero-slide .hero-content .hero-buttons {
     animation: heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.62s forwards;
 }
 

@@ -301,18 +301,22 @@
      * so CSS @keyframes replay cleanly.
      */
     function triggerHeroAnim($carousel) {
-        var $activeItem = $carousel.find('.owl-item.active:not(.cloned)').first();
-        var $slide = $activeItem.find('.hero-slide');
-
-        if (!$slide.length) return;
+        if (!$carousel || !$carousel.length) return;
 
         // Reset all slides
         $carousel.find('.hero-slide').removeClass('slide-anim-active');
 
-        // Force reflow on next two frames so animation restarts
+        // Target all currently active slides in OwlCarousel DOM (including cloned slides during swipe loop)
+        var $activeSlides = $carousel.find('.owl-item.active .hero-slide');
+
+        if (!$activeSlides.length) {
+            $activeSlides = $carousel.find('.hero-slide').first();
+        }
+
+        // Force reflow on next two frames so animation restarts cleanly
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
-                $slide.addClass('slide-anim-active');
+                $activeSlides.addClass('slide-anim-active');
             });
         });
     }
@@ -345,6 +349,12 @@
         .on('translated.owl.carousel', function () {
             triggerHeroAnim($(this));
             triggerHeroScrollReminderPulse();
+        })
+        .on('changed.owl.carousel', function () {
+            triggerHeroAnim($(this));
+        })
+        .on('dragged.owl.carousel', function () {
+            triggerHeroAnim($(this));
         });
 
     $heroCarousel.owlCarousel({
