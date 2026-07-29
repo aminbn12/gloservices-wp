@@ -4016,12 +4016,12 @@ html.lenis, html.lenis body {
 /* Service Detail Page CAD Drawing Text Annotations (Dark Background Canvas): Pure White (#FFFFFF) */
 .service-single-drawing-wrap .archi-svg-drawing text {
     fill: #FFFFFF !important;
-    font-size: 9px !important;
+    font-size: 11px !important;
     font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     opacity: 1 !important;
-    letter-spacing: 0.5px;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9)) !important;
+    letter-spacing: 0.8px;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 12px rgba(16, 185, 129, 0.8)) !important;
 }
 
 .service-single-drawing-wrap .archi-svg-drawing line,
