@@ -7,7 +7,7 @@
 ?>
 
 <!-- Footer Start -->
-<div class="container-fluid footer text-body position-relative overflow-visible wow fadeIn" data-wow-delay="0.1s" style="margin-top: 100px;">
+<div class="container-fluid footer text-body position-relative overflow-visible wow fadeIn" data-wow-delay="0.1s" style="margin-top: 60px;">
     
     <!-- 50/50 Overlapping Consultation Banner Card -->
     <div class="footer-cta-overlap-wrapper">
@@ -22,10 +22,10 @@
                             <i class="fas fa-drafting-compass me-2"></i>
                             <span><?php echo esc_html(gloservices_translate('BUREAU D\'ÉTUDES DE RÉFÉRENCE')); ?></span>
                         </div>
-                        <h3 class="footer-strip-title text-white fw-bold mb-2">
+                        <h3 class="footer-strip-title text-white fw-bold mb-3">
                             <?php echo esc_html(gloservices_translate('Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?')); ?>
                         </h3>
-                        <p class="footer-strip-sub text-slate-300 mb-0">
+                        <p class="footer-strip-sub text-slate-300 mb-0" style="font-size: 1.05rem; line-height: 1.6; opacity: 0.95;">
                             <?php echo esc_html(gloservices_translate('Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.')); ?>
                         </p>
                     </div>
