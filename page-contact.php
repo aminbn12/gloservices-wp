@@ -11,13 +11,7 @@ get_header();
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-5 mb-5">
     <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown"><?php _e('Contact', 'gloservices'); ?></h1>
-        <nav aria-label="breadcrumb animated slideInDown">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-white" href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Accueil', 'gloservices'); ?></a></li>
-                <li class="breadcrumb-item text-white active" aria-current="page"><?php _e('Contact', 'gloservices'); ?></li>
-            </ol>
-        </nav>
+        <h1 class="display-3 text-white mb-0 animated slideInDown"><?php _e('Contact', 'gloservices'); ?></h1>
     </div>
 </div>
 <!-- Page Header End -->
