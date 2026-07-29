@@ -1505,22 +1505,19 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 .services-blueprint {
     position: relative;
     padding: clamp(60px, 10vw, 120px) 0;
-    background: #F8FAFC;
+    background-color: #0B132B;
+    background-image: 
+        linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 80% 15%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 20% 85%, rgba(14, 165, 233, 0.1) 0%, transparent 45%);
+    background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%;
     overflow: hidden;
     z-index: 1;
 }
 
 .services-blueprint::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/services-bg.png?v=2');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.07;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 /* Technical grid overlay */
@@ -1598,7 +1595,7 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 }
 
 .blueprint-title {
-    color: #0F1923 !important;
+    color: #FFFFFF !important;
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-family: var(--font-display);
     font-weight: 700;
@@ -1715,9 +1712,12 @@ html[dir="rtl"] .mobile-nav-list li a { flex-direction: row-reverse; }
 /* Homepage CAD Drawing: White text permanently visible with neon glow */
 .service-archi-card .archi-svg-drawing text {
     fill: #FFFFFF !important;
+    font-size: 10px !important;
+    font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
     font-weight: 700 !important;
     opacity: 1 !important;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)) !important;
+    letter-spacing: 0.5px;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(16, 185, 129, 0.6)) !important;
 }
 
 /* Technical annotations (numbers & dimensions) permanently visible on homepage */
