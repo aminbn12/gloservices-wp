@@ -4003,9 +4003,8 @@ html.lenis, html.lenis body {
     max-height: 275px;
 }
 
-/* Homepage / General CAD Drawing Text Annotations: Dark Slate Blue (#334155) */
-.service-archi-card .archi-svg-drawing text,
-.archi-svg-drawing text {
+/* Homepage / Services Grid CAD Drawing Text Annotations (Light Background): Dark Slate Blue (#334155) */
+.service-archi-card .archi-svg-drawing text {
     fill: #334155 !important;
     font-size: 8px !important;
     font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
@@ -4014,10 +4013,10 @@ html.lenis, html.lenis body {
     filter: none !important;
 }
 
-/* Service Detail Page CAD Drawing Text Annotations: Pure White (#FFFFFF) */
+/* Service Detail Page CAD Drawing Text Annotations (Dark Background Canvas): Pure White (#FFFFFF) */
 .service-single-drawing-wrap .archi-svg-drawing text {
     fill: #FFFFFF !important;
-    font-size: 8px !important;
+    font-size: 9px !important;
     font-family: 'Space Mono', 'Fira Code', 'Consolas', monospace !important;
     font-weight: 700 !important;
     opacity: 1 !important;
