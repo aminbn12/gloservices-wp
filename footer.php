@@ -19,8 +19,8 @@
                 <div class="row align-items-center g-4 position-relative z-10">
                     <div class="col-lg-8">
                         <div class="footer-strip-badge mb-3">
-                            <i class="fas fa-drafting-compass me-2"></i>
-                            <span><?php echo esc_html(gloservices_translate('BUREAU D\'ÉTUDES DE RÉFÉRENCE')); ?></span>
+                            <i class="fas fa-shield-alt me-2"></i>
+                            <span><?php echo esc_html(gloservices_translate('ENGAGEMENT DE QUALITÉ')); ?></span>
                         </div>
                         <h3 class="footer-strip-title text-white fw-bold mb-3">
                             <?php echo esc_html(gloservices_translate('Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?')); ?>
