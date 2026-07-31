@@ -180,7 +180,7 @@
 <!-- Footer End -->
 
 <!-- Back to Top -->
-<a href="#" class="back-to-top"><i class="fa fa-chevron-right"></i></a>
+<a href="#" class="back-to-top" aria-label="<?php echo esc_attr(gloservices_translate('Retour en haut')); ?>"><i class="fas fa-chevron-up"></i></a>
 
 <?php wp_footer(); ?>
 </body>

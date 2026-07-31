@@ -1119,8 +1119,8 @@ html[dir="rtl"] .hero-slide.slide-anim-active .hero-content .hero-title .highlig
 .back-to-top{position:fixed;bottom:24px;right:24px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--primary-gradient);color:var(--white);border-radius:12px;font-size:1.2rem;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateX(100px);transition:all 0.4s var(--ease-out);z-index:99999;border:none;cursor:pointer}
 .back-to-top.show{opacity:1;visibility:visible;transform:translateX(0)}
 .back-to-top:hover{transform:translateX(-4px);box-shadow:var(--shadow-xl);color:var(--white);background:var(--primary-dark)}
-.back-to-top i{transform:rotate(-90deg);transition:var(--transition)}
-.back-to-top:hover i{transform:rotate(-90deg) translateX(2px)}
+.back-to-top i{transform:none !important;transition:transform 0.3s ease !important}
+.back-to-top:hover i{transform:translateY(-3px) !important}
 
 /* Spinner */
 #spinner{opacity:0;visibility:hidden;transition:var(--transition);z-index:99999}
