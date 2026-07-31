@@ -340,6 +340,7 @@ body.rtl .projet-cta-banner {
                 'post_type'      => 'project',
                 'posts_per_page' => 9,
                 'paged'          => $paged,
+                'lang'           => '',
             ]);
 
             if ($projects_query->have_posts()) :

@@ -504,6 +504,7 @@ get_header();
             $projects_query = new WP_Query([
                 'post_type'      => 'project',
                 'posts_per_page' => 6,
+                'lang'           => '',
             ]);
 
             if ($projects_query->have_posts()) :
