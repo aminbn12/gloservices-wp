@@ -125,17 +125,28 @@
                             'post_type'        => 'project',
                             'posts_per_page'   => 6,
                             'suppress_filters' => true,
-                            'lang'             => '',
+                            'lang'             => 'fr',
                         ]);
                         $footer_counter = 0;
                         if ($footer_projects->have_posts()) :
                             while ($footer_projects->have_posts()) : $footer_projects->the_post();
-                                $thumb_url = gloservices_get_project_image_url(get_the_ID(), 'thumbnail');
+                                $fr_id = get_the_ID();
+                                $display_id = $fr_id;
+                                if (function_exists('pll_current_language') && function_exists('pll_get_post')) {
+                                    $current_lang = pll_current_language('slug') ?: 'fr';
+                                    if ($current_lang !== 'fr') {
+                                        $tr_id = pll_get_post($fr_id, $current_lang);
+                                        if ($tr_id) {
+                                            $display_id = $tr_id;
+                                        }
+                                    }
+                                }
+                                $thumb_url = gloservices_get_project_image_url($display_id, 'thumbnail');
                         ?>
                         <div class="col-4">
-                            <a href="<?php the_permalink(); ?>" class="d-block">
+                            <a href="<?php echo esc_url(get_permalink($display_id)); ?>" class="d-block">
                                 <div class="gallery-item-wrap overflow-hidden rounded">
-                                    <img class="img-fluid" src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+                                    <img class="img-fluid" src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr(get_the_title($display_id)); ?>" loading="lazy">
                                 </div>
                             </a>
                         </div>
