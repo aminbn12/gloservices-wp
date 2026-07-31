@@ -679,4 +679,69 @@
         }
     }
 
+    // ===== NOTRE DEMARCHE QUALITE SEQUENTIAL 3-BOUNCE ANIMATION (PLAY ON SCROLL INTO VIEW) =====
+    var workflowSection = $('.workflow-section');
+    if (workflowSection.length) {
+        var workflowCards = workflowSection.find('.workflow-step-card');
+        var workflowAnimated = false;
+        var workflowTimeouts = [];
+
+        function clearAllWorkflowAnimations() {
+            workflowTimeouts.forEach(function(timeout) {
+                clearTimeout(timeout);
+            });
+            workflowTimeouts = [];
+            workflowCards.removeClass('auto-bounce');
+            workflowAnimated = false;
+        }
+
+        function runSequentialWorkflowAnimation() {
+            if (workflowAnimated) return;
+            workflowAnimated = true;
+
+            var index = 0;
+            function animateNextWorkflowCard() {
+                if (index < workflowCards.length) {
+                    var currentCard = workflowCards.eq(index);
+                    currentCard.addClass('auto-bounce');
+
+                    var cardTimeout = setTimeout(function () {
+                        currentCard.removeClass('auto-bounce');
+                        index++;
+                        var nextTimeout = setTimeout(animateNextWorkflowCard, 150);
+                        workflowTimeouts.push(nextTimeout);
+                    }, 2000); // 2 seconds animation duration per card
+                    workflowTimeouts.push(cardTimeout);
+                }
+            }
+            animateNextWorkflowCard();
+        }
+
+        // Use IntersectionObserver if supported, with scroll fallback
+        if ('IntersectionObserver' in window) {
+            var workflowObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runSequentialWorkflowAnimation();
+                    } else {
+                        clearAllWorkflowAnimations();
+                    }
+                });
+            }, { threshold: 0.15 });
+            workflowObserver.observe(workflowSection[0]);
+        } else {
+            $(window).on('scroll.workflow', function () {
+                var wTop = $(window).scrollTop();
+                var wHeight = $(window).height();
+                var sTop = workflowSection.offset().top;
+                var sHeight = workflowSection.outerHeight();
+                if (wTop + wHeight > sTop + 100 && wTop < sTop + sHeight - 100) {
+                    runSequentialWorkflowAnimation();
+                } else {
+                    clearAllWorkflowAnimations();
+                }
+            });
+        }
+    }
+
 })(jQuery);

@@ -165,6 +165,41 @@ get_header();
     box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
     transform: translateY(-5px);
 }
+.workflow-step-card.auto-bounce {
+    animation: cardBounceThree 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes cardBounceThree {
+    0%, 100% {
+        transform: translateY(0);
+        border-color: #E2E8F0;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    20% {
+        transform: translateY(-20px); /* 1st bounce: highest */
+        border-color: #10B981;
+        box-shadow: 0 18px 36px rgba(16, 185, 129, 0.16);
+    }
+    40% {
+        transform: translateY(0);
+        border-color: #E2E8F0;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    60% {
+        transform: translateY(-10px); /* 2nd bounce: medium */
+        border-color: #10B981;
+        box-shadow: 0 12px 26px rgba(16, 185, 129, 0.12);
+    }
+    75% {
+        transform: translateY(0);
+        border-color: #E2E8F0;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    88% {
+        transform: translateY(-4px); /* 3rd bounce: lowest */
+        border-color: #10B981;
+        box-shadow: 0 8px 18px rgba(16, 185, 129, 0.08);
+    }
+}
 .workflow-num {
     font-family: var(--font-display);
     font-size: 2.2rem;
@@ -452,7 +487,7 @@ html[dir="rtl"] .back-to-top {
 <!-- Main Services Grid End -->
 
 <!-- Workflow / Process Section Start -->
-<section class="py-5 bg-white">
+<section class="py-5 bg-white workflow-section">
     <div class="container py-4">
         
         <div class="text-center mx-auto mb-5" style="max-width: 750px;">
