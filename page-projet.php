@@ -340,18 +340,30 @@ body.rtl .projet-cta-banner {
                 'post_type'      => 'project',
                 'posts_per_page' => 9,
                 'paged'          => $paged,
-                'lang'           => '',
+                'lang'           => 'fr',
             ]);
 
             if ($projects_query->have_posts()) :
                 $categories = ['first', 'second', 'third'];
                 $counter = 0;
                 while ($projects_query->have_posts()) : $projects_query->the_post();
+                    $fr_id = get_the_ID();
+                    $display_id = $fr_id;
+                    if (function_exists('pll_current_language') && function_exists('pll_get_post')) {
+                        $current_lang = pll_current_language('slug') ?: 'fr';
+                        if ($current_lang !== 'fr') {
+                            $tr_id = pll_get_post($fr_id, $current_lang);
+                            if ($tr_id) {
+                                $display_id = $tr_id;
+                            }
+                        }
+                    }
+
                     $cat_class = $categories[$counter % 3];
-                    $img_url = gloservices_get_project_image_url(get_the_ID(), 'gloservices-600x400');
+                    $img_url = gloservices_get_project_image_url($display_id, 'gloservices-600x400');
 
                     // Get project category dynamically
-                    $terms = get_the_terms(get_the_ID(), 'project_category');
+                    $terms = get_the_terms($display_id, 'project_category');
                     $cat_name = '';
                     if (!empty($terms) && !is_wp_error($terms)) {
                         $term = array_shift($terms);
@@ -374,14 +386,14 @@ body.rtl .projet-cta-banner {
                             $cat_name = __('Infrastructures Routières', 'gloservices');
                         }
                     }
-                    $client = get_post_meta(get_the_ID(), '_project_client', true);
-                    $year = get_post_meta(get_the_ID(), '_project_year', true) ?: get_the_date('Y');
-                    $cost = get_post_meta(get_the_ID(), '_project_cost', true);
+                    $client = get_post_meta($display_id, '_project_client', true);
+                    $year = get_post_meta($display_id, '_project_year', true) ?: get_the_date('Y', $display_id);
+                    $cost = get_post_meta($display_id, '_project_cost', true);
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($cat_class); ?>">
                     <div class="project-card-v2">
                         <div class="project-img-box">
-                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>">
+                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr(get_the_title($display_id)); ?>">
                             <span class="project-badge-tag"><?php echo esc_html($cat_name); ?></span>
                             <div class="corner-mark corner-tl"></div>
                             <div class="corner-mark corner-tr"></div>
@@ -389,7 +401,7 @@ body.rtl .projet-cta-banner {
                             <div class="corner-mark corner-br"></div>
                         </div>
                         <div class="project-body-content">
-                            <h3 class="project-card-title"><?php the_title(); ?></h3>
+                            <h3 class="project-card-title"><?php echo esc_html(get_the_title($display_id)); ?></h3>
                             <div class="project-meta-pills">
                                 <?php if ($client) : ?>
                                     <span class="project-meta-pill"><i class="fas fa-building me-1"></i><?php echo esc_html(gloservices_translate($client)); ?></span>
@@ -399,10 +411,19 @@ body.rtl .projet-cta-banner {
                                     <span class="project-meta-pill"><i class="fas fa-coins me-1"></i><?php echo esc_html($cost); ?></span>
                                 <?php endif; ?>
                             </div>
-                            <p class="project-excerpt-text"><?php echo wp_trim_words(get_the_excerpt(), 18); ?></p>
+                            <p class="project-excerpt-text">
+                                <?php
+                                $display_post = get_post($display_id);
+                                $display_excerpt = $display_post ? $display_post->post_excerpt : '';
+                                if (!$display_excerpt && $display_post) {
+                                    $display_excerpt = wp_strip_all_tags($display_post->post_content);
+                                }
+                                echo wp_trim_words($display_excerpt, 18);
+                                ?>
+                            </p>
                             <div class="project-card-footer">
-                                <a href="<?php the_permalink(); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" data-title="<?php echo esc_attr(get_the_title()); ?>" class="btn-project-zoom" title="<?php echo esc_attr(get_the_title()); ?>"><i class="fas fa-search-plus"></i></a>
+                                <a href="<?php echo esc_url(get_permalink($display_id)); ?>" class="btn-project-cta"><?php _e('Détails du Projet', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" data-title="<?php echo esc_attr(get_the_title($display_id)); ?>" class="btn-project-zoom" title="<?php echo esc_attr(get_the_title($display_id)); ?>"><i class="fas fa-search-plus"></i></a>
                             </div>
                         </div>
                     </div>
