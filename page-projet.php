@@ -106,7 +106,7 @@ get_header();
     border-radius: 20px;
     padding: 28px 24px;
     height: 100%;
-    transition: all 0.35s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     overflow: hidden;
 }
@@ -121,12 +121,14 @@ get_header();
     opacity: 0;
     transition: opacity 0.35s ease;
 }
-.method-step-card:hover {
+.method-step-card:hover,
+.method-step-card.auto-lift {
     border-color: rgba(16, 185, 129, 0.3);
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
-    transform: translateY(-5px);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+    transform: translateY(-10px);
 }
-.method-step-card:hover::before {
+.method-step-card:hover::before,
+.method-step-card.auto-lift::before {
     opacity: 1;
 }
 .method-num {
@@ -578,7 +580,7 @@ body.rtl .projet-cta-banner {
 <!-- Projects Grid Section End -->
 
 <!-- Methodology / Process Section Start -->
-<section class="py-5 bg-white">
+<section class="py-5 bg-white excellence-section">
     <div class="container py-4">
         
         <div class="text-center mx-auto mb-5" style="max-width: 750px;">

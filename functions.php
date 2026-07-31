@@ -111,7 +111,7 @@ function gloservices_scripts()
     wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.18', true);
 
     // Theme main JS
-    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.1.0', true);
+    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.2.0', true);
 
     // RTL support
     if (is_rtl()) {

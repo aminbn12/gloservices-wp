@@ -816,4 +816,71 @@
         }
     }
 
+    // ===== EXCELLENCE & IMPACT CARDS AUTOPLAY ANIMATION (PLAY ON SCROLL INTO VIEW) =====
+    var excellenceSection = $('.excellence-section');
+    if (excellenceSection.length) {
+        var excellenceCards = excellenceSection.find('.method-step-card');
+        var excellenceAnimated = false;
+        var excellenceTimeouts = [];
+
+        function resetExcellenceCards() {
+            excellenceTimeouts.forEach(function(timeout) {
+                clearTimeout(timeout);
+            });
+            excellenceTimeouts = [];
+            excellenceCards.removeClass('auto-lift');
+            excellenceAnimated = false;
+        }
+
+        function runExcellenceAnimation() {
+            if (excellenceAnimated) return;
+            excellenceAnimated = true;
+
+            // Immediately lift all cards together
+            excellenceCards.addClass('auto-lift');
+
+            // Wait 3 seconds, then drop them back down one by one (Card 1 to 3)
+            var t1 = setTimeout(function() {
+                excellenceCards.eq(0).removeClass('auto-lift');
+            }, 3000);
+            excellenceTimeouts.push(t1);
+
+            var t2 = setTimeout(function() {
+                excellenceCards.eq(1).removeClass('auto-lift');
+            }, 3300);
+            excellenceTimeouts.push(t2);
+
+            var t3 = setTimeout(function() {
+                excellenceCards.eq(2).removeClass('auto-lift');
+            }, 3600);
+            excellenceTimeouts.push(t3);
+        }
+
+        // Use IntersectionObserver if supported, with scroll fallback
+        if ('IntersectionObserver' in window) {
+            var excellenceObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runExcellenceAnimation();
+                    } else {
+                        resetExcellenceCards();
+                    }
+                });
+            }, { threshold: 0.15 });
+            excellenceObserver.observe(excellenceSection[0]);
+        } else {
+            $(window).on('scroll.excellence', function () {
+                var wTop = $(window).scrollTop();
+                var wHeight = $(window).height();
+                var sTop = excellenceSection.offset().top;
+                var sHeight = excellenceSection.outerHeight();
+                if (wTop + wHeight > sTop + 50 && wTop < sTop + sHeight - 50) {
+                    runExcellenceAnimation();
+                } else {
+                    resetExcellenceCards();
+                }
+            });
+        }
+    }
+
 })(jQuery);
