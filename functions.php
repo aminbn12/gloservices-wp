@@ -77,7 +77,7 @@ function gloservices_scripts()
     wp_enqueue_style('bootstrap', $theme_dir . '/assets/css/bootstrap.min.css', [], '5.0.0');
 
     // Theme style
-    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '8.9.0');
+    wp_enqueue_style('gloservices-style', $theme_dir . '/assets/css/style.css', ['bootstrap'], '9.0.0');
 
     // jQuery
     wp_enqueue_script('jquery');
@@ -111,7 +111,7 @@ function gloservices_scripts()
     wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.18', true);
 
     // Theme main JS
-    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '2.7.0', true);
+    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '2.8.0', true);
 
     // RTL support
     if (is_rtl()) {

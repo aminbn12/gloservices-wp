@@ -372,7 +372,8 @@ html[dir="rtl"] .engagement-card {
     text-align: right !important;
 }
 
-html[dir="rtl"] .engagement-card:hover .engagement-icon-box {
+html[dir="rtl"] .engagement-card:hover .engagement-icon-box,
+html[dir="rtl"] .engagement-card.auto-hover .engagement-icon-box {
     transform: scale(1.08) rotate(4deg) !important;
 }
 

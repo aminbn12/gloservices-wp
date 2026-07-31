@@ -614,4 +614,55 @@
         });
     }
 
+    // ===== NOS ENGAGEMENTS SEQUENTIAL HOVER ANIMATION (PLAY ON SCROLL INTO VIEW) =====
+    var engagementsSection = $('.engagements-section');
+    if (engagementsSection.length) {
+        var cards = engagementsSection.find('.engagement-card');
+        var animated = false;
+
+        function runSequentialAnimation() {
+            if (animated) return;
+            animated = true;
+
+            var index = 0;
+            function animateNextCard() {
+                if (index < cards.length) {
+                    var currentCard = cards.eq(index);
+                    currentCard.addClass('auto-hover');
+
+                    setTimeout(function () {
+                        currentCard.removeClass('auto-hover');
+                        index++;
+                        // Small delay before starting next card for visual smoothness
+                        setTimeout(animateNextCard, 150);
+                    }, 2000); // 2 seconds animation duration per card
+                }
+            }
+            animateNextCard();
+        }
+
+        // Use IntersectionObserver if supported, with scroll fallback
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runSequentialAnimation();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 }); // Trigger when 15% of section is visible
+            observer.observe(engagementsSection[0]);
+        } else {
+            $(window).on('scroll.engagements', function () {
+                var wTop = $(window).scrollTop();
+                var wHeight = $(window).height();
+                var sTop = engagementsSection.offset().top;
+                if (wTop + wHeight > sTop + 100) {
+                    runSequentialAnimation();
+                    $(window).off('scroll.engagements');
+                }
+            });
+        }
+    }
+
 })(jQuery);

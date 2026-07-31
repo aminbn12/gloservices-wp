@@ -4802,29 +4802,34 @@ html.lenis, html.lenis body {
 }
 
 /* Hover Effects */
-.engagement-card:hover {
+.engagement-card:hover,
+.engagement-card.auto-hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(16, 185, 129, 0.12);
     border-color: rgba(16, 185, 129, 0.3);
 }
 
-.engagement-card:hover .card-top-bar {
+.engagement-card:hover .card-top-bar,
+.engagement-card.auto-hover .card-top-bar {
     background: linear-gradient(90deg, #10B981 0%, #0EA5E9 100%);
 }
 
-.engagement-card:hover .engagement-icon-box {
+.engagement-card:hover .engagement-icon-box,
+.engagement-card.auto-hover .engagement-icon-box {
     background: linear-gradient(135deg, #10B981 0%, #059669 100%);
     color: #FFFFFF;
     transform: scale(1.08) rotate(-4deg);
     box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
 }
 
-.engagement-card:hover .engagement-num {
+.engagement-card:hover .engagement-num,
+.engagement-card.auto-hover .engagement-num {
     color: #10B981;
     transform: scale(1.15);
 }
 
-.engagement-card:hover .card-bottom-line {
+.engagement-card:hover .card-bottom-line,
+.engagement-card.auto-hover .card-bottom-line {
     width: 100%;
     background: linear-gradient(90deg, #10B981 0%, #0EA5E9 100%);
 }
