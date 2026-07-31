@@ -18,6 +18,7 @@ if (!defined('ABSPATH')) {
 function gloservices_get_translations($lang = 'fr') {
     $all = array(
         // ===== HEADER / TOPBAR =====
+        'Agrément & Conformité RPS 2000 / Eurocodes' => array('en' => 'Approval & Compliance RPS 2000 / Eurocodes', 'ar' => 'الاعتماد والمطابقة لقوانين RPS 2000 / Eurocodes'),
         'Chargement...' => array('en' => 'Loading...', 'ar' => 'جار التحميل...'),
         'Menu Principal' => array('en' => 'Main Menu', 'ar' => 'القائمة الرئيسية'),
         'Menu Footer' => array('en' => 'Footer Menu', 'ar' => 'قائمة التذييل'),

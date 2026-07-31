@@ -57,7 +57,7 @@
                     <p class="mb-3"><?php _e('Bureau d\'études d\'ingénierie et de solutions numériques. Nous façonnons le futur de la construction.', 'gloservices'); ?></p>
                     
                     <!-- Certification Quality Badge -->
-                    <div class="footer-quality-badge mb-4">
+                    <div class="footer-quality-badge mb-4 d-flex align-items-center">
                         <i class="fas fa-shield-alt text-success me-2"></i>
                         <span><?php echo esc_html(gloservices_translate('Agrément & Conformité RPS 2000 / Eurocodes')); ?></span>
                     </div>
