@@ -744,4 +744,76 @@
         }
     }
 
+    // ===== MOYEN STATS CARDS AUTOPLAY ANIMATION (PLAY ON SCROLL INTO VIEW) =====
+    var moyenSection = $('.moyen-stats-section');
+    if (moyenSection.length) {
+        var moyenCards = moyenSection.find('.moyen-stat-box');
+        var moyenAnimated = false;
+        var moyenTimeouts = [];
+
+        function resetMoyenCards() {
+            moyenTimeouts.forEach(function(timeout) {
+                clearTimeout(timeout);
+            });
+            moyenTimeouts = [];
+            moyenCards.removeClass('auto-lift');
+            moyenAnimated = false;
+        }
+
+        function runMoyenAnimation() {
+            if (moyenAnimated) return;
+            moyenAnimated = true;
+
+            // Immediately lift all cards together
+            moyenCards.addClass('auto-lift');
+
+            // Wait 3 seconds, then drop them back down one by one (Card 1 to 4)
+            var t1 = setTimeout(function() {
+                moyenCards.eq(0).removeClass('auto-lift');
+            }, 3000);
+            moyenTimeouts.push(t1);
+
+            var t2 = setTimeout(function() {
+                moyenCards.eq(1).removeClass('auto-lift');
+            }, 3300);
+            moyenTimeouts.push(t2);
+
+            var t3 = setTimeout(function() {
+                moyenCards.eq(2).removeClass('auto-lift');
+            }, 3600);
+            moyenTimeouts.push(t3);
+
+            var t4 = setTimeout(function() {
+                moyenCards.eq(3).removeClass('auto-lift');
+            }, 3900);
+            moyenTimeouts.push(t4);
+        }
+
+        // Use IntersectionObserver if supported, with scroll fallback
+        if ('IntersectionObserver' in window) {
+            var moyenObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runMoyenAnimation();
+                    } else {
+                        resetMoyenCards();
+                    }
+                });
+            }, { threshold: 0.15 });
+            moyenObserver.observe(moyenSection[0]);
+        } else {
+            $(window).on('scroll.moyen', function () {
+                var wTop = $(window).scrollTop();
+                var wHeight = $(window).height();
+                var sTop = moyenSection.offset().top;
+                var sHeight = moyenSection.outerHeight();
+                if (wTop + wHeight > sTop + 50 && wTop < sTop + sHeight - 50) {
+                    runMoyenAnimation();
+                } else {
+                    resetMoyenCards();
+                }
+            });
+        }
+    }
+
 })(jQuery);

@@ -81,16 +81,17 @@ get_header();
     border-radius: 20px;
     padding: 28px 24px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     height: 100%;
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.moyen-stat-box:hover {
-    transform: translateY(-8px);
+.moyen-stat-box:hover,
+.moyen-stat-box.auto-lift {
+    transform: translateY(-12px);
     border-color: #10B981;
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.18);
 }
 .moyen-stat-icon {
     width: 60px;
