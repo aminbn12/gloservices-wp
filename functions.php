@@ -1784,61 +1784,12 @@ function gloservices_get_translated_page_url($slug) {
 }
 
 /**
- * Empêche l'erreur 404 sur la pagination de la page projets (page-projet.php)
- */
-function gloservices_fix_page_projet_pagination($query) {
-    if ( ! is_admin() && $query->is_main_query() && ($query->is_page() || $query->is_singular('page')) ) {
-        $page_id = 0;
-        if ( isset($query->queried_object_id) && $query->queried_object_id ) {
-            $page_id = $query->queried_object_id;
-        } elseif ( isset($query->query_vars['page_id']) && $query->query_vars['page_id'] ) {
-            $page_id = $query->query_vars['page_id'];
-        } elseif ( isset($query->query_vars['pagename']) && $query->query_vars['pagename'] ) {
-            $page = get_page_by_path($query->query_vars['pagename']);
-            if ($page) {
-                $page_id = $page->ID;
-            }
-        }
-        
-        // Support Polylang (nettoyage du préfixe de langue dans le slug)
-        if ( ! $page_id && function_exists('pll_current_language') ) {
-            $pagename = isset($query->query_vars['pagename']) ? $query->query_vars['pagename'] : '';
-            if ( $pagename ) {
-                $parts = explode('/', $pagename);
-                $last_part = end($parts);
-                $page = get_page_by_path($last_part);
-                if ($page) {
-                    $page_id = $page->ID;
-                }
-            }
-        }
-
-        if ( $page_id ) {
-            $template = get_post_meta($page_id, '_wp_page_template', true);
-            if ( $template === 'page-projet.php' ) {
-                $paged = 1;
-                if ( get_query_var('page') ) {
-                    $paged = get_query_var('page');
-                } elseif ( isset($query->query_vars['page']) ) {
-                    $paged = $query->query_vars['page'];
-                }
-                
-                if ( $paged > 1 ) {
-                    $query->set('page', 0); // Empêche l'erreur 404
-                    $query->set('paged', $paged); // Définit la page pour la requête de projets
-                }
-            }
-        }
-    }
-}
-add_action('pre_get_posts', 'gloservices_fix_page_projet_pagination', 1);
-
-/**
  * Désactive la redirection canonique automatique pour la pagination de la page projets
  */
 function gloservices_disable_canonical_redirect_for_projet_pagination($redirect_url, $requested_url) {
-    if ( is_page() ) {
-        $template = get_post_meta(get_the_ID(), '_wp_page_template', true);
+    $page_id = get_queried_object_id();
+    if ( $page_id ) {
+        $template = get_post_meta($page_id, '_wp_page_template', true);
         if ( $template === 'page-projet.php' ) {
             return $requested_url; // Pas de redirection canonique
         }
@@ -1846,4 +1797,41 @@ function gloservices_disable_canonical_redirect_for_projet_pagination($redirect_
     return $redirect_url;
 }
 add_filter('redirect_canonical', 'gloservices_disable_canonical_redirect_for_projet_pagination', 10, 2);
+
+/**
+ * Résout le conflit de réécriture entre la page 'projet' et le CPT 'project' (slug 'projet')
+ * pour permettre la pagination sur l'URL /projet/page/2/
+ */
+function gloservices_fix_projet_rewrite_conflict($query_vars) {
+    if ( (isset($query_vars['project']) && $query_vars['project'] === 'page' && isset($query_vars['page'])) || 
+         (isset($query_vars['name']) && $query_vars['name'] === 'page' && isset($query_vars['post_type']) && $query_vars['post_type'] === 'project') ) {
+        
+        $page = get_page_by_path('projet');
+        if ($page) {
+            unset($query_vars['post_type']);
+            unset($query_vars['name']);
+            unset($query_vars['project']);
+            
+            // Map 'page' to 'paged' to prevent singular post pagination 404
+            $paged = isset($query_vars['page']) ? intval($query_vars['page']) : 1;
+            unset($query_vars['page']);
+            $query_vars['paged'] = $paged;
+            
+            $target_page_id = $page->ID;
+            if ( function_exists('pll_get_post') && function_exists('pll_current_language') ) {
+                $lang = pll_current_language();
+                $translated_id = pll_get_post($page->ID, $lang);
+                if ($translated_id) {
+                    $target_page_id = $translated_id;
+                }
+            }
+            
+            $slug = get_post_field('post_name', $target_page_id);
+            $query_vars['pagename'] = $slug;
+            $query_vars['post_type'] = 'page';
+        }
+    }
+    return $query_vars;
+}
+add_filter('request', 'gloservices_fix_projet_rewrite_conflict', 1);
 
