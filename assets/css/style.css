@@ -6054,3 +6054,7 @@ html[dir="rtl"] .invalid-feedback {
     opacity: 1 !important;
     z-index: 2 !important;
 }
+.project-gallery-slideshow img.project-slideshow-img:first-of-type {
+    position: relative !important;
+    display: block !important;
+}

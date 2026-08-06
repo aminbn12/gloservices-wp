@@ -26,8 +26,17 @@ get_header();
                 <div class="col-lg-8">
                     <!-- Photo liée au projet dans un cadre stylisé au-dessus du titre -->
                     <div class="project-single-frame mb-4">
-                        <div class="project-single-img-wrap">
-                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>">
+                        <div class="project-single-img-wrap project-gallery-slideshow" data-interval="10000">
+                            <?php 
+                            $gallery_urls = gloservices_get_project_gallery_urls(get_the_ID(), $img_url);
+                            $is_first = true;
+                            foreach ($gallery_urls as $g_url) :
+                            ?>
+                                <img src="<?php echo esc_url($g_url); ?>" alt="<?php the_title_attribute(); ?>" class="project-slideshow-img<?php echo $is_first ? ' active' : ''; ?>">
+                            <?php 
+                                $is_first = false;
+                            endforeach; 
+                            ?>
                             <?php if ($terms && !is_wp_error($terms)) : ?>
                                 <span class="project-frame-badge"><i class="fas fa-tag me-2"></i><?php echo esc_html($terms[0]->name); ?></span>
                             <?php endif; ?>
