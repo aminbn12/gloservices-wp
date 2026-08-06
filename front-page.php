@@ -65,9 +65,9 @@ get_header();
             $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: '';
             
             $btn1_text = get_post_meta(get_the_ID(), '_hero_btn1_text', true) ?: __('Découvrir', 'gloservices');
-            $btn1_url = get_post_meta(get_the_ID(), '_hero_btn1_url', true) ?: home_url('/about');
+            $btn1_url = get_post_meta(get_the_ID(), '_hero_btn1_url', true) ?: gloservices_get_translated_page_url('about');
             $btn2_text = get_post_meta(get_the_ID(), '_hero_btn2_text', true) ?: __('Nous contacter', 'gloservices');
-            $btn2_url = get_post_meta(get_the_ID(), '_hero_btn2_url', true) ?: home_url('/contact');
+            $btn2_url = get_post_meta(get_the_ID(), '_hero_btn2_url', true) ?: gloservices_get_translated_page_url('contact');
             
             $slides_content[$counter] = [
                 'badge_icon' => $badge_icon,
@@ -169,9 +169,9 @@ get_header();
             $image_url = esc_url(get_template_directory_uri() . '/assets/img/carousel-' . $i . '.jpg');
             $is_video = ($i === 1);
             $btn1_text = __('Découvrir', 'gloservices');
-            $btn1_url  = home_url('/about');
+            $btn1_url  = gloservices_get_translated_page_url('about');
             $btn2_text = __('Nous contacter', 'gloservices');
-            $btn2_url  = home_url('/contact');
+            $btn2_url  = gloservices_get_translated_page_url('contact');
         }
     ?>
     <div class="hero-slide position-relative" data-dot="<?php if ($is_video) : ?><video src='<?php echo $video_url; ?>#t=0.1' muted playsinline preload='metadata'></video><?php else : ?><img src='<?php echo $image_url; ?>' alt='Slide <?php echo $i; ?>'><?php endif; ?>" <?php if ($is_video) : ?>data-video-src="<?php echo $video_url; ?>"<?php endif; ?> data-slide-index="<?php echo $i; ?>">
@@ -249,7 +249,7 @@ get_header();
                 <div class="stat-icon">
                     <i class="fas fa-user-tie fa-lg"></i>
                 </div>
-                <h3 class="stat-counter" data-target="<?php echo esc_attr(get_option('gloservices_stats_workers', '12')); ?>">0</h3>
+                <h3 class="stat-counter" data-target="<?php echo esc_attr(get_option('gloservices_stats_workers', '15')); ?>">0</h3>
                 <p><?php _e('Travailleurs Experts', 'gloservices'); ?></p>
             </div>
         </div>
@@ -275,7 +275,7 @@ get_header();
                     <p><span class="check-list-icon"><i class="fa fa-check-circle"></i></span><?php _e('Expertise confirmée en génie civil', 'gloservices'); ?></p>
                     <p><span class="check-list-icon"><i class="fa fa-check-circle"></i></span><?php _e('Solutions numériques avancées pour la construction', 'gloservices'); ?></p>
                     <p><span class="check-list-icon"><i class="fa fa-check-circle"></i></span><?php _e('L\'engagement pour la qualité et l\'innovation', 'gloservices'); ?></p>
-                    <a href="<?php echo esc_url(home_url('/about')); ?>" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><?php _e('En savoir plus', 'gloservices'); ?></a>
+                    <a href="<?php echo esc_url(gloservices_get_translated_page_url('about')); ?>" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><?php _e('En savoir plus', 'gloservices'); ?></a>
                 </div>
             </div>
         </div>
@@ -398,7 +398,7 @@ get_header();
                     <div class="archi-card-content">
                         <h4><?php _e($service[0], 'gloservices'); ?></h4>
                         <p><?php _e($service[1], 'gloservices'); ?></p>
-                        <a class="archi-learn-more" href="<?php echo esc_url(home_url('/contact')); ?>"><?php _e('Lire la suite', 'gloservices'); ?> <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="archi-learn-more" href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>"><?php _e('Lire la suite', 'gloservices'); ?> <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                     <div class="corner-mark corner-tl"></div>
                     <div class="corner-mark corner-tr"></div>
@@ -683,7 +683,7 @@ get_header();
                                     </p>
                                 </div>
                                 <div class="project-actions mt-3">
-                                    <a class="action-btn-circle" href="<?php echo esc_url(home_url('/contact')); ?>" title="<?php esc_attr_e('Nous contacter', 'gloservices'); ?>"><i class="fas fa-envelope"></i></a>
+                                    <a class="action-btn-circle" href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>" title="<?php esc_attr_e('Nous contacter', 'gloservices'); ?>"><i class="fas fa-envelope"></i></a>
                                     <a class="action-btn-circle" href="<?php echo esc_url($img_url); ?>" data-lightbox="portfolio" data-title="<?php echo esc_attr(gloservices_translate($project['title'])); ?>" title="<?php echo esc_attr(gloservices_translate($project['title'])); ?>"><i class="fas fa-search-plus"></i></a>
                                 </div>
                             </div>
@@ -708,17 +708,54 @@ get_header();
 <div class="quote-section py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="quote-card">
-            <div class="quote-image">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg" alt="<?php esc_attr_e('Demande de devis projet ingénierie Globuild', 'gloservices'); ?>" loading="lazy">
+            <div class="quote-image" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/quote.jpg');" role="img" aria-label="<?php esc_attr_e('Demande de devis projet ingénierie Globuild', 'gloservices'); ?>">
             </div>
             <div class="quote-form-wrap">
                 <div class="quote-tag"><i class="fa fa-file-invoice"></i> <?php _e('Devis Gratuit', 'gloservices'); ?></div>
                 <h3><?php _e('Obtenez un Devis Personnalisé', 'gloservices'); ?></h3>
                 <p class="quote-desc"><?php _e('Contactez-nous pour obtenir un devis sur mesure pour votre projet. Notre équipe vous répondra rapidement.', 'gloservices'); ?></p>
+                
+                <?php if (isset($_GET['quote_success']) && $_GET['quote_success'] == '1') : ?>
+                    <div class="alert alert-success alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(16, 185, 129, 0.1); color: #047857; border-radius: 12px; padding: 12px 18px;">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong><?php _e('Demande de devis transmise !', 'gloservices'); ?></strong> <?php _e('Nous analysons votre demande et vous répondrons sous 24h.', 'gloservices'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (isset($_GET['quote_error'])) : 
+                    $error_msg = __('Une erreur est survenue lors de l\'envoi de votre demande.', 'gloservices');
+                    if ($_GET['quote_error'] === 'empty_fields') {
+                        $error_msg = __('Veuillez renseigner toutes les informations requises.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'invalid_email') {
+                        $error_msg = __('Veuillez saisir une adresse e-mail valide.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'security') {
+                        $error_msg = __('Session expirée ou erreur de sécurité. Veuillez réessayer.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'file_too_large') {
+                        $error_msg = __('Le fichier joint est trop volumineux. La taille maximale est de 5 Mo.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'invalid_file_type') {
+                        $error_msg = __('Format de fichier non valide. Seuls les formats PDF, JPG, JPEG et PNG sont acceptés.', 'gloservices');
+                    } elseif (in_array($_GET['quote_error'], array('upload_error', 'upload_failed'))) {
+                        $error_msg = __('Erreur lors du téléchargement du fichier. Veuillez réessayer.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'file_count_exceeded') {
+                        $error_msg = __('Vous ne pouvez pas télécharger plus de 4 fichiers.', 'gloservices');
+                    } elseif ($_GET['quote_error'] === 'total_size_exceeded') {
+                        $error_msg = __('La taille totale des fichiers dépasse 20 Mo.', 'gloservices');
+                    }
+                ?>
+                    <div class="alert alert-danger alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(239, 68, 68, 0.1); color: #B91C1C; border-radius: 12px; padding: 12px 18px;">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <strong><?php _e('Erreur !', 'gloservices'); ?></strong> <?php echo esc_html($error_msg); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
                 <?php
                 // Contact Form 7 DESACTIVÉ - utilisation du formulaire HTML natif traduit
                 ?>
-                <form action="<?php echo esc_url(home_url('/contact')); ?>" method="post" class="quote-form">
+                <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="quote-form" enctype="multipart/form-data" novalidate>
+                    <input type="hidden" name="action" value="gloservices_quote_form">
+                    <?php wp_nonce_field('gloservices_quote', 'gloservices_quote_nonce'); ?>
                     <div class="row g-2">
                         <div class="col-12 col-sm-6">
                             <input type="text" name="quote_name" placeholder="<?php esc_attr_e('Votre Nom', 'gloservices'); ?>" required>
@@ -727,7 +764,7 @@ get_header();
                             <input type="email" name="quote_email" placeholder="<?php esc_attr_e('Votre Email', 'gloservices'); ?>" required>
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input type="text" name="quote_mobile" placeholder="<?php esc_attr_e('Votre Mobile', 'gloservices'); ?>">
+                            <input type="text" name="quote_mobile" placeholder="<?php esc_attr_e('Votre Mobile', 'gloservices'); ?>" required>
                         </div>
                         <div class="col-12 col-sm-6">
                             <select name="quote_service" class="form-select">
@@ -737,7 +774,22 @@ get_header();
                             </select>
                         </div>
                         <div class="col-12">
-                            <textarea name="quote_note" placeholder="<?php esc_attr_e('Note Spéciale', 'gloservices'); ?>" rows="3"></textarea>
+                            <textarea name="quote_note" placeholder="<?php esc_attr_e('Note Spéciale', 'gloservices'); ?>" rows="3" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="quote-file-wrap text-start mb-2">
+                                <label class="d-block small text-muted mb-1"><?php _e('Ajouter des plans ou documents (Optionnel - Max 4 fichiers, PDF/JPG/PNG, Max 20 Mo au total)', 'gloservices'); ?></label>
+                                <div class="custom-file-upload-container">
+                                    <button type="button" class="custom-file-trigger-btn">
+                                        <i class="fas fa-plus me-1"></i>
+                                        <span class="custom-file-btn-text"><?php _e('Choisir un fichier', 'gloservices'); ?></span>
+                                    </button>
+                                    <div class="hidden-inputs-container d-none">
+                                        <input type="file" name="quote_file[]" class="custom-file-input-hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    </div>
+                                    <div class="selected-files-list mt-2"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary rounded-pill py-3 px-5" type="submit"><?php _e('Soumettre', 'gloservices'); ?><i class="fas fa-arrow-right ms-2"></i></button>

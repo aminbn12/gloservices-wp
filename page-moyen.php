@@ -372,48 +372,40 @@ get_header();
 <!-- Key Stats Counter Section Start -->
 <section class="moyen-stats-section pb-5">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-6 col-lg-3">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="moyen-stat-box">
                     <div class="moyen-stat-icon">
                         <i class="fas fa-truck-monster"></i>
                     </div>
                     <div>
-                        <div class="moyen-stat-number">4</div>
+                        <div class="moyen-stat-number">20+</div>
                         <div class="moyen-stat-label"><?php _e('Véhicules Chantiers', 'gloservices'); ?></div>
                     </div>
                 </div>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="moyen-stat-box">
                     <div class="moyen-stat-icon">
                         <i class="fas fa-desktop"></i>
                     </div>
                     <div>
-                        <div class="moyen-stat-number">8+</div>
+                        <div class="moyen-stat-number">15+</div>
                         <div class="moyen-stat-label"><?php _e('Stations DAO/CAO', 'gloservices'); ?></div>
                     </div>
                 </div>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="moyen-stat-box">
                     <div class="moyen-stat-icon">
-                        <i class="fas fa-cubes"></i>
+                        <i class="fas fa-user-tie"></i>
                     </div>
                     <div>
-                        <div class="moyen-stat-number">100%</div>
-                        <div class="moyen-stat-label"><?php _e('Logiciels BIM Pro', 'gloservices'); ?></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-lg-3">
-                <div class="moyen-stat-box">
-                    <div class="moyen-stat-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <div>
-                        <div class="moyen-stat-number">A0/A1</div>
-                        <div class="moyen-stat-label"><?php _e('Reprographie A0', 'gloservices'); ?></div>
+                        <div class="moyen-stat-number">15+</div>
+                        <div class="moyen-stat-label">
+                            <?php _e('Encadrement Technique', 'gloservices'); ?>
+                            <span class="d-block text-muted" style="font-size: 0.8rem; margin-top: 2px; font-weight: normal; line-height: 1.2;"><?php _e('Cadres permanents & partenaires', 'gloservices'); ?></span>
+                        </div>
                     </div>
                 </div>
             </div>

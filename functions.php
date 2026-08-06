@@ -621,7 +621,7 @@ function gloservices_options_page()
                 <tr><th scope="row"><?php _e('YouTube URL', 'gloservices'); ?></th><td><input type="url" name="gloservices_youtube" value="<?php echo esc_attr(get_option('gloservices_youtube')); ?>" class="regular-text"></td></tr>
                 <tr><th scope="row"><?php _e('Clients satisfaits', 'gloservices'); ?></th><td><input type="number" name="gloservices_stats_customers" value="<?php echo esc_attr(get_option('gloservices_stats_customers', '100')); ?>"></td></tr>
                 <tr><th scope="row"><?php _e('Projets réalisés', 'gloservices'); ?></th><td><input type="number" name="gloservices_stats_projects" value="<?php echo esc_attr(get_option('gloservices_stats_projects', '30')); ?>"></td></tr>
-                <tr><th scope="row"><?php _e('Travailleurs experts', 'gloservices'); ?></th><td><input type="number" name="gloservices_stats_workers" value="<?php echo esc_attr(get_option('gloservices_stats_workers', '12')); ?>"></td></tr>
+                <tr><th scope="row"><?php _e('Travailleurs experts', 'gloservices'); ?></th><td><input type="number" name="gloservices_stats_workers" value="<?php echo esc_attr(get_option('gloservices_stats_workers', '15')); ?>"></td></tr>
             </table>
             <?php submit_button(); ?>
         </form>
@@ -1078,7 +1078,7 @@ function gloservices_seo_meta_head() {
     $site_name = 'Globuild';
     $logo_url = get_template_directory_uri() . '/assets/img/logo-dark.png';
     $phone = get_option('gloservices_phone', '+212 5 37 77 14 50');
-    $email = get_option('gloservices_email', 'contact@gloservices.ma');
+    $email = get_option('gloservices_email', 'contact@globuild.ma');
 
     // Canonical link
     echo '<link rel="canonical" href="' . esc_url($canonical_url) . '" />' . "\n";
@@ -1433,5 +1433,262 @@ if (!function_exists('gloservices_get_service_drawing')) {
         
         return $svg_start . $svg_common . $drawing . $svg_end;
     }
+}
+
+/**
+ * Handle Contact Form submission
+ */
+function gloservices_handle_contact_form() {
+    if (!isset($_POST['gloservices_contact_nonce']) || !wp_verify_nonce($_POST['gloservices_contact_nonce'], 'gloservices_contact')) {
+        wp_redirect(add_query_arg('contact_error', 'security', wp_get_referer()));
+        exit;
+    }
+
+    $name = sanitize_text_field($_POST['contact_name']);
+    $email = sanitize_email($_POST['contact_email']);
+    $subject_input = sanitize_text_field($_POST['contact_subject']);
+    $message = sanitize_textarea_field($_POST['contact_message']);
+
+    // Backend Validation
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_redirect(add_query_arg('contact_error', 'empty_fields', wp_get_referer()));
+        exit;
+    }
+
+    if (!is_email($email)) {
+        wp_redirect(add_query_arg('contact_error', 'invalid_email', wp_get_referer()));
+        exit;
+    }
+
+    $to = get_option('gloservices_email', 'contact@globuild.ma');
+    $subject = sprintf('[Contact] %s - %s', $name, $subject_input);
+
+    $body = "Nom : $name\n";
+    $body .= "Email : $email\n\n";
+    $body .= "Message :\n$message\n";
+
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+    if ($email) {
+        $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
+    }
+
+    wp_mail($to, $subject, $body, $headers);
+
+    // Remove any previous error args and add success
+    $redirect_url = remove_query_arg('contact_error', wp_get_referer());
+    wp_redirect(add_query_arg('contact_success', '1', $redirect_url));
+    exit;
+}
+add_action('admin_post_gloservices_contact_form', 'gloservices_handle_contact_form');
+add_action('admin_post_nopriv_gloservices_contact_form', 'gloservices_handle_contact_form');
+
+/**
+ * Handle Quote Form submission
+ */
+function gloservices_handle_quote_form() {
+    if (!isset($_POST['gloservices_quote_nonce']) || !wp_verify_nonce($_POST['gloservices_quote_nonce'], 'gloservices_quote')) {
+        wp_redirect(add_query_arg('quote_error', 'security', wp_get_referer()));
+        exit;
+    }
+
+    $name = sanitize_text_field($_POST['quote_name']);
+    $email = sanitize_email($_POST['quote_email']);
+    $mobile = sanitize_text_field($_POST['quote_mobile']);
+    $service_val = sanitize_text_field($_POST['quote_service']);
+    $note = sanitize_textarea_field($_POST['quote_note']);
+
+    // Backend Validation - Make sure all fields (including mobile and note) are filled
+    if (empty($name) || empty($email) || empty($mobile) || empty($service_val) || empty($note)) {
+        wp_redirect(add_query_arg('quote_error', 'empty_fields', wp_get_referer()));
+        exit;
+    }
+
+    if (!is_email($email)) {
+        wp_redirect(add_query_arg('quote_error', 'invalid_email', wp_get_referer()));
+        exit;
+    }
+
+    // Handle Optional Multiple File Uploads
+    $attachments = array();
+    $uploaded_files = array();
+    
+    if (isset($_FILES['quote_file']) && is_array($_FILES['quote_file']['name'])) {
+        $files = $_FILES['quote_file'];
+        $file_count = count($files['name']);
+        
+        $valid_slots = array();
+        for ($i = 0; $i < $file_count; $i++) {
+            if ($files['error'][$i] !== UPLOAD_ERR_NO_FILE) {
+                $valid_slots[] = $i;
+            }
+        }
+        
+        $valid_count = count($valid_slots);
+        
+        if ($valid_count > 0) {
+            // Validate Max 4 files
+            if ($valid_count > 4) {
+                wp_redirect(add_query_arg('quote_error', 'file_count_exceeded', wp_get_referer()));
+                exit;
+            }
+            
+            $total_size = 0;
+            $max_size = 5 * 1024 * 1024; // 5MB per file
+            $max_total_size = 20 * 1024 * 1024; // 20MB total combined
+            $allowed_exts = array('pdf', 'jpg', 'jpeg', 'png');
+            
+            // Validate all files first
+            foreach ($valid_slots as $i) {
+                $file_error = $files['error'][$i];
+                $file_size = $files['size'][$i];
+                $file_name = $files['name'][$i];
+                
+                if ($file_error !== UPLOAD_ERR_OK) {
+                    wp_redirect(add_query_arg('quote_error', 'upload_error', wp_get_referer()));
+                    exit;
+                }
+                
+                if ($file_size > $max_size) {
+                    wp_redirect(add_query_arg('quote_error', 'file_too_large', wp_get_referer()));
+                    exit;
+                }
+                
+                $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                if (!in_array($file_ext, $allowed_exts)) {
+                    wp_redirect(add_query_arg('quote_error', 'invalid_file_type', wp_get_referer()));
+                    exit;
+                }
+                
+                $total_size += $file_size;
+            }
+            
+            if ($total_size > $max_total_size) {
+                wp_redirect(add_query_arg('quote_error', 'total_size_exceeded', wp_get_referer()));
+                exit;
+            }
+            
+            // Handle uploads
+            if (!function_exists('wp_handle_upload')) {
+                require_once(ABSPATH . 'wp-admin/includes/file.php');
+            }
+            
+            $upload_overrides = array(
+                'test_form' => false,
+                'mimes'     => array(
+                    'pdf'  => 'application/pdf',
+                    'jpg|jpeg|jpe' => 'image/jpeg',
+                    'png'  => 'image/png',
+                ),
+            );
+            
+            foreach ($valid_slots as $i) {
+                $single_file = array(
+                    'name'     => $files['name'][$i],
+                    'type'     => $files['type'][$i],
+                    'tmp_name' => $files['tmp_name'][$i],
+                    'error'    => $files['error'][$i],
+                    'size'     => $files['size'][$i]
+                );
+                
+                $movefile = wp_handle_upload($single_file, $upload_overrides);
+                
+                if ($movefile && !isset($movefile['error'])) {
+                    $uploaded_files[] = $movefile['file'];
+                    $attachments[] = $movefile['file'];
+                } else {
+                    // Clean up already uploaded files before exiting
+                    foreach ($uploaded_files as $uploaded_file) {
+                        if (file_exists($uploaded_file)) {
+                            unlink($uploaded_file);
+                        }
+                    }
+                    wp_redirect(add_query_arg('quote_error', 'upload_failed', wp_get_referer()));
+                    exit;
+                }
+            }
+        }
+    }
+
+    // Translate service name for email body
+    $service_name = '';
+    if ($service_val === 'btp') {
+        $service_name = 'Ingénierie Civile (BTP)';
+    } elseif ($service_val === 'it') {
+        $service_name = 'Solutions Numériques (IT)';
+    } else {
+        $service_name = $service_val;
+    }
+
+    $to = get_option('gloservices_email', 'contact@globuild.ma');
+    
+    // Custom subject depending on the selected service
+    if ($service_val === 'btp') {
+        $subject = sprintf('[Devis BTP] Demande de %s', $name);
+    } elseif ($service_val === 'it') {
+        $subject = sprintf('[Devis IT] Demande de %s', $name);
+    } else {
+        $subject = sprintf('[Devis] Demande de %s', $name);
+    }
+
+    $body = "Nom complet : $name\n";
+    $body .= "Email : $email\n";
+    $body .= "Téléphone : $mobile\n";
+    $body .= "Service demandé : $service_name\n\n";
+    $body .= "Description du projet :\n$note\n";
+    
+    if (!empty($attachments)) {
+        $body .= "\nFichier(s) d'accompagnement joint(s) à cet e-mail :\n";
+        foreach ($attachments as $attachment) {
+            $body .= "- " . basename($attachment) . "\n";
+        }
+    }
+
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+    if ($email) {
+        $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
+    }
+
+    wp_mail($to, $subject, $body, $headers, $attachments);
+
+    // Clean up temporary attachments from uploads to keep server clean
+    foreach ($uploaded_files as $uploaded_file) {
+        if (file_exists($uploaded_file)) {
+            unlink($uploaded_file);
+        }
+    }
+
+    // Remove any previous error args and add success
+    $redirect_url = remove_query_arg('quote_error', wp_get_referer());
+    wp_redirect(add_query_arg('quote_success', '1', $redirect_url));
+    exit;
+}
+add_action('admin_post_gloservices_quote_form', 'gloservices_handle_quote_form');
+add_action('admin_post_nopriv_gloservices_quote_form', 'gloservices_handle_quote_form');
+
+/**
+ * Get translated page URL by default French slug
+ */
+function gloservices_get_translated_page_url($slug) {
+    $slug = trim($slug, '/');
+    $page = get_page_by_path($slug);
+    if ($page) {
+        $page_id = $page->ID;
+        if (function_exists('pll_get_post')) {
+            $translated_id = pll_get_post($page_id);
+            if ($translated_id) {
+                return get_permalink($translated_id);
+            }
+        }
+        return get_permalink($page_id);
+    }
+    
+    // Fallback if page not found in DB
+    if (function_exists('pll_current_language')) {
+        $lang = pll_current_language();
+        if ($lang !== 'fr' && !empty($lang)) {
+            return home_url('/' . $lang . '/' . $slug . '/');
+        }
+    }
+    return home_url('/' . $slug . '/');
 }
 

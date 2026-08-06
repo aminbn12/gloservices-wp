@@ -30,7 +30,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn footer-cta-btn rounded-pill px-4 py-3 fw-bold shadow-lg">
+                        <a href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>" class="btn footer-cta-btn rounded-pill px-4 py-3 fw-bold shadow-lg">
                             <span><?php echo esc_html(gloservices_translate('Demander une étude projet')); ?></span>
                             <i class="fas fa-arrow-right ms-2"></i>
                         </a>
@@ -97,9 +97,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@gloservices.ma')); ?>" class="d-flex align-items-center gap-3 text-decoration-none footer-email-link" style="color: #000000 !important;">
+                            <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@globuild.ma')); ?>" class="d-flex align-items-center gap-3 text-decoration-none footer-email-link" style="color: #000000 !important;">
                                 <i class="fas fa-envelope text-primary"></i>
-                                <span style="color: #000000 !important; font-weight: 600;"><?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?></span>
+                                <span style="color: #000000 !important; font-weight: 600;"><?php echo esc_html(get_option('gloservices_email', 'contact@globuild.ma')); ?></span>
                             </a>
                         </li>
                     </ul>
@@ -109,10 +109,10 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="footer-title text-white mb-4"><?php _e('Liens rapides', 'gloservices'); ?></h5>
                     <ul class="footer-links list-unstyled m-0">
-                        <li class="mb-2"><a href="<?php echo esc_url(home_url('/about')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Qui sommes-nous', 'gloservices'); ?></a></li>
-                        <li class="mb-2"><a href="<?php echo esc_url(home_url('/service')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Services', 'gloservices'); ?></a></li>
-                        <li class="mb-2"><a href="<?php echo esc_url(home_url('/projet')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Projets', 'gloservices'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Contact', 'gloservices'); ?></a></li>
+                        <li class="mb-2"><a href="<?php echo esc_url(gloservices_get_translated_page_url('about')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Qui sommes-nous', 'gloservices'); ?></a></li>
+                        <li class="mb-2"><a href="<?php echo esc_url(gloservices_get_translated_page_url('service')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Services', 'gloservices'); ?></a></li>
+                        <li class="mb-2"><a href="<?php echo esc_url(gloservices_get_translated_page_url('projet')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Projets', 'gloservices'); ?></a></li>
+                        <li><a href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>"><i class="fas fa-chevron-right text-primary me-2"></i><?php _e('Contact', 'gloservices'); ?></a></li>
                     </ul>
                 </div>
 
@@ -158,7 +158,7 @@
                             for ($i = 1; $i <= 6; $i++) :
                         ?>
                         <div class="col-4">
-                            <a href="<?php echo esc_url(home_url('/projet')); ?>" class="d-block">
+                            <a href="<?php echo esc_url(gloservices_get_translated_page_url('projet')); ?>" class="d-block">
                                 <div class="gallery-item-wrap overflow-hidden rounded">
                                     <img class="img-fluid" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/img-600x400-<?php echo $i; ?>.jpg" alt="Gallery <?php echo $i; ?>" loading="lazy">
                                 </div>

@@ -45,8 +45,8 @@ get_header();
                     <h5 class="fw-bold mb-1"><?php echo esc_html(gloservices_translate('E-mail')); ?></h5>
                     <span class="text-muted small mb-3"><?php echo esc_html(gloservices_translate('Écrivez-nous')); ?></span>
                     <p class="mb-0 fs-6">
-                        <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@gloservices.ma')); ?>" class="text-dark fw-bold text-decoration-none hover-primary">
-                            <?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?>
+                        <a href="mailto:<?php echo esc_attr(get_option('gloservices_email', 'contact@globuild.ma')); ?>" class="text-dark fw-bold text-decoration-none hover-primary">
+                            <?php echo esc_html(get_option('gloservices_email', 'contact@globuild.ma')); ?>
                         </a>
                     </p>
                 </div>
@@ -82,10 +82,35 @@ get_header();
                     <h2 class="mb-4 h2"><?php _e('N\'hésitez pas à nous contacter', 'gloservices'); ?></h2>
                     <p class="mb-4"><?php _e('Une question, un projet, une demande de devis ? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.', 'gloservices'); ?></p>
                     
+                    <?php if (isset($_GET['contact_success']) && $_GET['contact_success'] == '1') : ?>
+                        <div class="alert alert-success alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(16, 185, 129, 0.1); color: #047857; border-radius: 12px; padding: 15px 20px;">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <strong><?php _e('Message envoyé !', 'gloservices'); ?></strong> <?php _e('Votre message a bien été transmis. Notre équipe vous contactera dans les plus brefs délais.', 'gloservices'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($_GET['contact_error'])) : 
+                        $error_msg = __('Une erreur est survenue lors de l\'envoi de votre message.', 'gloservices');
+                        if ($_GET['contact_error'] === 'empty_fields') {
+                            $error_msg = __('Veuillez remplir tous les champs obligatoires.', 'gloservices');
+                        } elseif ($_GET['contact_error'] === 'invalid_email') {
+                            $error_msg = __('L\'adresse e-mail saisie n\'est pas valide.', 'gloservices');
+                        } elseif ($_GET['contact_error'] === 'security') {
+                            $error_msg = __('Session expirée ou erreur de sécurité. Veuillez réessayer.', 'gloservices');
+                        }
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(239, 68, 68, 0.1); color: #B91C1C; border-radius: 12px; padding: 15px 20px;">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            <strong><?php _e('Erreur !', 'gloservices'); ?></strong> <?php echo esc_html($error_msg); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
                     <?php
                     // Contact Form 7 DESACTIVÉ - utilisation du formulaire HTML natif traduit
                     ?>
-                    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" novalidate>
                         <input type="hidden" name="action" value="gloservices_contact_form">
                         <?php wp_nonce_field('gloservices_contact', 'gloservices_contact_nonce'); ?>
                         <div class="row g-3">

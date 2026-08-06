@@ -115,7 +115,7 @@
                 gloservices_fallback_menu();
             }
             ?>
-            <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-primary ms-lg-3">
+            <a href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>" class="btn btn-primary ms-lg-3">
                 <?php _e('Contact', 'gloservices'); ?>
                 <i class="fas fa-arrow-right"></i>
             </a>
@@ -174,7 +174,7 @@
 
     <!-- Pied du sidebar : CTA + langue + infos -->
     <div class="mobile-sidebar-footer">
-        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-primary w-100 mb-3">
+        <a href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>" class="btn btn-primary w-100 mb-3">
             <?php _e('Contact', 'gloservices'); ?> <i class="fas fa-arrow-right ms-2"></i>
         </a>
         <div class="mobile-sidebar-lang-wrap">
@@ -182,7 +182,7 @@
         </div>
         <div class="mobile-sidebar-info-wrap mt-3">
             <div class="mob-info-row"><i class="fas fa-phone-alt"></i> <span dir="ltr"><?php echo esc_html(get_option('gloservices_phone', '+212 5 37 77 14 50')); ?></span></div>
-            <div class="mob-info-row"><i class="fas fa-envelope"></i> <span dir="ltr"><?php echo esc_html(get_option('gloservices_email', 'contact@gloservices.ma')); ?></span></div>
+            <div class="mob-info-row"><i class="fas fa-envelope"></i> <span dir="ltr"><?php echo esc_html(get_option('gloservices_email', 'contact@globuild.ma')); ?></span></div>
         </div>
     </div>
 

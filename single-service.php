@@ -80,7 +80,7 @@ get_header();
                                 </div>
                                 <div>
                                     <strong class="d-block text-dark small"><?php _e('Normes Certifiées', 'gloservices'); ?></strong>
-                                    <small class="text-muted">RPS 2000, NM & Eurocodes</small>
+                                    <small class="text-muted"><?php _e('RPS 2000, NM & Eurocodes', 'gloservices'); ?></small>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-3">
@@ -89,7 +89,7 @@ get_header();
                                 </div>
                                 <div>
                                     <strong class="d-block text-dark small"><?php _e('Logiciels sous licence', 'gloservices'); ?></strong>
-                                    <small class="text-muted">Robot, Covadis, Revit 3D</small>
+                                    <small class="text-muted"><?php _e('Robot, Covadis, Revit 3D', 'gloservices'); ?></small>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-3">
@@ -98,15 +98,15 @@ get_header();
                                 </div>
                                 <div>
                                     <strong class="d-block text-dark small"><?php _e('Suivi de Chantier', 'gloservices'); ?></strong>
-                                    <small class="text-muted">Contrôle qualité & Maîtrise d'ouvrage</small>
+                                    <small class="text-muted"><?php _e('Contrôle qualité & Maîtrise d\'ouvrage', 'gloservices'); ?></small>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-primary rounded-pill w-100 py-3 fw-bold shadow-sm mb-3">
+                        <a href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>" class="btn btn-primary rounded-pill w-100 py-3 fw-bold shadow-sm mb-3">
                             <i class="fas fa-paper-plane me-2"></i><?php _e('Demander un devis gratuit', 'gloservices'); ?>
                         </a>
-                        <a href="<?php echo esc_url(home_url('/service')); ?>" class="btn btn-outline-secondary rounded-pill w-100 py-2">
+                        <a href="<?php echo esc_url(gloservices_get_translated_page_url('service')); ?>" class="btn btn-outline-secondary rounded-pill w-100 py-2">
                             <i class="fas fa-arrow-left me-2"></i><?php _e('Retour aux services', 'gloservices'); ?>
                         </a>
                     </div>

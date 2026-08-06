@@ -882,5 +882,367 @@
             });
         }
     }
+    // ===== CUSTOM PREMIUM DROPDOWN FOR QUOTE SERVICES =====
+    $('select[name="quote_service"]').each(function() {
+        var $this = $(this),
+            numberOfOptions = $(this).children('option').length;
+        
+        $this.addClass('select-hidden'); 
+        $this.wrap('<div class="select-custom-wrapper"></div>');
+        $this.after('<div class="select-styled"></div>');
+
+        var $styledSelect = $this.next('div.select-styled');
+        $styledSelect.text($this.children('option').eq(0).text());
+      
+        var $list = $('<ul />', {
+            'class': 'select-options'
+        }).insertAfter($styledSelect);
+      
+        for (var i = 0; i < numberOfOptions; i++) {
+            var $optionText = $this.children('option').eq(i).text();
+            var $optionVal = $this.children('option').eq(i).val();
+            // Set first option (placeholder) value to empty string
+            if (i === 0) {
+                $optionVal = "";
+            }
+            $('<li />', {
+                text: $optionText,
+                rel: $optionVal,
+                class: (i === 0 ? 'select-option-placeholder' : '')
+            }).appendTo($list);
+        }
+      
+        var $listItems = $list.children('li');
+      
+        $styledSelect.click(function(e) {
+            e.stopPropagation();
+            
+            // Clear validation error state when clicking to select
+            $(this).removeClass('is-invalid');
+            $(this).parent().find('.invalid-feedback').remove();
+            
+            $('div.select-styled.active').not(this).each(function(){
+                $(this).removeClass('active').next('ul.select-options').hide();
+            });
+            $(this).toggleClass('active').next('ul.select-options').toggle();
+        });
+      
+        $listItems.click(function(e) {
+            e.stopPropagation();
+            var selectedText = $(this).text();
+            var selectedVal = $(this).attr('rel');
+            $styledSelect.text(selectedText).removeClass('active');
+            $this.val(selectedVal);
+            $this.trigger('change');
+            $list.hide();
+        });
+      
+        $(document).click(function() {
+            $styledSelect.removeClass('active');
+            $list.hide();
+        });
+    });
+
+    // ===== FORM VALIDATION SYSTEM =====
+    $('form.quote-form, form[action*="gloservices_contact_form"], form[action*="admin-post.php"]').on('submit', function(e) {
+        var $form = $(this);
+        var isValid = true;
+        
+        // Multi-language error messages
+        var lang = $('html').attr('lang') || 'fr';
+        var isAr = lang.indexOf('ar') === 0;
+        var isEn = lang.indexOf('en') === 0;
+
+        var msgRequired = "Ce champ est requis.";
+        var msgEmail = "Adresse e-mail invalide.";
+        var msgSelect = "Veuillez sélectionner un service.";
+
+        if (isAr) {
+            msgRequired = "هذا الحقل مطلوب.";
+            msgEmail = "البريد الإلكتروني غير صالح.";
+            msgSelect = "يرجى اختيار الخدمة.";
+        } else if (isEn) {
+            msgRequired = "This field is required.";
+            msgEmail = "Invalid email address.";
+            msgSelect = "Please select a service.";
+        }
+
+        // Validate text/email inputs and textareas
+        $form.find('input[required], textarea[required]').each(function() {
+            var $input = $(this);
+            var val = $.trim($input.val());
+            var fieldValid = true;
+            var errorMsg = msgRequired;
+
+            if (val === '') {
+                fieldValid = false;
+            } else if ($input.attr('type') === 'email') {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                if (!emailReg.test(val)) {
+                    fieldValid = false;
+                    errorMsg = msgEmail;
+                }
+            }
+
+            if (!fieldValid) {
+                isValid = false;
+                $input.addClass('is-invalid');
+                
+                // Append invalid feedback if not present
+                var $feedback = $input.siblings('.invalid-feedback');
+                if ($feedback.length === 0) {
+                    if ($input.parent('.form-floating').length > 0) {
+                        $input.parent('.form-floating').append('<div class="invalid-feedback">' + errorMsg + '</div>');
+                    } else {
+                        $input.after('<div class="invalid-feedback">' + errorMsg + '</div>');
+                    }
+                } else {
+                    $feedback.text(errorMsg);
+                }
+            } else {
+                $input.removeClass('is-invalid');
+                $input.siblings('.invalid-feedback').remove();
+                $input.parent('.form-floating').find('.invalid-feedback').remove();
+            }
+        });
+
+        // Validate custom select dropdown
+        $form.find('select[name="quote_service"]').each(function() {
+            var $select = $(this);
+            var val = $select.val();
+            var $styledSelect = $select.siblings('.select-styled');
+            
+            if (val === '' || val === null || val.indexOf('Sélectionner') !== -1 || val.indexOf('Select') !== -1 || val.indexOf('اختيار') !== -1) {
+                isValid = false;
+                $styledSelect.addClass('is-invalid');
+                
+                var $feedback = $styledSelect.parent().find('.invalid-feedback');
+                if ($feedback.length === 0) {
+                    $styledSelect.parent().append('<div class="invalid-feedback d-block">' + msgSelect + '</div>');
+                }
+            } else {
+                $styledSelect.removeClass('is-invalid');
+                $styledSelect.parent().find('.invalid-feedback').remove();
+            }
+        });
+
+        // Validate file uploads on submit (redundancy check)
+        $form.find('input[type="file"]').each(function() {
+            var $fileInput = $(this);
+            var files = $fileInput[0].files;
+            
+            if (files && files.length > 0) {
+                var file = files[0];
+                var fileValid = true;
+                
+                var maxSize = 5 * 1024 * 1024;
+                var allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+                var allowedExts = ['.pdf', '.jpg', '.jpeg', '.png'];
+                var ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+
+                if (file.size > maxSize) {
+                    fileValid = false;
+                } else if (allowedTypes.indexOf(file.type) === -1 && allowedExts.indexOf(ext) === -1) {
+                    fileValid = false;
+                }
+
+                if (!fileValid) {
+                    isValid = false;
+                    $fileInput.addClass('is-invalid');
+                    var $container = $fileInput.closest('.custom-file-upload-container');
+                    $container.find('.custom-file-trigger-btn').addClass('is-invalid');
+                }
+            }
+        });
+
+        if (!isValid) {
+            e.preventDefault();
+            // Scroll to the first invalid field
+            var $firstInvalid = $form.find('.is-invalid').first();
+            if ($firstInvalid.length) {
+                var offset = $firstInvalid.offset().top - 120;
+                $('html, body').animate({ scrollTop: offset }, 300);
+                $firstInvalid.focus();
+            }
+        }
+    });
+
+    // Clear validation styling on focus, click, typing, or changing
+    $(document).on('focus click input change', 'input, textarea, select', function() {
+        var $el = $(this);
+        $el.removeClass('is-invalid');
+        $el.siblings('.custom-file-upload-trigger').removeClass('is-invalid');
+        $el.siblings('.invalid-feedback').remove();
+        $el.parent('.form-floating').find('.invalid-feedback').remove();
+        $el.parent('.custom-file-upload-container').find('.invalid-feedback').remove();
+    });
+
+    // Progressive File Upload List
+    $(document).on('click', '.custom-file-trigger-btn', function() {
+        var $btn = $(this);
+        var $container = $btn.closest('.custom-file-upload-container');
+        var $inputs = $container.find('.custom-file-input-hidden');
+        var $activeInput = $inputs.last();
+        $activeInput.click();
+    });
+
+    $(document).on('change', '.custom-file-input-hidden', function() {
+        var $input = $(this);
+        var $container = $input.closest('.custom-file-upload-container');
+        var $list = $container.find('.selected-files-list');
+        var $btn = $container.find('.custom-file-trigger-btn');
+        var files = $input[0].files;
+        
+        if (!files || files.length === 0) {
+            return; // Cancelled
+        }
+
+        var file = files[0];
+        
+        // Language variables
+        var lang = $('html').attr('lang') || 'fr';
+        var isAr = lang.indexOf('ar') === 0;
+        var isEn = lang.indexOf('en') === 0;
+
+        // Validation limits
+        var maxSize = 5 * 1024 * 1024; // 5MB
+        var maxTotalSize = 20 * 1024 * 1024; // 20MB
+        var allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+        var allowedExts = ['.pdf', '.jpg', '.jpeg', '.png'];
+        var ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+
+        // Calculate currently added files and total size
+        var currentFilesCount = $list.find('.selected-file-item').length;
+        var currentTotalSize = 0;
+        $container.find('.custom-file-input-hidden').not($input).each(function() {
+            if (this.files && this.files.length > 0) {
+                currentTotalSize += this.files[0].size;
+            }
+        });
+
+        var fileValid = true;
+        var errorMsg = "";
+
+        if (currentFilesCount >= 4) {
+            fileValid = false;
+            errorMsg = isAr ? "لا يمكنك تحميل أكثر من 4 ملفات." : (isEn ? "You cannot upload more than 4 files." : "Vous ne pouvez pas télécharger plus de 4 fichiers.");
+        } else if (file.size > maxSize) {
+            fileValid = false;
+            errorMsg = isAr ? "حجم الملف يتجاوز 5 ميغابايت." : (isEn ? "File size exceeds 5MB." : "Le fichier dépasse la limite de 5 Mo.");
+        } else if (allowedTypes.indexOf(file.type) === -1 && allowedExts.indexOf(ext) === -1) {
+            fileValid = false;
+            errorMsg = isAr ? "صيغة الملف غير صالحة. المسموح به: PDF, JPG, PNG" : (isEn ? "Invalid file format. Allowed: PDF, JPG, PNG" : "Format de fichier invalide. Requis: PDF, JPG, PNG");
+        } else if (currentTotalSize + file.size > maxTotalSize) {
+            fileValid = false;
+            errorMsg = isAr ? "الحجم الإجمالي للملفات يتجاوز 20 ميغابايت." : (isEn ? "Total file size exceeds 20MB." : "La taille totale des fichiers dépasse 20 Mo.");
+        }
+
+        // Clear any previous error message for this container
+        $container.find('.invalid-feedback').remove();
+        $btn.removeClass('is-invalid');
+
+        if (!fileValid) {
+            $input.val(''); // Clear value so it can be re-selected
+            $btn.addClass('is-invalid');
+            $container.append('<div class="invalid-feedback d-block">' + errorMsg + '</div>');
+            return;
+        }
+
+        // If valid, add unique ID to the input
+        var fileId = 'file-' + Math.random().toString(36).substr(2, 9);
+        $input.attr('data-file-id', fileId);
+
+        // Display file size nicely
+        var sizeInMb = (file.size / (1024 * 1024)).toFixed(2) + ' Mo';
+        if (isEn) {
+            sizeInMb = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+        } else if (isAr) {
+            sizeInMb = (file.size / (1024 * 1024)).toFixed(2) + ' ميغابايت';
+        }
+
+        // Append visual item
+        var itemHtml = '<div class="selected-file-item" data-file-id="' + fileId + '">' +
+            '<span class="file-name"><i class="far fa-file-alt me-2"></i>' + file.name + ' (' + sizeInMb + ')</span>' +
+            '<button type="button" class="btn-remove-file" title="' + (isAr ? 'حذف' : (isEn ? 'Remove' : 'Supprimer')) + '"><i class="fas fa-times-circle"></i></button>' +
+            '</div>';
+        $list.append(itemHtml);
+
+        // Append a NEW empty file input for the next selection
+        var newInputHtml = '<input type="file" name="quote_file[]" class="custom-file-input-hidden" accept=".pdf,.jpg,.jpeg,.png">';
+        $container.find('.hidden-inputs-container').append(newInputHtml);
+
+        // Update button text to "Ajouter un fichier"
+        var addText = "Ajouter un fichier";
+        if (isEn) {
+            addText = "Add a file";
+        } else if (isAr) {
+            addText = "إضافة ملف";
+        }
+        $btn.find('.custom-file-btn-text').text(addText);
+
+        // Hide trigger button if we hit the limit of 4
+        if ($list.find('.selected-file-item').length >= 4) {
+            $btn.hide();
+        }
+    });
+
+    $(document).on('click', '.btn-remove-file', function(e) {
+        e.stopPropagation();
+        var $item = $(this).closest('.selected-file-item');
+        var fileId = $item.attr('data-file-id');
+        var $container = $item.closest('.custom-file-upload-container');
+        var $btn = $container.find('.custom-file-trigger-btn');
+        var $list = $container.find('.selected-files-list');
+
+        // Remove the associated input element
+        $container.find('.custom-file-input-hidden[data-file-id="' + fileId + '"]').remove();
+        
+        // Remove visual item
+        $item.remove();
+
+        // Clear any validation errors
+        $container.find('.invalid-feedback').remove();
+        $btn.removeClass('is-invalid');
+
+        var currentFilesCount = $list.find('.selected-file-item').length;
+
+        // Show button again since we have space
+        if (currentFilesCount < 4) {
+            $btn.show();
+        }
+
+        // Change button text back if list is empty
+        if (currentFilesCount === 0) {
+            var lang = $('html').attr('lang') || 'fr';
+            var isAr = lang.indexOf('ar') === 0;
+            var isEn = lang.indexOf('en') === 0;
+            var chooseText = "Choisir un fichier";
+            if (isEn) {
+                chooseText = "Choose a file";
+            } else if (isAr) {
+                chooseText = "اختيار ملف";
+            }
+            $btn.find('.custom-file-btn-text').text(chooseText);
+        }
+    });
+
+    // For custom options click
+    $(document).on('click', '.select-options li', function() {
+        var $li = $(this);
+        var $wrapper = $li.closest('.select-custom-wrapper');
+        var $styledSelect = $wrapper.find('.select-styled');
+        
+        if ($li.attr('rel') !== '') {
+            $styledSelect.removeClass('is-invalid');
+            $wrapper.find('.invalid-feedback').remove();
+        }
+    });
+
+    // Clear file-upload trigger is-invalid on click
+    $(document).on('click', '.custom-file-trigger-btn', function() {
+        var $btn = $(this);
+        $btn.removeClass('is-invalid');
+        $btn.parent('.custom-file-upload-container').find('.invalid-feedback').remove();
+    });
 
 })(jQuery);

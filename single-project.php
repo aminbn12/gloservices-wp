@@ -89,7 +89,7 @@ get_header();
                             }
                             ?>
                         </p>
-                        <a href="<?php echo esc_url(home_url('/projet')); ?>" class="btn btn-primary rounded-pill py-2 px-4 mt-3"><?php _e('Retour aux projets', 'gloservices'); ?></a>
+                        <a href="<?php echo esc_url(gloservices_get_translated_page_url('projet')); ?>" class="btn btn-primary rounded-pill py-2 px-4 mt-3"><?php _e('Retour aux projets', 'gloservices'); ?></a>
                     </div>
                 </div>
             </div>

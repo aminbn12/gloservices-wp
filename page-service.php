@@ -468,7 +468,7 @@ html[dir="rtl"] .back-to-top {
                             <p class="service-card-p"><?php echo esc_html($service['desc']); ?></p>
                         </div>
                         <div>
-                            <a class="service-btn-link" href="<?php echo esc_url(home_url('/contact/')); ?>">
+                            <a class="service-btn-link" href="<?php echo esc_url(gloservices_get_translated_page_url('contact')); ?>">
                                 <span><?php _e('Découvrir la prestation', 'gloservices'); ?></span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -485,121 +485,6 @@ html[dir="rtl"] .back-to-top {
     </div>
 </section>
 <!-- Main Services Grid End -->
-
-<!-- Workflow / Process Section Start -->
-<section class="py-5 bg-white workflow-section">
-    <div class="container py-4">
-        
-        <div class="text-center mx-auto mb-5" style="max-width: 750px;">
-            <span class="section-badge mb-2"><?php _e('NOTRE DÉMARCHE QUALITÉ', 'gloservices'); ?></span>
-            <h2 class="section-main-title"><?php _e('Comment nous accompagnons vos projets', 'gloservices'); ?></h2>
-            <p class="text-muted fs-6"><?php _e('Une méthodologie rigoureuse garantissant l\'exactitude des études et la maîtrise des coûts.', 'gloservices'); ?></p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-sm-6 col-lg-3">
-                <div class="workflow-step-card">
-                    <div class="workflow-num">01</div>
-                    <h4 class="workflow-title"><?php _e('Diagnostic & Audit', 'gloservices'); ?></h4>
-                    <p class="workflow-desc"><?php _e('Analyse approfondie des besoins, relevés de terrain, contrôles géotechniques et étude de faisabilité.', 'gloservices'); ?></p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="workflow-step-card">
-                    <div class="workflow-num">02</div>
-                    <h4 class="workflow-title"><?php _e('Conception & BIM', 'gloservices'); ?></h4>
-                    <p class="workflow-desc"><?php _e('Modélisation 3D, calculs de structure aux normes RPS 2000 / Eurocodes et dimensionnement VRD.', 'gloservices'); ?></p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="workflow-step-card">
-                    <div class="workflow-num">03</div>
-                    <h4 class="workflow-title"><?php _e('Édition des Plans DCE', 'gloservices'); ?></h4>
-                    <p class="workflow-desc"><?php _e('Production des dossiers d\'exécution (A0/A1), métrés détaillés, CPT et estimations financières.', 'gloservices'); ?></p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="workflow-step-card">
-                    <div class="workflow-num">04</div>
-                    <h4 class="workflow-title"><?php _e('Suivi & Maîtrise d\'Œuvre', 'gloservices'); ?></h4>
-                    <p class="workflow-desc"><?php _e('Supervision sur le terrain, suivi des travaux, visa des plans et réception de l\'ouvrage.', 'gloservices'); ?></p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- Workflow / Process Section End -->
-
-<!-- Feature / Why Choose Us Section Start -->
-<section class="py-5 bg-light">
-    <div class="container py-4">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <span class="section-badge mb-2"><?php _e('EXCELLENCE & RIGUEUR', 'gloservices'); ?></span>
-                <h2 class="section-main-title mb-4"><?php _e('Pourquoi faire confiance à GLOBUILD pour vos études BTP ?', 'gloservices'); ?></h2>
-                <p class="text-secondary mb-4" style="line-height: 1.8;">
-                    <?php _e('Nous combinons une solide expérience en génie civil à l\'utilisation des dernières technologies BIM et numériques pour offrir des solutions d\'ingénierie durables, sécurisées et économiquement optimisées.', 'gloservices'); ?>
-                </p>
-                
-                <div class="row g-4">
-                    <div class="col-6">
-                        <div class="d-flex align-items-center">
-                            <div class="btn-sm-square bg-success text-white rounded-circle me-3" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-check-circle fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold text-dark"><?php _e('100% BIM Ready', 'gloservices'); ?></h6>
-                                <small class="text-muted"><?php _e('Maquette 3D Revit', 'gloservices'); ?></small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center">
-                            <div class="btn-sm-square bg-success text-white rounded-circle me-3" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-shield-alt fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold text-dark"><?php _e('Normes RPS 2000', 'gloservices'); ?></h6>
-                                <small class="text-muted"><?php _e('Calculs Parasismiques', 'gloservices'); ?></small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center">
-                            <div class="btn-sm-square bg-success text-white rounded-circle me-3" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-truck-monster fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold text-dark"><?php _e('Réactivité Terrain', 'gloservices'); ?></h6>
-                                <small class="text-muted"><?php _e('Flotte 24/7 Maroc', 'gloservices'); ?></small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center">
-                            <div class="btn-sm-square bg-success text-white rounded-circle me-3" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-code-branch fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold text-dark"><?php _e('Pôle IT Dédié', 'gloservices'); ?></h6>
-                                <small class="text-muted"><?php _e('Logiciels Métier', 'gloservices'); ?></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="position-relative rounded-3 overflow-hidden shadow-lg" style="min-height: 400px;">
-                    <img class="img-fluid w-100 h-100" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/feature.jpg" style="object-fit: cover; min-height: 420px;" alt="<?php esc_attr_e('Ingénierie BTP Globuild', 'gloservices'); ?>" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Feature / Why Choose Us Section End -->
 
 <!-- Quote & Proposal Form Section Start -->
 <section class="py-5 bg-white">
@@ -618,7 +503,43 @@ html[dir="rtl"] .back-to-top {
                 </div>
                 
                 <div class="col-lg-7">
-                    <form action="<?php echo esc_url(home_url('/contact')); ?>" method="post">
+                    <?php if (isset($_GET['quote_success']) && $_GET['quote_success'] == '1') : ?>
+                        <div class="alert alert-success alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(16, 185, 129, 0.15); color: #047857; border-radius: 12px; padding: 12px 18px;">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <strong><?php _e('Demande de devis transmise !', 'gloservices'); ?></strong> <?php _e('Nous analysons votre demande et vous répondrons sous 24h.', 'gloservices'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($_GET['quote_error'])) : 
+                        $error_msg = __('Une erreur est survenue lors de l\'envoi de votre demande.', 'gloservices');
+                        if ($_GET['quote_error'] === 'empty_fields') {
+                            $error_msg = __('Veuillez renseigner toutes les informations requises.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'invalid_email') {
+                            $error_msg = __('Veuillez saisir une adresse e-mail valide.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'security') {
+                            $error_msg = __('Session expirée ou erreur de sécurité. Veuillez réessayer.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'file_too_large') {
+                            $error_msg = __('Le fichier joint est trop volumineux. La taille maximale est de 5 Mo.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'invalid_file_type') {
+                            $error_msg = __('Format de fichier non valide. Seuls les formats PDF, JPG, JPEG et PNG sont acceptés.', 'gloservices');
+                        } elseif (in_array($_GET['quote_error'], array('upload_error', 'upload_failed'))) {
+                            $error_msg = __('Erreur lors du téléchargement du fichier. Veuillez réessayer.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'file_count_exceeded') {
+                            $error_msg = __('Vous ne pouvez pas télécharger plus de 4 fichiers.', 'gloservices');
+                        } elseif ($_GET['quote_error'] === 'total_size_exceeded') {
+                            $error_msg = __('La taille totale des fichiers dépasse 20 Mo.', 'gloservices');
+                        }
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: rgba(239, 68, 68, 0.1); color: #B91C1C; border-radius: 12px; padding: 12px 18px;">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            <strong><?php _e('Erreur !', 'gloservices'); ?></strong> <?php echo esc_html($error_msg); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data" novalidate>
+                        <input type="hidden" name="action" value="gloservices_quote_form">
+                        <?php wp_nonce_field('gloservices_quote', 'gloservices_quote_nonce'); ?>
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
                                 <input type="text" name="quote_name" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Votre Nom complet')); ?>" required>
@@ -637,7 +558,22 @@ html[dir="rtl"] .back-to-top {
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea name="quote_note" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Description succincte du projet (localisation, délai, contraintes...)')); ?>" rows="3"></textarea>
+                                <textarea name="quote_note" class="form-control quote-input-custom" placeholder="<?php echo esc_attr(gloservices_translate('Description succincte du projet (localisation, délai, contraintes...)')); ?>" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12 text-start">
+                                <div class="quote-file-wrap">
+                                    <label class="d-block small text-light opacity-75 mb-1"><?php echo esc_html(gloservices_translate('Ajouter des plans ou documents (Optionnel - Max 4 fichiers, PDF/JPG/PNG, Max 20 Mo au total)')); ?></label>
+                                    <div class="custom-file-upload-container">
+                                        <button type="button" class="custom-file-trigger-btn">
+                                            <i class="fas fa-plus me-1"></i>
+                                            <span class="custom-file-btn-text"><?php echo esc_html(gloservices_translate('Choisir un fichier')); ?></span>
+                                        </button>
+                                        <div class="hidden-inputs-container d-none">
+                                            <input type="file" name="quote_file[]" class="custom-file-input-hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                        </div>
+                                        <div class="selected-files-list mt-2"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5 fw-bold shadow-lg" type="submit">

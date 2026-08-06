@@ -509,7 +509,7 @@ body.rtl .projet-cta-banner {
                 $page_static_projects = array_slice($static_projects, $offset, $per_page);
                 foreach ($page_static_projects as $idx => $project) :
                     $img_url = get_template_directory_uri() . '/assets/img/' . $project['image'];
-                    $proj_link = isset($project['id']) ? get_permalink($project['id']) : home_url('/contact');
+                    $proj_link = isset($project['id']) ? get_permalink($project['id']) : gloservices_get_translated_page_url('contact');
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($project['cat_class']); ?>">
                     <div class="project-card-v2">
