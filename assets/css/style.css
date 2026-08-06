@@ -6035,3 +6035,22 @@ html[dir="rtl"] .invalid-feedback {
     border-color: var(--primary) !important;
     box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
 }
+
+/* Project Card Slideshow Styles */
+.project-gallery-slideshow {
+    position: relative !important;
+}
+.project-gallery-slideshow img.project-slideshow-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    z-index: 1 !important;
+    transition: opacity 1.2s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease !important;
+}
+.project-gallery-slideshow img.project-slideshow-img.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}

@@ -394,8 +394,17 @@ body.rtl .projet-cta-banner {
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($cat_class); ?>">
                     <div class="project-card-v2">
-                        <div class="project-img-box">
-                            <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr(get_the_title($display_id)); ?>">
+                        <div class="project-img-box project-gallery-slideshow" data-interval="10000">
+                            <?php 
+                            $gallery_urls = gloservices_get_project_gallery_urls($display_id, $img_url);
+                            $is_first = true;
+                            foreach ($gallery_urls as $g_url) :
+                            ?>
+                                <img src="<?php echo esc_url($g_url); ?>" alt="<?php echo esc_attr(get_the_title($display_id)); ?>" class="project-slideshow-img<?php echo $is_first ? ' active' : ''; ?>">
+                            <?php 
+                                $is_first = false;
+                            endforeach; 
+                            ?>
                             <span class="project-badge-tag"><?php echo esc_html($cat_name); ?></span>
                             <div class="corner-mark corner-tl"></div>
                             <div class="corner-mark corner-tr"></div>

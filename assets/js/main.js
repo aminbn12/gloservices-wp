@@ -1245,4 +1245,34 @@
         $btn.parent('.custom-file-upload-container').find('.invalid-feedback').remove();
     });
 
+    // === PROJECT CARD SLIDESHOW ===
+    var initProjectSlideshows = function() {
+        $('.project-gallery-slideshow').each(function() {
+            var $container = $(this);
+            var $imgs = $container.find('.project-slideshow-img');
+            if ($imgs.length <= 1) return; // No slideshow needed if only 1 image
+
+            var currentIndex = 0;
+            var intervalTime = parseInt($container.data('interval')) || 10000; // default 10 seconds
+
+            setInterval(function() {
+                var nextIndex = (currentIndex + 1) % $imgs.length;
+                
+                // Transition: fade out current, fade in next
+                $imgs.eq(currentIndex).removeClass('active');
+                var $nextImg = $imgs.eq(nextIndex);
+                $nextImg.addClass('active');
+                
+                // Update the zoom/lightbox href to match the current image URL
+                var newSrc = $nextImg.attr('src');
+                $container.closest('.project-card-modern, .project-card-v2').find('[data-lightbox="portfolio"]').attr('href', newSrc);
+                
+                currentIndex = nextIndex;
+            }, intervalTime);
+        });
+    };
+
+    // Initialize slideshows
+    initProjectSlideshows();
+
 })(jQuery);

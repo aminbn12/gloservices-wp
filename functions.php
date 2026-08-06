@@ -192,6 +192,60 @@ function gloservices_get_project_image_url($post_id = null, $size = 'gloservices
 }
 
 /**
+ * Retrieve all project images (featured image + gallery images)
+ */
+function gloservices_get_project_gallery_urls($post_id = null, $fallback_img_url = '')
+{
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    $gallery_str = get_post_meta($post_id, '_project_gallery', true);
+    $urls = [];
+    
+    if (!empty($gallery_str)) {
+        // split by comma, semicolon or newlines
+        $raw_urls = preg_split('/[\n\r,;]+/', $gallery_str);
+        foreach ($raw_urls as $raw_url) {
+            $cleaned = trim($raw_url);
+            if (!empty($cleaned)) {
+                $urls[] = esc_url($cleaned);
+            }
+        }
+    }
+    
+    // Ensure featured/fallback image is included as the first slide if not already present
+    if (!empty($fallback_img_url)) {
+        $fallback_img_url = esc_url($fallback_img_url);
+        if (!in_array($fallback_img_url, $urls)) {
+            array_unshift($urls, $fallback_img_url);
+        }
+    }
+    
+    // Fallback to post thumbnail or stable fallback if completely empty
+    if (empty($urls)) {
+        $urls[] = gloservices_get_project_image_url($post_id, 'gloservices-600x400');
+    }
+    
+    return array_values(array_unique($urls));
+}
+
+/**
+ * Enqueue WordPress Media Uploader for Project metabox
+ */
+function gloservices_admin_scripts($hook)
+{
+    global $post;
+    if ($hook == 'post-new.php' || $hook == 'post.php') {
+        if (isset($post) && 'project' === $post->post_type) {
+            wp_enqueue_media();
+        }
+    }
+}
+add_action('admin_enqueue_scripts', 'gloservices_admin_scripts');
+
+
+/**
  * Register widget areas
  */
 function gloservices_widgets_init()
@@ -423,6 +477,7 @@ function gloservices_project_meta_callback($post)
     $client = get_post_meta($post->ID, '_project_client', true);
     $year = get_post_meta($post->ID, '_project_year', true);
     $cost = get_post_meta($post->ID, '_project_cost', true);
+    $gallery = get_post_meta($post->ID, '_project_gallery', true);
     ?>
     <p><label for="project_client"><strong><?php _e('Client', 'gloservices'); ?></strong></label><br>
     <input type="text" id="project_client" name="project_client" value="<?php echo esc_attr($client); ?>" class="widefat"></p>
@@ -430,6 +485,39 @@ function gloservices_project_meta_callback($post)
     <input type="text" id="project_year" name="project_year" value="<?php echo esc_attr($year); ?>" class="widefat" placeholder="Ex: 2025 ou 2023-2025"></p>
     <p><label for="project_cost"><strong><?php _e('Budget / Coût', 'gloservices'); ?></strong></label><br>
     <input type="text" id="project_cost" name="project_cost" value="<?php echo esc_attr($cost); ?>" class="widefat" placeholder="Ex: 800 000 MAD"></p>
+    <p><label for="project_gallery"><strong><?php _e('Galerie de photos du projet (changement automatique toutes les 10s)', 'gloservices'); ?></strong></label><br>
+    <textarea id="project_gallery" name="project_gallery" class="widefat" rows="3" placeholder="URLs des images séparées par des virgules"><?php echo esc_textarea($gallery); ?></textarea>
+    <button type="button" class="button button-secondary" id="gloservices_select_gallery_btn" style="margin-top: 5px;"><?php _e('Sélectionner des images', 'gloservices'); ?></button>
+    <small style="display:block; margin-top:5px; color:#666;"><?php _e('Sélectionnez plusieurs photos dans la bibliothèque pour les ajouter. Elles seront jouées en boucle toutes les 10 secondes.', 'gloservices'); ?></small></p>
+
+    <script>
+    jQuery(document).ready(function($){
+        $('#gloservices_select_gallery_btn').click(function(e) {
+            e.preventDefault();
+            var frame = wp.media({
+                title: '<?php _e("Sélectionner les images du projet", "gloservices"); ?>',
+                multiple: true,
+                button: { text: '<?php _e("Ajouter à la galerie", "gloservices"); ?>' }
+            });
+            frame.on('select', function() {
+                var selection = frame.state().get('selection');
+                var urls = [];
+                var existing = $('#project_gallery').val().trim();
+                if (existing) {
+                    urls = existing.split(',').map(function(item){ return item.trim(); }).filter(Boolean);
+                }
+                selection.each(function(attachment) {
+                    var url = attachment.attributes.url;
+                    if (urls.indexOf(url) === -1) {
+                        urls.push(url);
+                    }
+                });
+                $('#project_gallery').val(urls.join(',\n'));
+            });
+            frame.open();
+        });
+    });
+    </script>
     <?php
 }
 
@@ -549,6 +637,9 @@ function gloservices_save_meta($post_id)
             if (isset($_POST[$field])) {
                 update_post_meta($post_id, '_' . $field, sanitize_text_field($_POST[$field]));
             }
+        }
+        if (isset($_POST['project_gallery'])) {
+            update_post_meta($post_id, '_project_gallery', sanitize_textarea_field($_POST['project_gallery']));
         }
     }
     if (isset($_POST['gloservices_hero_slide_nonce']) && wp_verify_nonce($_POST['gloservices_hero_slide_nonce'], 'gloservices_hero_slide_meta')) {
