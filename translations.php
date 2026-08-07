@@ -1134,7 +1134,13 @@ function gloservices_get_translations($lang = 'fr') {
         'Un projet d\'infrastructure, de bâtiment ou de modélisation BIM ?' => array('en' => 'An infrastructure, building, or BIM modeling project?', 'ar' => 'مشروع بنية تحتية، مبنى أو نمذجة BIM؟'),
         'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية إلى متابعة الموقع.'),
         'Un projet d\'infrastructure, de bâtiment, de modélisation BIM ou de solution numérique ?' => array('en' => 'An infrastructure, building, BIM modeling, or digital solution project?', 'ar' => 'مشروع بنية تحتية، مبنى، نمذجة BIM أو حل رقمي؟'),
-        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire et la conception numérique jusqu\'au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study and digital design to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية والتصميم الرقمي حتى متابعة الموقع.')
+        'Nos ingénieurs experts vous accompagnent de l\'étude préliminaire et la conception numérique jusqu\'au suivi de chantier.' => array('en' => 'Our expert engineers support you from preliminary study and digital design to site supervision.', 'ar' => 'يرافقكم مهندسونا الخبراء من الدراسة الأولية والتصميم الرقمي حتى متابعة الموقع.'),
+        
+        // ===== NOS MOYENS PAGE STATS CARD =====
+        'Véhicules Chantiers' => array('en' => 'Site Vehicles', 'ar' => 'مركبات ورش العمل'),
+        'Stations DAO/CAO' => array('en' => 'CAD/Drafting Stations', 'ar' => 'محطات التصميم بمساعدة الحاسوب (CAD)'),
+        'Encadrement Technique' => array('en' => 'Technical Staff', 'ar' => 'التأطير التقني'),
+        'Cadres permanents & partenaires' => array('en' => 'Permanent staff & partners', 'ar' => 'أطر دائمة وشركاء')
     );
 
     foreach ($extra as $key => $trans) {
