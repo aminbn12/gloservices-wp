@@ -1344,15 +1344,16 @@
             $grid.stop().animate({ opacity: 1 }, 250);
             $pagination.stop().animate({ opacity: 1 }, 250);
 
-            // Étape 4 : Défilement doux automatique vers le début de la section Projets
-            var $scrollTarget = $('.section-badge').filter(function() {
-                return $(this).text().indexOf('RÉALISATIONS') !== -1 || $(this).text().indexOf('REFERENCES') !== -1;
-            }).first();
-
-            if ($scrollTarget.length) {
-                $('html, body').animate({
-                    scrollTop: $scrollTarget.offset().top - 120
-                }, 600);
+            // Étape 4 : Défilement doux automatique vers la barre de filtrage (#portfolio-flters)
+            if (window.gloLenis) {
+                window.gloLenis.scrollTo('#portfolio-flters', { offset: -100, duration: 1.0 });
+            } else {
+                var $scrollTarget = $('#portfolio-flters');
+                if ($scrollTarget.length) {
+                    $('html, body').animate({
+                        scrollTop: $scrollTarget.offset().top - 100
+                    }, 500);
+                }
             }
         }).fail(function() {
             // En cas d'erreur réseau, rétablir l'opacité
