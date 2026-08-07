@@ -663,6 +663,8 @@ body.rtl .projet-cta-banner {
             ['num' => 17, 'name' => 'RABAT REGION AMENAGEMENTS',      'logo' => 'vendor-17.jpg'],
             ['num' => 18, 'name' => 'MEDZ',                           'logo' => 'vendor-18.jpg'],
             ['num' => 19, 'name' => 'IRIS',                           'logo' => 'vendor-19.png'],
+            ['num' => 20, 'name' => 'ADM PROJET',                     'logo' => 'vendor-20.png'],
+            ['num' => 21, 'name' => 'LAMALIF GROUP',                  'logo' => 'vendor-21.png'],
         ];
         $total = count($partners);
         ?>

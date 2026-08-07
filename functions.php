@@ -834,6 +834,8 @@ function gloservices_vendor_carousel()
             'vendor-17.jpg',
             'vendor-18.jpg',
             'vendor-19.png',
+            'vendor-20.png',
+            'vendor-21.png',
         ];
         foreach ($vendors as $vendor) {
             $img = get_template_directory_uri() . '/assets/img/' . $vendor;
