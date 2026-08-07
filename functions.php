@@ -108,10 +108,10 @@ function gloservices_scripts()
     wp_enqueue_script('lightbox', $theme_dir . '/assets/lib/lightbox/js/lightbox.min.js', ['jquery'], '2.11.3', true);
 
     // Lenis Ultra-Smooth 120fps Smooth Scroll
-    wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.18', true);
+    wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.20', true);
 
     // Theme main JS
-    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.2.0', true);
+    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.2.2', true);
 
     // RTL support
     if (is_rtl()) {

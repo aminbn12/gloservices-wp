@@ -1252,10 +1252,16 @@
             var $imgs = $container.find('.project-slideshow-img');
             if ($imgs.length <= 1) return; // No slideshow needed if only 1 image
 
+            // Clear any existing interval to prevent duplicates
+            var existingInterval = $container.data('slideshow-interval-id');
+            if (existingInterval) {
+                clearInterval(existingInterval);
+            }
+
             var currentIndex = 0;
             var intervalTime = parseInt($container.data('interval')) || 10000; // default 10 seconds
 
-            setInterval(function() {
+            var intervalId = setInterval(function() {
                 var nextIndex = (currentIndex + 1) % $imgs.length;
                 
                 // Transition: fade out current, fade in next
@@ -1269,10 +1275,95 @@
                 
                 currentIndex = nextIndex;
             }, intervalTime);
+
+            $container.data('slideshow-interval-id', intervalId);
         });
     };
 
     // Initialize slideshows
     initProjectSlideshows();
+
+    // === PAGINATION AJAX FLUIDE (PROJETS) ===
+    $(document).on('click', '.custom-pagination a', function(e) {
+        e.preventDefault();
+        var targetUrl = $(this).attr('href');
+        if (!targetUrl || targetUrl === '#') return;
+
+        var $grid = $('.portfolio-container');
+        var $pagination = $('.custom-pagination');
+        if (!$grid.length) return;
+
+        // Étape 1 : Effet de transition de début (Opacité)
+        $grid.stop().animate({ opacity: 0.3 }, 250);
+        $pagination.stop().animate({ opacity: 0.3 }, 250);
+
+        // Étape 2 : Requête AJAX
+        $.get(targetUrl, function(response) {
+            var $responseHtml = $(response);
+            var $newItems = $responseHtml.find('.portfolio-container');
+            var $newPagination = $responseHtml.find('.custom-pagination');
+
+            if ($newItems.length) {
+                // Détruire l'instance Isotope actuelle avant de remplacer le HTML
+                if ($grid.data('isotope')) {
+                    $grid.isotope('destroy');
+                }
+
+                // Remplacer le contenu de la grille
+                $grid.html($newItems.html());
+
+                // Ré-initialiser Isotope
+                $grid.isotope({
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
+
+                // Ré-appliquer le filtre de catégorie sélectionné s'il y en a un
+                var activeFilter = $('#portfolio-flters li.active').data('filter') || '*';
+                if (activeFilter !== '*') {
+                    $grid.isotope({ filter: activeFilter });
+                }
+
+                // Ré-initialiser les diaporamas sur les nouvelles cartes
+                initProjectSlideshows();
+
+                // Ré-initialiser WOW.js si présent
+                if (window.WOW) {
+                    new WOW().init();
+                }
+            }
+
+            // Mettre à jour la pagination
+            if ($newPagination.length) {
+                $pagination.html($newPagination.html());
+            } else {
+                $pagination.empty();
+            }
+
+            // Étape 3 : Transition de fin (Retour à l'opacité 1)
+            $grid.stop().animate({ opacity: 1 }, 250);
+            $pagination.stop().animate({ opacity: 1 }, 250);
+
+            // Mettre à jour l'URL du navigateur de façon transparente (sans recharger)
+            if (window.history && window.history.pushState) {
+                window.history.pushState({}, '', targetUrl);
+            }
+
+            // Étape 4 : Défilement doux automatique vers le début de la section Projets
+            var $scrollTarget = $('.section-badge').filter(function() {
+                return $(this).text().indexOf('RÉALISATIONS') !== -1 || $(this).text().indexOf('REFERENCES') !== -1;
+            }).first();
+
+            if ($scrollTarget.length) {
+                $('html, body').animate({
+                    scrollTop: $scrollTarget.offset().top - 120
+                }, 600);
+            }
+        }).fail(function() {
+            // En cas d'erreur réseau, rétablir l'opacité
+            $grid.stop().animate({ opacity: 1 }, 250);
+            $pagination.stop().animate({ opacity: 1 }, 250);
+        });
+    });
 
 })(jQuery);
