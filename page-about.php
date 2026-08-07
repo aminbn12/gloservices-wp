@@ -796,6 +796,72 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
 <!-- ==========================================
      TESTIMONIALS SECTION (SLIDER STYLE MATCHING BETB)
      ========================================== -->
+<?php
+// Synchronized Testimonial Slider dynamically loaded from WordPress
+$testimonials_query = new WP_Query([
+    'post_type'      => 'testimonial',
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'orderby'        => 'menu_order title',
+    'order'          => 'ASC',
+]);
+
+$js_testimonials = [];
+if ($testimonials_query->have_posts()) {
+    while ($testimonials_query->have_posts()) {
+        $testimonials_query->the_post();
+        $t_id = get_the_ID();
+        $name = get_the_title();
+        $role = get_post_meta($t_id, '_testimonial_role', true) ?: __('Partenaire', 'gloservices');
+        $raw_content = get_the_content() ? get_the_content() : get_the_excerpt();
+        $quote = '"' . wp_strip_all_tags(gloservices_translate($raw_content)) . '"';
+        $img_url = get_the_post_thumbnail_url($t_id, 'full');
+        if (!$img_url) {
+            $img_url = get_template_directory_uri() . '/assets/img/autoroute.jpg';
+        }
+        $translated_name = gloservices_translate($name);
+        $letter = mb_substr(trim($translated_name), 0, 1, 'UTF-8');
+
+        $js_testimonials[] = [
+            'image'  => $img_url,
+            'text'   => $quote,
+            'name'   => $translated_name,
+            'role'   => gloservices_translate($role),
+            'letter' => strtoupper($letter),
+        ];
+    }
+    wp_reset_postdata();
+}
+
+if (empty($js_testimonials)) {
+    $js_testimonials = [
+        [
+            'image'  => get_template_directory_uri() . '/assets/img/autoroute.jpg',
+            'text'   => '"GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !"',
+            'name'   => 'Tarik',
+            'role'   => __('Promoteur immobilier', 'gloservices'),
+            'letter' => 'T',
+        ],
+        [
+            'image'  => get_template_directory_uri() . '/assets/img/tunnel.jpg',
+            'text'   => '"De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires."',
+            'name'   => 'Lamia',
+            'role'   => __('Chef de projet industriel', 'gloservices'),
+            'letter' => 'L',
+        ],
+        [
+            'image'  => get_template_directory_uri() . '/assets/img/carousel-1.jpg',
+            'text'   => '"Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux."',
+            'name'   => 'Ahmed',
+            'role'   => __('Directeur Technique', 'gloservices'),
+            'letter' => 'A',
+        ]
+    ];
+}
+
+$first_t = $js_testimonials[0];
+$total_t = count($js_testimonials);
+?>
 <section class="tc-testimonials-dark py-5">
     <div class="container py-4">
         <div class="row align-items-center g-5">
@@ -803,7 +869,7 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="testimonial-img-card">
                     <div class="testimonial-img-wrapper" id="testimonial-img-container">
-                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/autoroute.jpg" id="testimonial-img" alt="<?php esc_attr_e('Projet Globuild', 'gloservices'); ?>" class="img-fluid">
+                        <img src="<?php echo esc_url($first_t['image']); ?>" id="testimonial-img" alt="<?php esc_attr_e('Projet Globuild', 'gloservices'); ?>" class="img-fluid">
                     </div>
                     <!-- Image Bottom Navigation Arrows -->
                     <div class="testimonial-img-controls">
@@ -818,7 +884,7 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                 <div class="testimonial-quote-box">
                     <div class="quote-content-wrapper">
                         <p class="testimonial-quote-text" id="testimonial-text">
-                            "<?php _e('GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !', 'gloservices'); ?>"
+                            <?php echo esc_html($first_t['text']); ?>
                         </p>
                     </div>
 
@@ -828,18 +894,18 @@ body.rtl .tc-process-style2 .accordion-item .accordion-button:after {
                         <!-- Author Info -->
                         <div class="d-flex align-items-center">
                             <div class="testimonial-avatar-wrap me-3" id="testimonial-avatar">
-                                <span class="avatar-letter">T</span>
+                                <span class="avatar-letter"><?php echo esc_html($first_t['letter']); ?></span>
                             </div>
                             <div>
-                                <h5 class="testimonial-name text-white fw-bold mb-1" id="testimonial-name">Tarik</h5>
-                                <small class="testimonial-role text-white-50" id="testimonial-role"><?php _e('Promoteur immobilier', 'gloservices'); ?></small>
+                                <h5 class="testimonial-name text-white fw-bold mb-1" id="testimonial-name"><?php echo esc_html($first_t['name']); ?></h5>
+                                <small class="testimonial-role text-white-50" id="testimonial-role"><?php echo esc_html($first_t['role']); ?></small>
                             </div>
                         </div>
 
                         <!-- Right Counter & Arrows Pill -->
                         <div class="testimonial-counter-pill">
                             <button type="button" class="pill-nav-btn prev-btn" aria-label="<?php esc_attr_e('Précédent', 'gloservices'); ?>"><i class="fas fa-chevron-left"></i></button>
-                            <span class="pill-counter-text" id="testimonial-counter">1 / 3</span>
+                            <span class="pill-counter-text" id="testimonial-counter">1 / <?php echo $total_t; ?></span>
                             <button type="button" class="pill-nav-btn next-btn" aria-label="<?php esc_attr_e('Suivant', 'gloservices'); ?>"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
@@ -914,69 +980,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initScrollParallax();
     window.addEventListener('resize', initScrollParallax);
 
-    // Synchronized 10-Second Testimonial Slider dynamically loaded from WordPress
-    <?php
-    $testimonials_query = new WP_Query([
-        'post_type'      => 'testimonial',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'orderby'        => 'menu_order title',
-        'order'          => 'ASC',
-    ]);
-
-    $js_testimonials = [];
-    if ($testimonials_query->have_posts()) {
-        while ($testimonials_query->have_posts()) {
-            $testimonials_query->the_post();
-            $t_id = get_the_ID();
-            $name = get_the_title();
-            $role = get_post_meta($t_id, '_testimonial_role', true) ?: __('Partenaire', 'gloservices');
-            $raw_content = get_the_content() ? get_the_content() : get_the_excerpt();
-            $quote = '"' . wp_strip_all_tags(gloservices_translate($raw_content)) . '"';
-            $img_url = get_the_post_thumbnail_url($t_id, 'full');
-            if (!$img_url) {
-                $img_url = get_template_directory_uri() . '/assets/img/autoroute.jpg';
-            }
-            $translated_name = gloservices_translate($name);
-            $letter = mb_substr(trim($translated_name), 0, 1, 'UTF-8');
-
-            $js_testimonials[] = [
-                'image'  => $img_url,
-                'text'   => $quote,
-                'name'   => $translated_name,
-                'role'   => gloservices_translate($role),
-                'letter' => strtoupper($letter),
-            ];
-        }
-        wp_reset_postdata();
-    }
-
-    if (empty($js_testimonials)) {
-        $js_testimonials = [
-            [
-                'image'  => get_template_directory_uri() . '/assets/img/autoroute.jpg',
-                'text'   => '"GLOBUILD a su transformer notre vision en réalité avec une précision incroyable. Leur expertise pluridisciplinaire et leur réactivité ont fait toute la différence. Un partenaire de confiance pour des projets complexes !"',
-                'name'   => 'Tarik',
-                'role'   => __('Promoteur immobilier', 'gloservices'),
-                'letter' => 'T',
-            ],
-            [
-                'image'  => get_template_directory_uri() . '/assets/img/tunnel.jpg',
-                'text'   => '"De l\'étude d\'avant-projet à l\'assistance technique sur le chantier, le professionnalisme de GLOBUILD a garanti un strict respect de nos contraintes budgétaires et calendaires."',
-                'name'   => 'Lamia',
-                'role'   => __('Chef de projet industriel', 'gloservices'),
-                'letter' => 'L',
-            ],
-            [
-                'image'  => get_template_directory_uri() . '/assets/img/carousel-1.jpg',
-                'text'   => '"Un accompagnement sur mesure exceptionnel. Leur expertise multidisciplinaire intégrée permet de résoudre efficacement les interfaces techniques complexes entre voirie et réseaux."',
-                'name'   => 'Ahmed',
-                'role'   => __('Directeur Technique', 'gloservices'),
-                'letter' => 'A',
-            ]
-        ];
-    }
-    ?>
+    // Testimonials array populated from WP_Query above
     const testimonials = <?php echo json_encode($js_testimonials); ?>;
 
     let currentTestimonialIndex = 0;
