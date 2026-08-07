@@ -687,8 +687,8 @@ body.rtl .projet-cta-banner {
             <!-- Radial Partner Nodes arranged in Globuild Sphere shape (concentric rings) -->
             <div class="globuild-orbit-nodes">
                 <?php 
-                $inner_partners = array_slice($partners, 0, 14);
-                $outer_partners = array_slice($partners, 14);
+                $inner_partners = array_slice($partners, 14);
+                $outer_partners = array_slice($partners, 0, 14);
                 
                 // Render Inner Circle (14 logos)
                 foreach ($inner_partners as $index => $partner) : 
