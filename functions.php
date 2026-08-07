@@ -111,7 +111,7 @@ function gloservices_scripts()
     wp_enqueue_script('lenis', $theme_dir . '/assets/js/lenis.min.js', [], '1.1.20', true);
 
     // Theme main JS
-    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.2.4', true);
+    wp_enqueue_script('gloservices-main', $theme_dir . '/assets/js/main.js', ['jquery', 'lenis'], '3.2.5', true);
 
     // RTL support
     if (is_rtl()) {
@@ -192,6 +192,16 @@ function gloservices_get_project_image_url($post_id = null, $size = 'gloservices
 }
 
 /**
+ * Helper to clean image URLs (strips query parameters and crop dimensions like -600x400)
+ */
+function gloservices_clean_image_url($url)
+{
+    $url = preg_replace('/\?.*/', '', $url);
+    $url = preg_replace('/-\d+x\d+(?=\.[a-zA-Z]+$)/', '', $url);
+    return strtolower(basename($url));
+}
+
+/**
  * Retrieve all project images (featured image + gallery images)
  */
 function gloservices_get_project_gallery_urls($post_id = null, $fallback_img_url = '')
@@ -217,7 +227,17 @@ function gloservices_get_project_gallery_urls($post_id = null, $fallback_img_url
     // Ensure featured/fallback image is included as the first slide if not already present
     if (!empty($fallback_img_url)) {
         $fallback_img_url = esc_url($fallback_img_url);
-        if (!in_array($fallback_img_url, $urls)) {
+        $fallback_clean = gloservices_clean_image_url($fallback_img_url);
+        
+        $already_exists = false;
+        foreach ($urls as $url) {
+            if (gloservices_clean_image_url($url) === $fallback_clean) {
+                $already_exists = true;
+                break;
+            }
+        }
+        
+        if (!$already_exists) {
             array_unshift($urls, $fallback_img_url);
         }
     }
@@ -809,6 +829,11 @@ function gloservices_vendor_carousel()
             'vendor-12.png',
             'vendor-13.png',
             'vendor-14.png',
+            'vendor-15.jpg',
+            'vendor-16.jpg',
+            'vendor-17.jpg',
+            'vendor-18.jpg',
+            'vendor-19.png',
         ];
         foreach ($vendors as $vendor) {
             $img = get_template_directory_uri() . '/assets/img/' . $vendor;

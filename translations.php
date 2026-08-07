@@ -993,7 +993,7 @@ function gloservices_get_translations($lang = 'fr') {
         'Mobilité & Supervision' => array('en' => 'Mobility & Supervision', 'ar' => 'التنقل والإشراف'),
         'Parc de véhicules de service & Chantiers' => array('en' => 'Service Vehicle Fleet & Site Mobility', 'ar' => 'أسطول مركبات الخدمة والمواقع'),
         'La réactivité de nos ingénieurs et techniciens sur le terrain repose sur une flotte permanente de véhicules adaptés aux accès difficiles et aux déplacements inter-régionaux.' => array('en' => 'The responsiveness of our field engineers rests on a permanent fleet of vehicles suited for difficult terrain and inter-regional travel.', 'ar' => 'تعتمد استجابة مهندسينا وفنيينا في الميدان على أسطول دائم من المركبات المناسبة للتضاريس الصعبة والتنقلات بين الجهات.'),
-        '4 Véhicules de service permanents :' => array('en' => '4 Permanent service vehicles:', 'ar' => '4 مركبات خدمة دائمة:'),
+        '20 Véhicules de service permanents :' => array('en' => '20 Permanent service vehicles:', 'ar' => '20 مركبة خدمة دائمة:'),
         'Mobilisés 24/7 pour le suivi de chantier, la maîtrise d\'œuvre et la topographie.' => array('en' => 'Mobilized 24/7 for site supervision, project management, and topography.', 'ar' => 'مجندة على مدار الساعة لمتابعة المواقع والإشراف الهندسي والطبوغرافيا.'),
         'Capacité de projection rapide :' => array('en' => 'Rapid deployment capacity:', 'ar' => 'قدرة على الانتشار السريع:'),
         'Intervention immédiate sur tout le territoire national marocain.' => array('en' => 'Immediate response capability across all regions of Morocco.', 'ar' => 'تدخل فوري في جميع أنحاء التراب الوطني المغربي.'),

@@ -1259,7 +1259,7 @@
             }
 
             var currentIndex = 0;
-            var intervalTime = parseInt($container.data('interval')) || 10000; // default 10 seconds
+            var intervalTime = parseInt($container.data('interval')) || 7000; // default 7 seconds
 
             var intervalId = setInterval(function() {
                 var nextIndex = (currentIndex + 1) % $imgs.length;

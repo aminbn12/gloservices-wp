@@ -26,7 +26,7 @@ get_header();
                 <div class="col-lg-8">
                     <!-- Photo liée au projet dans un cadre stylisé au-dessus du titre -->
                     <div class="project-single-frame mb-4">
-                        <div class="project-single-img-wrap project-gallery-slideshow" data-interval="10000">
+                        <div class="project-single-img-wrap project-gallery-slideshow" data-interval="7000">
                             <?php 
                             $gallery_urls = gloservices_get_project_gallery_urls(get_the_ID(), $img_url);
                             $is_first = true;

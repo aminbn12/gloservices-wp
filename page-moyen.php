@@ -442,7 +442,7 @@ get_header();
                     <ul class="moyen-feature-list">
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong><?php _e('4 Véhicules de service permanents :', 'gloservices'); ?></strong> <?php _e('Mobilisés 24/7 pour le suivi de chantier, la maîtrise d\'œuvre et la topographie.', 'gloservices'); ?></div>
+                            <div><strong><?php _e('20 Véhicules de service permanents :', 'gloservices'); ?></strong> <?php _e('Mobilisés 24/7 pour le suivi de chantier, la maîtrise d\'œuvre et la topographie.', 'gloservices'); ?></div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>

@@ -553,7 +553,7 @@ get_header();
             ?>
                 <div class="col-lg-4 col-md-6 portfolio-item <?php echo esc_attr($cat_class); ?>">
                     <div class="project-card-modern">
-                        <div class="project-img-wrap project-gallery-slideshow" data-interval="10000">
+                        <div class="project-img-wrap project-gallery-slideshow" data-interval="7000">
                             <?php 
                             $gallery_urls = gloservices_get_project_gallery_urls($display_id, $img_url);
                             $is_first = true;
@@ -849,6 +849,11 @@ get_header();
             ['num' => 12, 'name' => 'AUTOROUTES DU MAROC',            'logo' => 'vendor-12.png'],
             ['num' => 13, 'name' => 'AMDL',                           'logo' => 'vendor-13.png'],
             ['num' => 14, 'name' => 'CRÉDIT AGRICOLE DU MAROC',        'logo' => 'vendor-14.png'],
+            ['num' => 15, 'name' => 'UNIVERS BAT',                    'logo' => 'vendor-15.jpg'],
+            ['num' => 16, 'name' => 'RABAT REGION MOBILITE',          'logo' => 'vendor-16.jpg'],
+            ['num' => 17, 'name' => 'RABAT REGION AMENAGEMENTS',      'logo' => 'vendor-17.jpg'],
+            ['num' => 18, 'name' => 'MEDZ',                           'logo' => 'vendor-18.jpg'],
+            ['num' => 19, 'name' => 'IRIS',                           'logo' => 'vendor-19.png'],
         ];
         $total = count($partners);
         ?>
