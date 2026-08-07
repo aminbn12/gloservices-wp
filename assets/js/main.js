@@ -1250,7 +1250,11 @@
         $('.project-gallery-slideshow').each(function() {
             var $container = $(this);
             var $imgs = $container.find('.project-slideshow-img');
-            if ($imgs.length <= 1) return; // No slideshow needed if only 1 image
+            if ($imgs.length <= 1) {
+                // Hide navigation buttons if there is only 1 image
+                $container.find('.slideshow-nav-btn').hide();
+                return;
+            }
 
             // Clear any existing interval to prevent duplicates
             var existingInterval = $container.data('slideshow-interval-id');
@@ -1260,23 +1264,49 @@
 
             var currentIndex = 0;
             var intervalTime = parseInt($container.data('interval')) || 7000; // default 7 seconds
+            var intervalId = null;
 
-            var intervalId = setInterval(function() {
-                var nextIndex = (currentIndex + 1) % $imgs.length;
-                
+            function showImage(index) {
                 // Transition: fade out current, fade in next
                 $imgs.eq(currentIndex).removeClass('active');
-                var $nextImg = $imgs.eq(nextIndex);
+                var $nextImg = $imgs.eq(index);
                 $nextImg.addClass('active');
                 
                 // Update the zoom/lightbox href to match the current image URL
                 var newSrc = $nextImg.attr('src');
-                $container.closest('.project-card-modern, .project-card-v2').find('[data-lightbox="portfolio"]').attr('href', newSrc);
+                $container.closest('.project-card-modern, .project-card-v2, .project-single-frame').find('[data-lightbox="portfolio"]').attr('href', newSrc);
                 
-                currentIndex = nextIndex;
-            }, intervalTime);
+                currentIndex = index;
+            }
 
-            $container.data('slideshow-interval-id', intervalId);
+            function startInterval() {
+                clearInterval(intervalId);
+                intervalId = setInterval(function() {
+                    var nextIndex = (currentIndex + 1) % $imgs.length;
+                    showImage(nextIndex);
+                }, intervalTime);
+                $container.data('slideshow-interval-id', intervalId);
+            }
+
+            // Initialize auto-rotation
+            startInterval();
+
+            // Handle manual navigation clicks
+            $container.on('click', '.slideshow-nav-btn.next-btn', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var nextIndex = (currentIndex + 1) % $imgs.length;
+                showImage(nextIndex);
+                startInterval(); // Reset the auto-rotation timer
+            });
+
+            $container.on('click', '.slideshow-nav-btn.prev-btn', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var prevIndex = (currentIndex - 1 + $imgs.length) % $imgs.length;
+                showImage(prevIndex);
+                startInterval(); // Reset the auto-rotation timer
+            });
         });
     };
 

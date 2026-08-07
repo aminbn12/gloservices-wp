@@ -40,6 +40,10 @@ get_header();
                             <?php if ($terms && !is_wp_error($terms)) : ?>
                                 <span class="project-frame-badge"><i class="fas fa-tag me-2"></i><?php echo esc_html($terms[0]->name); ?></span>
                             <?php endif; ?>
+                            
+                            <!-- Navigation Arrows -->
+                            <button type="button" class="slideshow-nav-btn prev-btn" aria-label="<?php esc_attr_e('Image précédente', 'gloservices'); ?>"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" class="slideshow-nav-btn next-btn" aria-label="<?php esc_attr_e('Image suivante', 'gloservices'); ?>"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         <div class="corner-mark corner-tl"></div>
                         <div class="corner-mark corner-tr"></div>
