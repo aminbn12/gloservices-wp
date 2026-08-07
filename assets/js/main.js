@@ -1344,11 +1344,6 @@
             $grid.stop().animate({ opacity: 1 }, 250);
             $pagination.stop().animate({ opacity: 1 }, 250);
 
-            // Mettre à jour l'URL du navigateur de façon transparente (sans recharger)
-            if (window.history && window.history.pushState) {
-                window.history.pushState({}, '', targetUrl);
-            }
-
             // Étape 4 : Défilement doux automatique vers le début de la section Projets
             var $scrollTarget = $('.section-badge').filter(function() {
                 return $(this).text().indexOf('RÉALISATIONS') !== -1 || $(this).text().indexOf('REFERENCES') !== -1;
