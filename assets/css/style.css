@@ -5073,10 +5073,10 @@ html.lenis, html.lenis body {
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .orbit-partner-node.orbit-inner-node {
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(220px) rotate(calc(-360deg / var(--total) * var(--index)));
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(160px) rotate(calc(-360deg / var(--total) * var(--index)));
 }
 .orbit-partner-node.orbit-outer-node {
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(330px) rotate(calc(-360deg / var(--total) * var(--index)));
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index)));
 }
 
 .orbit-partner-node-inner {
@@ -5179,10 +5179,10 @@ html.lenis, html.lenis body {
     box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.35), 0 15px 35px rgba(16, 185, 129, 0.45) !important;
 }
 .orbit-partner-node.orbit-inner-node:hover {
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(220px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(160px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
 }
 .orbit-partner-node.orbit-outer-node:hover {
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(330px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
 }
 
 .orbit-partner-node:hover .node-logo-wrapper img {
