@@ -5069,9 +5069,14 @@ html.lenis, html.lenis body {
     pointer-events: auto;
     cursor: pointer;
     z-index: 15;
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index)));
     transform-origin: center center;
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.orbit-partner-node.orbit-inner-node {
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(220px) rotate(calc(-360deg / var(--total) * var(--index)));
+}
+.orbit-partner-node.orbit-outer-node {
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(330px) rotate(calc(-360deg / var(--total) * var(--index)));
 }
 
 .orbit-partner-node-inner {
@@ -5172,7 +5177,12 @@ html.lenis, html.lenis body {
     z-index: 99 !important;
     border-color: #10B981 !important;
     box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.35), 0 15px 35px rgba(16, 185, 129, 0.45) !important;
-    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(260px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+}
+.orbit-partner-node.orbit-inner-node:hover {
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(220px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+}
+.orbit-partner-node.orbit-outer-node:hover {
+    transform: rotate(calc(360deg / var(--total) * var(--index))) translate(330px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
 }
 
 .orbit-partner-node:hover .node-logo-wrapper img {
@@ -5191,18 +5201,34 @@ html.lenis, html.lenis body {
         width: 480px;
         height: 480px;
     }
+    .globuild-orbit-ring.inner-ring {
+        width: 260px;
+        height: 260px;
+        margin-top: -130px;
+        margin-left: -130px;
+    }
     .globuild-orbit-ring.outer-ring {
         width: 390px;
         height: 390px;
+        margin-top: -195px;
+        margin-left: -195px;
     }
     .orbit-partner-node {
         width: 68px;
         height: 68px;
         margin-top: -34px;
         margin-left: -34px;
+    }
+    .orbit-partner-node.orbit-inner-node {
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(130px) rotate(calc(-360deg / var(--total) * var(--index)));
+    }
+    .orbit-partner-node.orbit-inner-node:hover {
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(130px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+    }
+    .orbit-partner-node.orbit-outer-node {
         transform: rotate(calc(360deg / var(--total) * var(--index))) translate(195px) rotate(calc(-360deg / var(--total) * var(--index)));
     }
-    .orbit-partner-node:hover {
+    .orbit-partner-node.orbit-outer-node:hover {
         transform: rotate(calc(360deg / var(--total) * var(--index))) translate(195px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
     }
 }
@@ -5223,10 +5249,14 @@ html.lenis, html.lenis body {
     .globuild-orbit-ring.inner-ring {
         width: 170px;
         height: 170px;
+        margin-top: -85px;
+        margin-left: -85px;
     }
     .globuild-orbit-ring.outer-ring {
         width: 270px;
         height: 270px;
+        margin-top: -135px;
+        margin-left: -135px;
     }
     .globuild-orbit-center {
         position: absolute;
@@ -5277,8 +5307,13 @@ html.lenis, html.lenis body {
         align-items: center;
         justify-content: center;
         pointer-events: auto;
-        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) !important;
         animation: none !important;
+    }
+    .orbit-partner-node.orbit-inner-node {
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(85px) rotate(calc(-360deg / var(--total) * var(--index))) !important;
+    }
+    .orbit-partner-node.orbit-outer-node {
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) !important;
     }
     .orbit-partner-node-inner {
         animation: counterSpinBadge 45s linear infinite !important;
@@ -5336,6 +5371,13 @@ html.lenis, html.lenis body {
         border-color: #10B981 !important;
         box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.3), 0 10px 25px rgba(16, 185, 129, 0.4) !important;
         z-index: 99 !important;
+    }
+    .orbit-partner-node.orbit-inner-node:hover,
+    .orbit-partner-node.orbit-inner-node:active {
+        transform: rotate(calc(360deg / var(--total) * var(--index))) translate(85px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
+    }
+    .orbit-partner-node.orbit-outer-node:hover,
+    .orbit-partner-node.orbit-outer-node:active {
         transform: rotate(calc(360deg / var(--total) * var(--index))) translate(135px) rotate(calc(-360deg / var(--total) * var(--index))) scale(1.28) !important;
     }
 }

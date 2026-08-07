@@ -875,12 +875,17 @@ get_header();
                 </div>
             </div>
 
-            <!-- 14 Radial Partner Nodes arranged in Globuild Sphere shape -->
+            <!-- Radial Partner Nodes arranged in Globuild Sphere shape (concentric rings) -->
             <div class="globuild-orbit-nodes">
-                <?php foreach ($partners as $index => $partner) : 
+                <?php 
+                $inner_partners = array_slice($partners, 0, 14);
+                $outer_partners = array_slice($partners, 14);
+                
+                // Render Inner Circle (14 logos)
+                foreach ($inner_partners as $index => $partner) : 
                     $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
                 ?>
-                    <div class="orbit-partner-node" style="--index: <?php echo $index; ?>; --total: <?php echo $total; ?>;">
+                    <div class="orbit-partner-node orbit-inner-node" style="--index: <?php echo $index; ?>; --total: <?php echo count($inner_partners); ?>;">
                         <div class="orbit-partner-node-inner">
                             <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
                             <div class="node-logo-wrapper">
@@ -892,7 +897,28 @@ get_header();
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php 
+                endforeach; 
+                
+                // Render Outer Circle (7 logos)
+                foreach ($outer_partners as $index => $partner) : 
+                    $img_url = get_template_directory_uri() . '/assets/img/' . $partner['logo'];
+                ?>
+                    <div class="orbit-partner-node orbit-outer-node" style="--index: <?php echo $index; ?>; --total: <?php echo count($outer_partners); ?>;">
+                        <div class="orbit-partner-node-inner">
+                            <span class="node-number"><?php echo sprintf('%02d', $partner['num']); ?></span>
+                            <div class="node-logo-wrapper">
+                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($partner['name']); ?>" loading="lazy">
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-num">#<?php echo $partner['num']; ?></span>
+                                <span class="tooltip-name"><?php echo esc_html($partner['name']); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php 
+                endforeach; 
+                ?>
             </div>
         </div>
     </div>
