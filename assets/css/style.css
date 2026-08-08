@@ -5204,14 +5204,10 @@ html.lenis, html.lenis body {
     .globuild-orbit-ring.inner-ring {
         width: 260px;
         height: 260px;
-        margin-top: -130px;
-        margin-left: -130px;
     }
     .globuild-orbit-ring.outer-ring {
         width: 390px;
         height: 390px;
-        margin-top: -195px;
-        margin-left: -195px;
     }
     .orbit-partner-node {
         width: 68px;
@@ -5249,14 +5245,10 @@ html.lenis, html.lenis body {
     .globuild-orbit-ring.inner-ring {
         width: 170px;
         height: 170px;
-        margin-top: -85px;
-        margin-left: -85px;
     }
     .globuild-orbit-ring.outer-ring {
         width: 270px;
         height: 270px;
-        margin-top: -135px;
-        margin-left: -135px;
     }
     .globuild-orbit-center {
         position: absolute;
